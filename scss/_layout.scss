@@ -4,7 +4,6 @@ html, body {
   height: 100%;
 }
 
-
 .menu {
   list-style: none;
   margin: 0;
@@ -14,13 +13,6 @@ html, body {
     float: left;
   }
 }
-
-
-
-
-
-
-
 
 /***
  * special page styles
@@ -33,6 +25,12 @@ html, body {
   height: 100%;
   position: relative;
   z-index: 99;
+
+  footer {
+    margin-top: 70px;
+    margin-bottom: 100px;
+    padding: 0 15%;
+  }
 }
 
 #home-info-wrp {
@@ -41,23 +39,21 @@ html, body {
   height: 100%;
   background-attachment: fixed;
 
-
   .fixed {
     position: fixed;
     left: 0;
     right: 0;
-    top:0;
+    top:50px;
   }
 }
 
 #home-user-menu {
   &.menu {
     li {
-      margin: 1px;
+      width: 20%;
+
+      padding: 2px;
+
     }
   }
-
-
-
-
 }

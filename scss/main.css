@@ -40,6 +40,10 @@ html, body {
   height: 100%;
   position: relative;
   z-index: 99; }
+  #home-search-wrp footer {
+    margin-top: 70px;
+    margin-bottom: 100px;
+    padding: 0 15%; }
 
 #home-info-wrp {
   position: absolute;
@@ -50,10 +54,11 @@ html, body {
     position: fixed;
     left: 0;
     right: 0;
-    top: 0; }
+    top: 50px; }
 
 #home-user-menu.menu li {
-  margin: 1px; }
+  width: 20%;
+  padding: 2px; }
 
 /**
  * base font classes
@@ -64,10 +69,18 @@ html, body {
 /**
  * specific font classes
  */
-form input[type=text] {
+form input[type=text], form input[type=submit] {
   border: none;
   padding: 5px 10px; }
 form .input-big {
+  width: 100%; }
+
+/**
+ * specific pages
+ */
+#home-search-wrp input[type=text] {
+  width: 100%; }
+#home-search-wrp input[type=submit] {
   width: 100%; }
 
 /*# sourceMappingURL=main.css.map */
