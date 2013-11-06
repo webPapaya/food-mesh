@@ -1,0 +1,63 @@
+@import url(../css/vendor/normalize.css);
+@import url(../css/vendor/responsive.gs.12col.css);
+/**
+ * standard file for all sass variables
+ * eg. colors, widths, etc.
+ */
+/**
+ *  <div class="display-table">
+ *    <div class="display-table-cell">
+ *      <!-- content -->
+ *    </div>
+ *  </div>
+ */
+.display-table {
+  display: table;
+  width: 100%;
+  height: 100%; }
+
+.display-table-cell {
+  display: table-cell;
+  vertical-align: middle; }
+
+html, body {
+  height: 100%; }
+
+#home-search-wrp {
+  background: #333;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 99; }
+
+#home-info-wrp {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed;
+  background-image: url(http://us.123rf.com/400wm/400/400/elen/elen0901/elen090100200/4200289-abstraction-cover-background-for-design.jpg); }
+  #home-info-wrp .fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0; }
+
+/**
+ * base font classes
+ */
+.center {
+  text-align: center; }
+
+/**
+ * specific font classes
+ */
+#home-info-wrp .container {
+  padding: 0 15%; }
+
+form input[type=text] {
+  border: none;
+  padding: 5px 10px; }
+form .input-big {
+  width: 100%; }
+
+/*# sourceMappingURL=main.css.map */
