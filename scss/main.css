@@ -1,8 +1,53 @@
 @import url(../css/vendor/normalize.css);
 @import url(../css/vendor/responsive.gs.12col.css);
 /**
- * standard file for all sass variables
- * eg. colors, widths, etc.
+ * main.scss
+ *
+ * university:  University of Applied Sciences Salzburg
+ * studie:      MultiMediaTechnology
+ * usage:	    Multimediaprojekt 2a (MMP2a)
+ * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+ *              - Franziska Oberhauser (foberhauser.mmt-b2012@fh-salzburg.ac.at)
+ *
+ * About this file:
+ * ----------------
+ * This is just a collection of sass imports for a better overview
+ */
+/**
+ * main.scss
+ *
+ * university:  University of Applied Sciences Salzburg
+ * studie:      MultiMediaTechnology
+ * usage:	    Multimediaprojekt 2a (MMP2a)
+ * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+ *              - Franziska Oberhauser (foberhauser.mmt-b2012@fh-salzburg.ac.at)
+ *
+ * About this file:
+ * ----------------
+ * This file is for defining static variables (mostly colors)
+ */
+/**
+ * _layout.scss
+ *
+ * university:  University of Applied Sciences Salzburg
+ * studie:      MultiMediaTechnology
+ * usage:	    Multimediaprojekt 2a (MMP2a)
+ * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+ *              - Franziska Oberhauser (foberhauser.mmt-b2012@fh-salzburg.ac.at)
+ *
+ * About this file:
+ * ----------------
+ * This file is used for layout propose only.
+ * Positions of elements (Responsive Breakpoints, float, margin, paddings) belonge here.
+ *
+ * Structure:
+ * - reusable classes
+ *    - in the first section are all reusable classes which are used for the whole site
+ * - classes for special pages
+ *    - for special pages/items (eg. "home") which are used only once is the second
+ *      part of this document
+ *    - for this kind of classes use a wrapper id with the following naming
+ *      convention #<page>-<block>-<context>
  */
 /**
  *  <div class="display-table">
@@ -20,6 +65,9 @@
   display: table-cell;
   vertical-align: middle; }
 
+/**
+ * reusable classes
+ */
 html, body {
   height: 100%; }
 
@@ -30,9 +78,9 @@ html, body {
   .menu li {
     float: left; }
 
-/***
+/**
  * special page styles
- * naming convention #<page>-<block>-<context>
+ * naming convention for wrapper element #<page>-<block>-<context>
  */
 #home-search-wrp {
   background: #333;
@@ -61,13 +109,63 @@ html, body {
   padding: 2px; }
 
 /**
- * base font classes
+ * _layout.scss
+ *
+ * university:  University of Applied Sciences Salzburg
+ * studie:      MultiMediaTechnology
+ * usage:	    Multimediaprojekt 2a (MMP2a)
+ * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+ *              - Franziska Oberhauser (foberhauser.mmt-b2012@fh-salzburg.ac.at)
+ *
+ * About this file:
+ * ----------------
+ * This file is used for font/text related styles
+ * eg. links, paragraphs,...
+ *
+ * Structure:
+ * - reusable classes
+ *    - in the first section are all reusable classes which are used for the whole site
+ * - classes for special pages
+ *    - for special pages/items (eg. "home") which are used only once is the second
+ *      part of this document
+ *    - for this kind of classes use a wrapper id with the following naming
+ *      convention #<page>-<block>-<context>
+ */
+/**
+ * reusable classes
  */
 .center {
   text-align: center; }
 
 /**
- * specific font classes
+ * special page styles
+ * naming convention for wrapper element #<page>-<block>-<context>
+ */
+/**
+ * _form.scss
+ *
+ * university:  University of Applied Sciences Salzburg
+ * studie:      MultiMediaTechnology
+ * usage:	    Multimediaprojekt 2a (MMP2a)
+ * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+ *              - Franziska Oberhauser (foberhauser.mmt-b2012@fh-salzburg.ac.at)
+ *
+ * About this file:
+ * ----------------
+ * This file is used for formular related styles
+ * Style of input fields etc.
+ *
+ * Structure:
+ * - reusable classes
+ *    - in the first section are all reusable classes which are used for the whole site
+ * - classes for special pages
+ *    - for special pages/items (eg. "home") which are used only once is the second
+ *      part of this document
+ *    - for this kind of classes use a wrapper id with the following naming
+ *      convention #<page>-<block>-<context>
+ */
+/**
+ * reusable classes
  */
 form input[type=text], form input[type=submit] {
   border: none;
@@ -76,7 +174,8 @@ form .input-big {
   width: 100%; }
 
 /**
- * specific pages
+ * special page styles
+ * naming convention for wrapper element #<page>-<block>-<context>
  */
 #home-search-wrp input[type=text] {
   width: 100%; }

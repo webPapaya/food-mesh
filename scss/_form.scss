@@ -1,3 +1,31 @@
+/**
+ * _form.scss
+ *
+ * university:  University of Applied Sciences Salzburg
+ * studie:      MultiMediaTechnology
+ * usage:	    Multimediaprojekt 2a (MMP2a)
+ * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+ *              - Franziska Oberhauser (foberhauser.mmt-b2012@fh-salzburg.ac.at)
+ *
+ * About this file:
+ * ----------------
+ * This file is used for formular related styles
+ * Style of input fields etc.
+ *
+ * Structure:
+ * - reusable classes
+ *    - in the first section are all reusable classes which are used for the whole site
+ * - classes for special pages
+ *    - for special pages/items (eg. "home") which are used only once is the second
+ *      part of this document
+ *    - for this kind of classes use a wrapper id with the following naming
+ *      convention #<page>-<block>-<context>
+ */
+
+
+/**
+ * reusable classes
+ */
 form {
   input[type=text], input[type=submit] {
     border: none;
@@ -9,11 +37,9 @@ form {
   }
 }
 
-
-
-
 /**
- * specific pages
+ * special page styles
+ * naming convention for wrapper element #<page>-<block>-<context>
  */
 #home-search-wrp {
   input[type=text] {
