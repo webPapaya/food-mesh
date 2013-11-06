@@ -23,6 +23,17 @@
 html, body {
   height: 100%; }
 
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .menu li {
+    float: left; }
+
+/***
+ * special page styles
+ * naming convention #<page>-<block>-<context>
+ */
 #home-search-wrp {
   background: #333;
   width: 100%;
@@ -34,13 +45,15 @@ html, body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-attachment: fixed;
-  background-image: url(http://us.123rf.com/400wm/400/400/elen/elen0901/elen090100200/4200289-abstraction-cover-background-for-design.jpg); }
+  background-attachment: fixed; }
   #home-info-wrp .fixed {
     position: fixed;
     left: 0;
     right: 0;
     top: 0; }
+
+#home-user-menu.menu li {
+  margin: 1px; }
 
 /**
  * base font classes
@@ -51,9 +64,6 @@ html, body {
 /**
  * specific font classes
  */
-#home-info-wrp .container {
-  padding: 0 15%; }
-
 form input[type=text] {
   border: none;
   padding: 5px 10px; }
