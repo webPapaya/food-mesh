@@ -22,6 +22,9 @@
  *      convention #<page>-<block>-<context>
  */
 
+@import "fontface";
+
+
 /**
  * reusable classes
  */
@@ -30,12 +33,22 @@
   text-align: center;
 }
 
+
+a {
+  text-decoration: none;
+  color: $colorMain;
+}
+
+
 /**
  * special page styles
  * naming convention for wrapper element #<page>-<block>-<context>
  */
 
 
-#home-info-wrp {
+#header-wrp {
+
+
+
 
 }

@@ -50,11 +50,11 @@
  *      convention #<page>-<block>-<context>
  */
 /**
- *  <div class="display-table">
- *    <div class="display-table-cell">
- *      <!-- content -->
- *    </div>
- *  </div>
+*  <div class="display-table">
+*    <div class="display-table-cell">
+*      <!-- content -->
+*    </div>
+*  </div>
  */
 .display-table {
   display: table;
@@ -77,6 +77,18 @@ html, body {
   padding: 0; }
   .menu li {
     float: left; }
+
+#header-wrp {
+  width: 100%;
+  background: #c0c0c0; }
+  #header-wrp .logo-small-wrp {
+    width: 20%; }
+  #header-wrp .icon-wrp {
+    width: 20%; }
+    #header-wrp .icon-wrp .menu {
+      float: right; }
+  #header-wrp .search-form-wrp {
+    width: 60%; }
 
 /**
  * special page styles
@@ -141,11 +153,42 @@ html, body {
  *    - for this kind of classes use a wrapper id with the following naming
  *      convention #<page>-<block>-<context>
  */
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon/icomoon.eot");
+  src: url("icomoon.eot?#iefix") format("embedded-opentype"), url("fonts/icomoon/icomoon.ttf") format("truetype"), url("fonts/icomoon/icomoon.woff") format("woff"), url("fonts/icomoon/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+[class*="icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-home:before {
+  content: "\e600"; }
+
+.icon-rocket:before {
+  content: "\e601"; }
+
+.icon-cog:before {
+  content: "\e602"; }
+
 /**
  * reusable classes
  */
 .center {
   text-align: center; }
+
+a {
+  text-decoration: none;
+  color: black; }
 
 /**
  * special page styles

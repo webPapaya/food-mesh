@@ -43,6 +43,26 @@ html, body {
 }
 
 
+#header-wrp {
+  width: 100%;
+  background: #c0c0c0;
+
+  .logo-small-wrp {
+    width: 20%;
+  }
+
+  .icon-wrp {
+    width: 20%;
+
+    .menu {
+      float: right;
+    }
+  }
+
+  .search-form-wrp {
+    width: 60%;
+  }
+}
 
 /**
  * special page styles

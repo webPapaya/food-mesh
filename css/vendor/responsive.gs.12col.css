@@ -27,6 +27,7 @@
 
 
 /*	SELF CLEARING FLOATS - CLEARFIX METHOD */
+.clearfix:after,
 .container:after,
 .row:after, 
 .col:after, 
