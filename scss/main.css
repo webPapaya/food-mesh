@@ -77,6 +77,11 @@ ul {
   padding: 0; }
   ul.menu li {
     float: left; }
+  ul a {
+    display: block; }
+
+.overlay-hide {
+  display: none; }
 
 #header-wrp {
   width: 100%;
@@ -148,9 +153,23 @@ ul {
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg); }
   #header-dropdown-wrp ul {
-    padding: 8px 0 5px; }
+    padding: 8px 0 0px; }
   #header-dropdown-wrp li {
     padding: 5px 10px; }
+  #header-dropdown-wrp li.compare-link-wrp {
+    padding-top: 10px;
+    background: #ddd; }
+
+#form-suggestion-overlay {
+  position: absolute;
+  background: #ddd;
+  width: 60%;
+  padding: 10px; }
+  #form-suggestion-overlay a {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc; }
+  #form-suggestion-overlay li:last-child a {
+    border-bottom: none; }
 
 /**
  * _layout.scss

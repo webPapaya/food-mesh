@@ -9,18 +9,25 @@
     <title>Food Match</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="scss/main.css"/>
-
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 <div id="header-wrp" class="clearfix">
       <div class="display-table">
         <div class="display-table-cell logo-small-wrp">
-            <img src="http://placehold.it/150x80">
+            <!--<img src="http://placehold.it/150x80">-->
         </div>
         <div class="display-table-cell search-form-wrp">
             <form>
                 <input type="text" class="input-big" placeholder="search">
+                <ul id="form-suggestion-overlay">
+                    <li><a href="#">Kiwi</a></li>
+                    <li><a href="#">Kiwi Joghurt</a></li>
+                    <li><a href="#">Kiwi Marmelade mit Holunder</a></li>
+                    <li><a href="#">Kiwi Bier</a></li>
+                    <li><a href="#">Kiwi Banane</a></li>
+                    <li><a href="#">Schweinsbraten</a></li>
+                </ul>
             </form>
         </div>
         <div class="display-table-cell icon-wrp">
@@ -50,9 +57,9 @@
                 dskjfaldsjföl
             </a>
         </li>
-        <li>
+        <li class="compare-link-wrp">
             <a href="#">
-                dskjfaldsjföl
+                compare your items
             </a>
         </li>
     </ul>

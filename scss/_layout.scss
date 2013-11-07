@@ -40,6 +40,14 @@ ul {
   &.menu li {
     float: left;
   }
+
+  a {
+    display: block;
+  }
+}
+
+.overlay-hide {
+  display: none;
 }
 
 #header-wrp {
@@ -140,10 +148,32 @@ ul {
   }
 
   ul {
-    padding: 8px 0 5px;
+    padding: 8px 0 0px;
   }
 
   li {
     padding: 5px 10px;
   }
+
+  li.compare-link-wrp {
+    padding-top: 10px;
+    background: #ddd;
+  }
+}
+
+#form-suggestion-overlay {
+  position: absolute;
+  background: #ddd;
+  width: 60%;
+  padding: 10px;
+
+  a {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+  }
+
+  li:last-child a{
+    border-bottom: none;
+  }
+
 }
