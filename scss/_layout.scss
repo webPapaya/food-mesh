@@ -32,16 +32,15 @@ html, body {
   height: 100%;
 }
 
-.menu {
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
 
-  li {
+  &.menu li {
     float: left;
   }
 }
-
 
 #header-wrp {
   width: 100%;
@@ -116,5 +115,35 @@ html, body {
       width: 20%;
       padding: 2px;
     }
+  }
+}
+
+#header-dropdown-wrp {
+  background: #ccc;
+  position: absolute;
+  right: 0;
+  width: 300px;
+  z-index: 9999;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    top: -7px;
+    width: 14px;
+    height: 14px;
+    background: #ccc;
+
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+  }
+
+  ul {
+    padding: 8px 0 5px;
+  }
+
+  li {
+    padding: 5px 10px;
   }
 }
