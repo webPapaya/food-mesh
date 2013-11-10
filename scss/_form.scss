@@ -50,3 +50,26 @@ form {
     width: 100%;
   }
 }
+
+#header-wrp {
+  .input-big {
+    float: left;
+    width: 80%;
+  }
+
+  .button-search {
+    float: left;
+    height: 29px;
+  }
+
+  .button-search:before{
+    display: block;
+    content: "\e600";
+  }
+
+  .button-search span{
+    display: block;
+    position: absolute;
+    left: -9999px;
+  }
+}

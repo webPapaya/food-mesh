@@ -15,12 +15,15 @@
 <div id="header-wrp" class="clearfix">
       <div class="display-table">
         <div class="display-table-cell logo-small-wrp">
-            <!--<img src="http://placehold.it/150x80">-->
+            <img src="http://placehold.it/150x50">
         </div>
         <div class="display-table-cell search-form-wrp">
             <form>
                 <input type="text" class="input-big" placeholder="search">
-                <ul id="form-suggestion-overlay">
+                <button class="button-search icon-search">
+                    <span>Search</span>
+                </button>
+                <ul id="form-suggestion-overlay" class="overlay-hide">
                     <li><a href="#">Kiwi</a></li>
                     <li><a href="#">Kiwi Joghurt</a></li>
                     <li><a href="#">Kiwi Marmelade mit Holunder</a></li>
@@ -40,7 +43,7 @@
       </div>
 </div>
 
-<div id="header-dropdown-wrp">
+<div id="header-dropdown-wrp" class="overlay-hide">
     <ul>
         <li>
             <a href="#">
@@ -66,8 +69,101 @@
 </div>
 
 <main id="main-content-wrp" class="container">
-    <div class="col span_10">sfadsfa</div>
-    <div class="col span_2">sfadsfa</div>
+    <div class="col span_12">
+        <h1>results</h1>
+        <ul id="search-result-wrp" class="clearfix">
+            <li>
+                <a href="#">
+                    <ul class="special-ingredients">
+                        <li class="icon-cog">
+                            <span>test</span>
+                        </li>
+                        <li class="icon-home">
+                            <span>test</span>
+                        </li>
+                    </ul>
+                    <div class="content-wrp">
+                        dsjfldsjflsjdlfaö
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <ul class="special-ingredients">
+                        <li class="icon-cog">
+                            <span>test</span>
+                        </li>
+                        <li class="icon-rocket">
+                            <span>test</span>
+                        </li>
+                        <li class="icon-home">
+                            <span>test</span>
+                        </li>
+                    </ul>
+                    <div class="content-wrp">
+                        dsjfldsjflsjdlfaö
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <ul class="special-ingredients">
+                        <li class="icon-home">
+                            <span>test</span>
+                        </li>
+                    </ul>
+                    <div class="content-wrp">
+                        dsjfldsjflsjdlfaö
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <ul class="special-ingredients">
+                        <li class="icon-cog">
+                            <span>test</span>
+                        </li>
+                        <li class="icon-home">
+                            <span>test</span>
+                        </li>
+                    </ul>
+                    <div class="content-wrp">
+                        dsjfldsjflsjdlfaö
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <ul class="special-ingredients">
+                        <li class="icon-cog">
+                            <span>test</span>
+                        </li>
+                    </ul>
+                    <div class="content-wrp">
+                        dsjfldsjflsjdlfaö
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <ul class="special-ingredients">
+                        <li class="icon-cog">
+                            <span>test</span>
+                        </li>
+                        <li class="icon-home">
+                            <span>test</span>
+                        </li>
+                    </ul>
+                    <div class="content-wrp">
+                        dsjfldsjflsjdlfaö
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div id="search-result-load-more">
+            <button>load more</button>
+        </div>
+    </div>
 </main>
 
 
@@ -75,6 +171,7 @@
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.0.3.js"><\/script>')</script>
     <script src="js/vendor/stellar.js"></script>
     <script src="js/main.js"></script>
+
 <!-- google analytics for later use -->
 <script>
 //    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

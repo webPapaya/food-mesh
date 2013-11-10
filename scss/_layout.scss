@@ -64,6 +64,33 @@ ul {
     .menu {
       float: right;
     }
+
+    a {
+      position: relative;
+      margin-left: 1px;
+      padding: 15px;
+      display: block;
+    }
+
+    a:hover:after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      margin-top: 12px;
+      margin-left: -8px;
+      left: 50%;
+      margin-right: -50%;
+      background: #ccc;
+      z-index: 9999;
+
+      border-top: 2px solid black;
+      border-right: 2px solid black;
+
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+    }
   }
 
   .search-form-wrp {
@@ -131,21 +158,9 @@ ul {
   position: absolute;
   right: 0;
   width: 300px;
-  z-index: 9999;
+  z-index: 9998;
+  border: 2px solid black;
 
-  &:before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    margin-right: -50%;
-    top: -7px;
-    width: 14px;
-    height: 14px;
-    background: #ccc;
-
-    -webkit-transform: rotate(-45deg);
-       -moz-transform: rotate(-45deg);
-  }
 
   ul {
     padding: 8px 0 0px;
@@ -166,6 +181,7 @@ ul {
   background: #ddd;
   width: 60%;
   padding: 10px;
+  z-index: 9999;
 
   a {
     padding: 5px 0;
@@ -175,5 +191,50 @@ ul {
   li:last-child a{
     border-bottom: none;
   }
+}
 
+#search-result-wrp {
+  li {
+    float: left;
+    width: 25%;
+    padding: 2px;
+    margin-bottom: 20px;
+  }
+
+  a {
+    position: relative;
+    background: #bbb;
+    height: 220px;
+  }
+
+  .content-wrp {
+    padding: 10px;
+  }
+
+  .special-ingredients {
+    right: 0;
+    position: absolute;
+    margin-right: 4px;
+    z-index: 10;
+
+    li {
+      position: relative;
+      width: auto;
+      background: #ddd;
+      padding: 10px 7px;
+      margin-left: 2px;
+      margin-top: -4px;
+
+      span {
+        position: absolute;
+        top: -9999px;
+      }
+    }
+  }
+}
+
+#search-result-load-more {
+  position: relative;
+  width: auto;
+  text-align: center;
 }
