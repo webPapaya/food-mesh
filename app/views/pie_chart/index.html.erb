@@ -18,7 +18,6 @@
     <path id="pie" d="M <%= @center%> <%= @center%> L<%= @coords['x1'] %> <%= @coords['y1'] %> L<%= @coords['x2'] %> <%= @coords['y2'] %> Z" />
   </defs>
 
-  <!--<circle cx="100" cy="100" r="100" fill="green"/>-->
 
   <g mask="url(#mask)">
       <% (0...@segments).each do |i| %>
