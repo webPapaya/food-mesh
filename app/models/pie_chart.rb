@@ -1,3 +1,5 @@
+require 'food_data'
+
 class PieChart < ActiveRecord::Base
   attr_reader :values, :width_height, :segments, :inner_angle, :pie_chart_mask, :colors
 

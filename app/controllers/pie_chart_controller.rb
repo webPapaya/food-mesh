@@ -1,6 +1,7 @@
 class PieChartController < ApplicationController
   def index
     instance = PieChart.new
+    foodDB =   FddbData.new
 
     @center = instance.center
     @values = instance.values
@@ -11,6 +12,10 @@ class PieChartController < ApplicationController
     @chart_mask = instance.pie_chart_mask
     @colors = instance.colors
     @width_height = instance.width_height
+
+
+
+    @debug = foodDB.get_data
 
   end
 end
