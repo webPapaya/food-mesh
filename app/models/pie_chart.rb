@@ -56,7 +56,6 @@ class PieChart < ActiveRecord::Base
     circle
   end
 
-
   private
     def deg_to_rad (deg)
       Math::PI/180 * deg
