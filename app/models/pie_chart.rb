@@ -1,8 +1,7 @@
 class PieChart < ActiveRecord::Base
   attr_reader :values, :width_height, :segments, :inner_angle, :pie_chart_mask, :colors
 
-
-  def initialize (width_height=300, segments=10)
+  def initialize (width_height=500, segments=10)
     @random = Random.new
     @values = create_dummy_chart
     @width_height = width_height
@@ -33,7 +32,6 @@ class PieChart < ActiveRecord::Base
 
     coords
   end
-
 
   def center
     @width_height/2
