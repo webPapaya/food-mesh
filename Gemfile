@@ -49,3 +49,5 @@ end
 
 #curl for ruby
 gem 'curb'
+gem 'nokogiri'
+

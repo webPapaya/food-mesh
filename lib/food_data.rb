@@ -7,12 +7,11 @@ end
 
 class FddbData
   attr_accessor :debug
-
-
   include FoodData
 
   def initialize
     @api_key = 'U9H3TXH05S933NMQFMJIL64C'
+
 
   end
 
@@ -23,7 +22,18 @@ class FddbData
         :lang => 'de'
     }
 
-    data = Curl::Easy.http_post('http://fddb.info/api/v8/search/item.xml?' + params.to_query).
+
+    data
+  end
+
+  def search_query query
+    params = {
+        :apikey => @api_key,
+        :q => query,
+        :lang => 'de'
+    }
+
+    data = Curl::Easy.http_post('http://fddb.info/api/v8/search/item.xml?' + params.to_query).body_str
 
     data
   end

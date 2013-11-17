@@ -1,3 +1,4 @@
+require 'food_data'
 class PieChartController < ApplicationController
   def index
     instance = PieChart.new
@@ -15,7 +16,7 @@ class PieChartController < ApplicationController
 
 
 
-    @debug = foodDB.get_data
+    @debug = foodDB.search_query('banane')
 
   end
 end
