@@ -1,5 +1,5 @@
 
-<%= @coords.inspect %>
+<%= @circle %>
 
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
   <defs>
@@ -19,7 +19,12 @@
 
   <g mask="url(#mask)">
       <% (0...@segments).each do |i| %>
-          <use mask="url(#mask<%=i%>)" transform="rotate(<%= @radius * i %>, <%= @center %>, <%= @center %>)"  xlink:href="#pie" fill="#2BA772" />
+          <use mask="url(#mask<%=i%>)" transform="rotate(<%= @inner_angle * i %>, <%= @center %>, <%= @center %>)"  xlink:href="#pie" fill="#2BA772" />
       <% end %>
+  </g>
+
+  <g id="daily-amount">
+    <circle cx="<%= @center%>" cy="<%= @center%>" r="<%= @center %>" fill="none" style="stroke:rgb(227, 228, 229); stroke-width:10"/>
+    <circle cx="<%= @center%>" cy="<%= @center%>" r="<%= @center %>" fill="none" style="stroke:rgb(227, 228, 0); stroke-width:10" stroke-dasharray="<%= "#{@circle['line']} #{@circle['space']}" %>" transform="rotate(-90,  <%= @center %>, <%= @center %>)"/>
   </g>
 </svg>

@@ -6,20 +6,18 @@ class PieChart < ActiveRecord::Base
   @segments = 10
   @inner_angle  = 360 / @segments
 
-
-
   def self.create_dummy_chart
     (0..5).each do |i|
       @values[i] = rand(25)
     end
-    @radius = deg_to_rad(@inner_angle)
+    @radiant = deg_to_rad(@inner_angle)
   end
 
   def self.get_coords
     coords = Hash.new
 
-    coords['x1'] = Math.cos(@radius).abs * @width_height.abs2 + @width_height
-    coords['y1'] = Math.sin(@radius).abs * @width_height.abs2 + @width_height
+    coords['x1'] = Math.cos(@radiant).abs * @width_height.abs2 + @width_height
+    coords['y1'] = Math.sin(@radiant).abs * @width_height.abs2 + @width_height
 
     coords['x2'] = @width_height * 2
     coords['y2'] = @width_height
@@ -27,12 +25,23 @@ class PieChart < ActiveRecord::Base
     coords
   end
 
+  def self.circumference
+    procent = 40.0
+    circle = Hash.new
+    circumference = calculate_circumference
+
+    circle["line"] = circumference*(procent/100)
+    circle["space"] = circumference*((100-procent)/100)
+
+    circle
+  end
+
   def self.segments
     @segments
   end
 
 
-  def self.radius
+  def self.inner_angle
     @inner_angle
   end
 
@@ -47,5 +56,9 @@ class PieChart < ActiveRecord::Base
   private
     def self.deg_to_rad (deg)
       Math::PI/180 * deg
+    end
+
+    def self.calculate_circumference
+      2*Math::PI*(@width_height)
     end
 end
