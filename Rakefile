@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-FoodMesh::Application.load_tasks
+Food::Application.load_tasks

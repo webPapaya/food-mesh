@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-FoodMesh::Application.config.secret_key_base = 'c76f78c874cf7ea4aa877712b3b554e71f35a2ef7185dd6e5a465d5228ac3cfe15e13ed064ee651fcfc21f1ebbb5f3964da849953f97ddb1fcbe244b1a766c47'
+Food::Application.config.secret_key_base = '481ef81eefd07a20d3f604c72e93f98ca005c1761e68910fcd9a6eaa54ef9e153c884a1d36a3e253158b16b52054c195c493816d3da2bdb8bd7134c91bad8f26'
