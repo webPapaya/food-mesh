@@ -10,6 +10,7 @@ class PieChartController < ApplicationController
     @circle = instance.circumference
     @chart_mask = instance.pie_chart_mask
     @colors = instance.colors
+    @width_height = instance.width_height
 
   end
 end

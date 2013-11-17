@@ -53,8 +53,8 @@ class PieChart < ActiveRecord::Base
     circle = Hash.new
     circumference = calculate_circumference
 
-    circle["line"] = circumference*(procent/100)
-    circle["space"] = circumference*((100-procent)/100)
+    circle["line"] = circumference*(procent/100) - 5
+    circle["space"] = circumference*((100-procent)/100) - 5
 
     circle
   end
