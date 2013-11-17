@@ -8,7 +8,8 @@ class PieChartController < ApplicationController
     @inner_angle = instance.inner_angle
     @segments = instance.segments
     @circle = instance.circumference
-    @chart_mask = instance.create_outer_mask
+    @chart_mask = instance.pie_chart_mask
+    @colors = instance.colors
 
   end
 end

@@ -1,6 +1,6 @@
 class PieChart < ActiveRecord::Base
-  attr_accessor :width_height #set accessor so width height is read and writeable
-  attr_reader :values, :width_height, :segments, :inner_angle
+  attr_reader :values, :width_height, :segments, :inner_angle, :pie_chart_mask, :colors
+
 
   def initialize (width_height=300, segments=10)
     @random = Random.new
@@ -9,12 +9,15 @@ class PieChart < ActiveRecord::Base
     @segments = segments
     @inner_angle  = 360 / @segments
     @radiant = deg_to_rad(@inner_angle)
+    @pie_chart_mask = create_outer_mask
+
+    @colors = %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772']
   end
 
   def create_dummy_chart
     values = Array.new
     (0..5).each do |i|
-      values[i] = rand(25)
+      values[i] = Random.rand(100)
     end
     values
   end
@@ -39,8 +42,8 @@ class PieChart < ActiveRecord::Base
   def create_outer_mask
     mask = Hash.new
 
-    mask['inner'] = @width_height/10
-    mask['outer'] = @width_height
+    mask['inner'] = @width_height.to_f/10
+    mask['outer'] = @width_height.to_f
 
     mask
   end
