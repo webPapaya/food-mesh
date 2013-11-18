@@ -47,7 +47,8 @@ end
 
 
 
-#curl for ruby
-gem 'curb'
-gem 'nokogiri'
+#own dependencies
+gem 'patron'    # curb alternative
+gem 'nokogiri'  # xml parser
+
 

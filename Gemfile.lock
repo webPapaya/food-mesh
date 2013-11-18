@@ -35,7 +35,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    curb (0.8.5)
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -56,6 +55,7 @@ GEM
     multi_json (1.8.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    patron (0.4.18)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -113,10 +113,10 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
-  curb
   jbuilder (~> 1.2)
   jquery-rails
   nokogiri
+  patron
   rails (= 4.0.1)
   sass-rails (~> 4.0.0)
   sdoc

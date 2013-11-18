@@ -27,14 +27,26 @@ class FddbData
   end
 
   def search_query query
-    params = {
-        :apikey => @api_key,
-        :q => query,
-        :lang => 'de'
-    }
+    #params = {
+    #    :apikey => @api_key,
+    #    :q => query,
+    #    :lang => 'de'
+    #}
+    #
+    #data = Curl::Easy.http_post('http://fddb.info/api/v8/search/item.xml?' + params.to_query).body_str
+    #
+    #parse_xml(data)
+  end
 
-    data = Curl::Easy.http_post('http://fddb.info/api/v8/search/item.xml?' + params.to_query).body_str
+  def parse_xml (data)
 
-    data
+    object = Array.new
+    xmlObj = Nokogiri::XML(data)
+
+    xmlObj.xpath("shortitem").each do |item|
+      object.add(item)
+    end
+
+    xmlObj
   end
 end
