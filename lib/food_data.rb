@@ -27,15 +27,15 @@ class FddbData
   end
 
   def search_query query
-    #params = {
-    #    :apikey => @api_key,
-    #    :q => query,
-    #    :lang => 'de'
-    #}
-    #
-    #data = Curl::Easy.http_post('http://fddb.info/api/v8/search/item.xml?' + params.to_query).body_str
-    #
-    #parse_xml(data)
+    params = {
+        :apikey => @api_key,
+        :q => query,
+        :lang => 'de'
+    }
+
+    data = Curl::Easy.http_post('http://fddb.info/api/v8/search/item.xml?' + params.to_query).body_str
+
+    parse_xml(data)
   end
 
   def parse_xml (data)
