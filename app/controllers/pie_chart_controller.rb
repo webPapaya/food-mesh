@@ -16,7 +16,7 @@ class PieChartController < ApplicationController
 
 
 
-    #@debug = foodDB.search_query('banane')
+    @debug = foodDB.search_query('banane')
 
   end
 end
