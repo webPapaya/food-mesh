@@ -48,7 +48,7 @@ end
 
 
 #own dependencies
-gem 'patron'    # curb alternative
+gem 'curb'    # curb alternative
 gem 'nokogiri'  # xml parser
 
 
