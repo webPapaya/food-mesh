@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use postgres as the database for Active Record
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -50,5 +50,7 @@ end
 #own dependencies
 gem 'curb'    # curb alternative
 gem 'nokogiri'  # xml parser
+gem 'capistrano', '~> 3.0.1' #deployment
+gem 'capistrano-ext' #for easier deployment
 
 

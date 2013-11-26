@@ -1,6 +1,8 @@
 Food::Application.routes.draw do
   get ':controller(/:action(/:id(.:format)))'
 
+  resources 'pie_chart'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

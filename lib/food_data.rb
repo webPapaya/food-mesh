@@ -1,13 +1,5 @@
-module FoodData
-  def test
-    puts "skfjaldsöf"
-  end
-end
-
-
 class FddbData
   attr_accessor :debug
-  include FoodData
 
   def initialize
     @api_key = 'U9H3TXH05S933NMQFMJIL64C'
@@ -21,7 +13,6 @@ class FddbData
         :q => 'banane',
         :lang => 'de'
     }
-
 
     data
   end
