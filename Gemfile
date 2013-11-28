@@ -50,7 +50,8 @@ end
 #own dependencies
 gem 'curb'    # curb alternative
 gem 'nokogiri'  # xml parser
-gem 'capistrano', '~> 3.0.1' #deployment
+
+gem 'capistrano', '2.15' #deployment
 gem 'capistrano-ext' #for easier deployment
 
 
