@@ -53,5 +53,7 @@ gem 'nokogiri'  # xml parser
 
 gem 'capistrano', '2.15' #deployment
 gem 'capistrano-ext' #for easier deployment
+gem 'rvm-capistrano'
+gem 'mime-types'
 
 
