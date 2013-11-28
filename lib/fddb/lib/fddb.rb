@@ -1,10 +1,8 @@
-class FoodData
+module Fddb
   attr_accessor :debug
 
   def initialize
     @api_key = 'U9H3TXH05S933NMQFMJIL64C'
-
-
   end
 
   def get_data
@@ -27,8 +25,6 @@ class FoodData
     data = Curl::Easy.http_post('http://fddb.info/api/v8/search/item.xml?' + params.to_query).body_str
 
     parse_xml(data)
-
-    "test"
   end
 
   def parse_xml (data)

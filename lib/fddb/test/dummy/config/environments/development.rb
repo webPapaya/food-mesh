@@ -1,4 +1,4 @@
-Food::Application.configure do
+Dummy::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -26,8 +26,4 @@ Food::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
-  #
-  #ActiveSupport::Dependencies.autoload_paths << File::join( Rails.root, 'lib')
-  #ActiveSupport::Dependencies.explicitly_unloadable_constants << 'food_data'
 end

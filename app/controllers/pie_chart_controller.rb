@@ -2,7 +2,7 @@ require 'food_data'
 class PieChartController < ApplicationController
   def index
     instance = PieChart.new
-    foodDB =   FddbData.new
+    foodDB =   FoodData.new
 
     @center = instance.center
     @values = instance.values
