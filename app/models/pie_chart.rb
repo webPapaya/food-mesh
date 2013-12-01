@@ -1,4 +1,5 @@
 require 'food_data'
+require 'fatsecret'
 
 class PieChart < ActiveRecord::Base
   attr_reader :values, :width_height, :segments, :inner_angle, :pie_chart_mask, :colors
@@ -13,6 +14,11 @@ class PieChart < ActiveRecord::Base
     @pie_chart_mask = create_outer_mask
 
     @colors = %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772']
+
+
+    FatSecret.init('e2310b092c9f4acbb43657f59c242245', '3d0cc9b6114741bbbfe6c2510e8913c3')
+
+
   end
 
   def create_dummy_chart

@@ -15,8 +15,5 @@ class PieChartController < ApplicationController
     @width_height = instance.width_height
 
 
-
-    @debug = foodDB.search_query('banane')
-
   end
 end

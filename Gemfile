@@ -62,4 +62,6 @@ gem 'rvm-capistrano'
 gem 'mime-types'
 gem 'mysql2'
 
+gem 'fatsecret-api'
+
 
