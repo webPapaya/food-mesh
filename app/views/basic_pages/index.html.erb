@@ -1,0 +1,29 @@
+<h1>Listing basic_pages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @basic_pages.each do |basic_page| %>
+      <tr>
+        <td><%= basic_page.title %></td>
+        <td><%= basic_page.body %></td>
+        <td><%= link_to 'Show', basic_page %></td>
+        <td><%= link_to 'Edit', edit_basic_page_path(basic_page) %></td>
+        <td><%= link_to 'Destroy', basic_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Basic page', new_basic_page_path %>

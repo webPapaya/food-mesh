@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @basic_page.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @basic_page.body %>
+</p>
+
+<%= link_to 'Edit', edit_basic_page_path(@basic_page) %> |
+<%= link_to 'Back', basic_pages_path %>
