@@ -1,7 +1,10 @@
 Food::Application.routes.draw do
+  resources :basic_pages
+
   get ':controller(/:action(/:id(.:format)))'
 
   resources 'pie_chart'
+  resources 'basic_pages'
   root to: 'pie_chart#index'
 
 
