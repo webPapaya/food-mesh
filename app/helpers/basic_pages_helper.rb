@@ -1,7 +1,12 @@
 module BasicPagesHelper
   # see if we just use it in basic_page helper
   def markdown(text)
-    options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
+    #options = {:filter_html=> true
+    #           :autolink=> true
+    #           :no_intraemphasis=> true
+    #           :fenced_code=> true
+    #           :gh_blockcode=> true
+    #}
     renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
     raw renderer.render(text)
   end
