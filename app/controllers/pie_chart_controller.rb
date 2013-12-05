@@ -14,6 +14,6 @@ class PieChartController < ApplicationController
     @colors = instance.colors
     @width_height = instance.width_height
 
-
+    @debug = instance.get_food "banana"
   end
 end

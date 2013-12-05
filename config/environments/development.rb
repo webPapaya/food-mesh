@@ -27,6 +27,8 @@ Food::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.reload_classes_only_on_change = false
+
   #
   #ActiveSupport::Dependencies.autoload_paths << File::join( Rails.root, 'lib')
   #ActiveSupport::Dependencies.explicitly_unloadable_constants << 'food_data'

@@ -1,5 +1,7 @@
 require 'food_data'
-require 'fatsecret'
+require 'food_apis/FoodAPIs'
+
+include FoodAPIs
 
 class PieChart < ActiveRecord::Base
   attr_reader :values, :width_height, :segments, :inner_angle, :pie_chart_mask, :colors
@@ -15,10 +17,11 @@ class PieChart < ActiveRecord::Base
 
     @colors = %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772']
 
+    @food_apis = FoodAPIs.new
+  end
 
-    FatSecret.init('e2310b092c9f4acbb43657f59c242245', '3d0cc9b6114741bbbfe6c2510e8913c3')
-
-
+  def get_food query
+    @food_apis.search query
   end
 
   def create_dummy_chart
