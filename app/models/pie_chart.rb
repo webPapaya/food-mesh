@@ -1,10 +1,10 @@
-require 'food_data'
-require 'food_apis/FoodAPIs'
+require 'fatsecret'
 
-include FoodAPIs
 
 class PieChart < ActiveRecord::Base
   attr_reader :values, :width_height, :segments, :inner_angle, :pie_chart_mask, :colors
+
+  include FoodAPIs
 
   def initialize (width_height=500, segments=10)
     @random = Random.new
@@ -17,11 +17,10 @@ class PieChart < ActiveRecord::Base
 
     @colors = %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772']
 
-    @food_apis = FoodAPIs.new
   end
 
   def get_food query
-    @food_apis.search query
+    search(query)
   end
 
   def create_dummy_chart
@@ -77,3 +76,78 @@ class PieChart < ActiveRecord::Base
       2*Math::PI*(@width_height)
     end
 end
+
+
+
+
+
+
+
+
+####################
+
+module FoodAPIs
+  @@apis = [Fsecret.new, Fddb.new];
+
+  def search(query)
+    result = ""
+    @@apis.each do |api|
+      result += api.search query
+    end
+    result
+  end
+end
+
+
+
+class Fsecret
+  def initialize
+    FatSecret.init('e2310b092c9f4acbb43657f59c242245', '3d0cc9b6114741bbbfe6c2510e8913c3')
+  end
+
+  def search query
+    parse_data(FatSecret.search_food(query)).to_s
+  end
+
+  ##
+  # todo calculate nutritions per 100g
+  #
+
+  private
+  def parse_data data
+    parsed_data = []
+    data["foods"]["food"].each do |item|
+        tmp = item["food_description"].split(" - ")
+        desc = tmp[1]
+
+
+        food = Hash.new
+        food["name"] = item["food_name"]
+        food ["amount"] = tmp[0]
+        food["nutritions"] = Hash.new
+
+        ingredients = desc.split(" | ")
+        ingredients.each do |ingredient|
+          tmp = ingredient.split(": ")
+          food["nutritions"][tmp[0]] = tmp[1]
+        end
+        parsed_data.push(food)
+    end
+
+    parsed_data.to_s
+  end
+
+end
+
+
+class Fddb
+  def initialize
+
+  end
+
+
+  def search query
+    "fddb #{query} "
+  end
+end
+
