@@ -1,3 +1,6 @@
+I18n.locale = :fddb
+I18n.enforce_available_locales = false
+
 class Fddb
   def initialize
     @api_key = 'U9H3TXH05S933NMQFMJIL64C'
@@ -26,10 +29,11 @@ class Fddb
       food_item['nutritions'] = Hash.new
       item.xpath("./data/*").each do |ingredient|
 
-        food_item['nutritions'][ingredient.name] = ingredient.content
+        food_item['nutritions'][t(ingredient.name)] = ingredient.content
       end
       object.push(food_item)
     end
+
     object.to_s
   end
 
@@ -46,4 +50,9 @@ class Fddb
 
     parse_xml data
   end
+
+  private
+    def t key
+      I18n.t(key)
+    end
 end
