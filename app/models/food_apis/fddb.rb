@@ -53,6 +53,7 @@ class Fddb
 
   private
     def t key
+      key.slice! "_gram"
       I18n.t(key)
     end
 end

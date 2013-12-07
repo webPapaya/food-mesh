@@ -2,7 +2,7 @@ require_dependency 'food_apis/fddb'
 require_dependency 'food_apis/fsecret'
 
 module FoodApisModule
-  @@apis = [Fddb.new];
+  @@apis = [Fddb.new]
 
   ##
   # example return value for search
