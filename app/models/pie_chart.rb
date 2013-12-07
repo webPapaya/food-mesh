@@ -1,5 +1,3 @@
-require 'fatsecret'
-
 require_dependency 'food_apis_module'
 
 

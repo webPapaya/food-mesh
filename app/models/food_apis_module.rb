@@ -1,9 +1,12 @@
-require_dependency 'food_apis/fddb'
-require_dependency 'food_apis/fsecret'
 require 'awesome_print'
 
+
+require_dependency 'food_apis/fddb'
+require_dependency 'food_apis/fsecret'
+require_dependency 'food_apis/nutritionix_api'
+
 module FoodApisModule
-  @@apis = [Fddb.new, Fsecret.new]
+  @@apis = [NutritionixAPI.new, Fddb.new, Fsecret.new]
 
   ##
   # example return value for search
@@ -21,8 +24,8 @@ module FoodApisModule
   def search_apis query
     result = ""
     @@apis.each do |api|
-      ap api.search query
-      result += "--------------------------------------------------------------"
+      result += (api.search query).to_s
+
     end
     result
   end
