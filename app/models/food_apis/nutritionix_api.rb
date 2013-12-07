@@ -34,8 +34,6 @@ class NutritionixAPI
     parsed_data = Array.new
 
     data['hits'].each do |item|
-      ap item
-
       food = Hash.new
       food['name'] = "#{item['_source']['item_name']} #{item['_source']['brand_name']}"
 

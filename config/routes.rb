@@ -5,7 +5,7 @@ Food::Application.routes.draw do
 
   resources 'pie_chart'
   resources 'basic_pages'
-  root to: 'pie_chart#index'
+  root to: 'basic_pages#show', :id => 1
 
 
   # The priority is based upon order of creation: first created -> highest priority.
