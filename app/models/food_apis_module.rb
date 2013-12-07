@@ -25,7 +25,7 @@ module FoodApisModule
     result = ""
     @@apis.each do |api|
       result += (api.search query).to_s
-      break
+
     end
     result
   end
