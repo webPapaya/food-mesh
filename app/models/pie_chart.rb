@@ -60,8 +60,15 @@ class PieChart < ActiveRecord::Base
     mask
   end
 
-  def circumference
-    procent = 40.0
+  def get_daily_calories_in_procent calories
+    procent = calculate_daily_calories 2000, calories
+    circumference procent
+  end
+
+  def circumference procent
+    procent = procent.to_f
+    procent /= 2
+
     circle = Hash.new
     circumference = calculate_circumference
 
@@ -78,6 +85,11 @@ class PieChart < ActiveRecord::Base
 
     def calculate_circumference
       2*Math::PI*(@width_height)
+    end
+
+
+    def calculate_daily_calories base, calories
+      calories.to_f/base*100
     end
 end
 
