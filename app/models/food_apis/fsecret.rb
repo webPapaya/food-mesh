@@ -1,3 +1,6 @@
+I18n.locale = :fatsecret
+I18n.enforce_available_locales = false
+
 class Fsecret
   def initialize
     FatSecret.init('e2310b092c9f4acbb43657f59c242245', '3d0cc9b6114741bbbfe6c2510e8913c3')
@@ -27,7 +30,7 @@ class Fsecret
       ingredients = desc.split(" | ")
       ingredients.each do |ingredient|
         tmp = ingredient.split(": ")
-        food["nutritions"][tmp[0]] = tmp[1]
+        food["nutritions"][t(tmp[0])] = tmp[1]
       end
       parsed_data.push(food)
     end
@@ -35,4 +38,8 @@ class Fsecret
     parsed_data.to_s
   end
 
+  def t key
+    key.downcase!
+    I18n.t(key)
+  end
 end

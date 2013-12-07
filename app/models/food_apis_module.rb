@@ -2,7 +2,7 @@ require_dependency 'food_apis/fddb'
 require_dependency 'food_apis/fsecret'
 
 module FoodApisModule
-  @@apis = [Fddb.new]
+  @@apis = [Fddb.new, Fsecret.new]
 
   ##
   # example return value for search
@@ -21,6 +21,7 @@ module FoodApisModule
     result = ""
     @@apis.each do |api|
       result += api.search query
+      result += "--------------------------------------------------------------"
     end
     result
   end
