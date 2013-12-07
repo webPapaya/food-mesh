@@ -7,7 +7,7 @@ class Fsecret
   end
 
   def search query
-    parse_data(FatSecret.search_food(query)).to_s
+    parse_data(FatSecret.search_food(query))
   end
 
   ##
@@ -33,9 +33,10 @@ class Fsecret
         food["nutritions"][t(tmp[0])] = tmp[1]
       end
       parsed_data.push(food)
+      break
     end
 
-    parsed_data.to_s
+    parsed_data
   end
 
   def t key

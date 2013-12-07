@@ -66,4 +66,6 @@ gem 'mysql2'
 
 gem 'fatsecret-api'
 
+gem 'awesome_print'
+
 

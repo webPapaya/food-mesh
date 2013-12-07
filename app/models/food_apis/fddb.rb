@@ -32,9 +32,10 @@ class Fddb
         food_item['nutritions'][t(ingredient.name)] = ingredient.content
       end
       object.push(food_item)
+      break
     end
 
-    object.to_s
+    object
   end
 
   def search query
