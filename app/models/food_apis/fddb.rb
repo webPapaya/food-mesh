@@ -7,18 +7,29 @@ class Fddb
     object = Array.new
     xmlObj = Nokogiri::XML(data)
 
-    #xmlObj.xpath("//item/data//*[not(text())]").remove
-    #
-    #xmlObj.xpath("//item/data").each do |item|
-    #  item.xpath("//*").select{|n| n.inner_text}.each do |ingredient|
-    #    if ingredient.empty?
-    #      name = ingredient.name
-    #      amount = ingredient.content
-    #      puts amount
-    #    end
-    #  end
-    #end
+    xmlObj.xpath("//item/data//*[not(text())]").remove #remove all empty nodes
+    xmlObj.xpath("//item").each do |item|
+      food_item = Hash.new
+      food_item['name'] = item.xpath("./description/name")[0].content
 
+
+      amount = item.xpath("./data/amount")
+      amount_mesureing_sytem = item.xpath("./data/amount_measuring_system")
+      food_item['amount'] = amount[0].content
+      food_item['amount_mesureing_sytem'] = amount_mesureing_sytem[0].content
+
+      #remove mesuring_sytem from node list
+      amount.remove
+      amount_mesureing_sytem.remove
+
+      #loop through nutrition data
+      food_item['nutritions'] = Hash.new
+      item.xpath("./data/*").each do |ingredient|
+
+        food_item['nutritions'][ingredient.name] = ingredient.content
+      end
+      object.push(food_item)
+    end
     object.to_s
   end
 
@@ -30,7 +41,7 @@ class Fddb
     }
 
     data = Curl::Easy.http_post('http://fddb.info/api/v8/search/item.xml?' + params.to_query).body_str
-
+    puts 'http://fddb.info/api/v8/search/item.xml?' + params.to_query
 
 
     parse_xml data
