@@ -6,14 +6,17 @@
           <img src="http://placehold.it/300x160">
         </h1>
       </header>
-      <form id="search" class="container row">
+      <%= form_tag("/pie-chart", method: "get") do %>
+      <!--<form id="search" class="container row">-->
         <div class="col span_11">
-          <input class="input-big" type="text" placeholder="search">
+            <%= text_field_tag(:query) %>
         </div>
+
         <div class="col span_1">
-          <input type="submit" value="go">
+          <%= submit_tag("Search") %>
         </div>
-      </form>
+      <% end %>
+
       <footer class="container row">
         <h1>
           About Food Match

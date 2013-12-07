@@ -15,6 +15,6 @@ class PieChartController < ApplicationController
     @colors = instance.colors
     @width_height = instance.width_height
 
-    @debug = instance.get_food "fish"
+    @debug = instance.get_food params[:query]
   end
 end
