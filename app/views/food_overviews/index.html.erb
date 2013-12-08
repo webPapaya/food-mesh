@@ -1,8 +1,7 @@
-<h1>Listing food_overviews</h1>
 <ul>
   <% @results.each do |result| %>
     <li>
-      <span class="name"><%= result['name']%></span>
+      <h1 class="name"><%= result['name']%></h1>
       <% result['nutritions'].each do |key, nutrition| %>
         <ul>
           <li class="<%= key %>"> <%= "[key] #{key} - [value] #{nutrition}"  %></li>
