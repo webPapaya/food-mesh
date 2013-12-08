@@ -6,7 +6,7 @@ require_dependency 'food_apis/fsecret'
 require_dependency 'food_apis/nutritionix_api'
 
 module FoodApisModule
-  @@apis = [NutritionixAPI.new]
+  @@apis = [NutritionixAPI.new, Fddb.new]
 
   ##
   # example return value for search
@@ -23,10 +23,9 @@ module FoodApisModule
   #  }]
 
   def search_apis query
-    result = ""
+    result = []
     @@apis.each do |api|
-      result += (api.search query).to_s
-      break
+      result.concat(api.search query)
     end
     result
   end

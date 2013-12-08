@@ -1,4 +1,6 @@
 Food::Application.routes.draw do
+  resources :food_overviews
+
   resources :basic_pages
 
   get ':controller(/:action(/:id(.:format)))'
