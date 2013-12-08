@@ -25,6 +25,10 @@ class NutritionixAPI
     parse_data results_json
   end
 
+  def get_item
+    puts self.object_id
+  end
+
   private
     include FoodAPIsHelper
 
@@ -36,6 +40,7 @@ class NutritionixAPI
     data['hits'].each do |item|
       food = Hash.new
       food['name'] = "#{item['_source']['item_name']} #{item['_source']['brand_name']}"
+      food['object_source_id'] = self.object_id
 
       item['_source'].delete('item_name')
       item['_source'].delete('brand_name')

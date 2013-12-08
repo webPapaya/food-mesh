@@ -1,4 +1,6 @@
-<svg width="<%= @width_height %>" height = "<%= @width_height%>" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<%= @debug %>
+
+<svg width="<%= @width_height *10 %>" height = "<%= @width_height%>" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
   <defs>
     <mask id="mask" x="0" y="0" width="<%= @center * 2%>" height="<%= @center * 2%>">
       <circle cx="<%= @center %>" cy="<%= @center %>" r="<%= @chart_mask['outer'] %>" fill="white"/>
@@ -24,6 +26,15 @@
       <% (0...@segments).each do |i| %>
           <use mask="url(#mask<%=i%>)" transform="rotate(<%= @inner_angle * i %>, <%= @center %>, <%= @center %>)"  xlink:href="#pie" fill="<%= @colors[Random.rand(8)] %>" style="stroke:rgb(255,255,255);stroke-width:7"></use>
       <% end %>
+    </g>
+
+
+
+    <g transform="rotate(45, <%= @center %>, <%= @center %>)">
+      <line x1="<%= @center%>" y1="<%= @center %>" x2="<%= @chart_mask['outer'] + 30 %>" y2="<%= @center %>" style="stroke:grey;stroke-width:2"/>
+      <text  x="<%= @center %>" y="<%= @center %>" fill="grey" >
+        Hello, out there
+      </text>
     </g>
   </g>
 </svg>

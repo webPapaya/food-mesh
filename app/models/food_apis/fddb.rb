@@ -33,6 +33,7 @@ class Fddb
       xmlObj.xpath("//item").each do |item|
         food_item = Hash.new
         food_item['name'] = item.xpath("./description/name")[0].content
+        food_item['object_source_id'] = self.object_id
 
 
         amount = item.xpath("./data/amount")

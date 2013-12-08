@@ -3,7 +3,6 @@ require_dependency 'food_apis_module'
 class PieChart < ActiveRecord::Base
   attr_reader :values, :width_height, :segments, :inner_angle, :pie_chart_mask, :colors
 
-  include FoodApisModule
 
   def initialize (width_height=500, segments=10)
     @random = Random.new
@@ -15,10 +14,6 @@ class PieChart < ActiveRecord::Base
     @pie_chart_mask = create_outer_mask
 
     @colors = %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772']
-  end
-
-  def get_food query
-    search_apis query
   end
 
   def create_dummy_chart
@@ -80,7 +75,6 @@ class PieChart < ActiveRecord::Base
     def calculate_circumference
       2*Math::PI*(@width_height)
     end
-
 
     def calculate_daily_calories base, calories
       calories.to_f/base*100

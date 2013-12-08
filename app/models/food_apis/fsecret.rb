@@ -28,6 +28,7 @@ class Fsecret
 
       food = Hash.new
       food["name"] = item["food_name"]
+      food['object_source_id'] = self.object_id
       food["amount"] = tmp[0]
       food["nutritions"] = Hash.new
 

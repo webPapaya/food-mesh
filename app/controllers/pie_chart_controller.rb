@@ -1,9 +1,14 @@
 require 'food_data'
+require 'food_apis_module'
 
 class PieChartController < ApplicationController
+  include FoodApisModule #include all functions from foodAPIs Module
+
+
   def index
-    instance = PieChart.new
-    foodDB =   FoodData.new
+    instance = PieChart.new  #create new pieChart
+
+
 
     @center = instance.center
     @values = instance.values
@@ -15,6 +20,6 @@ class PieChartController < ApplicationController
     @colors = instance.colors
     @width_height = instance.width_height
 
-    @debug = instance.get_food params[:query]
+    @debug = search_apis params[:query]
   end
 end
