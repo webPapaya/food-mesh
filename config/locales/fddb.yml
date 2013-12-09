@@ -32,4 +32,6 @@ fddb:
   sugar_gram: "sugar"
   protein_gram: "protein"
   df_gram: "gram"
+  water_gram: "water"
+  alcohol_gram: "alcohol"
 

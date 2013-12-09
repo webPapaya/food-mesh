@@ -31,4 +31,14 @@ nutritionix:
   kh_gram: "kh"
   sugar_gram: "sugar"
   protein_gram: "protein"
-
+  nf_iron_dv: "iron"
+  nf_total_carbohydrate: "carbohydrate"
+  nf_serving_weight_grams: "grams_of_sample"
+  nf_serving_size_qty: "lot"  #number of items
+  nf_protein: "protein"
+  nf_calories: "calories"
+  nf_water_grams: "water"
+  nf_calcium_dv: "calcium"
+  nf_sodium: "sodium"
+  nf_serving_size_unit: "rigidity"
+  nf_sugars: "sugar"
