@@ -54,7 +54,7 @@ class Fddb
 
   private
     def t key
-      key.slice! "_gram"
+     # key.slice! "fatsecret.df_gram"
       I18n.t(key)
     end
 end

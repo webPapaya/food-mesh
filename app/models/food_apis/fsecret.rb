@@ -40,6 +40,7 @@ class Fsecret
   end
 
   def t key
+    puts key
     key.downcase!
     I18n.t(key)
   end
