@@ -1,4 +1,3 @@
-require 'food_data'
 require 'food_apis_module'
 
 class PieChartController < ApplicationController
@@ -12,7 +11,7 @@ class PieChartController < ApplicationController
     @coords = instance.get_coords
     @inner_angle = instance.inner_angle
     @segments = instance.segments
-    @circle = instance.get_daily_calories_in_procent 1200
+    @circle = instance.get_daily_calories_in_procent 1000
     @chart_mask = instance.pie_chart_mask
     @colors = instance.colors
     @width_height = instance.width_height
