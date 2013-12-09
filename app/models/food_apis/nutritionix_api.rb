@@ -2,12 +2,10 @@ require 'nutritionix/api_1_1'
 require_dependency 'food_apis/food_apis_helper'
 
 
-I18n.locale = :nutritionix
-I18n.enforce_available_locales = false
-
 
 class NutritionixAPI
   def initialize
+    I18n.locale = :nutritionix
     @app_id = '3f0f5d7f'
     @app_key = '96802c411ee8f2ba80568c157238d980'
     @provider = Nutritionix::Api_1_1.new(@app_id, @app_key)
@@ -30,7 +28,6 @@ class NutritionixAPI
   end
 
   private
-    include FoodAPIsHelper
 
   # todo
   # find out in which mass the given values are given
@@ -49,7 +46,9 @@ class NutritionixAPI
 
       item['_source'].each do |key, ingredients|
           if is_valid_pair key, ingredients
-            food['nutritions'][I18n.t(key)] = ingredients
+
+            key = I18n.t key, locale: :nutritionix
+            food['nutritions'][key] = ingredients
           end
       end
 

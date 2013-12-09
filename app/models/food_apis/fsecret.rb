@@ -1,8 +1,6 @@
 require 'fatsecret'
 require_dependency 'food_apis/food_apis_helper'
 
-I18n.locale = :fatsecret
-I18n.enforce_available_locales = false
 
 class Fsecret
   def initialize
@@ -18,7 +16,6 @@ class Fsecret
   #
 
   private
-  include FoodAPIsHelper
 
   def parse_data data
     parsed_data = []
@@ -35,7 +32,8 @@ class Fsecret
       ingredients = desc.split(" | ")
       ingredients.each do |ingredient|
         tmp = ingredient.split(": ")
-        food["nutritions"][I18n.t(tmp[0])] = tmp[1]
+        key = key = I18n.t tmp[0], locale: :fatsecret
+        food["nutritions"][key] = tmp[1]
       end
       parsed_data.push(food)
     end
