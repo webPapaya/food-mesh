@@ -25,8 +25,9 @@ class Fddb
   private
 
     def t key
-     # key.slice! "fatsecret.df_gram"
+      key.slice! "_gram"
       I18n.t(key)
+    end
 
     include FoodAPIsHelper
 
@@ -61,4 +62,4 @@ class Fddb
 
       object
     end
-end
+  end
