@@ -1,4 +1,3 @@
-require 'food_data'
 require 'food_apis_module'
 
 class PieChartController < ApplicationController
