@@ -1,15 +1,19 @@
-require_dependency 'food_apis/fddb'
-require_dependency 'food_apis/fsecret'
 require 'awesome_print'
 
+
+require_dependency 'food_apis/fddb'
+require_dependency 'food_apis/fsecret'
+require_dependency 'food_apis/nutritionix_api'
+
 module FoodApisModule
-  @@apis = [Fddb.new, Fsecret.new]
+  @@apis = [NutritionixAPI.new, Fddb.new]
 
   ##
   # example return value for search
   #  [{
   #      "name"=>"Tilapia (Fish)",
   #      "amount"=>"Per 100g",
+  #      "object_source_id" = 70157557973400
   #      "nutritions"=>{
   #          "Calories"=>"96kcal",
   #          "Fat"=>"1.70g",
@@ -19,11 +23,16 @@ module FoodApisModule
   #  }]
 
   def search_apis query
-    result = ""
+    result = []
     @@apis.each do |api|
-      ap api.search query
-      result += "--------------------------------------------------------------"
+      result.concat(api.search query)
     end
     result
+  end
+
+  def get_item id
+    @@apis.each do |api|
+      api.get_item
+    end
   end
 end

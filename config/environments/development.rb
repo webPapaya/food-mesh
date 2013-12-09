@@ -32,4 +32,5 @@ Food::Application.configure do
   #
   #ActiveSupport::Dependencies.autoload_paths << File::join( Rails.root, 'lib')
   #ActiveSupport::Dependencies.explicitly_unloadable_constants << 'food_data'
+
 end

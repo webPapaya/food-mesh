@@ -1,15 +1,77 @@
-<p id="notice"><%= notice %></p>
+<main id="home-search-wrp" data-stellar-background-ratio="0.5">
+  <div class="display-table">
+    <div class="display-table-cell">
+      <header  class="container row">
+        <h1 class="center">
+          <img src="http://placehold.it/300x160">
+        </h1>
+      </header>
+      <%= form_tag("/pie-chart", method: "get") do %>
+      <!--<form id="search" class="container row">-->
+        <div class="col span_11">
+            <%= text_field_tag(:query) %>
+        </div>
+        <div class="col span_1">
+          <%= submit_tag("Search") %>
+        </div>
+      <% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @basic_page.title %>
-</p>
+      <footer class="container row">
+        <h1>
+          About Food Match
+        </h1>
+        <p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        </p>
+      </footer>
+    </div>
+  </div>
+  <div class="about-arrow-wrp">
+    <div class="about-arrow-content">
+      For more information scroll down
+    </div>
+  </div>
+</main>
+<div id="home-info-wrp" data-stellar-background-ratio="0">
+  <div class="container fixed">
+    <h1>
+      <%= @basic_page.title %>
+    </h1>
+    <p>
+      <%= markdown(@basic_page.body) %>
+    </p>
+    <ul id="home-user-menu" class="menu">
+      <li>
+        <a href="#">
+          <img src="http://placehold.it/158x158">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="http://placehold.it/158x158">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="http://placehold.it/158x158">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="http://placehold.it/158x158">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="http://placehold.it/158x158">
+        </a>
+      </li>
+    </ul>
+    <%= link_to 'Edit', edit_basic_page_path(@basic_page) %> |
+    <%= link_to 'Back', basic_pages_path %>
+  </div>
+</div>
 
-<p>
-  <strong>Body:</strong>
 
-  <%= markdown(@basic_page.body) %>
-</p>
 
-<%= link_to 'Edit', edit_basic_page_path(@basic_page) %> |
-<%= link_to 'Back', basic_pages_path %>
+

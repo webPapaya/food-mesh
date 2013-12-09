@@ -65,6 +65,7 @@ gem 'mime-types'
 gem 'mysql2'
 
 gem 'fatsecret-api'
+gem 'nutritionix'
 
 gem 'awesome_print'
 

@@ -1,0 +1,12 @@
+<ul>
+  <% @results.each do |result| %>
+    <li>
+      <h1 class="name"><%= result['name']%></h1>
+      <% result['nutritions'].each do |key, nutrition| %>
+        <ul>
+          <li class="<%= key %>"> <%= "[key] #{key} - [value] #{nutrition}"  %></li>
+        </ul>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

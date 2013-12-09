@@ -1,3 +1,6 @@
+require 'fatsecret'
+require_dependency 'food_apis/food_apis_helper'
+
 I18n.locale = :fatsecret
 I18n.enforce_available_locales = false
 
@@ -15,16 +18,18 @@ class Fsecret
   #
 
   private
+  include FoodAPIsHelper
+
   def parse_data data
     parsed_data = []
     data["foods"]["food"].each do |item|
       tmp = item["food_description"].split(" - ")
       desc = tmp[1]
 
-
       food = Hash.new
       food["name"] = item["food_name"]
-      food ["amount"] = tmp[0]
+      food['object_source_id'] = self.object_id
+      food["amount"] = tmp[0]
       food["nutritions"] = Hash.new
 
       ingredients = desc.split(" | ")
@@ -33,15 +38,17 @@ class Fsecret
         food["nutritions"][t(tmp[0])] = tmp[1]
       end
       parsed_data.push(food)
-      break
     end
 
     parsed_data
   end
+<<<<<<< HEAD
 
   def t key
     puts key
     key.downcase!
     I18n.t(key)
   end
+=======
+>>>>>>> c568eaffb4a299639823e4c36a127618a9a6f1c4
 end
