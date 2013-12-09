@@ -32,7 +32,7 @@ class Fsecret
       ingredients = desc.split(" | ")
       ingredients.each do |ingredient|
         tmp = ingredient.split(": ")
-        key = key = I18n.t tmp[0], locale: :fatsecret
+        key  = I18n.t tmp[0], locale: :fatsecret
         food["nutritions"][key] = tmp[1]
       end
       parsed_data.push(food)

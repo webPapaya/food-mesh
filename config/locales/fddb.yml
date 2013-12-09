@@ -31,4 +31,5 @@ fddb:
   kh_gram: "kh"
   sugar_gram: "sugar"
   protein_gram: "protein"
+  df_gram: "gram"
 
