@@ -4,6 +4,6 @@ class FoodOverviewsController < ApplicationController
   include FoodApisModule #include all functions from foodAPIs Module
 
   def index
-    @results = search_apis "milk"
+    @results = search_apis params[:query]
   end
 end

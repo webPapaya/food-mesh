@@ -1,5 +1,6 @@
 Food::Application.routes.draw do
-  resources :food_overviews
+
+  match "search/results/:query" => "food_overviews#index", :via => [:get]
 
   resources :basic_pages
 

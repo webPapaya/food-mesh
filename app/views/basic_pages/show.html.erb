@@ -6,10 +6,10 @@
           <img src="http://placehold.it/300x160">
         </h1>
       </header>
-      <%= form_tag("/pie-chart", method: "get") do %>
+      <%= form_tag('search/results/', method: "get") do %>
       <!--<form id="search" class="container row">-->
         <div class="col span_11">
-            <%= text_field_tag(:query) %>
+            <%= text_field_tag :query %>
         </div>
         <div class="col span_1">
           <%= submit_tag("Search") %>
