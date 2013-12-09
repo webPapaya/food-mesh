@@ -42,4 +42,13 @@ class Fsecret
 
     parsed_data
   end
+<<<<<<< HEAD
+
+  def t key
+    puts key
+    key.downcase!
+    I18n.t(key)
+  end
+=======
+>>>>>>> c568eaffb4a299639823e4c36a127618a9a6f1c4
 end

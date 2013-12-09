@@ -23,6 +23,11 @@ class Fddb
   end
 
   private
+<<<<<<< HEAD
+    def t key
+     # key.slice! "fatsecret.df_gram"
+      I18n.t(key)
+=======
     include FoodAPIsHelper
 
     def parse_xml (data)
@@ -55,5 +60,6 @@ class Fddb
       end
 
       object
+>>>>>>> c568eaffb4a299639823e4c36a127618a9a6f1c4
     end
 end
