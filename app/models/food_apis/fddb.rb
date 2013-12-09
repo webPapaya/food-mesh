@@ -23,13 +23,7 @@ class Fddb
   end
 
   private
-
-    def t key
-     # key.slice! "fatsecret.df_gram"
-      I18n.t(key)
-
     include FoodAPIsHelper
-
     def parse_xml (data)
       object = Array.new
       xmlObj = Nokogiri::XML(data)
@@ -54,7 +48,7 @@ class Fddb
         food_item['nutritions'] = Hash.new
         item.xpath("./data/*").each do |ingredient|
 
-          food_item['nutritions'][t(ingredient.name)] = ingredient.content
+          food_item['nutritions'][I18n.t(ingredient.name)] = ingredient.content
         end
         object.push(food_item)
       end

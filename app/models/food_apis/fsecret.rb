@@ -35,18 +35,11 @@ class Fsecret
       ingredients = desc.split(" | ")
       ingredients.each do |ingredient|
         tmp = ingredient.split(": ")
-        food["nutritions"][t(tmp[0])] = tmp[1]
+        food["nutritions"][I18n.t(tmp[0])] = tmp[1]
       end
       parsed_data.push(food)
     end
 
     parsed_data
   end
-
-  def t key
-    puts key
-    key.downcase!
-    I18n.t(key)
-  end
-
 end

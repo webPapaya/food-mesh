@@ -49,7 +49,7 @@ class NutritionixAPI
 
       item['_source'].each do |key, ingredients|
           if is_valid_pair key, ingredients
-            food['nutritions'][t(key)] = ingredients
+            food['nutritions'][I18n.t(key)] = ingredients
           end
       end
 
