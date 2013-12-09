@@ -55,4 +55,4 @@ class Fddb
 
       object
     end
-end
+  end
