@@ -1,9 +1,6 @@
 require_dependency 'food_apis/food_apis_helper'
 
-
-
 class Fddb
-
   def initialize
     @api_key = 'U9H3TXH05S933NMQFMJIL64C'
   end
