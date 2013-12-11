@@ -69,4 +69,6 @@ gem 'nutritionix'
 
 gem 'awesome_print'
 
+gem 'thin'
+
 
