@@ -1,9 +1,12 @@
-require 'nutritionix/api_1_1'
+require_dependency 'food_apis/food_api_interface'
 require_dependency 'food_apis/food_apis_helper'
 
 
+require 'nutritionix/api_1_1'
 
-class NutritionixAPI
+
+
+class NutritionixAPI < FoodAPIInterface
   def initialize
     I18n.locale = :nutritionix
     @app_id = '3f0f5d7f'
