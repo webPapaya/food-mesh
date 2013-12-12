@@ -1,6 +1,5 @@
 require 'awesome_print'
 
-
 require_dependency 'food_apis/fddb'
 require_dependency 'food_apis/fsecret'
 require_dependency 'food_apis/nutritionix_api'
@@ -31,6 +30,7 @@ module FoodApisModule
   end
 
   def get_item id
+
     @@apis[0].get_item id
   end
 end
