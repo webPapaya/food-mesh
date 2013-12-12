@@ -58,19 +58,19 @@ class PieChart < ActiveRecord::Base
     mask
   end
 
-  def get_daily_calories_in_procent calories
-    procent = calculate_daily_calories 2000, calories
-    circumference procent
+  def get_daily_calories_in_procent (calories)
+    percent = calculate_daily_calories 2000, calories
+    circumference percent
   end
 
-  def circumference procent
-    procent = procent.to_f
+  def circumference (percent)
+    percent = percent.to_f
 
     circle = Hash.new
     circumference = calculate_circumference
 
-    circle["line"] = circumference*(procent/100)
-    circle["space"] = circumference*((100-procent)/100)
+    circle["line"] = circumference*(percent/100)
+    circle["space"] = circumference*((100-percent)/100)
 
     circle
   end
