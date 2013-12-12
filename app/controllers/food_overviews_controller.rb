@@ -8,7 +8,7 @@ class FoodOverviewsController < ApplicationController
   end
 
   def show
-    @results = get_item 86638
+    @results = get_item 800
 
     puts @results
   end

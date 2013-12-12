@@ -12,7 +12,18 @@ class Fsecret < FoodAPIInterface
   def search query
     data = FatSecret.search_food(query)
     data = nil unless (data['foods']['total_results'].to_i > 0)
-    (parse_data(data)) unless data.nil?
+    (parse_data_search(data)) unless data.nil?
+  end
+
+  def get_item id
+    data = FatSecret.food(id)
+
+    puts data
+
+    #data = nil unless (!data['error'].nil?)
+
+
+    (parse_data_item(data)) unless data.nil?
   end
 
   ##
@@ -20,7 +31,24 @@ class Fsecret < FoodAPIInterface
   #
 
   private
-  def parse_data data
+  def parse_data_item data
+    item = data['food']
+
+    food = Hash.new
+    food['name'] = item['food_name']
+    food['object_source_id'] = self.object_id
+    food['item_id'] = item['food_id']
+    food['nutritions'] = Hash.new
+
+    item['servings']['serving'].each do |key, ingredient|
+      key = I18n.t key, locale: :fatsecret
+      food['nutritions'][key] = ingredient
+    end
+
+    [food]
+  end
+
+  def parse_data_search data
     parsed_data = []
     data["foods"]["food"].each do |item|
       tmp = item["food_description"].split(" - ")

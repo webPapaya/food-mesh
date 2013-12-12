@@ -31,6 +31,6 @@ module FoodApisModule
   end
 
   def get_item id
-    @@apis[1].get_item id
+    @@apis[2].get_item id
   end
 end
