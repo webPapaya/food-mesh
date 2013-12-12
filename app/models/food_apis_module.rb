@@ -25,7 +25,8 @@ module FoodApisModule
   def search_apis query
     result = []
     @@apis.each do |api|
-      result.concat(api.search query)
+      api_results = api.search query
+      (result.concat(api_results)) unless api_results.nil?
     end
     result
   end
