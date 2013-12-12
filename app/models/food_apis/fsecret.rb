@@ -10,7 +10,9 @@ class Fsecret < FoodAPIInterface
   end
 
   def search query
-    parse_data(FatSecret.search_food(query))
+    data = FatSecret.search_food(query)
+    data = nil unless (data['foods']['total_results'].to_i > 0)
+    (parse_data(data)) unless data.nil?
   end
 
   ##

@@ -1,9 +1,7 @@
 require_dependency 'food_apis/food_api_interface'
 require_dependency 'food_apis/food_apis_helper'
 
-
 require 'nutritionix/api_1_1'
-
 
 
 class NutritionixAPI < FoodAPIInterface
@@ -22,8 +20,10 @@ class NutritionixAPI < FoodAPIInterface
     }
     results_json = @provider.nxql_search(search_params)
     results_json = JSON.parse(results_json)
+    puts
 
-    parse_data results_json
+
+    (parse_data results_json) unless results_json.nil?
   end
 
   def get_item
