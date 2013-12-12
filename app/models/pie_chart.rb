@@ -4,7 +4,8 @@ class PieChart < ActiveRecord::Base
   attr_reader :values, :width_height, :segments, :inner_angle, :pie_chart_mask, :colors
 
 
-  def initialize (width_height=500, segments=5)
+  def initialize (width_height=500, segments=6)
+    @pie_chart = {}
     @random = Random.new
     @values = create_dummy_chart
     @width_height = width_height
@@ -12,8 +13,21 @@ class PieChart < ActiveRecord::Base
     @inner_angle  = 360 / @segments
     @radiant = deg_to_rad(@inner_angle)
     @pie_chart_mask = create_outer_mask
-
     @colors = %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772']
+  end
+
+  def get_pie_chart
+    {
+        :values => create_dummy_chart,
+        :coords => get_coords,
+        :inner_angle => inner_angle,
+        :segments => @values.length, #should be removed and in view use segments.length
+        :daily_kcal => get_daily_calories_in_procent(1000),
+        :chart_mask => pie_chart_mask,
+        :colors =>  %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772'],
+        :width_height => @width_height,
+        :center => @width_height/2
+    }
   end
 
   def create_dummy_chart
