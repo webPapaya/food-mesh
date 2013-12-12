@@ -23,6 +23,18 @@ class Fddb < FoodAPIInterface
     (parse_xml data) unless data.nil?
   end
 
+  def get_item id
+    params = {
+        :apikey => @api_key,
+        :lang => 'de'
+    }
+
+    url = "http://fddb.info/api/v8/item/id_#{id}.xml?#{ params.to_query }"
+    data = Curl::Easy.http_post(url).body_str
+
+    (parse_xml data) unless data.nil?
+  end
+
   private
     def parse_xml (data)
       object = Array.new
@@ -33,6 +45,7 @@ class Fddb < FoodAPIInterface
         food_item = Hash.new
         food_item['name'] = item.xpath("./description/name")[0].content
         food_item['object_source_id'] = self.object_id
+        food_item['item_id'] = item.xpath("./id")[0].content
 
 
         amount = item.xpath("./data/amount")
