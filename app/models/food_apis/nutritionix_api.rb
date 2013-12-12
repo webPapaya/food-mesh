@@ -20,21 +20,41 @@ class NutritionixAPI < FoodAPIInterface
     }
     results_json = @provider.nxql_search(search_params)
     results_json = JSON.parse(results_json)
-    puts
 
-
-    (parse_data results_json) unless results_json.nil?
+    (parse_data_search results_json) unless results_json.nil?
   end
 
-  def get_item
-    puts self.object_id
+  def get_item id
+    data = @provider.get_item id.to_s #if id is not a string you will receive undefined encoding
+
+    puts data
+
+
+    parse_data_item data
   end
 
   private
 
+  def parse_data_item data
+    food = Hash.new
+    food['name'] = data['item_name']
+    food['object_source_id'] = self.object_id
+    food['item_id'] = data['item_id']
+    food['nutritions'] = Hash.new
+
+    JSON.parse(data).each do |key, ingredient|
+      if is_valid_pair? key, ingredient
+        key = I18n.t key, locale: :nutritionix
+        food['nutritions'][key] = ingredient
+      end
+    end
+
+    food
+  end
+
   # todo
   # find out in which mass the given values are given
-  def parse_data data
+  def parse_data_search data
     parsed_data = Array.new
 
     data['hits'].each do |item|
@@ -48,7 +68,7 @@ class NutritionixAPI < FoodAPIInterface
       food['nutritions'] = Hash.new
 
       item['_source'].each do |key, ingredients|
-          if is_valid_pair key, ingredients
+          if is_valid_pair? key, ingredients
 
             key = I18n.t key, locale: :nutritionix
             food['nutritions'][key] = ingredients
@@ -63,7 +83,7 @@ class NutritionixAPI < FoodAPIInterface
   # checks a given pair on following things
   # starts key with nf_ (for nutrition information)
   # is value wether 0 or nil
-  def is_valid_pair key, value
+  def is_valid_pair? key, value
     return true unless value.nil? || value == 0 || !key.include?('nf_')
   end
 end
