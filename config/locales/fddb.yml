@@ -36,4 +36,5 @@ fddb:
   alcohol_gram:            "alcohol"
   v_c_mg:                  "vitamin_c"
   v_calcium_mg:            "calcium"
+  m_natrium_mg:            "natrium"
 
