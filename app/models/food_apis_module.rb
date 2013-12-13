@@ -29,8 +29,7 @@ module FoodApisModule
     result
   end
 
-  def get_item id
-
-    @@apis[0].get_item id
+  def get_item (api_id, food_id)
+    @@apis[api_id].get_item food_id
   end
 end
