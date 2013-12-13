@@ -1,6 +1,7 @@
 require_dependency 'food_apis/food_api_interface'
 require_dependency 'food_apis/food_apis_helper'
 require 'fatsecret'
+require 'awesome_print'
 
 
 
@@ -10,12 +11,12 @@ class Fsecret < FoodAPIInterface
   end
 
   def search(api_key, query)
-    #data = FatSecret.search_food(query)
-    #data = nil unless (data['foods']['total_results'].to_i > 0)
+    data = FatSecret.search_food(query)
+    data = nil unless (data['foods']['total_results'].to_i > 0)
     (parse_data_search(data, api_key)) unless data.nil?
   end
 
-  def get_item id
+  def get_item(api_id, id)
     data = FatSecret.food(id)
 
     puts data
@@ -56,7 +57,9 @@ class Fsecret < FoodAPIInterface
 
       food = Hash.new
       food["name"] = item["food_name"]
+      food['api_key'] = api_key
       food['object_source_id'] = self.object_id
+      food['item_id'] = item['food_id']
       food["amount"] = tmp[0]
       food["nutritions"] = Hash.new
 
