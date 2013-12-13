@@ -1,7 +1,5 @@
 <h1>Listing line_charts</h1>
 
-<%= @path_length %>
-
 <svg width="<%= @window_width %>" height="<%= @window_height %>" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 
   <!-- x-axis -->
@@ -11,8 +9,7 @@
   <line x1="0" y1="1" x2="0" y2="500" style="stroke: black;"/>
 
   <!-- graph -->
-  <line x1="<%= @start_x %>" y1="<%= @start_y %>" x2="<%= @second_x %>" y2="<%= @second_y %>" style="stroke: black;"/>
-  <line x1="<%= @second_x %>" y1="<%= @second_y %>" x2="<%= @third_x %>" y2="<%= @third_y %>" style="stroke: black;"/>
-  <line x1="<%= @third_x %>" y1="<%= @third_y %>" x2="<%= @fourth_x %>" y2="<%= @fourth_y %>" style="stroke: black;"/>
+  <line x1="<%= @start_x %>" y1="<%= @start_y %>" x2="<%= @draw_x %>" y2="<%= @draw_y %>" style="stroke: black;"/>
+
  </svg>
 
