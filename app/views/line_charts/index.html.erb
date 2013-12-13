@@ -9,7 +9,10 @@
   <line x1="0" y1="1" x2="0" y2="500" style="stroke: black;"/>
 
   <!-- graph -->
-  <line x1="<%= @start_x %>" y1="<%= @start_y %>" x2="<%= @draw_x %>" y2="<%= @draw_y %>" style="stroke: black;"/>
+  <% @values.each do |(name, value), index|%>
+      <line x1="<%= @start_x %>" y1="<%= @start_y %>" x2="<%= @draw_x %>" y2="<%= @draw_y %>" style="stroke: black;"/>
 
+      <p>index:<%= @variable %></p>
+  <% end %>
  </svg>
 
