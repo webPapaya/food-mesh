@@ -27,7 +27,7 @@ class NutritionixAPI < FoodAPIInterface
     (parse_data_search(results_json, api_key)) unless results_json.nil?
   end
 
-  def get_item id
+  def get_item(api_id, id)
     data = @provider.get_item id.to_s #if id is not a string you will receive undefined encoding
     parse_data_item data
   end
