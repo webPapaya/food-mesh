@@ -1,5 +1,7 @@
 Food::Application.routes.draw do
 
+  get 'food/item/:api/:food_id', to: 'food_overviews#show', as: 'get_item'
+
   match "search/results/:query" => "food_overviews#index", :via => [:get]
 
   resources :basic_pages

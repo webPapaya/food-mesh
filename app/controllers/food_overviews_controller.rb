@@ -8,7 +8,9 @@ class FoodOverviewsController < ApplicationController
   end
 
   def show
-    @results = get_item '513fceb375b8dbbc210000e4'
-    puts @results
+    api = params[:api]
+    food_id = params[:food_id]
+
+    @results = get_item food_id
   end
 end
