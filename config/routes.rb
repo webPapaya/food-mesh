@@ -1,6 +1,7 @@
 Food::Application.routes.draw do
 
   resources :line_charts
+  resources 'line_chart'
 
   match "search/results/:query" => "food_overviews#index", :via => [:get]
 
@@ -9,7 +10,6 @@ Food::Application.routes.draw do
   get ':controller(/:action(/:id(.:format)))'
 
   resources 'pie_chart'
-  resources 'line_chart'
   resources 'basic_pages'
   root to: 'basic_pages#show', :id => 1
 
