@@ -7,10 +7,13 @@ class LineChartsController < ApplicationController
     @window_height= 1000
 
     @start_x = 0
-    @start_y = 200
+    @start_y = 500
 
     # assumed values coming from the database
-    @db_value = 500   # example 20 gram of protein
+    @first_db_value = 400   # example 400 calories
+    @second_db_value = 300
+    @fourth_db_value = 100
+
     @data_amount = 6  # example 6 different values from database
 
 
@@ -22,9 +25,11 @@ class LineChartsController < ApplicationController
 
 
     @second_x = @base_line/2
-    @second_y = 500 - @db_value
-    #@third_x = 400
-    #@third_y = 400
+    @second_y = @start_y - @first_db_value
+    @third_x =  @base_line #@base_line/4
+    @third_y =  Math.sqrt((@start_y - @first_db_value - @second_db_value)**2)
+    @fourth_x = @base_line+@base_line/2  #wrong calculatun -> x-values alwas get added
+    @fouth_y = @start_y - @fourth_db_value
   end
 
   def init
