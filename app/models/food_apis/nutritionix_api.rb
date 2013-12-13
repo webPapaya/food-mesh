@@ -1,5 +1,6 @@
 require_dependency 'food_apis/food_api_interface'
 require_dependency 'food_apis/food_apis_helper'
+require 'awesome_print'
 
 require 'nutritionix/api_1_1'
 
@@ -12,7 +13,7 @@ class NutritionixAPI < FoodAPIInterface
     @provider = Nutritionix::Api_1_1.new(@app_id, @app_key)
   end
 
-  def search query
+  def search(api_key, query)
     search_params = {
         offset: 0,
         limit: 2,
@@ -21,15 +22,13 @@ class NutritionixAPI < FoodAPIInterface
     results_json = @provider.nxql_search(search_params)
     results_json = JSON.parse(results_json)
 
-    (parse_data_search results_json) unless results_json.nil?
+
+
+    (parse_data_search(results_json, api_key)) unless results_json.nil?
   end
 
   def get_item id
     data = @provider.get_item id.to_s #if id is not a string you will receive undefined encoding
-
-    puts data
-
-
     parse_data_item data
   end
 
@@ -38,8 +37,6 @@ class NutritionixAPI < FoodAPIInterface
   def parse_data_item data
     food = Hash.new
     food['name'] = data['item_name']
-    food['object_source_id'] = self.object_id
-    food['item_id'] = data['item_id']
     food['nutritions'] = Hash.new
 
     JSON.parse(data).each do |key, ingredient|
@@ -54,12 +51,14 @@ class NutritionixAPI < FoodAPIInterface
 
   # todo
   # find out in which mass the given values are given
-  def parse_data_search data
+  def parse_data_search (data, api_key)
     parsed_data = Array.new
 
     data['hits'].each do |item|
       food = Hash.new
       food['name'] = "#{item['_source']['item_name']} #{item['_source']['brand_name']}"
+      food['api_key'] = api_key
+      food['item_id'] = item['_id']
       food['object_source_id'] = self.object_id
 
       item['_source'].delete('item_name')

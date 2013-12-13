@@ -1,5 +1,5 @@
 class FoodAPIInterface
-  def search (query)
+  def search (api_key, query)
     raise NotImplementedError, "search is not implemented"
   end
 

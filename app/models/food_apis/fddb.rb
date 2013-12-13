@@ -8,19 +8,19 @@ class Fddb < FoodAPIInterface
     @api_key = 'U9H3TXH05S933NMQFMJIL64C'
   end
 
-  def search query
-    params = {
-        :apikey => @api_key,
-        :q => query,
-        :lang => 'de'
-    }
+  def search(api_key, query)
+    #params = {
+    #    :apikey => @api_key,
+    #    :q => query,
+    #    :lang => 'de'
+    #}
+    #
+    ##puts 'http://fddb.info/api/v8/search/item.xml?' + params.to_query
+    #
+    #data = Curl::Easy.http_post('http://fddb.info/api/v8/search/item.xml?' + params.to_query).body_str
 
-    #puts 'http://fddb.info/api/v8/search/item.xml?' + params.to_query
 
-    data = Curl::Easy.http_post('http://fddb.info/api/v8/search/item.xml?' + params.to_query).body_str
-
-
-    (parse_xml data) unless data.nil?
+    (parse_xml data, api_key) unless data.nil?
   end
 
   def get_item id
@@ -36,7 +36,7 @@ class Fddb < FoodAPIInterface
   end
 
   private
-    def parse_xml (data)
+    def parse_xml (data, api_key)
       object = Array.new
       xmlObj = Nokogiri::XML(data)
 
