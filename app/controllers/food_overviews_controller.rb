@@ -10,6 +10,6 @@ class FoodOverviewsController < ApplicationController
   def show
     api_id = params[:api_id].to_i
     food_id = params[:food_id]
-    @results = get_item api_id, food_id
+    @results = get_item(api_id, food_id)
   end
 end
