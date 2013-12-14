@@ -41,8 +41,11 @@ class Fsecret < FoodAPIInterface
     food['item_id'] = item['food_id']
     food['nutritions'] = Hash.new
 
+    ap item['servings']['serving']
+
     item['servings']['serving'].each do |key, ingredient|
       key = I18n.t key, locale: :fatsecret
+      #key = I18n.t key, locale: :fatsecret
       food['nutritions'][key] = ingredient
     end
 
