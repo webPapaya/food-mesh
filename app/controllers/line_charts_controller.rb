@@ -13,7 +13,7 @@ class LineChartsController < ApplicationController
         "value3" => 580,
         "value4" => 580,
         "value5" => 80,
-        "value6" => 200
+        "value6" => 300
     }
 
     # base line of every triangle
@@ -21,16 +21,33 @@ class LineChartsController < ApplicationController
 
     #array = [400, 300, 100,  250, 50,  400]
 
+
+    @start_x = {}
+    #@start_x = Array.new
+    @start_y = {}
+    @draw_x = {}
+    @draw_y = {}
+    #book_list = gets.chomp
+   # books = book_list.split(',')
+
+
     # hash with name of
     @values.each_with_index do|(name, value), index|
 
       logger.debug"#{name}, #{value} => #{index}"
-      logger.debug@start_x = value
-      logger.debug@start_y = value*3
-      logger.debug@draw_x =  @base_line*2
-      logger.debug@draw_y = @start_y - value
+      logger.debug@start_x[index] = value
+      logger.debug@start_y[index] = value*2
+      logger.debug@draw_x[index] =  @base_line*2
+      logger.debug@draw_y[index] = @start_y[index]*2 - value
+    end
+    logger.debug@start_y[0]
+    logger.debug@start_y[0]
+    logger.debug@start_y[0]
+    logger.debug@start_x[1]
+    logger.debug@start_x[3]
 
-
+    @values.each do |d|
+      logger.debug@start_y[d]
     end
 
   end

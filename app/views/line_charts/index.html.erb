@@ -10,7 +10,11 @@
 
   <!-- graph -->
   <% @values.each do |(name, value), index|%>
-      <line x1="<%= @start_x %>" y1="<%= @start_y %>" x2="<%= @draw_x %>" y2="<%= @draw_y %>" style="stroke: black;"/>
+      <line x1="<%=@start_x[0] %>" y1="<%= @start_y[0] %>" x2="<%= @draw_x[index] %>" y2="<%= @draw_y[index] %>" style="stroke: black;"/>
+      <p> <%= puts @start_x[index]%></p>
+      <p> <%= puts @start_y[index]%></p>
+      <p> <%= puts @draw_x[index]%></p>
+      <p> <%= puts @draw_x[index]%></p>
   <% end %>
  </svg>
 
