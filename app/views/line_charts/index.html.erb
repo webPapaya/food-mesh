@@ -11,8 +11,6 @@
   <!-- graph -->
   <% @values.each do |(name, value), index|%>
       <line x1="<%= @start_x %>" y1="<%= @start_y %>" x2="<%= @draw_x %>" y2="<%= @draw_y %>" style="stroke: black;"/>
-
-      <p>index:<%= @variable %></p>
   <% end %>
  </svg>
 

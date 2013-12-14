@@ -4,8 +4,8 @@ class LineChartsController < ApplicationController
     @window_width= 1000
     @window_height = 1000
 
-    @start_x = 0
-    @start_y = 500
+    #@start_x = 0
+    #@start_y = 500
 
     @values = {
         "value1" => 200,
@@ -16,7 +16,6 @@ class LineChartsController < ApplicationController
         "value6" => 200
     }
 
-
     # base line of every triangle
     @base_line = @window_width/@values.length
 
@@ -25,9 +24,12 @@ class LineChartsController < ApplicationController
     # hash with name of
     @values.each_with_index do|(name, value), index|
 
-      @draw_x =  @base_line*2
-      @draw_y = @start_y - value
-      @variable = "#{value} => #{index}"
+      logger.debug"#{name}, #{value} => #{index}"
+      logger.debug@start_x = value
+      logger.debug@start_y = value*3
+      logger.debug@draw_x =  @base_line*2
+      logger.debug@draw_y = @start_y - value
+
 
     end
 
