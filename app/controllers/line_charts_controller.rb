@@ -8,16 +8,16 @@ class LineChartsController < ApplicationController
     #@start_y = 900
 
     @values = {
-        "value1" => 0,
-        "value2" => 400,
-        "value3" => 0,
-        "value4" => 400,
-        "value5" => 0,
-        "value6" => 400,
-        "value7" => 0,
-        "value8" => 400,
-        "value9" => 0,
-        "value10" => 400
+        "value1" => 400,
+        "value2" => 300,
+        "value3" => 290,
+        "value4" => 200,
+        "value5" => 310,
+        "value6" => 390,
+        "value7" => 250,
+        "value8" => 300,
+        "value9" => 290,
+        "value10" => 500
     }
 
     # base line of every triangle

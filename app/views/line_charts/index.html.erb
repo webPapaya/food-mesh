@@ -7,7 +7,7 @@
   <!-- graph -->
   <% @values.each_with_index do |(name, value), index|%>
 
-      <line x1="<%=@x1[index] %>" y1="<%= @y1[index] %>" x2="<%= @x2[index] %>" y2="<%= @y2[index] %>" style="stroke: black;"/>
+     <line x1="<%=@x1[index] %>" y1="<%= @y1[index] %>" x2="<%= @x2[index] %>" y2="<%= @y2[index] %>" stroke-width="4" style="stroke: #00BD97 ;"/>
      <!-- <path id="lineAB" d="M <%=@x1[index] %> <%= @y1[index] %> l <%= @x2[index] %> <%= @y2[index] %>" stroke="red" stroke-width="3" fill="none" /> -->
   <% end %>
  </svg>
