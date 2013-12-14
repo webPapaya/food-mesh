@@ -75,7 +75,7 @@ gem 'thin' #webserver which we will use instead of webrick
 
 
 # gem for missing translations: github.com/svenfuchs/i18n-missing_translations
-#gem "i18n-missing_translations"
+gem "i18n-missing_translations"
 
 
 
