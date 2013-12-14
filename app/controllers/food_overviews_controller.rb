@@ -12,4 +12,8 @@ class FoodOverviewsController < ApplicationController
     food_id = params[:food_id]
     @results = get_item(api_id, food_id)
   end
+
+  def redirect_to_index
+    redirect_to :controller => 'food_overviews', :action => 'index', :query => params[:query]
+  end
 end

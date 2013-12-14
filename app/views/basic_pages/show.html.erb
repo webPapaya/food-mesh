@@ -6,9 +6,8 @@
           <img src="http://placehold.it/300x160">
         </h1>
       </header>
-      form_for @feedback, :url => url_for(:controller => 'feedbacks', :action => 'leave_seller_feedback')
 
-      <%= form_for('search/results/', :url => url_for(:controller => 'food_overviews', :action => 'index'),  method: "get") do %>
+      <%= form_for('search/results/', :url => url_for(:controller => 'food_overviews', :action => 'redirect_to_index'),  method: "get") do %>
       <!--<form id="search" class="container row">-->
         <div class="col span_11">
             <%= text_field_tag :query %>
