@@ -3,3 +3,16 @@ fatsecret:
   calories: Calories
   carbohydrate: Carbohydrate
   serving_description: Serving Description
+  carbs: Carbs
+nutritionix:
+  serving_weight_grams: Serving Weight Grams
+  iron_dv: Iron Dv
+  serving_size_qty: Serving Size Qty
+  total_carbohydrate: Total Carbohydrate
+  protein: Protein
+  calories: Calories
+  water_grams: Water Grams
+  calcium_dv: Calcium Dv
+  sodium: Sodium
+  serving_size_unit: Serving Size Unit
+  sugars: Sugars

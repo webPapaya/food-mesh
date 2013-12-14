@@ -1,9 +1,10 @@
 module FoodAPIsHelper
   ##translations
   def translate_key key, local
-    key.downcase
-    key = I18n.t key, locale: local
+    translation = key.downcase
+    translation.slice! 'nf_'
+    translation = I18n.t translation, locale: local
 
-    key
+    translation
   end
 end
