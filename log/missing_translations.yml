@@ -4,6 +4,7 @@ fatsecret:
   carbohydrate: Carbohydrate
   serving_description: Serving Description
   carbs: Carbs
+  Calories: Calories
 nutritionix:
   serving_weight_grams: Serving Weight Grams
   iron_dv: Iron Dv
@@ -16,3 +17,11 @@ nutritionix:
   sodium: Sodium
   serving_size_unit: Serving Size Unit
   sugars: Sugars
+  nf_ingredient_statement: Nf Ingredient Statement
+  nf_sugars: Nf Sugars
+  nf_total_carbohydrate: Nf Total Carbohydrate
+  nf_calories: Nf Calories
+  nf_serving_size_qty: Nf Serving Size Qty
+  nf_serving_size_unit: Nf Serving Size Unit
+  nf_sodium: Nf Sodium
+  nf_servings_per_container: Nf Servings Per Container
