@@ -1,5 +1,5 @@
 require_dependency 'food_apis/food_api_interface'
-require_dependency 'food_apis/food_apis_helper'
+
 require 'fatsecret'
 require 'awesome_print'
 
@@ -32,6 +32,7 @@ class Fsecret < FoodAPIInterface
   #
 
   private
+
   def parse_data_item (data)
     item = data['food']
 
@@ -41,7 +42,6 @@ class Fsecret < FoodAPIInterface
     food['item_id'] = item['food_id']
     food['nutritions'] = Hash.new
 
-    ap item['servings']['serving']
 
     item['servings']['serving'].each do |key, ingredient|
       key = I18n.t key, locale: :fatsecret
@@ -69,7 +69,7 @@ class Fsecret < FoodAPIInterface
       ingredients = desc.split(" | ")
       ingredients.each do |ingredient|
         tmp = ingredient.split(": ")
-        key = I18n.t tmp[0], locale: :fatsecret
+        key = translate_key tmp[0], :fatsecret
         food["nutritions"][key] = tmp[1]
       end
       parsed_data.push(food)

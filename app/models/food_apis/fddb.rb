@@ -1,5 +1,4 @@
 require_dependency 'food_apis/food_api_interface'
-require_dependency 'food_apis/food_apis_helper'
 require 'nokogiri'
 
 
@@ -34,6 +33,7 @@ class Fddb < FoodAPIInterface
   end
 
   private
+
     def parse_xml (api_id, data)
       object = Array.new
       xmlObj = Nokogiri::XML(data)
@@ -59,7 +59,7 @@ class Fddb < FoodAPIInterface
         food_item['nutritions'] = Hash.new
         item.xpath("./data/*").each do |ingredient|
 
-          key = I18n.t ingredient.name, locale: :fddb
+          key = translate_key ingredient.name, :fddb
           food_item['nutritions'][key] = ingredient.content
         end
         object.push(food_item)

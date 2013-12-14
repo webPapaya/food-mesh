@@ -68,8 +68,7 @@ class NutritionixAPI < FoodAPIInterface
 
       item['_source'].each do |key, ingredients|
           if is_valid_pair? key, ingredients
-
-            key = I18n.t key, locale: :nutritionix
+            key = translate_key key, :nutritionix
             food['nutritions'][key] = ingredients
           end
       end
