@@ -25,3 +25,8 @@ nutritionix:
   nf_serving_size_unit: Nf Serving Size Unit
   nf_sodium: Nf Sodium
   nf_servings_per_container: Nf Servings Per Container
+  nf_water_grams: Nf Water Grams
+  nf_protein: Nf Protein
+  nf_calcium_dv: Nf Calcium Dv
+  nf_iron_dv: Nf Iron Dv
+  nf_serving_weight_grams: Nf Serving Weight Grams

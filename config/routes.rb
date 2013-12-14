@@ -3,6 +3,9 @@ Food::Application.routes.draw do
   get 'food/item/:api_id/:food_id', to: 'food_overviews#show', as: 'get_item'
 
 
+  get 'basket/add/item/:api_id/:food_id', to: 'food_overviews#add_item_to_basket'
+
+
   match "search/results/:query" => "food_overviews#index", :via => [:get], as: 'search_result'
 
   resources :basic_pages

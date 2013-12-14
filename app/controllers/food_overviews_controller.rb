@@ -16,4 +16,15 @@ class FoodOverviewsController < ApplicationController
   def redirect_to_index
     redirect_to :controller => 'food_overviews', :action => 'index', :query => params[:query]
   end
+
+  def add_item_to_basket
+    item = {
+        :item_id => params[:food_id],
+        :api_id => params[:api_id]
+    }
+
+    user_session.add_item_to_basket item
+
+    redirect_to :back
+  end
 end
