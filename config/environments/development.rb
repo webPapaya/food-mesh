@@ -1,3 +1,5 @@
+require 'i18n/missing_translations'
+
 Food::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -28,6 +30,10 @@ Food::Application.configure do
   config.assets.debug = true
 
   config.reload_classes_only_on_change = false
+
+  config.app_middleware.use(I18n::MissingTranslations, 'log/missing_translations.yml') if Rails.env.development?
+
+
 
   #
   #ActiveSupport::Dependencies.autoload_paths << File::join( Rails.root, 'lib')

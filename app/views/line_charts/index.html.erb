@@ -2,21 +2,22 @@
 
 <svg width="<%= @window_width %>" height="<%= @window_height %>" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 
-  <!-- x-axis -->
-  <line x1="0" y1="500" x2="9000" y2="500" style="stroke: black;"/>
 
-  <!-- y-axis -->
-  <line x1="0" y1="1" x2="0" y2="500" style="stroke: black;"/>
 
   <!-- graph -->
   <% @values.each_with_index do |(name, value), index|%>
-      <line x1="<%=@start_x[index] %>" y1="<%= @start_y[index] %>" x2="<%= @draw_x[index] %>" y2="<%= @draw_y[0] %>" style="stroke: black;"/>
-      <p> <%= index %></p>
-      <p> <%= @start_x[index]%></p>
-      <p> <%= @start_y[index]%></p>
-      <p> <%= @draw_x[index]%></p>
-      <p> <%= @draw_y[index]%></p>
 
+      <line x1="<%=@x1[index] %>" y1="<%= @y1[index] %>" x2="<%= @x2[index] %>" y2="<%= @y2[index] %>" style="stroke: black;"/>
+     <path id="lineAB" d="M 100 350 l 150 -300" stroke="red" stroke-width="3" fill="none" />
+     <path id="lineBC" d="M 250 50 l 150 300" stroke="red" stroke-width="3" fill="none" />
   <% end %>
  </svg>
+
+<% @values.each_with_index do |(name, value), index|%>
+    <p>index: <%= index %></p>
+    <p>x1: <%= @x1[index]%></p>
+    <p>y1: <%= @y1[index]%></p>
+    <p>x2: <%= @x2[index]%></p>
+    <p>y2: <%= @y2[index]%></p>
+<% end %>
 

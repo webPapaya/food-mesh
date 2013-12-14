@@ -1,11 +1,12 @@
 Food::Application.routes.draw do
 
-  resources :line_charts
-  resources 'line_chart'
+  get 'food/item/:api_id/:food_id', to: 'food_overviews#show', as: 'get_item'
 
-  match "search/results/:query" => "food_overviews#index", :via => [:get]
+
+  match "search/results/:query" => "food_overviews#index", :via => [:get], as: 'search_result'
 
   resources :basic_pages
+  resources :line_charts
 
   get ':controller(/:action(/:id(.:format)))'
 

@@ -29,6 +29,7 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
 
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -70,5 +71,11 @@ gem 'nutritionix'
 gem 'awesome_print'
 
 gem 'thin' #webserver which we will use instead of webrick
+
+
+
+# gem for missing translations: github.com/svenfuchs/i18n-missing_translations
+gem "i18n-missing_translations"
+
 
 

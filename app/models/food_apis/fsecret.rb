@@ -1,6 +1,7 @@
 require_dependency 'food_apis/food_api_interface'
-require_dependency 'food_apis/food_apis_helper'
+
 require 'fatsecret'
+require 'awesome_print'
 
 
 
@@ -9,10 +10,21 @@ class Fsecret < FoodAPIInterface
     FatSecret.init('e2310b092c9f4acbb43657f59c242245', '3d0cc9b6114741bbbfe6c2510e8913c3')
   end
 
-  def search query
+  def search(api_key, query)
     data = FatSecret.search_food(query)
     data = nil unless (data['foods']['total_results'].to_i > 0)
-    (parse_data(data)) unless data.nil?
+    (parse_data_search(data, api_key)) unless data.nil?
+  end
+
+  def get_item(api_id, id)
+    data = FatSecret.food(id)
+
+    puts data
+
+    #data = nil unless (!data['error'].nil?)
+
+
+    (parse_data_item(data)) unless data.nil?
   end
 
   ##
@@ -20,7 +32,27 @@ class Fsecret < FoodAPIInterface
   #
 
   private
-  def parse_data data
+
+  def parse_data_item (data)
+    item = data['food']
+
+    food = Hash.new
+    food['name'] = item['food_name']
+    food['object_source_id'] = self.object_id
+    food['item_id'] = item['food_id']
+    food['nutritions'] = Hash.new
+
+
+    item['servings']['serving'].each do |key, ingredient|
+      key = I18n.t key, locale: :fatsecret
+      #key = I18n.t key, locale: :fatsecret
+      food['nutritions'][key] = ingredient
+    end
+
+    [food]
+  end
+
+  def parse_data_search(data, api_key)
     parsed_data = []
     data["foods"]["food"].each do |item|
       tmp = item["food_description"].split(" - ")
@@ -28,14 +60,16 @@ class Fsecret < FoodAPIInterface
 
       food = Hash.new
       food["name"] = item["food_name"]
+      food['api_key'] = api_key
       food['object_source_id'] = self.object_id
+      food['item_id'] = item['food_id']
       food["amount"] = tmp[0]
       food["nutritions"] = Hash.new
 
       ingredients = desc.split(" | ")
       ingredients.each do |ingredient|
         tmp = ingredient.split(": ")
-        key = I18n.t tmp[0], locale: :fatsecret
+        key = translate_key tmp[0], :fatsecret
         food["nutritions"][key] = tmp[1]
       end
       parsed_data.push(food)

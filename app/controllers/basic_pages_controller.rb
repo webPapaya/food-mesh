@@ -12,6 +12,11 @@ class BasicPagesController < ApplicationController
   def show
   end
 
+  def redirect_to_search_result
+    redirect_to :search_result_path, :query => params['query']
+  end
+
+
   # GET /basic_pages/new
   def new
     @basic_page = BasicPage.new
