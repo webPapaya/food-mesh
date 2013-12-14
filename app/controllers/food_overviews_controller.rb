@@ -28,8 +28,7 @@ class FoodOverviewsController < ApplicationController
     user_session.add_item_to_basket item
 
     respond_to do |format|
-      format.html { redirect_to :back }
-      format.js
+      format.js { redirect_to :back }
     end
   end
 end
