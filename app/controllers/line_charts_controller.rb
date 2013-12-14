@@ -36,19 +36,14 @@ class LineChartsController < ApplicationController
 
       logger.debug"#{name}, #{value} => #{index}"
       logger.debug@start_x[index] = value
-      logger.debug@start_y[index] = value*2
-      logger.debug@draw_x[index] =  @base_line*2
-      logger.debug@draw_y[index] = @start_y[index]*2 - value
+      logger.debug@start_y[index] = value
+      logger.debug@draw_x[index] =  @base_line
+      logger.debug@draw_y[index] = @start_y
     end
     logger.debug@start_y[0]
     logger.debug@start_y[0]
     logger.debug@start_y[0]
     logger.debug@start_x[1]
     logger.debug@start_x[3]
-
-    @values.each do |d|
-      logger.debug@start_y[d]
-    end
-
   end
 end
