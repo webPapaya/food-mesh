@@ -24,6 +24,8 @@ nutritionix:
   amount:                   "amount"
   amount_mesureing_sytem:   "mass"
   aggregate_state:          "aggregate_state"
+  nf_serving_weight:        "portion"
+  nf_serving_weight_uom:    "uom" #unit of measurement
   kj:                       "kj"
   kcal:                     "kcal"
   fat_gram:                 "fat"
