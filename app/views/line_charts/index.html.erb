@@ -8,8 +8,7 @@
   <% @values.each_with_index do |(name, value), index|%>
 
       <line x1="<%=@x1[index] %>" y1="<%= @y1[index] %>" x2="<%= @x2[index] %>" y2="<%= @y2[index] %>" style="stroke: black;"/>
-     <path id="lineAB" d="M 100 350 l 150 -300" stroke="red" stroke-width="3" fill="none" />
-     <path id="lineBC" d="M 250 50 l 150 300" stroke="red" stroke-width="3" fill="none" />
+     <!-- <path id="lineAB" d="M <%=@x1[index] %> <%= @y1[index] %> l <%= @x2[index] %> <%= @y2[index] %>" stroke="red" stroke-width="3" fill="none" /> -->
   <% end %>
  </svg>
 
