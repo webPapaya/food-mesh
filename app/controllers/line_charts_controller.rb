@@ -9,15 +9,15 @@ class LineChartsController < ApplicationController
 
     @values = {
         "value1" => 100,
-        "value2" => 100,
-        "value3" => 290,
-        "value4" => 200,
+        "value2" => 200,
+        "value3" => 490,
+        "value4" => 300,
         "value5" => 310,
         "value6" => 390,
         "value7" => 250,
         "value8" => 300,
         "value9" => 290,
-        "value10" => 500
+        "value10" => 100
     }
 
     @values2 = {
@@ -53,15 +53,15 @@ class LineChartsController < ApplicationController
 
       logger.debug"#{name}, #{value} => #{index}"
 
-      logger.debug@x2[index] =  (@base_line) * (index)
-      logger.debug@y2[index] = @window_height - value
+      logger.debug@x2[index + 1] =  (@base_line) * (index)
+      logger.debug@y2[index + 1] = @window_height - value
 
       if index == 0
         logger.debug@x1[index] = 0
         logger.debug@y1[index] =  @window_height - value
       else
-        logger.debug@x1[index] = @x2[index - 1]
-        logger.debug@y1[index] = @y2[index - 1]
+        logger.debug@x1[index] = @x2[index + 1]
+        logger.debug@y1[index] = @y2[index + 1]
 
       end
     end
@@ -80,15 +80,15 @@ class LineChartsController < ApplicationController
 
       logger.debug"#{name}, #{value} => #{index}"
 
-      logger.debug@x_2[index] =  (@base_line) * (index)
-      logger.debug@y_2[index] = @window_height - value
+      logger.debug@x_2[index + 1] =  (@base_line) * (index)
+      logger.debug@y_2[index + 1] = @window_height - value
 
       if index == 0
         logger.debug@x_1[index] = 0
         logger.debug@y_1[index] =  @window_height - value
       else
-        logger.debug@x_1[index] = @x_2[index - 1]
-        logger.debug@y_1[index] = @y_2[index - 1]
+        logger.debug@x_1[index] = @x_2[index + 1]
+        logger.debug@y_1[index] = @y_2[index + 1]
 
       end
     end
