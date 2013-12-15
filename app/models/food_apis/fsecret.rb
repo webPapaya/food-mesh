@@ -54,11 +54,8 @@ class Fsecret < FoodAPIInterface
   def parse_data_search(data, api_key)
     parsed_data = []
     data["foods"]["food"].each do |item|
-
       food = create_item_header_information item, api_key
-
       tmp = item['food_description'].split(' - ')
-
       food[:amount] = tmp[0]
 
       ingredients = tmp[1].split(' | ')

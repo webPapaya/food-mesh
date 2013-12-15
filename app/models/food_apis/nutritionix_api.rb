@@ -26,22 +26,24 @@ class NutritionixAPI < FoodAPIInterface
     (parse_data_search(results_json, api_key)) unless results_json.nil?
   end
 
-  def get_item(api_id, id)
+  def get_item(api_key, id)
     data = @provider.get_item id.to_s #if id is not a string you will receive undefined encoding
-    parse_data_item data
+    parse_data_item data, api_key
   end
 
   private
-
-  def parse_data_item data
-    food = Hash.new
-    food['name'] = data['item_name']
-    food['nutritions'] = Hash.new
+  def parse_data_item (item, api_key)
+    food = create_food_item_structure ({
+        :name => "#{item['item_name']} #{item['brand_name']}",
+        :api_key => api_key,
+        :item_id => item['_id'],
+        :object_source_id => self.object_id
+    })
 
     JSON.parse(data).each do |key, ingredient|
       if is_valid_pair? key, ingredient
-        key = I18n.t key, locale: :nutritionix
-        food['nutritions'][key] = ingredient
+        key = translate_key key, :nutritionix
+        food[:nutritions][key] = ingredient
       end
     end
 
@@ -74,6 +76,8 @@ class NutritionixAPI < FoodAPIInterface
     end
     parsed_data
   end
+
+
 
   # checks a given pair on following things
   # starts key with nf_ (for nutrition information)
