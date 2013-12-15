@@ -36,15 +36,16 @@ class Fddb < FoodAPIInterface
 
     def parse_xml (api_id, data)
       object = Array.new
-      xmlObj = Nokogiri::XML(data)
+      xml_obj = Nokogiri::XML(data)
 
-      xmlObj.xpath("//item/data//*[not(text())]").remove #remove all empty nodes
-      xmlObj.xpath("//item").each do |item|
-        food_item = Hash.new
-        food_item['name'] = item.xpath("./description/name")[0].content
-        food_item['api_key'] = api_id
-        food_item['object_source_id'] = self.object_id
-        food_item['item_id'] = item.xpath("./id")[0].content
+      xml_obj.xpath("//item/data//*[not(text())]").remove #remove all empty nodes
+      xml_obj.xpath("//item").each do |item|
+        food_item = create_food_item_structure ({
+          :name => item.xpath("./description/name")[0].content,
+          :api_key => api_id,
+          :item_id => item.xpath("./id")[0].content,
+          :object_source_id => self.object_id
+        })
 
         amount = item.xpath("./data/amount")
         amount_mesureing_sytem = item.xpath("./data/amount_measuring_system")
@@ -55,13 +56,13 @@ class Fddb < FoodAPIInterface
         amount.remove
         amount_mesureing_sytem.remove
 
-        #loop through nutrition data
-        food_item['nutritions'] = Hash.new
         item.xpath("./data/*").each do |ingredient|
-
           key = translate_key ingredient.name, :fddb
-          food_item['nutritions'][key] = ingredient.content
+          food_item[:nutritions][key] = ingredient.content
         end
+
+        ap food_item
+
         object.push(food_item)
       end
 
