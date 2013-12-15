@@ -67,7 +67,7 @@ class LineChartsController < ApplicationController
     end
   end
 
-  def draw_line(values)
+  def draw_line2(values)
     @base_line = @window_width/@values.length
 
     @x_1 = {}
@@ -89,33 +89,6 @@ class LineChartsController < ApplicationController
       else
         logger.debug@x_1[index] = @x_2[index - 1]
         logger.debug@y_1[index] = @y_2[index - 1]
-
-      end
-    end
-  end
-
-  def draw_line2(values)
-    @base_line = @window_width/@values.length
-
-    @x1 = {}
-    @y1 = {}
-    @x2 = {}
-    @y2 = {}
-
-    # hash with name of ingedient, amount and index
-    values.each_with_index do|(name, value), index|
-
-      logger.debug"#{name}, #{value} => #{index}"
-
-      logger.debug@x2[index] =  (@base_line) * (index)
-      logger.debug@y2[index] = @window_height - value
-
-      if index == 0
-        logger.debug@x1[index] = 0
-        logger.debug@y1[index] =  @window_height - value
-      else
-        logger.debug@x1[index] = @x2[index - 1]
-        logger.debug@y1[index] = @y2[index - 1]
 
       end
     end
