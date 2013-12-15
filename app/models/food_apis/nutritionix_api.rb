@@ -51,13 +51,20 @@ class NutritionixAPI < FoodAPIInterface
         :name => "#{item['_source']['item_name']} #{item['_source']['brand_name']}",
         :api_key => api_key,
         :item_id => item['_id'],
-        :object_source_id => self.object_id
+        :object_source_id => self.object_id,
+        :serving_weight => {
+            :unit => 'g',
+            :value => item['_source']['nf_serving_weight_grams']
+        }
       })
 
       item['_source'].delete('item_name')
       item['_source'].delete('brand_name')
 
-      food[:nutritions] = parse_single_item item['_source']
+      food[:nutritions] = parse_single_item item['_source'], food[:serving_weight]
+
+      ap food
+
       parsed_data.push(food)
     end
     parsed_data
@@ -66,12 +73,13 @@ class NutritionixAPI < FoodAPIInterface
   ##
   # parses the nutrition data from a single item and translates the key
   # @param source - source array of elements
-  def parse_single_item(source)
+  def parse_single_item(source, serving_weight)
     nutrition_elements = {}
     source.each do |key, ingredients|
        if is_valid_pair? key, ingredients
          key = translate_key key, :nutritionix
-         nutrition_elements[key] = ingredients
+
+         nutrition_elements[key] = base_nutrition_information ingredients, serving_weight
        end
     end
     nutrition_elements
