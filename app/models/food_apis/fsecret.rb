@@ -16,15 +16,12 @@ class Fsecret < FoodAPIInterface
     (parse_data_search(data, api_key)) unless data.nil?
   end
 
-  def get_item(api_id, id)
+  def get_item(api_key, id)
     data = FatSecret.food(id)
-
-    puts data
 
     #data = nil unless (!data['error'].nil?)
 
-
-    (parse_data_item(data)) unless data.nil?
+    (parse_data_item(data, api_key)) unless data.nil?
   end
 
   ##
@@ -32,21 +29,23 @@ class Fsecret < FoodAPIInterface
   #
 
   private
+  def create_item_header_information(item, api_key)
+    create_food_item_structure({
+      :name => item['food_name'],
+      :api_key => api_key,
+      :item_id => item['food_id'],
+      :object_source_id => self.object_id
+    })
+  end
 
-  def parse_data_item (data)
+  def parse_data_item (data, api_key)
     item = data['food']
 
-    food = Hash.new
-    food['name'] = item['food_name']
-    food['object_source_id'] = self.object_id
-    food['item_id'] = item['food_id']
-    food['nutritions'] = Hash.new
-
+    food = create_item_header_information item, api_key
 
     item['servings']['serving'].each do |key, ingredient|
-      key = I18n.t key, locale: :fatsecret
-      #key = I18n.t key, locale: :fatsecret
-      food['nutritions'][key] = ingredient
+      key = translate_key key, :fatsecret
+      food[:nutritions][key] = ingredient
     end
 
     [food]
@@ -55,19 +54,14 @@ class Fsecret < FoodAPIInterface
   def parse_data_search(data, api_key)
     parsed_data = []
     data["foods"]["food"].each do |item|
-      tmp = item['food_description'].split(' - ')
-      desc = tmp[1]
 
-      food = create_food_item_structure({
-        :name => item["food_name"],
-        :api_key => api_key,
-        :item_id => item['food_id'],
-        :object_source_id => self.object_id
-      })
+      food = create_item_header_information item, api_key
+
+      tmp = item['food_description'].split(' - ')
 
       food[:amount] = tmp[0]
 
-      ingredients = desc.split(" | ")
+      ingredients = tmp[1].split(' | ')
       ingredients.each do |ingredient|
         tmp = ingredient.split(": ")
         key = translate_key tmp[0], :fatsecret
