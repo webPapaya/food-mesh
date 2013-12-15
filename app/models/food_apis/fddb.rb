@@ -33,6 +33,8 @@ class Fddb < FoodAPIInterface
 
   private
     def parse_xml (api_id, data)
+
+
       object = Array.new
       xml_obj = Nokogiri::XML(data)
 
@@ -42,21 +44,18 @@ class Fddb < FoodAPIInterface
           :name => item.xpath("./description/name")[0].content,
           :api_key => api_id,
           :item_id => item.xpath("./id")[0].content,
-          :object_source_id => self.object_id
+          :object_source_id => self.object_id,
+          :serving_weight => {
+              :unit => item.xpath("./data/amount_measuring_system")[0].content,
+              :value => item.xpath("./data/amount")[0].content
+          }
         })
-
-        amount = item.xpath("./data/amount")
-        amount_mesureing_sytem = item.xpath("./data/amount_measuring_system")
-        food_item['amount'] = amount[0].content
-        food_item['amount_mesureing_sytem'] = amount_mesureing_sytem[0].content
-
-        #remove mesuring_sytem from node list
-        amount.remove
-        amount_mesureing_sytem.remove
 
         item.xpath("./data/*").each do |ingredient|
           key = translate_key ingredient.name, :fddb
-          food_item[:nutritions][key] = ingredient.content
+          value = ingredient.content
+          continue unless ((!value.is_a? Integer) or (!value.is_a? Float))
+          food_item[:nutritions][key] = base_nutrition_information value, food_item[:serving_weight]
         end
 
         object.push(food_item)

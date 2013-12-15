@@ -63,8 +63,6 @@ class NutritionixAPI < FoodAPIInterface
 
       food[:nutritions] = parse_single_item item['_source'], food[:serving_weight]
 
-      ap food
-
       parsed_data.push(food)
     end
     parsed_data
