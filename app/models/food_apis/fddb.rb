@@ -1,7 +1,6 @@
 require_dependency 'food_apis/food_api_interface'
 require 'nokogiri'
 
-
 class Fddb < FoodAPIInterface
   def initialize
     @api_key = 'U9H3TXH05S933NMQFMJIL64C'
@@ -33,7 +32,6 @@ class Fddb < FoodAPIInterface
   end
 
   private
-
     def parse_xml (api_id, data)
       object = Array.new
       xml_obj = Nokogiri::XML(data)

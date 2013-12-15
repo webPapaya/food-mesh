@@ -1,6 +1,5 @@
 require_dependency 'food_apis/food_api_interface'
 require 'awesome_print'
-
 require 'nutritionix/api_1_1'
 
 
@@ -64,7 +63,10 @@ class NutritionixAPI < FoodAPIInterface
     parsed_data
   end
 
-  def parse_single_item source
+  ##
+  # parses the nutrition data from a single item and translates the key
+  # @param source - source array of elements
+  def parse_single_item(source)
     nutrition_elements = {}
     source.each do |key, ingredients|
        if is_valid_pair? key, ingredients
