@@ -8,29 +8,29 @@ class LineChartsController < ApplicationController
     #@start_y = 900
 
     @values = {
-        "value1" => 100,
-        "value2" => 200,
-        "value3" => 490,
-        "value4" => 300,
-        "value5" => 310,
-        "value6" => 390,
-        "value7" => 250,
-        "value8" => 300,
-        "value9" => 290,
-        "value10" => 100
+        "fat" => 100,
+        "calories" => 200,
+        "protein" => 490,
+        "calcium" => 300,
+        "sugar" => 310,
+        "water" => 390,
+        "alcohol" => 250,
+        "vitamin_c" => 300,
+        "vitamin_a" => 290,
+        "iron" => 300,
     }
 
     @values2 = {
-        "value1" => 300,
-        "value2" => 440,
-        "value3" => 190,
-        "value4" => 350,
-        "value5" => 210,
-        "value6" => 290,
-        "value7" => 190,
-        "value8" => 200,
-        "value9" => 390,
-        "value10" => 100
+        "fat" => 300,
+        "calories" => 440,
+        "protein" => 190,
+        "calcium" => 350,
+        "sugar" => 210,
+        "water" => 290,
+        "alcohol" => 190,
+        "vitamin_c" => 200,
+        "vitamin_a" => 390,
+        "iron" => 100,
     }
 
 
