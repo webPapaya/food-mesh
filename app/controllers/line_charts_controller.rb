@@ -20,7 +20,29 @@ class LineChartsController < ApplicationController
         "value10" => 500
     }
 
+    @values2 = {
+        "value1" => 300,
+        "value2" => 440,
+        "value3" => 190,
+        "value4" => 350,
+        "value5" => 210,
+        "value6" => 290,
+        "value7" => 190,
+        "value8" => 200,
+        "value9" => 390,
+        "value10" => 100
+    }
+
+
+    draw_line(@values)
+    #draw_line(@values2)
+
     # base line of every triangle
+
+  end
+
+
+  def draw_line(values)
     @base_line = @window_width/@values.length
 
     @x1 = {}
@@ -28,9 +50,8 @@ class LineChartsController < ApplicationController
     @x2 = {}
     @y2 = {}
 
-
-    # hash with name of
-    @values.each_with_index do|(name, value), index|
+    # hash with name of ingedient, amount and index
+    values.each_with_index do|(name, value), index|
 
       logger.debug"#{name}, #{value} => #{index}"
 
