@@ -8,9 +8,9 @@
   <% for i in 0..1%> <!-- later: foreach of the value hashes -->
       <% if i == 0 %>
         <% @values.each_with_index do |(name, value), index|%>
-            <line x1="<%=@x1[index] %>" y1="<%= @y1[index] %>" x2="<%= @x2[index] %>" y2="<%= @y2[index] %>" stroke-linecap="round" stroke-width="4" style="stroke: #00BD97 ;"/>
-              <text x="<%=@x1[index] %>" y="<%= @y1[index] %>"><%= name %></text>
-            <!-- <path id="lineAB" d="M <%=@x1[index] %> <%= @y1[index] %> l <%= @x2[index] %> <%= @y2[index] %>" stroke="red" stroke-width="3" fill="none" /> -->
+           <!-- <line x1="<%=@x1[index] %>" y1="<%= @y1[index] %>" x2="<%= @x2[index] %>" y2="<%= @y2[index] %>" stroke-linecap="round" stroke-width="4" style="stroke: #00BD97 ;"/>  -->
+            <path id="lineAB" d="M <%=@x1[index] %> <%= @y1[index] %> L <%= @x2[index] %> <%= @y2[index] %>" stroke-linecap="round" stroke="#00BD97" stroke-width="3" fill="none" />
+            <text x="<%=@x1[index] %>" y="<%= @y1[index] %>"><%= name %></text>
         <%end%>
       <%else%>
           <% @values2.each_with_index do |(name, value), index|%>
@@ -19,14 +19,3 @@
       <%end%>
   <% end %>
 </svg>
-
-<% @values.each_with_index do |(name, value), index|%>
-    <p id="ingredient"> <%= name %></p>
-<% end %>
-
-<style>
-  #ingredient{
-      float: center-align;
-
-  }
-</style>

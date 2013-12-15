@@ -8,8 +8,8 @@ class LineChartsController < ApplicationController
     #@start_y = 900
 
     @values = {
-        "value1" => 400,
-        "value2" => 300,
+        "value1" => 100,
+        "value2" => 100,
         "value3" => 290,
         "value4" => 200,
         "value5" => 310,
