@@ -61,8 +61,6 @@ class Fddb < FoodAPIInterface
           food_item[:nutritions][key] = ingredient.content
         end
 
-        ap food_item
-
         object.push(food_item)
       end
 
