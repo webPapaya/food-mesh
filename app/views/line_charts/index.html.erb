@@ -5,12 +5,19 @@
 
 
   <!-- graph -->
-  <% @values.each_with_index do |(name, value), index|%>
-
-     <line x1="<%=@x1[index] %>" y1="<%= @y1[index] %>" x2="<%= @x2[index] %>" y2="<%= @y2[index] %>" stroke-linecap="round" stroke-width="4" style="stroke: #00BD97 ;"/>
-     <!-- <path id="lineAB" d="M <%=@x1[index] %> <%= @y1[index] %> l <%= @x2[index] %> <%= @y2[index] %>" stroke="red" stroke-width="3" fill="none" /> -->
+  <% for i in 0..1%> <!-- later: foreach of the value hashes -->
+      <% if i == 0 %>
+        <% @values.each_with_index do |(name, value), index|%>
+            <line x1="<%=@x1[index] %>" y1="<%= @y1[index] %>" x2="<%= @x2[index] %>" y2="<%= @y2[index] %>" stroke-linecap="round" stroke-width="4" style="stroke: #00BD97 ;"/>
+             <!-- <path id="lineAB" d="M <%=@x1[index] %> <%= @y1[index] %> l <%= @x2[index] %> <%= @y2[index] %>" stroke="red" stroke-width="3" fill="none" /> -->
+        <%end%>
+      <%else%>
+          <% @values2.each_with_index do |(name, value), index|%>
+            <line x1="<%=@x_1[index]%>" y1="<%= @y_1[index]%>" x2="<%= @x_2[index] %>" y2="<%= @y_2[index] %>" stroke-linecap="round" stroke-width="4" style="stroke: #66A4D1 ;"/>
+          <%end%>
+      <%end%>
   <% end %>
- </svg>
+</svg>
 
 <% @values.each_with_index do |(name, value), index|%>
     <p>index: <%= index %></p>
