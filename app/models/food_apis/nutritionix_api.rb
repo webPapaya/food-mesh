@@ -18,10 +18,9 @@ class NutritionixAPI < FoodAPIInterface
         limit: 2,
         query: query
     }
+
     results_json = @provider.nxql_search(search_params)
     results_json = JSON.parse(results_json)
-
-
 
     (parse_data_search(results_json, api_key)) unless results_json.nil?
   end
@@ -39,14 +38,7 @@ class NutritionixAPI < FoodAPIInterface
         :item_id => item['_id'],
         :object_source_id => self.object_id
     })
-
-    JSON.parse(data).each do |key, ingredient|
-      if is_valid_pair? key, ingredient
-        key = translate_key key, :nutritionix
-        food[:nutritions][key] = ingredient
-      end
-    end
-
+    food[:nutritions] = parse_single_item JSON.parse(item)
     food
   end
 
@@ -66,18 +58,22 @@ class NutritionixAPI < FoodAPIInterface
       item['_source'].delete('item_name')
       item['_source'].delete('brand_name')
 
-      item['_source'].each do |key, ingredients|
-          if is_valid_pair? key, ingredients
-            key = translate_key key, :nutritionix
-            food[:nutritions][key] = ingredients
-          end
-      end
+      food[:nutritions] = parse_single_item item['_source']
       parsed_data.push(food)
     end
     parsed_data
   end
 
-
+  def parse_single_item source
+    nutrition_elements = {}
+    source.each do |key, ingredients|
+       if is_valid_pair? key, ingredients
+         key = translate_key key, :nutritionix
+         nutrition_elements[key] = ingredients
+       end
+    end
+    nutrition_elements
+  end
 
   # checks a given pair on following things
   # starts key with nf_ (for nutrition information)
