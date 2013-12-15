@@ -59,6 +59,8 @@ class LineChartsController < ApplicationController
       if index == 0
         logger.debug@x1[index] = 0
         logger.debug@y1[index] =  @window_height - value
+        logger.debug@x2[index] = @base_line
+        logger.debug@y2[index] = 300   # @y2[index + 1 ] => value
       else
         logger.debug@x1[index] = @x2[index + 1]
         logger.debug@y1[index] = @y2[index + 1]
@@ -86,6 +88,8 @@ class LineChartsController < ApplicationController
       if index == 0
         logger.debug@x_1[index] = 0
         logger.debug@y_1[index] =  @window_height - value
+        logger.debug@x_2[index] = @base_line
+        logger.debug@y_2[index] = 60   # @y_2[index + 1 ] => value
       else
         logger.debug@x_1[index] = @x_2[index + 1]
         logger.debug@y_1[index] = @y_2[index + 1]
