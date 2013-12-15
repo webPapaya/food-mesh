@@ -55,22 +55,23 @@ class Fsecret < FoodAPIInterface
   def parse_data_search(data, api_key)
     parsed_data = []
     data["foods"]["food"].each do |item|
-      tmp = item["food_description"].split(" - ")
+      tmp = item['food_description'].split(' - ')
       desc = tmp[1]
 
-      food = Hash.new
-      food["name"] = item["food_name"]
-      food['api_key'] = api_key
-      food['object_source_id'] = self.object_id
-      food['item_id'] = item['food_id']
-      food["amount"] = tmp[0]
-      food["nutritions"] = Hash.new
+      food = create_food_item_structure({
+        :name => item["food_name"],
+        :api_key => api_key,
+        :item_id => item['food_id'],
+        :object_source_id => self.object_id
+      })
+
+      food[:amount] = tmp[0]
 
       ingredients = desc.split(" | ")
       ingredients.each do |ingredient|
         tmp = ingredient.split(": ")
         key = translate_key tmp[0], :fatsecret
-        food["nutritions"][key] = tmp[1]
+        food[:nutritions][key] = tmp[1]
       end
       parsed_data.push(food)
     end

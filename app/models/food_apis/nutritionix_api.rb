@@ -1,5 +1,4 @@
 require_dependency 'food_apis/food_api_interface'
-require_dependency 'food_apis/food_apis_helper'
 require 'awesome_print'
 
 require 'nutritionix/api_1_1'
@@ -55,24 +54,22 @@ class NutritionixAPI < FoodAPIInterface
     parsed_data = Array.new
 
     data['hits'].each do |item|
-      food = Hash.new
-      food['name'] = "#{item['_source']['item_name']} #{item['_source']['brand_name']}"
-      food['api_key'] = api_key
-      food['item_id'] = item['_id']
-      food['object_source_id'] = self.object_id
+      food = create_food_item_structure ({
+        :name => "#{item['_source']['item_name']} #{item['_source']['brand_name']}",
+        :api_key => api_key,
+        :item_id => item['_id'],
+        :object_source_id => self.object_id
+      })
 
       item['_source'].delete('item_name')
       item['_source'].delete('brand_name')
 
-      food['nutritions'] = Hash.new
-
       item['_source'].each do |key, ingredients|
           if is_valid_pair? key, ingredients
             key = translate_key key, :nutritionix
-            food['nutritions'][key] = ingredients
+            food[:nutritions][key] = ingredients
           end
       end
-
       parsed_data.push(food)
     end
     parsed_data
