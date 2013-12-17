@@ -20,6 +20,20 @@ class LineChartsController < ApplicationController
         "iron" => 300,
     }
 
+
+    @path = "M 0 #{@window_height}"
+    i = 0
+
+    @values.each do |key, value|
+      @path << " L #{i*100}  #{value}"
+      i+=1
+    end
+
+    @path << "L #{@window_width} #{@window_height} Z"
+
+    @debug = @path
+
+
     @values2 = {
         "fat" => 300,
         "calories" => 440,
@@ -34,8 +48,8 @@ class LineChartsController < ApplicationController
     }
 
 
-    draw_line(@values)
-    draw_line2(@values2)
+    #draw_line2(@values2)
+    #draw_line(@values)
 
   end
 
