@@ -7,6 +7,20 @@ class LineChartsController < ApplicationController
     #@start_x = 0
     #@start_y = 900
 
+
+    #  [{
+    #      "name"=>"Tilapia (Fish)",
+    #      "amount"=>"Per 100g",
+    #      "object_source_id" = 70157557973400
+    #      "nutritions"=>{
+    #          "Calories"=>"96kcal",
+    #          "Fat"=>"1.70g",
+    #          "Carbs"=>"0.00g",
+    #          "Protein"=>"20.08g"
+    #      }
+    #  }]
+
+
     @values = {
         "fat" => 100,
         "calories" => 200,
