@@ -30,11 +30,17 @@ class Fsecret < FoodAPIInterface
 
   private
   def create_item_header_information(item, api_key)
+    ap item
+
     create_food_item_structure({
       :name => item['food_name'],
       :api_key => api_key,
       :item_id => item['food_id'],
-      :object_source_id => self.object_id
+      :object_source_id => self.object_id,
+      :serving_weight => {
+          :unit => 'g',
+          :value => item['_source']['nf_serving_weight_grams']
+      }
     })
   end
 

@@ -31,13 +31,18 @@ class NutritionixAPI < FoodAPIInterface
 
   private
   def parse_data_item (item, api_key)
+    ap JSON.parse(item)
     food = create_food_item_structure ({
         :name => "#{item['item_name']} #{item['brand_name']}",
         :api_key => api_key,
         :item_id => item['_id'],
-        :object_source_id => self.object_id
+        :object_source_id => self.object_id,
+        :serving_weight => {
+            :unit => 'g',
+            :value => item['nf_serving_weight_grams']
+        }
     })
-    food[:nutritions] = parse_single_item JSON.parse(item)
+    food[:nutritions] = parse_single_item JSON.parse(item), food[:serving_weight]
     food
   end
 

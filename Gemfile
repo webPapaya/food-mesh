@@ -70,7 +70,7 @@ gem 'nutritionix'
 
 gem 'awesome_print'
 
-gem 'thin' #webserver which we will use instead of webrick
+#gem 'thin' #webserver which we will use instead of webrick
 
 
 

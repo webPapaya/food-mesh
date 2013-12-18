@@ -30,3 +30,5 @@ nutritionix:
   nf_calcium_dv: Nf Calcium Dv
   nf_iron_dv: Nf Iron Dv
   nf_serving_weight_grams: Nf Serving Weight Grams
+fddb:
+  amount_measuring_system: Amount Measuring System
