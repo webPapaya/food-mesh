@@ -7,6 +7,17 @@
     form {
       margin-top: 20px;
       margin-bottom: 20px;
+
+      input {
+        float: left;
+      }
+
+      button {
+        position: relative;
+        float: right;
+        margin-top: -30px;
+        height: 30px;
+      }
     }
 
     .content {

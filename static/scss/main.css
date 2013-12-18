@@ -395,6 +395,13 @@ main #chart {
     #header-dropdown-wrp form {
       margin-top: 20px;
       margin-bottom: 20px; }
+      #header-dropdown-wrp form input {
+        float: left; }
+      #header-dropdown-wrp form button {
+        position: relative;
+        float: right;
+        margin-top: -30px;
+        height: 30px; }
     #header-dropdown-wrp .content .ingredient {
       width: 33.33%; }
 
