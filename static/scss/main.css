@@ -74,7 +74,7 @@ html, body {
   background: #e6e6e6; }
 
 main {
-  padding-top: 64px; }
+  padding: 64px 10px 10px; }
 
 ul {
   list-style: none;
@@ -293,7 +293,8 @@ ul {
  * reusable classes
  */
 * {
-  font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif; }
+  font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
+  font-weight: 100; }
 
 .center {
   text-align: center; }
@@ -383,5 +384,12 @@ form .input-big {
 
 main #chart {
   width: 100%; }
+
+@media (max-width: 768px) {
+  #header-dropdown-wrp {
+    position: absolute;
+    top: 0; }
+    #header-dropdown-wrp .content .ingredient {
+      width: 33.33%; } }
 
 /*# sourceMappingURL=main.css.map */
