@@ -50,8 +50,6 @@ a {
  * special page styles
  * naming convention for wrapper element #<page>-<block>-<context>
  */
-
-
 #header-wrp {
   a {
     color: $primaryLight;
@@ -59,11 +57,23 @@ a {
 }
 
 #header-dropdown-wrp {
+  color: $primaryLight;
+
+  h1 {
+    margin-top: 30px;
+    font-weight: 100;
+  }
+
   a {
     color: $primaryLight;
   }
 
   .header {
     font-size: 30px;
+    font-weight: 100;
+
+    .info {
+      font-size: 50%;
+    }
   }
 }

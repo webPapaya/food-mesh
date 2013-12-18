@@ -163,7 +163,8 @@ ul {
   top: 0;
   height: 100%;
   width: 400px;
-  padding-top: $headerHeight;
+  padding: $headerHeight 10px;
+
   background: $primaryDark;
   border: 2px solid black;
 
@@ -172,18 +173,23 @@ ul {
   }
 
   li {
-    padding: 5px 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
     border-bottom: 1px solid $secondaryDark;
-
     span {
       display: block;
     }
   }
 
+  .header > * {
+    display: inline-block;
+  }
+
   .ingredient {
-    width: 33.33%;
+    width: 50%;
     float: left;
     padding: 5px 0;
+
 
     span {
       width: 50%;
