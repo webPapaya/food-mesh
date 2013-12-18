@@ -89,7 +89,8 @@ ul {
   z-index: 9999;
   width: 100%;
   height: 64px;
-  background: #205779; }
+  background: #205779;
+  box-shadow: 0 0px 2px 2px rgba(26, 26, 26, 0.4); }
   #header-wrp .logo-small-wrp {
     width: 20%; }
   #header-wrp .icon-wrp {
@@ -166,6 +167,7 @@ ul {
   height: 100%;
   width: 400px;
   padding: 64px 10px;
+  box-shadow: 0 0px 2px 2px rgba(26, 26, 26, 0.4);
   background: #1a1a1a;
   border: 2px solid black; }
   #header-dropdown-wrp ul {
@@ -318,7 +320,7 @@ a {
   #header-dropdown-wrp a {
     color: #e6e6e6; }
   #header-dropdown-wrp .header {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 100; }
     #header-dropdown-wrp .header .info {
       font-size: 50%; }

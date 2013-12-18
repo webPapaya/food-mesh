@@ -57,6 +57,10 @@ ul {
   height: $headerHeight;
   background: $primaryBlue;
 
+  @include box-shadow(0 0px 2px 2px $boxShadowColor);
+
+
+
   .logo-small-wrp {
     width: 20%;
   }
@@ -164,6 +168,8 @@ ul {
   height: 100%;
   width: 400px;
   padding: $headerHeight 10px;
+
+  @include box-shadow(0 0px 2px 2px $boxShadowColor);
 
   background: $primaryDark;
   border: 2px solid black;
