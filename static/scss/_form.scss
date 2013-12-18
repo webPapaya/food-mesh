@@ -30,6 +30,7 @@ form {
   input[type=text], input[type=submit] {
     border: none;
     padding: 5px 10px;
+    background: $primaryLight;
   }
 
   .input-big {

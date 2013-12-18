@@ -1,0 +1,12 @@
+@media ( max-width : 768px ) {
+  #header-dropdown-wrp {
+    position: absolute;
+    top: 0;
+
+    .content {
+      .ingredient {
+        width: 33.33%;
+      }
+    }
+  }
+}

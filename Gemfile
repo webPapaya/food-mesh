@@ -70,9 +70,10 @@ gem 'nutritionix'
 
 gem 'awesome_print'
 
-#gem 'thin' #webserver which we will use instead of webrick
-
-
+group :development do
+  gem 'better_errors'
+  gem 'meta_request'
+end
 
 # gem for missing translations: github.com/svenfuchs/i18n-missing_translations
 gem "i18n-missing_translations"
