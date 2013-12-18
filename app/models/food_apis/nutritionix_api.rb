@@ -18,8 +18,11 @@ class NutritionixAPI < FoodAPIInterface
         query: query
     }
 
+
     results_json = @provider.nxql_search(search_params)
     results_json = JSON.parse(results_json)
+
+
 
     (parse_data_search(results_json, api_key)) unless results_json.nil?
   end
