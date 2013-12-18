@@ -51,8 +51,11 @@ ul {
 }
 
 #header-wrp {
+  position: absolute;
+  z-index: 9999;
   width: 100%;
-  background: #c0c0c0;
+  height: $headerHeight;
+  background: $primaryBlue;
 
   .logo-small-wrp {
     width: 20%;
@@ -72,21 +75,21 @@ ul {
       display: block;
     }
 
-    a:hover:after {
+    a.active:after {
       position: absolute;
       content: "";
       display: block;
       width: 16px;
       height: 16px;
-      margin-top: 12px;
+      margin-top: 18px;
       margin-left: -8px;
       left: 50%;
       margin-right: -50%;
-      background: #ccc;
+      background: $primaryDark;
       z-index: 9999;
 
-      border-top: 2px solid black;
-      border-right: 2px solid black;
+      //border-top: 2px solid black;
+      //border-right: 2px solid black;
 
       -webkit-transform: rotate(-45deg);
       -moz-transform: rotate(-45deg);
@@ -103,7 +106,7 @@ ul {
  * naming convention for wrapper element #<page>-<block>-<context>
  */
 #home-search-wrp {
-  background: #333;
+  background: $primaryBlue;
   width: 100%;
   height: 100%;
   position: relative;
@@ -154,13 +157,15 @@ ul {
 }
 
 #header-dropdown-wrp {
-  background: #ccc;
   position: absolute;
-  right: 0;
-  width: 300px;
   z-index: 9998;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 400px;
+  padding-top: $headerHeight;
+  background: $primaryDark;
   border: 2px solid black;
-
 
   ul {
     padding: 8px 0 0px;
@@ -168,6 +173,27 @@ ul {
 
   li {
     padding: 5px 10px;
+    border-bottom: 1px solid $secondaryDark;
+
+    span {
+      display: block;
+    }
+  }
+
+  .ingredient {
+    width: 33.33%;
+    float: left;
+    padding: 5px 0;
+
+    span {
+      width: 50%;
+      float: left;
+    }
+
+    .simple {
+      text-align: right;
+      padding-right: 10px;
+    }
   }
 
   li.compare-link-wrp {

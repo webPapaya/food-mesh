@@ -28,6 +28,10 @@
  * reusable classes
  */
 
+* {
+  font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
+}
+
 .center {
   text-align: center;
 }
@@ -35,9 +39,12 @@
 
 a {
   text-decoration: none;
-  color: $colorMain;
+  color: $primaryDark;
 }
 
+.highlighted {
+  font-weight: 700;
+}
 
 /**
  * special page styles
@@ -46,8 +53,17 @@ a {
 
 
 #header-wrp {
+  a {
+    color: $primaryLight;
+  }
+}
 
+#header-dropdown-wrp {
+  a {
+    color: $primaryLight;
+  }
 
-
-
+  .header {
+    font-size: 30px;
+  }
 }
