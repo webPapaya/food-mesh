@@ -88,6 +88,9 @@ ul {
 .overlay-hide {
   display: none; }
 
+.responsive-show {
+  display: none; }
+
 #header-wrp {
   position: absolute;
   z-index: 9999;
@@ -389,7 +392,16 @@ main #chart {
   #header-dropdown-wrp {
     position: absolute;
     top: 0; }
+    #header-dropdown-wrp form {
+      margin-top: 20px;
+      margin-bottom: 20px; }
     #header-dropdown-wrp .content .ingredient {
-      width: 33.33%; } }
+      width: 33.33%; }
+
+  .responsive-hide {
+    display: none; }
+
+  .responsive-show {
+    display: block; } }
 
 /*# sourceMappingURL=main.css.map */
