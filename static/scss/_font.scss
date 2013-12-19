@@ -64,6 +64,20 @@ a {
     font-weight: 100;
   }
 
+  nav#secondary {
+    margin: 20px 0;
+    text-align: center;
+
+    a {
+      padding: 2px 10px;
+    }
+
+    a:hover {
+      background: $secondaryDark;
+      border-radius: 2px;
+    }
+  }
+
   a {
     color: $primaryLight;
   }

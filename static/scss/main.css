@@ -321,6 +321,14 @@ a {
   #header-dropdown-wrp h1 {
     margin-top: 30px;
     font-weight: 100; }
+  #header-dropdown-wrp nav#secondary {
+    margin: 20px 0;
+    text-align: center; }
+    #header-dropdown-wrp nav#secondary a {
+      padding: 2px 10px; }
+    #header-dropdown-wrp nav#secondary a:hover {
+      background: #222222;
+      border-radius: 2px; }
   #header-dropdown-wrp a {
     color: #e6e6e6; }
   #header-dropdown-wrp .header {
@@ -409,6 +417,9 @@ main #chart {
     display: none; }
 
   .responsive-show {
-    display: block; } }
+    display: block; }
+
+  .responsive-show-inline {
+    display: inline-block; } }
 
 /*# sourceMappingURL=main.css.map */
