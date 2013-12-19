@@ -48,6 +48,8 @@ form {
   }
 
   input[type=submit] {
+    background: $highlight;
+    color: $primaryLight;
     width: 100%;
   }
 }
