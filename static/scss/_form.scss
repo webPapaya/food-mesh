@@ -42,7 +42,7 @@ form {
  * special page styles
  * naming convention for wrapper element #<page>-<block>-<context>
  */
-#home-search-wrp {
+#home-search-wrp, #header-wrp {
   input {
     padding: 7px 10px;
   }
@@ -51,7 +51,7 @@ form {
     @include border-left-radius(5px);
   }
 
-  input[type=submit] {
+  input[type=submit], .button-search {
     background: $highlight;
     color: $primaryLight;
 
@@ -63,22 +63,24 @@ form {
 #header-wrp {
   .input-big {
     float: left;
-    width: 80%;
+    width: 90% !important;
   }
 
   .button-search {
-    float: left;
-    height: 29px;
+    float: right;
+    position: relative;
+    width: 10% !important;
+    border: none;
+    height: 34px;
   }
 
   .button-search:before{
     display: block;
-    content: "\e600";
+    content: "";
   }
 
   .button-search span{
-    display: block;
-    position: absolute;
-    left: -9999px;
+    font-size: 20px;
+    font-weight: 500;
   }
 }
