@@ -408,10 +408,16 @@ h1 {
  */
 form input[type=text], form input[type=submit] {
   border: none;
-  padding: 5px 10px;
-  background: #e6e6e6; }
+  padding: 5px 10px; }
 form .input-big {
   width: 100%; }
+
+input[type=submit], .button-search {
+  background: #2ba772;
+  color: #e6e6e6;
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; }
 
 /**
  * special page styles
@@ -423,12 +429,6 @@ form .input-big {
   width: 100%;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; }
-#home-search-wrp input[type=submit], #home-search-wrp .button-search, #header-wrp input[type=submit], #header-wrp .button-search {
-  background: #2ba772;
-  color: #e6e6e6;
-  width: 100%;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px; }
 
 #header-wrp .input-big {
   float: left;
@@ -445,6 +445,15 @@ form .input-big {
 #header-wrp .button-search span {
   font-size: 20px;
   font-weight: 500; }
+
+#user-settings input[type=submit] {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+  margin-top: 15px; }
+#user-settings input {
+  width: 100%;
+  margin: 3px 0 15px; }
 
 main #chart {
   width: 100%; }

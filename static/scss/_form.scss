@@ -30,12 +30,19 @@ form {
   input[type=text], input[type=submit] {
     border: none;
     padding: 5px 10px;
-    background: $primaryLight;
   }
 
   .input-big {
     width: 100%;
   }
+}
+
+input[type=submit], .button-search {
+  background: $highlight;
+  color: $primaryLight;
+
+  width: 100%;
+  @include border-right-radius(5px);
 }
 
 /**
@@ -51,13 +58,7 @@ form {
     @include border-left-radius(5px);
   }
 
-  input[type=submit], .button-search {
-    background: $highlight;
-    color: $primaryLight;
 
-    width: 100%;
-    @include border-right-radius(5px);
-  }
 }
 
 #header-wrp {
@@ -82,5 +83,19 @@ form {
   .button-search span{
     font-size: 20px;
     font-weight: 500;
+  }
+}
+
+#user-settings {
+
+  input[type=submit] {
+    @include border-left-radius(5px);
+    padding: 10px;
+    margin-top: 15px;
+  }
+
+  input{
+    width: 100%;
+    margin: 3px 0 15px;
   }
 }

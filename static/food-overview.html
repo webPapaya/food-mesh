@@ -62,10 +62,18 @@
         </nav>
 
         <form id="user-settings">
-            <input type="text" placeholder="weight">
+            <label for="user-settings-weight">Weight</label>
+            <input type="text" id="user-settings-weight" placeholder="weight">
+            <label for="user-settings-height">Height</label>
+            <input type="text" id="user-settings-height" placeholder="180 cm">
+            <label for="user-settings-age">Age</label>
+            <input type="text" id="user-settings-age" placeholder="age">
+
+            <input type="submit" value="change settings">
         </form>
-        <ul id="food-item-list">
+
         <h1>Elemente im Vergleichskorb</h1>
+        <ul id="food-item-list">
             <li>
                 <a href="#">
                     <span class="header">Coca Cola <span class="info">per 100ml</span></span>
