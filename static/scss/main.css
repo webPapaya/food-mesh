@@ -348,6 +348,10 @@ a {
 .highlighted {
   font-weight: 700; }
 
+h1 {
+  font-size: 40px;
+  font-weight: 100; }
+
 /**
  * special page styles
  * naming convention for wrapper element #<page>-<block>-<context>
