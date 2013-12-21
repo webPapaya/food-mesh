@@ -51,8 +51,6 @@ end
 # gem 'debugger', group: [:development, :test]
 
 
-
-
 #own dependencies
 gem 'curb'    # curb alternative
 gem 'nokogiri'  # xml parser
