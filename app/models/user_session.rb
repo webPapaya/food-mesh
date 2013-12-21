@@ -19,7 +19,10 @@ class UserSession
   end
 
   def change_user_settings
-    puts 'lalelu'
+    flash[:notice] = 'Task was successfully created.'
+
+
+
     respond_to do |format|
       format.html { redirect_to :back  }
       format.js
