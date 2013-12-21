@@ -34,9 +34,9 @@
             </form>
         </div>
         <div class="display-table-cell icon-wrp">
-            <ul class="menu">
-                <li><a href="#" class="icon-home active"></a></li>
-                <li><a href="#" class="icon-cog"></a></li>
+            <ul class="menu" id="main-menu">
+                <li><a href="#user-basket" class="icon-basket active"></a></li>
+                <li><a href="#user-settings" class="icon-cog"></a></li>
             </ul>
         </div>
       </div>
@@ -56,27 +56,30 @@
                 <span>Search</span>
             </button>
         </form>
-        <nav id="secondary">
-            <a href="#">delete all items</a>
-            <a class="responsive-show-inline" href="#">go to overview</a>
-        </nav>
+        <div id="user-settings">
+            <h1>User Settings</h1>
+            <form>
+                <label for="user-settings-weight">Weight</label>
+                <input type="text" id="user-settings-weight" placeholder="weight">
+                <label for="user-settings-height">Height</label>
+                <input type="text" id="user-settings-height" placeholder="180 cm">
+                <label for="user-settings-age">Age</label>
+                <input type="text" id="user-settings-age" placeholder="age">
 
-        <form id="user-settings">
-            <label for="user-settings-weight">Weight</label>
-            <input type="text" id="user-settings-weight" placeholder="weight">
-            <label for="user-settings-height">Height</label>
-            <input type="text" id="user-settings-height" placeholder="180 cm">
-            <label for="user-settings-age">Age</label>
-            <input type="text" id="user-settings-age" placeholder="age">
+                <input type="submit" value="change settings">
+            </form>
+        </div>
 
-            <input type="submit" value="change settings">
-        </form>
-
-        <h1>Elemente im Vergleichskorb</h1>
-        <ul id="food-item-list">
-            <li>
-                <a href="#">
-                    <span class="header">Coca Cola <span class="info">per 100ml</span></span>
+        <div id="user-basket" class="active">
+            <h1>Elemente im Vergleichskorb</h1>
+            <nav id="secondary">
+                <a href="#">delete all items</a>
+                <a class="responsive-show-inline" href="#">go to overview</a>
+            </nav>
+            <ul id="food-item-list">
+                <li>
+                    <a href="#">
+                        <span class="header">Coca Cola <span class="info">per 100ml</span></span>
                 <span class="content clearfix">
                     <span class="ingredient">
                         <span class="highlighted">Kalorien</span>
@@ -95,11 +98,11 @@
                         <span class="simple">0 %</span>
                     </span>
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="header">Fanta <span class="info">per 100ml</span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="header">Fanta <span class="info">per 100ml</span></span>
                 <span class="content clearfix">
                     <span class="ingredient">
                         <span class="highlighted">Kohlenhydrate</span>
@@ -118,11 +121,11 @@
                         <span class="simple">50 kcal</span>
                     </span>
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="header">Schweinsbraten <span class="info">per 100ml</span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="header">Schweinsbraten <span class="info">per 100ml</span></span>
                 <span class="content clearfix">
                     <span class="ingredient">
                         <span class="highlighted">test</span>
@@ -141,11 +144,11 @@
                         <span class="simple">50 kcal</span>
                     </span>
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="header">Coca Cola <span class="info">per 100ml</span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="header">Coca Cola <span class="info">per 100ml</span></span>
                 <span class="content clearfix">
                     <span class="ingredient">
                         <span class="highlighted">Kalorien</span>
@@ -164,11 +167,11 @@
                         <span class="simple">0 %</span>
                     </span>
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="header">Fanta <span class="info">per 100ml</span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="header">Fanta <span class="info">per 100ml</span></span>
                 <span class="content clearfix">
                     <span class="ingredient">
                         <span class="highlighted">Kohlenhydrate</span>
@@ -187,11 +190,11 @@
                         <span class="simple">50 kcal</span>
                     </span>
                 </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="header">Schweinsbraten <span class="info">per 100ml</span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="header">Schweinsbraten <span class="info">per 100ml</span></span>
                 <span class="content clearfix">
                     <span class="ingredient">
                         <span class="highlighted">test</span>
@@ -210,19 +213,28 @@
                         <span class="simple">50 kcal</span>
                     </span>
                 </span>
-                </a>
-            </li>
-        </ul>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </section>
 </section>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.0.3.js"><\/script>')</script>
+<script src="js/jquery.tabs.js"></script>
+
     <script src="js/vendor/stellar.js"></script>
     <script src="js/main.js"></script>
 
 <!-- google analytics for later use -->
 <script>
+    $("#main-menu").Tabs({
+        wrapper: '#header-dropdown-wrp'
+    });
+
+
+
 //    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
 //    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 //        g.src='//www.google-analytics.com/ga.js';

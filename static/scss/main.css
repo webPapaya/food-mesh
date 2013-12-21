@@ -495,5 +495,9 @@ main #chart {
       width: 75%; }
     #main-content-wrp .span_4 {
       width: 25%; } }
+#header-dropdown-wrp > div {
+  display: none; }
+#header-dropdown-wrp .active {
+  display: block; }
 
 /*# sourceMappingURL=main.css.map */
