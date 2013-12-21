@@ -1,0 +1,25 @@
+<h1>Listing single_pages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @single_pages.each do |single_page| %>
+      <tr>
+        <td><%= link_to 'Show', single_page %></td>
+        <td><%= link_to 'Edit', edit_single_page_path(single_page) %></td>
+        <td><%= link_to 'Destroy', single_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Single page', new_single_page_path %>
