@@ -4,21 +4,21 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-
 <head>
     <title>Food Match</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="scss/main.css"/>
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
+
 <body>
 <div id="header-wrp" class="clearfix">
       <div class="display-table">
         <div class="display-table-cell logo-small-wrp">
             <img src="assets/logo_white.svg" height="60">
         </div>
-        <div class="display-table-cell search-form-wrp">
-            <form>
+        <div class="display-table-cell search-form-wrp responsive-hide">
+            <form >
                 <input type="text" class="input-big" placeholder="search">
                 <button class="button-search icon-search">
                     <span>Search</span>
@@ -35,24 +35,32 @@
         </div>
         <div class="display-table-cell icon-wrp">
             <ul class="menu">
-                <li><a href="#" class="icon-home hide"></a></li>
-                <li><a href="#" class="icon-rocket active"></a></li>
+                <li><a href="#" class="icon-home active"></a></li>
                 <li><a href="#" class="icon-cog"></a></li>
             </ul>
         </div>
       </div>
 </div>
-
-
-
 <section id="main-content-wrp" class="container row">
     <main class="span_8 col">
-        <h1>Element Vergleich</h1>
-        <img id="chart" src="assets/dummy_chart.svg">
+        <div class="main-inner-wrp">
+            <h1>Element Vergleich</h1>
+            <img id="chart" src="assets/dummy_chart.svg">
+        </div>
     </main>
 
-
     <section id="header-dropdown-wrp" class="span_4 col">
+        <form class="responsive-show clearfix">
+            <input type="text" class="input-big" placeholder="search">
+            <button class="button-search icon-search">
+                <span>Search</span>
+            </button>
+        </form>
+        <nav id="secondary">
+            <a href="#">delete all items</a>
+            <a class="responsive-show-inline" href="#">go to overview</a>
+        </nav>
+        <h1>Elemente im Vergleichskorb</h1>
         <ul>
             <li>
                 <a href="#">
