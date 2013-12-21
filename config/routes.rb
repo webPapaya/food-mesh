@@ -1,5 +1,7 @@
 Food::Application.routes.draw do
 
+  resources :single_pages
+
   get 'food/item/:api_id/:food_id', to: 'food_overviews#show', as: 'get_item'
 
 

@@ -2,7 +2,7 @@
   <defs>
     <% @pie_chart[:values].length.times do |i| %>
         <mask id="mask<%= i %>" x="0" y="0" width="<%= @pie_chart[:width_height] %>" height="<%= @pie_chart[:width_height] %>">
-          <circle cx="<%= @pie_chart[:center]%>" cy="<%= @pie_chart[:center] %>" r="<%= Random.rand( @pie_chart[:center] )%>" fill="white"> </circle>
+          <circle cx="<%= @pie_chart[:center]%>" cy="<%= @pie_chart[:center] %>" r="<%= @pie_chart[:values][i]%>" fill="white"> </circle>
         </mask>
     <% end  %>
     <path id="pie" d="<%= "M #{ @pie_chart[:center] } #{ @pie_chart[:center] }  L #{ @pie_chart[:coords]['x1'] } #{@pie_chart[:coords]['y1']} L #{ @pie_chart[:coords]['x2'] } #{  @pie_chart[:coords]['y2'] } Z" %>"></path>

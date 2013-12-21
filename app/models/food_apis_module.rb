@@ -5,7 +5,9 @@ require_dependency 'food_apis/fsecret'
 require_dependency 'food_apis/nutritionix_api'
 
 module FoodApisModule
-  @@apis = [NutritionixAPI.new, Fddb.new, Fsecret.new]
+  @@apis = [NutritionixAPI.new, Fddb.new] #, Fsecret.new]
+
+
 
   ##
   # example return value for search
@@ -28,9 +30,6 @@ module FoodApisModule
     end
     result
   end
-
-
-
 
   def get_item (api_id, food_id)
     @@apis[api_id].get_item api_id, food_id

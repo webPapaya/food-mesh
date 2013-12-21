@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class*="icon-"] {
+[class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -23,12 +23,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-home:before {
-  content: "\e600";
+.icon-search:before {
+  content: "\e1ba";
 }
-.icon-rocket:before {
-  content: "\e601";
+.icon-glasses:before {
+  content: "\e274";
+}
+.icon-search2:before {
+  content: "\e1bb";
+}
+.icon-pie:before {
+  content: "\e1fd";
+}
+.icon-basket:before {
+  content: "\e0ce";
 }
 .icon-cog:before {
-  content: "\e602";
+  content: "\e1df";
+}
+.icon-home:before {
+  content: "\e000";
 }
