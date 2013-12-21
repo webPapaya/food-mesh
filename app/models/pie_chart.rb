@@ -69,8 +69,6 @@ class PieChart < ActiveRecord::Base
     circle["space"] = circumference*((100-percent)/100)
 
     circle
-
-
   end
 
   private
