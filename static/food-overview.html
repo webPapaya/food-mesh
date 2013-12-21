@@ -4,13 +4,13 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-
 <head>
     <title>Food Match</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="scss/main.css"/>
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
+
 <body>
 <div id="header-wrp" class="clearfix">
       <div class="display-table">
@@ -35,8 +35,7 @@
         </div>
         <div class="display-table-cell icon-wrp">
             <ul class="menu">
-                <li><a href="#" class="icon-home hide"></a></li>
-                <li><a href="#" class="icon-rocket active"></a></li>
+                <li><a href="#" class="icon-home active"></a></li>
                 <li><a href="#" class="icon-cog"></a></li>
             </ul>
         </div>
@@ -44,8 +43,10 @@
 </div>
 <section id="main-content-wrp" class="container row">
     <main class="span_8 col">
-        <h1>Element Vergleich</h1>
-        <img id="chart" src="assets/dummy_chart.svg">
+        <div class="main-inner-wrp">
+            <h1>Element Vergleich</h1>
+            <img id="chart" src="assets/dummy_chart.svg">
+        </div>
     </main>
 
     <section id="header-dropdown-wrp" class="span_4 col">
@@ -59,10 +60,12 @@
             <a href="#">delete all items</a>
             <a class="responsive-show-inline" href="#">go to overview</a>
         </nav>
+
         <form id="user-settings">
             <input type="text" placeholder="weight">
         </form>
         <ul id="food-item-list">
+        <h1>Elemente im Vergleichskorb</h1>
             <li>
                 <a href="#">
                     <span class="header">Coca Cola <span class="info">per 100ml</span></span>
