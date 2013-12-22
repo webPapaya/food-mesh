@@ -1,7 +1,7 @@
 <h1>Elemente im Vergleichskorb</h1>
     <nav id="secondary">
-    <a href="#">delete all items</a>
-    <a class="responsive-show-inline" href="#">go to overview</a>
+      <%= link_to "delete all items", :remote => true, :controller => :user_session,   :action => :delete_all_items %>
+      <a class="responsive-show-inline" href="#">go to overview</a>
 </nav>
 <%= user_session.get_user_items %>
 
