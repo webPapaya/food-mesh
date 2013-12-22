@@ -87,15 +87,23 @@ input[type=submit], .button-search {
   }
 }
 
-#user-settings {
+#user-settings, .edit-form {
   label {
     margin-bottom: 10px;
   }
 
-  input{
+  input, textarea {
     width: 100%;
+    max-width: 100%;
     margin: 3px 0 15px;
+    border: none;
   }
+
+  textarea {
+    min-height: 300px;
+  }
+
+
 
   input[type=submit] {
     @include border-left-radius(5px);
