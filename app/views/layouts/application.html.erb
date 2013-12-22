@@ -10,19 +10,20 @@
   <title>Food</title>
   <meta charset="utf-8"/>
 
-  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= stylesheet_link_tag "application", media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<% if notice %>
+    <p id="notice"><%= notice %></p>
+<% end %>
+
+
 <div>
   <%= render :template => 'user_session/change_user_settings' %>
 </div>
-
-
     <%= yield %>
-
-
     <%= javascript_include_tag "application"  %>
 </body>
 </html>

@@ -1,6 +1,7 @@
-<% if flash[:notice] %>
-    <p class="flash-notice"><%= flash[:notice] %></p>
+<% if notice %>
+    <p id="notice"><%= notice %></p>
 <% end %>
+
 
 <%= form_for 'user_session/change_user_settings', remote: true,   url: { controller: 'user_session', action: 'change_user_settings' } do |f| %>
     <%= f.label :user_settings_weight %><br>
