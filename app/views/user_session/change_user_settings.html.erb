@@ -1,4 +1,4 @@
-<div id="user-settings">
+
   <h1>User Settings</h1>
   <%= form_for 'user_settings', remote: true,   url: { controller: 'user_session', action: 'change_user_settings' } do |f| %>
       <%= f.label :user_settings_weight %><br>
@@ -9,4 +9,4 @@
       <%= f.text_field :user_settings_height, :placeholder => 'height', :value => @user_session.get_user_settings[:height] %>
       <%= f.submit "save changes" %>
   <% end %>
-</div>
+
