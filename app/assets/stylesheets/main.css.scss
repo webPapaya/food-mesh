@@ -5,7 +5,6 @@
  * studie:      MultiMediaTechnology
  * usage:	    Multimediaprojekt 2a (MMP2a)
  * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
- *              - Franziska Oberhauser (foberhauser.mmt-b2012@fh-salzburg.ac.at)
  *
  * About this file:
  * ----------------
@@ -18,7 +17,7 @@
 @import "vendor/normalize.css";
 @import "vendor/responsive.gs.12col.css";
 
-@import "scss/modules/verticalCentering";
+@import "scss/verticalCentering";
 
 @import "scss/static";
 @import "scss/layout";
@@ -28,7 +27,10 @@
 
 @import "scss/768_down";
 @import "scss/1200_up";
-@import "scss/modules/jquery.tabs";
+
+
+//jquery imports
+@import "scss/jquery.tabs";
 
 
 
