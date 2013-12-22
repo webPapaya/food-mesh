@@ -3,27 +3,21 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-
-
 <html>
 <head>
   <title>Food</title>
   <meta charset="utf-8"/>
-
-  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= stylesheet_link_tag 'main', media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<% if notice %>
-    <p id="notice"><%= notice %></p>
-<% end %>
+    <% if current_page? '/' %>
+        <%= render 'layouts/home' %>
+    <% else %>
+        <%= render 'layouts/page' %>
+    <% end %>
 
-
-<div>
-  <%= render :template => 'user_session/change_user_settings' %>
-</div>
-    <%= yield %>
-    <%= javascript_include_tag "application"  %>
+<%= javascript_include_tag "application"  %>
 </body>
 </html>
