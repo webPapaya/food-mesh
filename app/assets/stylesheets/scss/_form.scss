@@ -57,9 +57,14 @@ input[type=submit], .button-search {
     width: 100%;
     @include border-left-radius(5px);
   }
+}
 
-
-
+#header-dropdown-wrp {
+  .search {
+    input {
+      width: 100%;
+    }
+  }
 }
 
 #header-wrp {
