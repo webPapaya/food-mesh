@@ -56,7 +56,7 @@ gem 'curb'    # curb alternative
 gem 'nokogiri'  # xml parser
 
 
-gem 'redcarpet'
+gem 'redcarpet' # markdown
 
 gem 'capistrano', '2.15' #deployment
 gem 'rvm-capistrano'

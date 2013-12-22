@@ -11,6 +11,9 @@ Food::Application.routes.draw do
   match "search/results/:query" => "food_overviews#index", :via => [:get], as: 'search_result'
 
   resources :basic_pages
+  resources :line_charts
+
+  match 'user_session/change_user_settings', to: 'user_session#change_user_settings', :via => [:post]
 
   get ':controller(/:action(/:id(.:format)))'
 

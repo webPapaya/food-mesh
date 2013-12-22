@@ -1,0 +1,22 @@
+<h1>Listing line_charts</h1>
+
+<svg width="<%= @window_width %>" height="<%= @window_height %>" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+
+
+
+  <!-- graph -->
+  <% @values.each_with_index do |(name, value), index|%>
+
+     <line x1="<%=@x1[index] %>" y1="<%= @y1[index] %>" x2="<%= @x2[index] %>" y2="<%= @y2[index] %>" stroke-width="4" style="stroke: #00BD97 ;"/>
+     <!-- <path id="lineAB" d="M <%=@x1[index] %> <%= @y1[index] %> l <%= @x2[index] %> <%= @y2[index] %>" stroke="red" stroke-width="3" fill="none" /> -->
+  <% end %>
+ </svg>
+
+<% @values.each_with_index do |(name, value), index|%>
+    <p>index: <%= index %></p>
+    <p>x1: <%= @x1[index]%></p>
+    <p>y1: <%= @y1[index]%></p>
+    <p>x2: <%= @x2[index]%></p>
+    <p>y2: <%= @y2[index]%></p>
+<% end %>
+
