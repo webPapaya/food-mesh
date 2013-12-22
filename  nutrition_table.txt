@@ -15,22 +15,27 @@ General:
   
 Vitamine:
 
-  Vitamin A:                "vitamin_a"
-  Vitamin B1:
-  Vitamin B2:
-  Vitamin B6:
-  "vitamin_b1"
-  v_b2_mg:                 "vitamin_b2"
-  v_b6_mg:                 "vitamin_b6"
-  v_b12_mg:                "vitamin_b12"
-  v_d_mg:                  "vitamin_d"
-  v_e_mg:                  "vitamin_e"
+  Vitamin A:                0,8-1,0 mg
+  Vitamin B1:		    1,0-1,3 mg
+  Vitamin B2:		    0,7-1,5 mg
+  Vitamin B6:		    1,2-1,5 mg
+  Vitamin B12:		    3 µg
+  Vitamin D:		    5-10 µg
+  Vitamin E:		    11-15 mg
   Vitamin C:                "vitamin_c"
 
 Minerals:
   Calcium:                  800 mg
   Iron:                     14 mg
+  Magnesium: 		    300 µg
+  Phosphor:                 800 mg
+  Zinc:			    15 mg
+  Copper:
+  Sulfur:
+  Manganese:
+  Chlorine:
 
 
 Sources:
-http://www.med.de/gesundheit/ernaehrung/tagesbedarf.html  
+http://www.med.de/gesundheit/ernaehrung/tagesbedarf.html 
+http://www.netdoktor.de/Gesund-Leben/Ernaehrung/Vitamine+Co/Vitamine-Tagesbedarf-2363.html 
