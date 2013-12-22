@@ -11,17 +11,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="header-wrp" class="clearfix">
-  <%= render 'layouts/_partials/header' %>
-</div>
-<section id="main-content-wrp" class="container row">
-  <main class="span_8 col">
-    <%= render 'layouts/_partials/main' %>
-  </main>
-  <section id="header-dropdown-wrp" class="span_4 col">
-    <%= render 'layouts/_partials/sidebar' %>
-  </section>
-</section>
+
+    <% if current_page? '/' %>
+        <%= render 'layouts/home' %>
+    <% else %>
+        <%= render 'layouts/page' %>
+    <% end %>
+
 <%= javascript_include_tag "application"  %>
 </body>
 </html>
