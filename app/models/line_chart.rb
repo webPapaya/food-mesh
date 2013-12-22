@@ -15,8 +15,22 @@ class LineChart < ActiveRecord::Base
 
 
   def get_values
+    @values = {
+        "fat" => 100,
+        "calories" => 200,
+        "protein" => 490,
+        "calcium" => 300,
+        "sugar" => 310,
+        "water" => 390,
+        "alcohol" => 250,
+        "vitamin_c" => 300,
+        "vitamin_a" => 290,
+        "iron" => 300,
+    }
 
+  end
 
+  def get_db_values
     #@start_x = 0
     #@start_y = 900
 
@@ -33,19 +47,6 @@ class LineChart < ActiveRecord::Base
          }
      }]
 
-
-    @values = {
-        "fat" => 100,
-        "calories" => 200,
-        "protein" => 490,
-        "calcium" => 300,
-        "sugar" => 310,
-        "water" => 390,
-        "alcohol" => 250,
-        "vitamin_c" => 300,
-        "vitamin_a" => 290,
-        "iron" => 300,
-    }
     #logger.debug("FoodApisModule")
     #logger.debug(FoodApisModule.@@apis())
     #get_item()
