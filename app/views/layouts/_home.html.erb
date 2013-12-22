@@ -3,7 +3,7 @@
     <div class="display-table-cell">
       <header  class="container row">
         <h1 class="center">
-          <img src="http://placehold.it/300x160">
+          <%= image_tag 'logo_white.svg', :width => 500 %>
         </h1>
       </header>
       <%= form_for('search/results/', :url => url_for(:controller => 'food_overviews', :action => 'redirect_to_index'),  method: "get") do %>
@@ -15,14 +15,16 @@
             <%= submit_tag("Search") %>
           </div>
       <% end %>
-
       <footer class="container row">
-        <h1>
-          About Food Match
-        </h1>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-        </p>
+        <div class="icon-home">
+          Search your favorite food
+        </div>
+        <div class="icon-glasses">
+          see all ingredients
+        </div>
+        <div class="icon-pie">
+          compare it with related food items
+        </div>
       </footer>
     </div>
   </div>
@@ -32,13 +34,12 @@
     </div>
   </div>
 </main>
-
-
 <div id="home-info-wrp" data-stellar-background-ratio="0">
   <div class="container fixed">
     <%= yield %>
   </div>
 </div>
+
 
 
 
