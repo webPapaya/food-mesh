@@ -1,0 +1,41 @@
+General:
+
+  Calories:                 "calories"
+  Fat:                      "fat"
+  Carbs:                    "carbs"
+  Protein:                  "protein"
+  Carbohydrate:             "carbohydrate"
+  Cholesterol:              "colesterol"
+  Saturated Fat:            "saturated_fat"
+  Sodium:                   "sodium"
+  Sugar:                    "sugar"
+  Polyunsaturated Fat:      "polyunsaturated_fat"
+  Monounsaturated Fat:      "monounsaturated_fat"
+  Potassium:                "potassium"
+  
+Vitamine:
+
+  Vitamin A:                0,8-1,0 mg
+  Vitamin B1:		    1,0-1,3 mg
+  Vitamin B2:		    0,7-1,5 mg
+  Vitamin B6:		    1,2-1,5 mg
+  Vitamin B12:		    3 µg
+  Vitamin D:		    5-10 µg
+  Vitamin E:		    11-15 mg
+  Vitamin C:                "vitamin_c"
+
+Minerals:
+  Calcium:                  800 mg
+  Iron:                     14 mg
+  Magnesium: 		    300 µg
+  Phosphor:                 800 mg
+  Zinc:			    15 mg
+  Copper:
+  Sulfur:
+  Manganese:
+  Chlorine:
+
+
+Sources:
+http://www.med.de/gesundheit/ernaehrung/tagesbedarf.html 
+http://www.netdoktor.de/Gesund-Leben/Ernaehrung/Vitamine+Co/Vitamine-Tagesbedarf-2363.html 
