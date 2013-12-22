@@ -1,6 +1,20 @@
 The daily requirement of vitamine, minerals and other nutrients are dependent on the age, weight and gender of the person.
 Therefore we acted on the assumption of an 30 jear old male person with normal weight.
 
+SELECTION:
+
+Energy:             calories: 2500 kcal,  kiloJoule:   10467.0 kJ
+Protein:            78 g
+Fat(total):         92.5 g
+Fat(saturated):     16 g
+Carbohydrate:       313 g   // short: Carbs
+Sugar:              62.2
+(Dietary) Fiber:    15 g
+Sodium:             2400 mg
+
+_______________________________________________
+
+
 General:
 
   Calories:             2500 kcal
