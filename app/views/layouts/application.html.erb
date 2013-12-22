@@ -3,29 +3,25 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-
-
 <html>
 <head>
   <title>Food</title>
   <meta charset="utf-8"/>
-
   <%= stylesheet_link_tag 'main', media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
-<div id="sidebar">
-  <%= render :template => 'user_session/_add_items_to_basket' %>
+<div id="header-wrp" class="clearfix">
+  <%= render 'layouts/_partials/header' %>
 </div>
-<div>
-  <%= render :template => 'user_session/change_user_settings' %>
-</div>
-
-
-
-    <%= yield %>
-    <%= javascript_include_tag "application"  %>
+<section id="main-content-wrp" class="container row">
+  <main class="span_8 col">
+    <%= render 'layouts/_partials/main' %>
+  </main>
+  <section id="header-dropdown-wrp" class="span_4 col">
+    <%= render 'layouts/_partials/sidebar' %>
+  </section>
+</section>
+<%= javascript_include_tag "application"  %>
 </body>
 </html>

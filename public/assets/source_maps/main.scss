@@ -10,15 +10,14 @@
  * About this file:
  * ----------------
  * This is just a collection of sass imports for a better overview
- *
  */
 
 
-@import "bourbon";
-@import "vendor/normalize.css";
-@import "vendor/responsive.gs.12col.css";
 
-@import "scss/modules/verticalCentering";
+
+@import "../vendor/normalize.css";
+@import "../vendor/responsive.gs.12col.css";
+@import "../vendor/bourbon/bourbon";
 
 @import "scss/static";
 @import "scss/layout";
@@ -28,6 +27,8 @@
 
 @import "scss/768_down";
 @import "scss/1200_up";
+
+
 @import "scss/modules/jquery.tabs";
 
 
