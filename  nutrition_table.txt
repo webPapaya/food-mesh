@@ -1,0 +1,36 @@
+General:
+
+  Calories:                 "calories"
+  Fat:                      "fat"
+  Carbs:                    "carbs"
+  Protein:                  "protein"
+  Carbohydrate:             "carbohydrate"
+  Cholesterol:              "colesterol"
+  Saturated Fat:            "saturated_fat"
+  Sodium:                   "sodium"
+  Sugar:                    "sugar"
+  Polyunsaturated Fat:      "polyunsaturated_fat"
+  Monounsaturated Fat:      "monounsaturated_fat"
+  Potassium:                "potassium"
+  
+Vitamine:
+
+  Vitamin A:                "vitamin_a"
+  Vitamin B1:
+  Vitamin B2:
+  Vitamin B6:
+  "vitamin_b1"
+  v_b2_mg:                 "vitamin_b2"
+  v_b6_mg:                 "vitamin_b6"
+  v_b12_mg:                "vitamin_b12"
+  v_d_mg:                  "vitamin_d"
+  v_e_mg:                  "vitamin_e"
+  Vitamin C:                "vitamin_c"
+
+Minerals:
+  Calcium:                  800 mg
+  Iron:                     14 mg
+
+
+Sources:
+http://www.med.de/gesundheit/ernaehrung/tagesbedarf.html  
