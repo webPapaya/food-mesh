@@ -1,5 +1,5 @@
-@import url(../css/vendor/normalize.css);
-@import url(../css/vendor/responsive.gs.12col.css);
+@import url(vendor/normalize.css);
+@import url(vendor/responsive.gs.12col.css);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
 /**
  * main.scss

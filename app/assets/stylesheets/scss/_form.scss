@@ -37,39 +37,69 @@ form {
   }
 }
 
+input[type=submit], .button-search {
+  background: $highlight;
+  color: $primaryLight;
+
+  width: 100%;
+  @include border-right-radius(5px);
+}
+
 /**
  * special page styles
  * naming convention for wrapper element #<page>-<block>-<context>
  */
-#home-search-wrp {
+#home-search-wrp, #header-wrp {
+  input {
+    padding: 7px 10px;
+  }
   input[type=text] {
     width: 100%;
+    @include border-left-radius(5px);
   }
 
-  input[type=submit] {
-    width: 100%;
-  }
+
+
 }
 
 #header-wrp {
   .input-big {
     float: left;
-    width: 80%;
+    width: 90% !important;
   }
 
   .button-search {
-    float: left;
-    height: 29px;
+    float: right;
+    position: relative;
+    width: 10% !important;
+    border: none;
+    height: 34px;
   }
 
   .button-search:before{
     display: block;
-    content: "\e600";
+    content: "";
   }
 
   .button-search span{
-    display: block;
-    position: absolute;
-    left: -9999px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+#user-settings {
+  label {
+    margin-bottom: 10px;
+  }
+
+  input{
+    width: 100%;
+    margin: 3px 0 15px;
+  }
+
+  input[type=submit] {
+    @include border-left-radius(5px);
+    padding: 10px;
+    margin-top: 15px;
   }
 }
