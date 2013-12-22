@@ -36,7 +36,6 @@ Minerals:
 
   Calcium:              1000 mg
   Iron:                 14 mg
-  Magnesium: 		    0,3 mg   // 300 µg
   Phosphor:             800 mg
   Zinc:                 15 mg
   Copper:               2 mg
