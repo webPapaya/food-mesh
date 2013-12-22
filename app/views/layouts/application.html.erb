@@ -15,14 +15,16 @@
 </head>
 <body>
 
-<% if notice %>
-    <p id="notice"><%= notice %></p>
-<% end %>
 
-
+<div id="sidebar">
+  <%= render :template => 'user_session/_add_items_to_basket' %>
+</div>
 <div>
   <%= render :template => 'user_session/change_user_settings' %>
 </div>
+
+
+
     <%= yield %>
     <%= javascript_include_tag "application"  %>
 </body>

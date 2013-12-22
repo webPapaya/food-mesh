@@ -13,9 +13,15 @@ class UserSession < ActiveRecord::Base
     @session[:item_basket] << item
   end
 
+  def get_user_items
+    @session[:item_basket]
+  end
+
   def get_user_settings
     @session[:user_settings]
   end
+
+
 
   def change_user_settings(params)
     @session[:user_settings] = {
