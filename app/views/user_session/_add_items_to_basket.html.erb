@@ -1,1 +1,9 @@
-<%= user_session.get_user_items %>
+<div id="user-basket" class="active">
+  <h1>Elemente im Vergleichskorb</h1>
+  <nav id="secondary">
+    <a href="#">delete all items</a>
+    <a class="responsive-show-inline" href="#">go to overview</a>
+  </nav>
+  <%= user_session.get_user_items %>
+</div>
+
