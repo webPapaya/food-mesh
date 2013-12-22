@@ -10,9 +10,6 @@ class ApplicationController < ActionController::Base
     @user_session ||= UserSession.new(session)
   end
 
-  def get_user_settings
-    @user_session.get_user_settings
-  end
 
-  helper_method :user_session, :get_user_settings
+  helper_method :user_session
 end

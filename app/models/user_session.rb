@@ -1,5 +1,4 @@
-class UserSession
-  #before_filter :change_user_settings
+class UserSession < ActiveRecord::Base
   def initialize (session)
     @session = session
     @session[:item_basket] ||= [] # init session item_basket
@@ -18,7 +17,11 @@ class UserSession
     @session[:user_settings]
   end
 
-  def change_user_settings
-    flash[:notice] = 'Task was successfully created.'
+  def change_user_settings(params)
+    @session[:user_settings] = {
+        :weight => params[:user_settings][:user_settings_weight],
+        :height => params[:user_settings][:user_settings_height],
+        :age => params[:user_settings][:user_settings_age]
+    }
   end
 end
