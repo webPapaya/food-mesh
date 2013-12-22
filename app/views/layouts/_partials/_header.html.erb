@@ -4,12 +4,15 @@
       <%= image_tag 'logo_white.svg', :height => 60 %>
     </div>
     <div class="display-table-cell search-form-wrp responsive-hide">
-      <form >
-        <input type="text" class="input-big" placeholder="search">
-        <button class="button-search icon-search">
-          <span>Search</span>
-        </button>
-      </form>
+      <%= form_for('search/results/', :url => url_for(:controller => 'food_overviews', :action => 'redirect_to_index'),  method: "get") do %>
+          <!--<form id="search" class="container row">-->
+          <div class="col span_11">
+            <%= text_field_tag :query %>
+          </div>
+          <div class="col span_1">
+            <%= submit_tag("Search") %>
+          </div>
+      <% end %>
     </div>
     <div class="display-table-cell icon-wrp">
       <ul class="menu" id="main-menu">
