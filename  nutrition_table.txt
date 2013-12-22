@@ -5,7 +5,7 @@ General:
 
   Calories:             2500 kcal
   KiloJoule:            10467.0 kJ
-  Carbohydrate:         313 g       // short: Carbs
+  Carbohydrate:         313 g   // short: Carbs
   Protein:              78 g
   Cholesterol:          150 mg
   Fat:                  92.5 g
@@ -26,8 +26,8 @@ Vitamine:
   Vitamin B1:           1,0-1,3 mg
   Vitamin B2:           0,7-1,5 mg
   Vitamin B6:           1,2-1,5 mg
-  Vitamin B12:          3 µg
-  Vitamin D:            5-10 µg
+  Vitamin B12:          0,003   // 3 µg
+  Vitamin D:            0,01    // 10 µg
   Vitamin E:            11-15 mg
   Vitamin C:            70 mg
 
@@ -36,21 +36,21 @@ Minerals:
 
   Calcium:              1000 mg
   Iron:                 14 mg
-  Magnesium: 		    300 µg
+  Magnesium: 		    0,3 mg   // 300 µg
   Phosphor:             800 mg
   Zinc:                 15 mg
   Copper:               2 mg
   Sulfur:               133 mg
   Magnesium:            350 mg
-  Manganese             5 mg
+  Manganese:            5 mg
   Chlorine:             3400 mg
-  Iodine:               150 µg
+  Iodine:               0,15 mg    // 150 µg
   Sodium:               2400 mg
   Fluorine:             3,5 mg
   Potassium:            3500 mg
   Phosphorus            1000 mg
   Potassium:            3500 mg
-  Selenium:             35 µg
+  Selenium:             0,035 mg    // 35 µg
   Sodium:               2400 mg
 
 
