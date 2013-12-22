@@ -38,10 +38,10 @@ Minerals:
   Iron:                 14 mg
   Magnesium: 		    300 µg
   Phosphor:             800 mg
-  Zinc:			        15 mg
+  Zinc:                 15 mg
   Copper:               2 mg
   Sulfur:               133 mg
-  Magnesium             350 mg
+  Magnesium:            350 mg
   Manganese             5 mg
   Chlorine:             3400 mg
   Iodine:               150 µg
