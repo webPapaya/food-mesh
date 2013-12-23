@@ -1,10 +1,8 @@
 require_dependency 'food_apis_module'
 
 class LineChart < ActiveRecord::Base
-  include FoodApisModule
 
   def initialize(window_width = 500, window_height = 1000)
-    get_values
     @values = {
         "fat" => 100,
         "calories" => 200,
@@ -25,20 +23,16 @@ class LineChart < ActiveRecord::Base
   def get_line_chart
     {
       :init => initialize,
+     # :values => contain_values,
       :draw => draw_function
 
      }
   end
 
+ # def contain_values(nutritions)
+  #  @nutritions = nutritions
 
-
-  def get_values
-    logger.debug("___________________________________________")
-    #@results = search_apis [:query]
-    #api_id = params[:api_id].to_i food_id = params[:food_id]
-    #@results = get_item(api_id, food_id)
-    #logger.debug(@results)
-  end
+  #end
 
   def draw_function
 
