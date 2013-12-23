@@ -1,3 +1,7 @@
+<div>
+  Search Result for: <%= params[:query] %>
+</div>
+
 <% if @results.length > 0 %>
     <ul>
       <% @results.each do |result| %>
@@ -12,14 +16,11 @@
         </li>
         <li>
           <%= link_to "go to element", :controller => :food_overviews, :action => :show, :api_id => result[:api_key], :food_id => result[:item_id]%>
-          <%= link_to "add element to basket", :remote => true, :controller => :food_overviews, :action => :add_item_to_basket, :api_id => result['api_key'], :food_id => result['item_id']%>
+          <%= link_to "add element to basket", :remote => true, :controller => :user_session,   :action => :add_items_to_basket, :api_id => result[:api_key], :food_id => result[:item_id]%>
         </li>
       <% end %>
     </ul>
 
-    <div class="basket">
-      <%= session[:item_basket].inspect %>
-    </div>
 <% else %>
     <div>
       no results found

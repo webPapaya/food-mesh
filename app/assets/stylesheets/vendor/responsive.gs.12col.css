@@ -4,7 +4,6 @@
 	VERSION : 3.0
 	LICENSE : GPL & MIT */
 
-
 /* 	SET ALL ELEMENTS TO BOX-SIZING : BORDER-BOX */
 * { 
 	-webkit-box-sizing: border-box;
@@ -16,15 +15,12 @@
 		More info here:  https://github.com/Schepp/box-sizing-polyfill */
 }
 
-
 /*	MAIN CONTAINER 
 	Set the width to whatever you want the width of your site to be. */
 .container { 
-	max-width: 800px;
-	margin: 0 auto; 
+	max-width: 1200px;
+	margin: 0 0 0 auto;
 }
-
-
 
 /*	SELF CLEARING FLOATS - CLEARFIX METHOD */
 .clearfix:after,

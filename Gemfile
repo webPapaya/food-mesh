@@ -27,7 +27,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-#gem 'turbolinks'
+gem 'turbolinks'
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -51,8 +51,6 @@ end
 # gem 'debugger', group: [:development, :test]
 
 
-
-
 #own dependencies
 gem 'curb'    # curb alternative
 gem 'nokogiri'  # xml parser
@@ -69,6 +67,8 @@ gem 'fatsecret-api'
 gem 'nutritionix'
 
 gem 'awesome_print'
+
+gem 'bourbon'
 
 group :development do
   gem 'better_errors'

@@ -1,5 +1,5 @@
-@import url(../css/vendor/normalize.css);
-@import url(../css/vendor/responsive.gs.12col.css);
+@import url(vendor/normalize.css);
+@import url(vendor/responsive.gs.12col.css);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
 /**
  * main.scss
@@ -69,6 +69,9 @@
 /**
  * reusable classes
  */
+html {
+  overflow-y: scroll; }
+
 html, body {
   height: 100%;
   background: #e6e6e6; }
@@ -297,7 +300,6 @@ ul {
   src: url("icomoon.eot?#iefix") format("embedded-opentype"), url("fonts/icomoon/icomoon.ttf") format("truetype"), url("fonts/icomoon/icomoon.woff") format("woff"), url("fonts/icomoon/icomoon.svg#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
   speak: none;
@@ -446,14 +448,16 @@ input[type=submit], .button-search {
   font-size: 20px;
   font-weight: 500; }
 
+#user-settings label {
+  margin-bottom: 10px; }
+#user-settings input {
+  width: 100%;
+  margin: 3px 0 15px; }
 #user-settings input[type=submit] {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   padding: 10px;
   margin-top: 15px; }
-#user-settings input {
-  width: 100%;
-  margin: 3px 0 15px; }
 
 main #chart {
   width: 100%; }
@@ -471,7 +475,9 @@ main #chart {
         position: relative;
         float: right;
         margin-top: -30px;
-        height: 30px; }
+        height: 30px;
+        width: 150px;
+        border: none; }
     #header-dropdown-wrp .content .ingredient {
       width: 33.33%; }
 

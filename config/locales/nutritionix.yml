@@ -20,7 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 nutritionix:
-  name:                   "name"
   amount:                 "amount"
   amount_mesureing_sytem: "mass"
   aggregate_state:        "aggregate_state"
@@ -41,14 +40,13 @@ nutritionix:
   calories:               "calories"
   water_grams:            "water"
   calcium_dv:             "calcium"
-  sodium:                 "sodium"
-  serving_size_unit:      "amount"
-  sugars:                 "sugar"
+  serving_size_unit:      "ssu"
   polyunsaturated_fat:    "polyunsaturated_fat"
   calories_from_fat:      "calories_fat"
   monounsaturated_fat:    "monounsaturated_fat"
   dietary_fiber:          "fibers"
   vitamin_c_dv:           "vitamin_c"
+  name:                   "name"
   total_fat:              "total_fat"
   saturated_fat:          "saturated_fat"
   vitamin_a_dv:           "vitamin_a"
@@ -56,3 +54,5 @@ nutritionix:
   cholesterol:            "cholesterol"
   ingredient_statement:   "ingredients"
   servings_per_container: "portions"
+  sodium:                 "sodium"
+  sugars:                 "sugars"

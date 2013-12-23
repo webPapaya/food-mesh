@@ -59,6 +59,7 @@ input[type=submit], .button-search {
   }
 
 
+
 }
 
 #header-wrp {
@@ -87,15 +88,18 @@ input[type=submit], .button-search {
 }
 
 #user-settings {
-
-  input[type=submit] {
-    @include border-left-radius(5px);
-    padding: 10px;
-    margin-top: 15px;
+  label {
+    margin-bottom: 10px;
   }
 
   input{
     width: 100%;
     margin: 3px 0 15px;
+  }
+
+  input[type=submit] {
+    @include border-left-radius(5px);
+    padding: 10px;
+    margin-top: 15px;
   }
 }

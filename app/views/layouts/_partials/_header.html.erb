@@ -1,0 +1,24 @@
+<div id="header-wrp" class="clearfix">
+  <div class="display-table">
+    <div class="display-table-cell logo-small-wrp">
+      <%= image_tag 'logo_white.svg', :height => 60 %>
+    </div>
+    <div class="display-table-cell search-form-wrp responsive-hide">
+      <%= form_for('search/results/', :url => url_for(:controller => 'food_overviews', :action => 'redirect_to_index'),  method: "get") do %>
+          <!--<form id="search" class="container row">-->
+          <div class="col span_10">
+            <%= text_field_tag :query %>
+          </div>
+          <div class="col span_2">
+            <%= submit_tag("Search") %>
+          </div>
+      <% end %>
+    </div>
+    <div class="display-table-cell icon-wrp">
+      <ul class="menu" id="main-menu">
+        <li><a href="#user-basket" class="icon-basket active"></a></li>
+        <li><a href="#user-settings" class="icon-cog"></a></li>
+      </ul>
+    </div>
+  </div>
+</div>

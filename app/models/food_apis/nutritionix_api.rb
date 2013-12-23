@@ -18,10 +18,8 @@ class NutritionixAPI < FoodAPIInterface
         query: query
     }
 
-
     results_json = @provider.nxql_search(search_params)
     results_json = JSON.parse(results_json)
-
 
 
     (parse_data_search(results_json, api_key)) unless results_json.nil?
@@ -34,7 +32,7 @@ class NutritionixAPI < FoodAPIInterface
 
   private
   def parse_data_item (item, api_key)
-    ap JSON.parse(item)
+    food_item = JSON.parse(item)
     food = create_food_item_structure ({
         :name => "#{item['item_name']} #{item['brand_name']}",
         :api_key => api_key,
@@ -42,10 +40,10 @@ class NutritionixAPI < FoodAPIInterface
         :object_source_id => self.object_id,
         :serving_weight => {
             :unit => 'g',
-            :value => item['nf_serving_weight_grams']
+            :value => food_item['nf_serving_weight_grams']
         }
     })
-    food[:nutritions] = parse_single_item JSON.parse(item), food[:serving_weight]
+    food[:nutritions] = parse_single_item food_item, food[:serving_weight]
     food
   end
 

@@ -1,15 +1,17 @@
 Food::Application.routes.draw do
 
+  resources :single_pages
+
   get 'food/item/:api_id/:food_id', to: 'food_overviews#show', as: 'get_item'
-
-
-  get 'basket/add/item/:api_id/:food_id', to: 'food_overviews#add_item_to_basket'
+  get 'user_session/add_items_to_basket/:api_id/:food_id', to: 'user_session#add_items_to_basket', as: 'add_item_to_basket'
 
 
   match "search/results/:query" => "food_overviews#index", :via => [:get], as: 'search_result'
 
   resources :basic_pages
   resources :line_charts
+
+  match 'user_session/change_user_settings', to: 'user_session#change_user_settings', :via => [:post]
 
   get ':controller(/:action(/:id(.:format)))'
 

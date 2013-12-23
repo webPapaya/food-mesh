@@ -1,16 +1,19 @@
-<%= form_for(@basic_page) do |f| %>
-  <% if @basic_page.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@basic_page.errors.count, "error") %> prohibited this basic_page from being saved:</h2>
+<div class="edit-form">
 
-      <ul>
-      <% @basic_page.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+  <% if @basic_page.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@basic_page.errors.count, "error") %> prohibited this basic_page from being saved:</h2>
+
+        <ul>
+          <% @basic_page.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
   <% end %>
 
+
+  <%= form_for(@basic_page) do |f| %>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -22,4 +25,10 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+  <% end %>
+</div>
+
+
+
+
+
