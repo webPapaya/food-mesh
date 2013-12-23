@@ -18,12 +18,9 @@ class FoodOverviewsController < ApplicationController
     @pie_chart = pie_chart_instance.get_pie_chart
     ap @pie_chart
 
-    line_chart_instance = LineChart.new @results[:nutritions]
-    logger.debug(______u____)
-    logger.debug(line_chart_instance)
-    @line_chart = line_chart_instance.get_line_chart
+    instance = LineChart.new @results[:nutritions]
+    @line_chart = instance.get_line_chart
     logger.debug(@line_chart)
-    ap @line_chart
 
   end
 
