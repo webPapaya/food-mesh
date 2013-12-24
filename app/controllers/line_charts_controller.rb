@@ -7,5 +7,5 @@ class LineChartsController < ApplicationController
     instance = LineChart.new
     @line_chart = instance.get_line_chart
   end
-  logger.debug("results"); logger.debug(@line_chart)
+  logger.debug("@liiiiine_chart"); logger.debug(@line_chart)
 end

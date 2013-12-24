@@ -3,7 +3,7 @@ require_dependency 'food_apis_module'
 class LineChart < ActiveRecord::Base
 
   def initialize(window_width = 500, window_height = 1000)
-
+    logger.debug(@line_chart)
     @values = {
         "fat" => 100,
         "calories" => 200,
@@ -24,7 +24,6 @@ class LineChart < ActiveRecord::Base
   def get_line_chart
     {
       :init => initialize,
-      #:values => create_linechart,
       :draw => draw_function
 
      }
