@@ -56,4 +56,4 @@ fddb:
   m_kalium_mg:             "potassium"
   m_phosphor_mg:           "phosphorus"
   m_natrium_mg:            "solid"
-
+  amount_measuring_system: "ams"

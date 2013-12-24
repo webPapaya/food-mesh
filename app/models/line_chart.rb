@@ -23,7 +23,7 @@ class LineChart < ActiveRecord::Base
   def get_line_chart
     {
       :init => initialize,
-     # :values => contain_values,
+      #:values => create_linechart,
       :draw => draw_function
 
      }
