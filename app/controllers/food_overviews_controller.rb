@@ -19,26 +19,19 @@ class FoodOverviewsController < ApplicationController
     @pie_chart = pie_chart_instance.get_pie_chart
     ap @pie_chart
 
+    logger.debug("results"); logger.debug(@results)
     line_chart_instance = LineChart.new @results[:nutritions]
     @line_chart = line_chart_instance.get_pie_chart
     ap @line_chart
-
   end
 
   def get_linechart
 
-    logger.debug("_____a_____")
-    logger.debug(@results)
-    logger.debug("____b______")
-    @results.each do |h|
-      logger.debug(h[:name])
-      logger.debug(h[:nutritions])
-    end
+    #logger.debug("results"); logger.debug(@results)
+    line_chart_instance = LineChart.new @results
+    @line_chart = line_chart_instance.get_line_chart
+    ap @line_chart
 
-
-    #line_chart_instance = LineChart.new @results[:nutritions]
-    #@line_chart = line_chart_instance.get_pie_chart
-    #ap @line_chart
   end
 
   def redirect_to_index

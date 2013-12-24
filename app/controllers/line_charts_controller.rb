@@ -6,6 +6,6 @@ class LineChartsController < ApplicationController
   def index
     instance = LineChart.new
     @line_chart = instance.get_line_chart
-    logger.debug(@line_chart)
   end
+  logger.debug("results"); logger.debug(@line_chart)
 end

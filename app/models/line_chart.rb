@@ -3,6 +3,7 @@ require_dependency 'food_apis_module'
 class LineChart < ActiveRecord::Base
 
   def initialize(window_width = 500, window_height = 1000)
+
     @values = {
         "fat" => 100,
         "calories" => 200,
@@ -29,9 +30,21 @@ class LineChart < ActiveRecord::Base
      }
   end
 
- # def contain_values(nutritions)
-  #  @nutritions = nutritions
-
+  #def contain_values(nutritions)
+    #  @nutritions = nutritions
+    #logger.debug(h[:nutritions])
+    #@results.each do |h|
+      #@name = h[:name]; logger.debug(@name)
+      #logger.debug("kj"); logger.debug( h[:nutritions]["kj"])
+      #logger.debug("kcal");logger.debug(h[:nutritions]["kcal"])
+      #logger.debug("fat"); logger.debug(h[:nutritions]["fat"])
+      #logger.debug("saturated_fat"); logger.debug(h[:nutritions]["saturated_fat"])
+      #logger.debug("protein"); logger.debug(h[:nutritions]["protein"])
+      #logger.debug("carbohydrate"); logger.debug(h[:nutritions]["carbohydrate"])
+      #logger.debug("sugar"); logger.debug(h[:nutritions]["sugar"])
+      #logger.debug("fiber"); logger.debug(h[:nutritions]["fiber"])
+      #logger.debug("sodium"); logger.debug(h[:nutritions]["sodium"])
+    #end
   #end
 
   def draw_function
