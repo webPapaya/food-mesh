@@ -1,5 +1,3 @@
-require 'test_helper'
-
 class LineChartsControllerTest < ActionController::TestCase
   setup do
     @line_chart = line_charts(:one)

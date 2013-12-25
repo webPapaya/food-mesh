@@ -1,5 +1,3 @@
-require 'test_helper'
-
 class SinglePagesControllerTest < ActionController::TestCase
   setup do
     @single_page = single_pages(:one)

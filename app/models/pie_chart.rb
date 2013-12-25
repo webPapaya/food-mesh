@@ -1,6 +1,6 @@
 require_dependency 'food_apis_module'
 
-class PieChart < ActiveRecord::Base
+class PieChart
   def initialize (nutritions, width_height=500)
     @nutritions = nutritions
     @random = Random.new

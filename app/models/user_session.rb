@@ -1,7 +1,6 @@
 require_dependency 'user_session/user_basket'
 require_dependency 'user_session/user_settings'
 
-
 class UserSession
   def initialize (session)
     @session = session

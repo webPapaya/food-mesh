@@ -1,5 +1,3 @@
-require 'test_helper'
-
 class FoodOverviewsControllerTest < ActionController::TestCase
   setup do
     @food_overview = food_overviews(:one)

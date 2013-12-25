@@ -1,3 +1,3 @@
-class LineChart < ActiveRecord::Base
+class LineChart
 
 end
