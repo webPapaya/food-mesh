@@ -1,3 +1,4 @@
+require 'awesome_print'
 class UserSessionController < ApplicationController
   def change_user_settings
     user_session.change_user_settings params
@@ -10,6 +11,8 @@ class UserSessionController < ApplicationController
 
   def delete_all_items
     user_session.delete_all_items
+
+    ap user_session.get_user_items
 
     respond_to do |format|
       format.html { redirect_to :back }
