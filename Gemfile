@@ -54,7 +54,6 @@ gem 'redcarpet' # markdown
 gem 'capistrano', '2.15' #deployment
 gem 'rvm-capistrano'
 gem 'mime-types'
-gem 'mysql2'
 
 gem 'fatsecret-api'
 gem 'nutritionix'
@@ -67,6 +66,9 @@ group :development do
   gem 'better_errors'
   gem 'meta_request'
 end
+
+gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
+gem 'bson_ext'
 
 # gem for missing translations: github.com/svenfuchs/i18n-missing_translations
 gem "i18n-missing_translations"

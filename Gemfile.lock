@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/mongoid/mongoid.git
+  revision: fc589421bf8bcc85769400563ac43afa3fa6af29
+  specs:
+    mongoid (4.0.0.alpha1)
+      activemodel (~> 4.0.0)
+      moped (~> 2.0.beta4)
+      origin (~> 2.0)
+      tzinfo (~> 0.3.37)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,12 +38,14 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     awesome_print (1.2.0)
-    better_errors (1.0.1)
+    better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
+    bson (2.0.0)
+    bson_ext (1.5.1)
     builder (3.1.4)
     callsite (0.0.11)
     capistrano (2.15.0)
@@ -50,6 +62,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    connection_pool (1.2.0)
     curb (0.8.5)
     erubis (2.7.0)
     execjs (2.0.2)
@@ -77,8 +90,11 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
+    moped (2.0.0.beta4)
+      bson (~> 2.0)
+      connection_pool (~> 1.2)
+      optionable (~> 0.2.0)
     multi_json (1.8.2)
-    mysql2 (0.3.14)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -90,6 +106,8 @@ GEM
       mini_portile (~> 0.5.0)
     nutritionix (1.1.0)
       rest-client
+    optionable (0.2.0)
+    origin (2.0.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-contrib (1.1.0)
@@ -159,6 +177,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   bourbon
+  bson_ext
   capistrano (= 2.15)
   coffee-rails (~> 4.0.0)
   curb
@@ -168,7 +187,7 @@ DEPENDENCIES
   jquery-rails
   meta_request
   mime-types
-  mysql2
+  mongoid!
   nokogiri
   nutritionix
   rails (= 4.0.1)
