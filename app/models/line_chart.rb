@@ -24,9 +24,7 @@ class LineChart < ActiveRecord::Base
   def get_line_chart
     {
       :init => initialize,
-      :draw => draw_function,
-      :value => get_the_linechart
-
+      :draw => draw_function
      }
   end
 
