@@ -10,7 +10,7 @@ class UserSession
   end
 
   def delete_all_items
-     @session[:item_basket] = []
+    @session[:item_basket] = []
   end
 
   def add_item_to_basket(item)
