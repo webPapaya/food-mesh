@@ -39,8 +39,6 @@ class FoodOverviewsController < ApplicationController
     render :json => @line_chart
     ap @line_chart
   end
-  private
-
 
   def redirect_to_index
     redirect_to :controller => 'food_overviews', :action => 'index', :query => params[:query]
