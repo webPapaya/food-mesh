@@ -3,9 +3,13 @@ require 'food_apis_module'
 class LineChartsController < ApplicationController
   include FoodApisModule #include all functions from foodAPIs Module
 
+  before_filter :create_instance
   def index
-    instance = LineChart.new
-    @line_chart = instance.get_line_chart
+    @line_chart = @instance.build_paths search_apis('beer')
   end
-  logger.debug("@line_chart"); logger.debug(@line_chart)
+
+  private
+  def create_instance
+    @instance = LineChart.new
+  end
 end
