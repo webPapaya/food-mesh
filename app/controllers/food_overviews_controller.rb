@@ -16,8 +16,6 @@ class FoodOverviewsController < ApplicationController
 
     pie_chart_instance = PieChart.new @results[:nutritions]
     @pie_chart = pie_chart_instance.get_pie_chart
-    ap @pie_chart
-
   end
 
   def redirect_to_index
