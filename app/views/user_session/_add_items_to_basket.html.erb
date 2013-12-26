@@ -3,5 +3,14 @@
       <%= link_to "delete all items", :remote => true, :controller => :user_session,   :action => :delete_all_items %>
       <a class="responsive-show-inline" href="#">go to overview</a>
 </nav>
-<%= user_session.get_user_items %>
+
+<ul id="food-item-list">
+    <% user_session.get_user_items.each do |item| %>
+      <li>
+        <%= item[:api_key] %>
+        <%= item[:item_id] %>
+        <%= link_to "go to element", :controller => :food_overviews, :action => :show, :api_id => item[:api_key], :food_id => item[:item_id]%>
+      </li>
+    <% end %>
+</ul>
 
