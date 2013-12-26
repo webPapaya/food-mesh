@@ -48,22 +48,37 @@ class FoodItem
 
 
   def self.search_query (query)
-    search_apis query
+    items = Search.search query
+
+    if items.nil?
+      items = search_apis query
+      safe_item_to_db items
+      Search.add query, items
+    end
+
+    items
   end
 
   ##
   # safes a given item to the database
   # checks if the item is already in the database
   # returns true if it was saved
-  def self.safe_item_to_db(item)
-    id = create_id item[:api_key], item[:item_id]
-    item_db = FoodItem.find(id)
+  def self.safe_item_to_db(items)
+    #@todo very dirty hack should be replaced
+    if items.class == Hash
+      items = [items]
+    end
 
-    if item_db.nil?
-      name = item[:name]
-      nutritions = item[:nutritions]
-      i = FoodItem.new(_id: id, name: name, nutritions: nutritions)
-      i.save
+    items.each do |item|
+      id = create_id item[:api_key], item[:item_id]
+      item_db = FoodItem.find(id)
+
+      if item_db.nil?
+        name = item[:name]
+        nutritions = item[:nutritions]
+        i = FoodItem.new(_id: id, name: name, nutritions: nutritions)
+        i.save
+      end
     end
   end
 
