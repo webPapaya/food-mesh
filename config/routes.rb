@@ -1,8 +1,15 @@
 Food::Application.routes.draw do
 
+  #resources :food_items
+
   resources :single_pages
 
-  get 'food/item/:api_id/:food_id', to: 'food_overviews#show', as: 'get_item'
+
+
+  get 'food/item/:api_id/:food_id', to: 'food_item#show', as: 'get_item'
+
+
+
   get 'user_session/add_items_to_basket/:api_id/:food_id', to: 'user_session#add_items_to_basket', as: 'add_item_to_basket'
 
 

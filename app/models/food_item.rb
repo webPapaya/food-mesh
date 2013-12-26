@@ -27,8 +27,6 @@ class FoodItem
     id = create_id(api_key, food_id)
     item = FoodItem.find(id)
 
-    ap "#{item} -------------------------- item"
-
     if item.nil?
       item = get_item api_key, food_id
       safe_item_to_db item
@@ -46,14 +44,18 @@ class FoodItem
 
 
   private
-  def self.safe_item_to_db item
+  def self.safe_item_to_db(item)
     id = create_id item[:api_key], item[:item_id]
-    name = item[:name]
-    nutritions = item[:nutritions]
+    item_db = FoodItem.find(id)
 
-    i = FoodItem.new(_id: id, name: name, nutritions: nutritions)
-    i.save
+    if item_db.nil?
+      name = item[:name]
+      nutritions = item[:nutritions]
+      i = FoodItem.new(_id: id, name: name, nutritions: nutritions)
+      i.save
+    end
   end
+
 
   def self.create_id (api_key, item_id)
     "#{api_key}-#{item_id}"

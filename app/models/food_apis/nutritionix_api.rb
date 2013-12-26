@@ -14,7 +14,7 @@ class NutritionixAPI < FoodAPIInterface
   def search(api_key, query)
     search_params = {
         offset: 0,
-        limit: 2,
+        limit: 50,
         query: query
     }
 

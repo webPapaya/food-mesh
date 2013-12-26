@@ -9,12 +9,12 @@ module FoodAPIsHelper
   end
 
   def create_food_item_structure item_details
-    raise 'item name is nil' unless !item_details[:name].blank?
-    raise 'item api_key is nil' unless !item_details[:api_key].blank?
-    raise 'item item_id is nil' unless !item_details[:item_id].blank?
-    raise 'item object_source_id is nil' unless !item_details[:object_source_id].blank?
-    raise 'item serving_weight is nil' unless !item_details[:serving_weight][:unit].blank?
-    raise 'item serving_weight is nil' unless !item_details[:serving_weight][:value].blank?
+    #raise 'item name is nil' unless !item_details[:name].blank?
+    #raise 'item api_key is nil' unless !item_details[:api_key].blank?
+    #raise 'item item_id is nil' unless !item_details[:item_id].blank?
+    #raise 'item object_source_id is nil' unless !item_details[:object_source_id].blank?
+    #raise 'item serving_weight is nil' unless !item_details[:serving_weight][:unit].blank?
+    #raise 'item serving_weight is nil' unless !item_details[:serving_weight][:value].blank?
 
     item_details[:nutritions] = {}
     item_details

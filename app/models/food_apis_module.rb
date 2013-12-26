@@ -5,9 +5,7 @@ require_dependency 'food_apis/fsecret'
 require_dependency 'food_apis/nutritionix_api'
 
 module FoodApisModule
-  @@apis = [NutritionixAPI.new, Fddb.new] #, Fsecret.new]
-
-
+  @@apis = [NutritionixAPI.new]#, Fddb.new #, Fsecret.new]
 
   ##
   # example return value for search
@@ -28,10 +26,20 @@ module FoodApisModule
       api_results = api.search(api_key, query)
       (result.concat(api_results)) unless api_results.nil?
     end
+    push_to_db result
     result
   end
 
+
+
   def get_item (api_id, food_id)
-    @@apis[api_id].get_item api_id, food_id
+    FoodItem.get_local_item api_id, food_id
+  end
+
+  private
+  def push_to_db(items)
+    items.each do |item|
+      FoodItem.safe_item_to_db item
+    end
   end
 end
