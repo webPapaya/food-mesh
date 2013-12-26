@@ -1,1 +1,7 @@
-<%= @food_item.inspect %>
+<% @food_item.each do |item| %>
+    <h1><%= item['name'] %></h1>
+
+    <% item.attributes.each do |key, value| %>
+        <%= "#{key} #{ value }" %>
+    <% end %>
+<% end %>

@@ -2,25 +2,61 @@ require 'food_apis_module'
 
 class FoodItem
   include Mongoid::Document
-  include FoodApisModule #include all functions from foodAPIs Module
+  extend FoodApisModule #include all functions from foodAPIs Module
 
   field :name, type: String
   field :nutritions, type: Object
 
   def self.new_item item
-    id = "#{item[:api_key]} #{item[:item_id]}"
-    name = item[:name]
-    nutritions = item[:nutritions]
-
+    id = "#{item[:api_key]}-#{item[:item_id]}"
     if FoodItem.where(_id: id).exists?
       "element exists"
     else
-      i = FoodItem.new(_id: id, name: name, nutritions: nutritions)
-      i.save
+      safe_item_to_db item
+    end
+  end
+
+
+  ##
+  # searches local database for a given key
+  # if a given key is not in our database it calls the remote
+  # fetches the data and stores it in the database
+  # @api_key - is the api key
+  # @food_id - is the food id from the corresponding api
+  # @return - the food item
+  def self.get_local_item (api_key, food_id)
+    id = create_id(api_key, food_id)
+    item = FoodItem.find(id)
+
+    ap "#{item} -------------------------- item"
+
+    if item.nil?
+      item = get_item api_key, food_id
+      safe_item_to_db item
+      item[:source] = 'remote'
+      return item
+    else
+      item[:source] = 'local'
+      return item
     end
   end
 
   def self.get_all_items
-    FoodItem.all.count
+    FoodItem.all
+  end
+
+
+  private
+  def self.safe_item_to_db item
+    id = create_id item[:api_key], item[:item_id]
+    name = item[:name]
+    nutritions = item[:nutritions]
+
+    i = FoodItem.new(_id: id, name: name, nutritions: nutritions)
+    i.save
+  end
+
+  def self.create_id (api_key, item_id)
+    "#{api_key}-#{item_id}"
   end
 end

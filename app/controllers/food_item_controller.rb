@@ -8,7 +8,12 @@ class FoodItemController < ApplicationController
   end
 
   def show
-    item = get_item 0, '513fceb675b8dbbc21001d62'
-    @food_item = FoodItem.new_item item
+    item = FoodItem.get_local_item 0, '513fceb675b8dbbc21001d69'
+    @food_item = item
+  end
+
+  def drop_all
+    FoodItem.drop_all
+    redirect_to action: 'index'
   end
 end
