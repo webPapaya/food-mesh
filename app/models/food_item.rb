@@ -6,13 +6,21 @@ class FoodItem
 
   field :name, type: String
   field :nutritions, type: Object
-  field :search, type: Array
 
   def self.new_item item
+    id = "#{item[:api_key]} #{item[:item_id]}"
     name = item[:name]
     nutritions = item[:nutritions]
-    i = FoodItem.new(name: name, nutritions: nutritions, search: [])
-    i.save
-    i
+
+    if FoodItem.where(_id: id).exists?
+      "element exists"
+    else
+      i = FoodItem.new(_id: id, name: name, nutritions: nutritions)
+      i.save
+    end
+  end
+
+  def self.get_all_items
+    FoodItem.all.count
   end
 end
