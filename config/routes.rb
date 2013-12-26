@@ -4,16 +4,15 @@ Food::Application.routes.draw do
 
   resources :single_pages
 
-
-
   get 'food/item/:api_id/:food_id', to: 'food_item#show', as: 'get_item'
+  get 'search/:query', to: 'food_item#search'
 
 
 
   get 'user_session/add_items_to_basket/:api_id/:food_id', to: 'user_session#add_items_to_basket', as: 'add_item_to_basket'
 
 
-  match "search/results/:query" => "food_overviews#index", :via => [:get], as: 'search_result'
+  #match "search/results/:query" => "food_overviews#index", :via => [:get], as: 'search_result'
 
   resources :basic_pages
   resources :line_charts

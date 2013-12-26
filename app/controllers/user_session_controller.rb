@@ -1,3 +1,9 @@
+##
+# university:  University of Applied Sciences Salzburg
+# studie:      MultiMediaTechnology
+# usage:	     Multimediaprojekt 2a (MMP2a)
+# @author:     - Thomas Mayrhofer (thomas@mayrhofer.at)
+
 require 'awesome_print'
 class UserSessionController < ApplicationController
   def change_user_settings
@@ -11,9 +17,6 @@ class UserSessionController < ApplicationController
 
   def delete_all_items
     user_session.delete_all_items
-
-    ap user_session.get_user_items
-
     respond_to do |format|
       format.html { redirect_to :back }
       format.js { render 'user_session/add_items_to_basket' }

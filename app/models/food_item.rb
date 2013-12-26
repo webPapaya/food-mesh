@@ -1,3 +1,9 @@
+##
+# university:  University of Applied Sciences Salzburg
+# studie:      MultiMediaTechnology
+# usage:	     Multimediaprojekt 2a (MMP2a)
+# @author:     - Thomas Mayrhofer (thomas@mayrhofer.at)
+
 require 'food_apis_module'
 
 class FoodItem
@@ -30,10 +36,8 @@ class FoodItem
     if item.nil?
       item = get_item api_key, food_id
       safe_item_to_db item
-      item[:source] = 'remote'
       return item
     else
-      item[:source] = 'local'
       return item
     end
   end
@@ -43,7 +47,14 @@ class FoodItem
   end
 
 
-  private
+  def self.search_query (query)
+    search_apis query
+  end
+
+  ##
+  # safes a given item to the database
+  # checks if the item is already in the database
+  # returns true if it was saved
   def self.safe_item_to_db(item)
     id = create_id item[:api_key], item[:item_id]
     item_db = FoodItem.find(id)
@@ -56,7 +67,7 @@ class FoodItem
     end
   end
 
-
+  private
   def self.create_id (api_key, item_id)
     "#{api_key}-#{item_id}"
   end
