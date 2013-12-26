@@ -5,7 +5,7 @@ class LineChartsController < ApplicationController
 
   before_filter :create_instance
   def index
-    @line_chart = @instance.build_paths search_apis('beer')
+    @line_chart = @instance.build_paths search_apis('bread')
   end
 
   private

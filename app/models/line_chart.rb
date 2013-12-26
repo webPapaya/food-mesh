@@ -7,16 +7,27 @@ class LineChart < ActiveRecord::Base
   end
 
   def build_paths(items)
-    items.each do |item|
-      item[:path] = draw_function item[:nutritions]
+    ingredients = {}
+    items.each_with_index do |item, index|
+      ingredients["kcal"] =  item[:nutritions]["kcal"]
+      #ingredients["kj"] =  item[:nutritions]["kj"]
+      ingredients["fat"] =  item[:nutritions]["fat"]
+      ingredients["saturated_fat"] =  item[:nutritions]["saturated_fat"]
+      ingredients["protein"] =  item[:nutritions]["protein"]
+      ingredients["sugar"] =  item[:nutritions]["sugar"]
+      ingredients["carbohydrate"] =  item[:nutritions]["carbohydrate"]
+      ingredients["fiber"] =  item[:nutritions]["fiber"]
+      ingredients["sodium"] =  item[:nutritions]["sodium"]
+      logger.debug(ingredients)
+      item[:path] = draw_function ingredients
     end
   end
 
-  def draw_function(nutritions)
-    space = 500/nutritions.length
+  def draw_function(ingredients)
+    space = 500/ingredients.length
     path = "M 0 #{@dimensions[:height]}"
     i = 0
-    nutritions.each do |key, value|
+    ingredients.each do |key, value|
       path << " L #{i*space}  #{@dimensions[:height]-value} "
       i+=1
     end
