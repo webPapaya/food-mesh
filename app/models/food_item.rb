@@ -42,6 +42,7 @@ class FoodItem
     end
   end
 
+
   def self.get_local_items items
     food_items = []
     items['food_items'].each do |item|
@@ -50,10 +51,10 @@ class FoodItem
     food_items
   end
 
+
   def self.get_all_items
     FoodItem.all
   end
-
 
   def self.search_query (query)
     items = Search.search query

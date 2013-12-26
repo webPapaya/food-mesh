@@ -11,6 +11,8 @@ class FoodItemController < ApplicationController
 
   def show
     @food_item  = FoodItem.get_local_item params[:api_key].to_i, params[:food_id]
+    pie_chart_instance = PieChart.new @food_item[:nutritions]
+    @pie_chart = pie_chart_instance.get_pie_chart
   end
 
   def search
