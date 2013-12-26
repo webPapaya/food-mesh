@@ -42,6 +42,14 @@ class FoodItem
     end
   end
 
+  def self.get_local_items items
+    food_items = []
+    items['food_items'].each do |item|
+      food_items << get_local_item(item['api_key'], item['item_id'])
+    end
+    food_items
+  end
+
   def self.get_all_items
     FoodItem.all
   end
@@ -54,13 +62,17 @@ class FoodItem
       items = search_apis query
       safe_item_to_db items
       Search.add query, items
+    else
+      items = get_local_items items
     end
 
     items
   end
 
+
+
   ##
-  # safes a given item to the database
+  # safes a given items to the database
   # checks if the item is already in the database
   # returns true if it was saved
   def self.safe_item_to_db(items)

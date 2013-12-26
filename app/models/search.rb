@@ -2,7 +2,6 @@ class Search
   include Mongoid::Document
   field :_id, type: String
   field :food_items, type: Array
-  field :timestamp, type: Time
 
   def self.search _query
     item = Search.find(_query)
@@ -12,8 +11,7 @@ class Search
   def self.add (_query, _item_list)
     i = Search.new(
         _id: _query,
-        food_items: prepare_item_list(_item_list),
-        timestamp: Time.now.getutc
+        food_items: prepare_item_list(_item_list)
     )
     i.save
   end
