@@ -9,15 +9,15 @@ class LineChart < ActiveRecord::Base
   def build_paths(items)
     ingredients = {}
     items.each_with_index do |item, index|
-      ingredients["kcal"] =  item[:nutritions]["kcal"]
-      #ingredients["kj"] =  item[:nutritions]["kj"]
-      ingredients["fat"] =  item[:nutritions]["fat"]
-      ingredients["saturated_fat"] =  item[:nutritions]["saturated_fat"]
-      ingredients["protein"] =  item[:nutritions]["protein"]
-      ingredients["sugar"] =  item[:nutritions]["sugar"]
-      ingredients["carbohydrate"] =  item[:nutritions]["carbohydrate"]
-      ingredients["fiber"] =  item[:nutritions]["fiber"]
-      ingredients["sodium"] =  item[:nutritions]["sodium"]
+      # multiplication factor 20 just for a better illustration
+      ingredients["kcal"] = (100/(2500 / item[:nutritions]["kcal"])) * 20
+      ingredients["fat"] =  (100/(92.5/item[:nutritions]["fat"])) * 20
+      ingredients["saturated_fat"] = (100/(16/item[:nutritions]["saturated_fat"])) * 20
+      ingredients["protein"] =  (100/(78/item[:nutritions]["protein"])) * 20
+      ingredients["sugar"] =  (100/(62.2/item[:nutritions]["sugar"])) * 20
+      ingredients["carbohydrate"] = (100/(313/item[:nutritions]["carbohydrate"])) * 20
+      ingredients["fiber"] =  (100/(15/item[:nutritions]["fiber"])) * 20
+      ingredients["sodium"] =  (100/(2400/item[:nutritions]["sodium"])) * 20
       logger.debug(ingredients)
       item[:path] = draw_function ingredients
     end
