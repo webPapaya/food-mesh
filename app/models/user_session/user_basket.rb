@@ -8,7 +8,12 @@ module UserBasket
   end
 
   def get_user_items
-    return @session[:item_basket] unless @session[:item_basket].empty?
+    basket = []
+    @session[:item_basket].each do |item|
+      basket << FoodItem.get_local_item(item[:api_id].to_i, item[:item_id])
+    end
+
+    return basket unless basket.empty?
     'empty item basket'
   end
 end

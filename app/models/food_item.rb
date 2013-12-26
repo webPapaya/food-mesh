@@ -16,7 +16,6 @@ class FoodItem
     end
   end
 
-
   ##
   # searches local database for a given key
   # if a given key is not in our database it calls the remote
