@@ -8,9 +8,16 @@
   <% if user_session.get_user_items.class == Array %>
     <% user_session.get_user_items.each do |item| %>
       <li>
-        <%= item.inspect %>
+        <span class="header"><%= item['name']%><span class="info">per 100ml</span></span>
+        <span class="content clearfix">
+        <% item['nutritions'].each do |key, value| %>
+            <span class="ingredient">
+                <span class="highlighted"><%= key %></span>
+                <span class="simple"><%= value %></span>
+            </span>
+        <% end %>
+        </span>
         <!--#link_to "go to element", :controller => :food_overviews, :action => :show, :api_id => item[:api_key], :food_id => item[:item_id]-->
-        <%= "lalal" %>
       </li>
     <% end %>
   <% end %>
