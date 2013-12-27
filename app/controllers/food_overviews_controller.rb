@@ -1,8 +1,6 @@
 require 'food_apis_module'
 
 class FoodOverviewsController < ApplicationController
-  respond_to :js
-
   include FoodApisModule #include all functions from foodAPIs Module
 
   def index
