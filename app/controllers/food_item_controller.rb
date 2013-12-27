@@ -12,9 +12,9 @@ class FoodItemController < ApplicationController
   end
 
   def show
-    @food_item = @local_remote.get_item '0-513fceb675b8dbbc21001d62'
+    #"#{params[:api_key]}-#{params[:food_id]}"
+    @food_item = @local_remote.get_item params[:item_id]
 
-    ##"#{params[:api_key]}-#{params[:food_id]}"
     pie_chart_instance = PieChart.new @food_item[:nutritions]
     @pie_chart = pie_chart_instance.get_pie_chart
   end

@@ -32,25 +32,6 @@ class FoodItem
     FoodItem.all
   end
 
-  def self.search_query (query)
-    items = Search.search query
-
-    if items.nil?
-      items = search_apis query
-      safe_item_to_db items
-      Search.add query, items
-    else
-      items = get_local_items items
-    end
-
-    items
-  end
-
-
-
-
-
-
   ##
   # safes a given items to the database
   # checks if the item is already in the database
