@@ -23,8 +23,14 @@ class FoodItemController < ApplicationController
     @food_items = @local_remote.search params[:query]
   end
 
+  def redirect_to_index
+    redirect_to search_db_path params[:query]
+  end
+
   private
   def create_search_object
     @local_remote = SearchLocalRemote.new
   end
+
+
 end
