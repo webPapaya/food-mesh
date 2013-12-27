@@ -28,6 +28,14 @@ class FoodItem
     FoodItem.find(item_id)
   end
 
+  ##
+  # searches local database for an array of item_ids
+  # @item_ids ['string'] item ids
+  # @returns elements or nil if no element was found
+  def self.get_local_items item_ids
+    FoodItem.find(item_ids)
+  end
+
   def self.get_all_items
     FoodItem.all
   end
@@ -55,7 +63,6 @@ class FoodItem
     end
   end
 
-  private
   def self.create_id (api_key, item_id)
     "#{api_key}-#{item_id}"
   end

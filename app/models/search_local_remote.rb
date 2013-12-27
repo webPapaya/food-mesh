@@ -13,13 +13,19 @@ class SearchLocalRemote
   # if the search query was not performed in the past it asks the apis to find elements
   # all remote elements will be written to db
   def search query
+
     local_search = Search.search query
+    if !local_search.nil?
+      local_search = FoodItem.get_local_items local_search['food_items']
+      return local_search unless (local_search.nil?)
+    end
 
-    return local_search unless (local_search.nil?)
-
-    remote_search = search_apis query
-    add_multiple_food_items remote_search unless remote_search.nil?
-    return remote_search unless (remote_search.nil?)
+    remote_search = search_apis query   # adds searches remote end for elements
+    if !remote_search.nil?
+      Search.add query, remote_search     # adds elements to search
+      add_multiple_food_items remote_search unless remote_search.nil?
+      return remote_search unless (remote_search.nil?)
+    end
 
     nil #fallback
   end

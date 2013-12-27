@@ -6,7 +6,7 @@ class Search
   validates_presence_of :id, :food_items
 
   def self.search _query
-    Search.find(id: _query)
+    Search.find(_query)
   end
 
   def self.add (_query, _item_list)
@@ -21,10 +21,7 @@ class Search
   def self.prepare_item_list(_item_list)
     list = []
     _item_list.each do |item|
-      list << ({
-          :api_key => item[:api_key],
-          :item_id => item[:item_id]
-      })
+      list << (FoodItem.create_id item[:api_key], item[:item_id])
     end
     list
   end
