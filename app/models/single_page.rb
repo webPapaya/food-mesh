@@ -1,5 +1,0 @@
-class SinglePage
-
-
-
-end
