@@ -1,7 +1,5 @@
 require 'food_apis_module'
-require 'to_lang'
-ToLang.start('AIzaSyBziOZmDxbJtVi5jwODMoJrMtYckyw_WKg')
-
+require 'translator'
 
 class FoodOverviewsController < ApplicationController
   include FoodApisModule #include all functions from foodAPIs Module
@@ -9,8 +7,13 @@ class FoodOverviewsController < ApplicationController
   def index
     @results = search_apis params[:query]
     @results.each do |result|
-      names = result[:name].to_german
-      ap names
+        names = result[:name]
+        #ap names
+
+      #To translate all food names to german
+      tr = Translator.new()
+      tr.translate( result[:name], 'hi')
+      ap tr
     end
   end
 

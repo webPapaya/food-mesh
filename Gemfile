@@ -67,10 +67,8 @@ group :development do
   gem 'meta_request'
 end
 # translation for search results
-gem 'google-translate'
+gem 'language-translator'
 
-#adds language translation methods to strings and arrays
-gem 'to_lang'
 
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
