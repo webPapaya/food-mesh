@@ -24,10 +24,7 @@ class UserSessionController < ApplicationController
   end
 
   def add_items_to_basket
-    user_session.add_item_to_basket({
-      :item_id => params[:food_id],
-      :api_id => params[:api_id]
-    })
+    user_session.add_item_to_basket FoodItem.create_id params[:api_id], params[:food_id]
 
     respond_to do |format|
       format.html { redirect_to :back }

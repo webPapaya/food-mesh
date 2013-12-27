@@ -5,6 +5,7 @@
 </nav>
 
 <ul id="food-item-list">
+  <% if user_session.get_user_items.class == Array %>
     <% user_session.get_user_items.each do |item| %>
       <li>
         <%= item.inspect %>
@@ -12,5 +13,6 @@
         <%= "lalal" %>
       </li>
     <% end %>
+  <% end %>
 </ul>
 
