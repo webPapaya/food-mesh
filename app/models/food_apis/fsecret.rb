@@ -33,6 +33,7 @@ class Fsecret < FoodAPIInterface
   #
   private
   def create_item_header_information(item, api_key)
+    ap item[:serving]
     create_food_item_structure({
       :name => item['food_name'],
       :api_key => api_key,
@@ -47,7 +48,8 @@ class Fsecret < FoodAPIInterface
 
   def parse_data_item (data, api_key)
     item = data['food']
-    item[:serving] = item['servings']['serving'][0] # just take the first serving and recalculate the rest
+
+    item[:serving] = get_serving_object item
     food = create_item_header_information item, api_key
 
     item[:serving].each do |key, ingredient|
@@ -75,5 +77,16 @@ class Fsecret < FoodAPIInterface
     end
 
     parsed_data
+  end
+
+  private
+  ##
+  # fatsecret returns a list of possible servings (apple, slices of apples, ...)
+  # if there is only one serving it will return an object with all the ingredients
+  # if there are more possibilities it will return an array
+  def get_serving_object item
+    servings = item['servings']['serving']
+    return servings unless servings.class == Array
+    servings[0]
   end
 end

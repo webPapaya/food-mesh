@@ -32,4 +32,6 @@ module FoodApisModule
   def get_remote_item (api_id, food_id)
     @@apis[api_id.to_i].get_item api_id.to_i, food_id
   end
+
+  private
 end
