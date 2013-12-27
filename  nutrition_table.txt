@@ -6,7 +6,7 @@ SELECTION:
 Energy:             calories: 2500 kcal,  kiloJoule:   10467.0 kJ
 Protein:            78 g
 Fat(total):         92.5 g
-Fat(saturated):     16 g
+Fat(saturated):     28 g
 Carbohydrate:       313 g   // short: Carbs
 Sugar:              62.2
 (Dietary) Fiber:    15 g
