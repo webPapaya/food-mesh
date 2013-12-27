@@ -13,43 +13,49 @@ class Fsecret < FoodAPIInterface
   def search(api_key, query)
     data = FatSecret.search_food(query)
     data = nil unless (data['foods']['total_results'].to_i > 0)
-    (parse_data_search(data, api_key)) unless data.nil?
+    items = []
+
+    data['foods']['food'].each do |item|
+      item_id = data['foods']['food'][1]['food_id'].to_i
+      ap get_item api_key, item_id
+    end
+
+    #data['foods']['food'].each do |item|
+    #  items << (get_item api_key.to_i, item['food_id'].to_i)
+    #  break
+    #end
+
+    items
   end
 
   def get_item(api_key, id)
     data = FatSecret.food(id)
-
-    #data = nil unless (!data['error'].nil?)
-
     (parse_data_item(data, api_key)) unless data.nil?
   end
 
   ##
   # todo calculate nutritions per 100g
   #
-
   private
   def create_item_header_information(item, api_key)
-    ap item
-
     create_food_item_structure({
       :name => item['food_name'],
       :api_key => api_key,
       :item_id => item['food_id'],
       :object_source_id => self.object_id,
       :serving_weight => {
-          :unit => 'g',
-          :value => item['_source']['nf_serving_weight_grams']
+          :unit => item[:serving]['metric_serving_unit'],
+          :value => item[:serving]['metric_serving_amount']
       }
     })
   end
 
   def parse_data_item (data, api_key)
     item = data['food']
-
+    item[:serving] = item['servings']['serving'][0] # just take the first serving and recalculate the rest
     food = create_item_header_information item, api_key
 
-    item['servings']['serving'].each do |key, ingredient|
+    item[:serving].each do |key, ingredient|
       key = translate_key key, :fatsecret
       food[:nutritions][key] = ingredient
     end

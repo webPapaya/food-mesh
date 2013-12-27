@@ -13,8 +13,6 @@ class Fddb < FoodAPIInterface
         :lang => 'de'
     }
 
-    #puts 'http://fddb.info/api/v8/search/item.xml?' + params.to_query
-
     data = Curl::Easy.http_post('http://fddb.info/api/v8/search/item.xml?' + params.to_query).body_str
     (parse_xml api_id, data) unless data.nil?
   end
