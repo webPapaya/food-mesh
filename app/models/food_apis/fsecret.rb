@@ -16,14 +16,9 @@ class Fsecret < FoodAPIInterface
     items = []
 
     data['foods']['food'].each do |item|
-      item_id = data['foods']['food'][1]['food_id'].to_i
-      ap get_item api_key, item_id
+      item_id = item['food_id'].to_i
+      items << (get_item api_key, item_id)
     end
-
-    #data['foods']['food'].each do |item|
-    #  items << (get_item api_key.to_i, item['food_id'].to_i)
-    #  break
-    #end
 
     items
   end
@@ -60,7 +55,7 @@ class Fsecret < FoodAPIInterface
       food[:nutritions][key] = ingredient
     end
 
-    [food]
+    food
   end
 
   def parse_data_search(data, api_key)

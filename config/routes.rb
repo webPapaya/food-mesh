@@ -3,10 +3,11 @@ Food::Application.routes.draw do
   resources :single_pages
 
   match 'food/item/:item_id', to: 'food_item#show', as: 'get_food_item', via: :get
+  match 'food/item/add_to_basket/:item_id', to: 'user_session#add_items_to_basket', via: [:post, :get], as: 'add_item_to_basket'
 
 
   get 'search/:query', to: 'food_item#search'
-  get 'user_session/add_items_to_basket/:api_id/:food_id', to: 'user_session#add_items_to_basket', as: 'add_item_to_basket'
+  #get 'user_session/add_items_to_basket/:api_id/:food_id', to: 'user_session#add_items_to_basket', as: 'add_item_to_basket'
 
 
 

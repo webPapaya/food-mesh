@@ -14,8 +14,8 @@
             <% end %>
           </li>
           <li>
-            <%= link_to "go to element", :controller => :food_item, :action => :show, :api_id => result[:api_key], :food_id => result[:item_id]%>
-            <%= link_to "add element to basket", :remote => true, :controller => :user_session,   :action => :add_items_to_basket, :api_id => result[:api_key], :food_id => result[:item_id]%>
+            <%= link_to "go to element", get_food_item_path(result['_id'])%>
+            <%= link_to "add element to basket", add_item_to_basket_path(result['_id']), :remote => true%>
           </li>
       <% end %>
     </ul>
