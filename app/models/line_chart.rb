@@ -7,7 +7,6 @@ class LineChart
   end
 
   def convert_to_percent ingredients, items
-    # multiplication factor 15 just for a better illustration,
     items.each do |item, index|
       ingredients["kcal"] = (100/(2500/ingredients["kcal"]))
       ingredients["fat"] =  (100/(92.5/ingredients["fat"]))
