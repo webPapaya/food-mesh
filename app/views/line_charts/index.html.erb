@@ -1,0 +1,25 @@
+<h1>Listing line_charts</h1>
+
+<svg width="1000" height="500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+  <% @line_chart.each do |item| %> <!-- later: foreach of the value hashes -->
+      <path id="line1" d="<%= item[:path] %>" stroke-linecap="round" stroke="#00BD97" stroke-width="4" fill="rgba(0, 189, 151, 0.2)"></path>
+      <%= @values %>
+  <% end %>
+</svg>
+
+<% @line_chart.each do |item| %>
+    <h1><%= item[:name] %></h1>
+    <ul>
+      <% item[:nutritions].each do |key, nutrition| %>
+          <li><%= "key #{key} ---- value #{nutrition} "%></li>
+      <% end %>
+    </ul>
+<% end %>
+
+
+
+
+
+
+
+

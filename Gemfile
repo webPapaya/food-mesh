@@ -3,13 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
-# Use postgres as the database for Active Record
-group :development, :test do
-  gem 'sqlite3'
-end
-group :production do
-  gem 'sqlite3'
-end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -27,7 +20,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-#gem 'turbolinks'
+gem 'turbolinks'
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -51,28 +44,31 @@ end
 # gem 'debugger', group: [:development, :test]
 
 
-
-
 #own dependencies
 gem 'curb'    # curb alternative
 gem 'nokogiri'  # xml parser
 
 
-gem 'redcarpet'
+gem 'redcarpet' # markdown
 
 gem 'capistrano', '2.15' #deployment
 gem 'rvm-capistrano'
 gem 'mime-types'
-gem 'mysql2'
 
 gem 'fatsecret-api'
 gem 'nutritionix'
 
 gem 'awesome_print'
 
-gem 'thin' #webserver which we will use instead of webrick
+gem 'bourbon'
 
+group :development do
+  gem 'better_errors'
+  gem 'meta_request'
+end
 
+gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
+gem 'bson_ext'
 
 # gem for missing translations: github.com/svenfuchs/i18n-missing_translations
 gem "i18n-missing_translations"

@@ -5,7 +5,6 @@
  * studie:      MultiMediaTechnology
  * usage:	    Multimediaprojekt 2a (MMP2a)
  * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
- *              - Franziska Oberhauser (foberhauser.mmt-b2012@fh-salzburg.ac.at)
  *
  * About this file:
  * ----------------
@@ -23,11 +22,14 @@
  */
 
 @import "fontface";
-@import "static";
 
 /**
  * reusable classes
  */
+* {
+  font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
+  font-weight: 100;
+}
 
 .center {
   text-align: center;
@@ -36,19 +38,60 @@
 
 a {
   text-decoration: none;
-  color: $colorMain;
+  color: $primaryDark;
 }
 
+.highlighted {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 100;
+}
 
 /**
  * special page styles
  * naming convention for wrapper element #<page>-<block>-<context>
  */
-
-
 #header-wrp {
+  a {
+    color: $primaryLight;
+  }
+}
 
+#header-dropdown-wrp {
+  color: $primaryLight;
 
+  h1 {
+    margin-top: 30px;
+    font-weight: 100;
+  }
 
+  nav#secondary {
+    margin: 20px 0;
+    text-align: center;
 
+    a {
+      padding: 2px 10px;
+    }
+
+    a:hover {
+      background: $secondaryDark;
+      border-radius: 2px;
+    }
+  }
+
+  a {
+    color: $primaryLight;
+  }
+
+  .header {
+    font-size: 25px;
+    font-weight: 100;
+
+    .info {
+      font-size: 50%;
+    }
+  }
 }

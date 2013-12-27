@@ -11,6 +11,9 @@ class FoodOverviewsController < ApplicationController
     api_id = params[:api_id].to_i
     food_id = params[:food_id]
     @results = get_item(api_id, food_id)
+
+    pie_chart_instance = PieChart.new @results[:nutritions]
+    @pie_chart = pie_chart_instance.get_pie_chart
   end
 
   def redirect_to_index

@@ -1,0 +1,25 @@
+<h1>Elemente im Vergleichskorb</h1>
+    <nav id="secondary">
+      <%= link_to "delete all items", :remote => true, :controller => :user_session,   :action => :delete_all_items %>
+      <a class="responsive-show-inline" href="#">go to overview</a>
+</nav>
+
+<ul id="food-item-list">
+  <% if user_session.get_user_items.class == Array %>
+      <% user_session.get_user_items.each do |item| %>
+          <li>
+            <span class="header"><%= item['name'] %> <span class="info"> per 100ml </span></span>
+            <span class="content clearfix">
+            <% item['nutritions'].each do |key, value| %>
+                <span class="ingredient">
+                    <span class="highlighted"><%= key %></span>
+                    <span class="simple"><%= value %></span>
+                </span>
+            <% end %>
+            </span>
+            <%= link_to 'go to element', get_food_item_path(item['_id']) %>
+          </li>
+    <% end %>
+  <% end %>
+</ul>
+

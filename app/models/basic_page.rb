@@ -1,2 +1,2 @@
-class BasicPage < ActiveRecord::Base
+class BasicPage
 end

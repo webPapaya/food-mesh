@@ -20,7 +20,7 @@ module FoodApisModule
   #          "Protein"=>"20.08g"
   #      }
   #  }]
-  def search_apis query
+  def search_apis (query)
     result = []
     @@apis.each_with_index do |api, api_key|
       api_results = api.search(api_key, query)
@@ -29,10 +29,9 @@ module FoodApisModule
     result
   end
 
-
-
-
-  def get_item (api_id, food_id)
-    @@apis[api_id].get_item api_id, food_id
+  def get_remote_item (api_id, food_id)
+    @@apis[api_id.to_i].get_item api_id.to_i, food_id
   end
+
+  private
 end

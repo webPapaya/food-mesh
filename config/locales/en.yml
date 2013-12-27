@@ -21,3 +21,4 @@
 
 en:
   hello: "Hello world"
+  empty_item_basket: "no elements in this list"

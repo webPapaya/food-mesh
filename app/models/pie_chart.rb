@@ -1,36 +1,32 @@
 require_dependency 'food_apis_module'
 
-class PieChart < ActiveRecord::Base
-  def initialize (width_height=500, segments=6)
+class PieChart
+  def initialize (nutritions, width_height=500)
+    @nutritions = nutritions
     @random = Random.new
-    @values = create_dummy_chart
     @width_height = width_height
-    @inner_angle  = 360 /segments
+    @inner_angle  = 360 /@nutritions.length
     @radiant = deg_to_rad(@inner_angle)
 
     @pie_chart_mask = create_outer_mask
   end
 
   def get_pie_chart
+    #calories = nutritions['calories']
+    #nutritions.delete('calories')
+    #nutritions.delete('grams_of_sample')
+
     {
-        :values => create_dummy_chart,
+        :values => create_chart,
         :coords => get_coords,
         :inner_angle => @inner_angle,
-        :segments => @values.length, #should be removed and in view use segments.length
-        :daily_kcal => get_daily_calories_in_procent(1000),
+        :segments => @nutritions.length, #should be removed and in view use segments.length
+        :daily_kcal => get_daily_calories_in_procent(@nutritions['calories']),
         :chart_mask => create_outer_mask,
         :colors =>  %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772'],
         :width_height => @width_height,
         :center => @width_height/2
     }
-  end
-
-  def create_dummy_chart
-    values = Array.new
-    (0..5).each do |i|
-      values[i] = Random.rand(100)
-    end
-    values
   end
 
   def get_coords
@@ -73,11 +69,23 @@ class PieChart < ActiveRecord::Base
     circle["space"] = circumference*((100-percent)/100)
 
     circle
-
-
   end
 
   private
+  def create_chart
+    values = []
+    @nutritions.each do |key, value|
+      values.push({
+        :value => value,
+        :percent =>  calculate_daily_calories(10, value),
+        :ingredient => key
+      })
+    end
+
+    values
+  end
+
+
   def deg_to_rad (deg)
     Math::PI/180 * deg
   end

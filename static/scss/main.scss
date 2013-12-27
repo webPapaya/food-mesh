@@ -14,14 +14,21 @@
 
 
 
-@import "../css/vendor/normalize.css";
-@import "../css/vendor/responsive.gs.12col.css";
+@import "vendor/normalize.css";
+@import "vendor/responsive.gs.12col.css";
+@import "vendor/bourbon/bourbon";
 
 @import "static";
 @import "layout";
 @import "font";
 @import "form";
+@import "not_for_production!!!";
 
+@import "768_down";
+@import "1200_up";
+
+
+@import "modules/jquery.tabs";
 
 
 

@@ -13,68 +13,80 @@ class Fsecret < FoodAPIInterface
   def search(api_key, query)
     data = FatSecret.search_food(query)
     data = nil unless (data['foods']['total_results'].to_i > 0)
-    (parse_data_search(data, api_key)) unless data.nil?
+    items = []
+
+    data['foods']['food'].each do |item|
+      item_id = item['food_id'].to_i
+      items << (get_item api_key, item_id)
+    end
+
+    items
   end
 
-  def get_item(api_id, id)
+  def get_item(api_key, id)
     data = FatSecret.food(id)
-
-    puts data
-
-    #data = nil unless (!data['error'].nil?)
-
-
-    (parse_data_item(data)) unless data.nil?
+    (parse_data_item(data, api_key)) unless data.nil?
   end
 
   ##
   # todo calculate nutritions per 100g
   #
-
   private
+  def create_item_header_information(item, api_key)
+    ap item[:serving]
+    create_food_item_structure({
+      :name => item['food_name'],
+      :api_key => api_key,
+      :item_id => item['food_id'],
+      :object_source_id => self.object_id,
+      :serving_weight => {
+          :unit => item[:serving]['metric_serving_unit'],
+          :value => item[:serving]['metric_serving_amount']
+      }
+    })
+  end
 
-  def parse_data_item (data)
+  def parse_data_item (data, api_key)
     item = data['food']
 
-    food = Hash.new
-    food['name'] = item['food_name']
-    food['object_source_id'] = self.object_id
-    food['item_id'] = item['food_id']
-    food['nutritions'] = Hash.new
+    item[:serving] = get_serving_object item
+    food = create_item_header_information item, api_key
 
-
-    item['servings']['serving'].each do |key, ingredient|
-      key = I18n.t key, locale: :fatsecret
-      #key = I18n.t key, locale: :fatsecret
-      food['nutritions'][key] = ingredient
+    item[:serving].each do |key, ingredient|
+      key = translate_key key, :fatsecret
+      food[:nutritions][key] = ingredient
     end
 
-    [food]
+    food
   end
 
   def parse_data_search(data, api_key)
     parsed_data = []
     data["foods"]["food"].each do |item|
-      tmp = item["food_description"].split(" - ")
-      desc = tmp[1]
+      food = create_item_header_information item, api_key
+      tmp = item['food_description'].split(' - ')
+      food[:amount] = tmp[0]
 
-      food = Hash.new
-      food["name"] = item["food_name"]
-      food['api_key'] = api_key
-      food['object_source_id'] = self.object_id
-      food['item_id'] = item['food_id']
-      food["amount"] = tmp[0]
-      food["nutritions"] = Hash.new
-
-      ingredients = desc.split(" | ")
+      ingredients = tmp[1].split(' | ')
       ingredients.each do |ingredient|
         tmp = ingredient.split(": ")
         key = translate_key tmp[0], :fatsecret
-        food["nutritions"][key] = tmp[1]
+        food[:nutritions][key] = tmp[1]
       end
       parsed_data.push(food)
     end
 
     parsed_data
+  end
+
+  private
+  ##
+  # fatsecret returns a list of possible servings (apple, slices of apples, ...)
+  # if there is only one serving it will return an object with all the ingredients
+  # if there are more possibilities it will return an array
+  def get_serving_object item
+    servings = item['servings']['serving']
+    return servings unless servings.class == Array
+    servings[0]
   end
 end

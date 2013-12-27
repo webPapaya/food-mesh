@@ -1,7 +1,5 @@
 require_dependency 'food_apis/food_api_interface'
-require_dependency 'food_apis/food_apis_helper'
 require 'awesome_print'
-
 require 'nutritionix/api_1_1'
 
 
@@ -16,36 +14,36 @@ class NutritionixAPI < FoodAPIInterface
   def search(api_key, query)
     search_params = {
         offset: 0,
-        limit: 2,
+        limit: 50,
         query: query
     }
+
     results_json = @provider.nxql_search(search_params)
     results_json = JSON.parse(results_json)
-
 
 
     (parse_data_search(results_json, api_key)) unless results_json.nil?
   end
 
-  def get_item(api_id, id)
-    data = @provider.get_item id.to_s #if id is not a string you will receive undefined encoding
-    parse_data_item data
+  def get_item(api_key, item_id)
+    item = @provider.get_item item_id.to_s #if id is not a string you will receive undefined encoding
+    item = JSON.parse item
+    parse_data_item item, api_key
   end
 
   private
-
-  def parse_data_item data
-    food = Hash.new
-    food['name'] = data['item_name']
-    food['nutritions'] = Hash.new
-
-    JSON.parse(data).each do |key, ingredient|
-      if is_valid_pair? key, ingredient
-        key = I18n.t key, locale: :nutritionix
-        food['nutritions'][key] = ingredient
-      end
-    end
-
+  def parse_data_item (item, api_key)
+    food = create_food_item_structure ({
+        :name => "#{item['item_name']} #{item['brand_name']}",
+        :api_key => api_key,
+        :item_id => item['item_id'],
+        :object_source_id => self.object_id,
+        :serving_weight => {
+            :unit => 'g',
+            :value => item['nf_serving_weight_grams']
+        }
+    })
+    food[:nutritions] = parse_single_item item, food[:serving_weight]
     food
   end
 
@@ -55,27 +53,40 @@ class NutritionixAPI < FoodAPIInterface
     parsed_data = Array.new
 
     data['hits'].each do |item|
-      food = Hash.new
-      food['name'] = "#{item['_source']['item_name']} #{item['_source']['brand_name']}"
-      food['api_key'] = api_key
-      food['item_id'] = item['_id']
-      food['object_source_id'] = self.object_id
+      food = create_food_item_structure ({
+        :name => "#{item['_source']['item_name']} #{item['_source']['brand_name']}",
+        :api_key => api_key,
+        :item_id => item['_id'],
+        :object_source_id => self.object_id,
+        :serving_weight => {
+            :unit => 'g',
+            :value => item['_source']['nf_serving_weight_grams']
+        }
+      })
 
       item['_source'].delete('item_name')
       item['_source'].delete('brand_name')
 
-      food['nutritions'] = Hash.new
-
-      item['_source'].each do |key, ingredients|
-          if is_valid_pair? key, ingredients
-            key = translate_key key, :nutritionix
-            food['nutritions'][key] = ingredients
-          end
-      end
+      food[:nutritions] = parse_single_item item['_source'], food[:serving_weight]
 
       parsed_data.push(food)
     end
     parsed_data
+  end
+
+  ##
+  # parses the nutrition data from a single item and translates the key
+  # @param source - source array of elements
+  def parse_single_item(source, serving_weight)
+    nutrition_elements = {}
+    source.each do |key, ingredients|
+       if is_valid_pair? key, ingredients
+         key = translate_key key, :nutritionix
+
+         nutrition_elements[key] = base_nutrition_information ingredients, serving_weight
+       end
+    end
+    nutrition_elements
   end
 
   # checks a given pair on following things
