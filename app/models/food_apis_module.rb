@@ -20,25 +20,16 @@ module FoodApisModule
   #          "Protein"=>"20.08g"
   #      }
   #  }]
-  def search_apis query
+  def search_apis (query)
     result = []
     @@apis.each_with_index do |api, api_key|
       api_results = api.search(api_key, query)
       (result.concat(api_results)) unless api_results.nil?
     end
-    #push_to_db result
     result
   end
 
   def get_remote_item (api_id, food_id)
     @@apis[api_id.to_i].get_item api_id.to_i, food_id
-  end
-
-
-  private
-  def push_to_db(items)
-    items.each do |item|
-      FoodItem.safe_item_to_db item
-    end
   end
 end
