@@ -26,15 +26,14 @@ module FoodApisModule
       api_results = api.search(api_key, query)
       (result.concat(api_results)) unless api_results.nil?
     end
-    push_to_db result
+    #push_to_db result
     result
   end
 
-
-
-  def get_item (api_id, food_id)
-    FoodItem.get_local_item api_id, food_id
+  def get_remote_item (api_id, food_id)
+    @@apis[api_id.to_i].get_item api_id.to_i, food_id
   end
+
 
   private
   def push_to_db(items)

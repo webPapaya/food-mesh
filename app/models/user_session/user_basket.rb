@@ -1,4 +1,5 @@
 module UserBasket
+  include FoodApisModule
   def delete_all_items
     @session[:item_basket] = []
   end
@@ -10,7 +11,7 @@ module UserBasket
   def get_user_items
     basket = []
     @session[:item_basket].each do |item|
-      basket << FoodItem.get_local_item(item[:api_id].to_i, item[:item_id])
+      basket << item[:item_id]
     end
 
     return basket unless basket.empty?

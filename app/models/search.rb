@@ -3,9 +3,10 @@ class Search
   field :_id, type: String
   field :food_items, type: Array
 
+  validates_presence_of :id, :food_items
+
   def self.search _query
-    item = Search.find(_query)
-    item
+    Search.find(id: _query)
   end
 
   def self.add (_query, _item_list)
@@ -17,7 +18,7 @@ class Search
   end
 
   private
-  def self.prepare_item_list _item_list
+  def self.prepare_item_list(_item_list)
     list = []
     _item_list.each do |item|
       list << ({
