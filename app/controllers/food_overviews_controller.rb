@@ -15,17 +15,18 @@ class FoodOverviewsController < ApplicationController
 
         #To translate all food names to spanish
     end
+    language = Array.new
     names.each_with_index do |name, index|
-      @laguage = translator.translate names[index], :from => 'en', :to => 'fr'
-      ap @laguage
+      language[index] = translator.translate names[index], :from => 'en', :to => 'fr'
+      ap language
     end
+    @language = language
   end
 
   def show
     api_id = params[:api_id].to_i
     food_id = params[:food_id]
     @results = get_item(api_id, food_id)
-    ap names = params[:name]
 
     pie_chart_instance = PieChart.new @results[:nutritions]
     @pie_chart = pie_chart_instance.get_pie_chart
