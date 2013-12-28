@@ -56,3 +56,4 @@ nutritionix:
   servings_per_container: "portions"
   sodium:                 "sodium"
   sugars:                 "sugar"
+  trans_fatty_acid:       "trans_fatty_acid"

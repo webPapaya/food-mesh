@@ -8,13 +8,10 @@
 
         <li>
           <h1 class="name"><%= result[:name]%></h1>
-
-              <h2> <%= @language[index] %> </h2>
-
-
+          <h2> <%= @language[index] %> </h2>
           <% result[:nutritions].each do |key, nutrition| %>
             <ul>
-              <!-- <li class="<%= key %>"> <%= "[key] #{key} - [value] #{nutrition}"  %></li> -->
+              <li class="<%= key %>"> <%= "[key] #{key} - [value] #{nutrition}"  %></li>
             </ul>
           <% end %>
         </li>

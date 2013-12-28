@@ -13,7 +13,7 @@ class SearchLocalRemote
   # if the search query was not performed in the past it asks the apis to find elements
   # all remote elements will be written to db
   def search query
-
+    ap query
     local_search = Search.search query
     if !local_search.nil?
       local_search = FoodItem.get_local_items local_search['food_items']
