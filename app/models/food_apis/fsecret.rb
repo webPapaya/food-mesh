@@ -12,7 +12,7 @@ class Fsecret < FoodAPIInterface
 
   def search(api_key, query)
     data = FatSecret.search_food(query)
-    data = nil unless (data['foods']['total_results'].to_i > 0)
+    #data = nil unless (data['foods']['total_results'].to_i > 0)
     items = []
 
     data['foods']['food'].each do |item|
