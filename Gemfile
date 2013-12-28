@@ -67,7 +67,7 @@ group :development do
   gem 'meta_request'
 end
 # translation for search results
-gem 'language-translator'
+gem "bing_translator"
 
 
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
