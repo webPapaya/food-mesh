@@ -1,19 +1,20 @@
 require 'food_apis_module'
-require 'translator'
+require 'rubygems'
+require 'bing_translator'
 
 class FoodOverviewsController < ApplicationController
   include FoodApisModule #include all functions from foodAPIs Module
 
   def index
+    translator = BingTranslator.new('MKnQJZvv0U4edzMy', 'MKnQJZvv0U4edzMyXua0/xEEHC9ZNZdN6lQVzaWu9I0=')
     @results = search_apis params[:query]
     @results.each do |result|
         names = result[:name]
         #ap names
 
-      #To translate all food names to german
-      tr = Translator.new()
-      tr.translate( result[:name], 'hi')
-      ap tr
+      #To translate all food names to spanish
+        spanish = translator.translate names, :from => 'en', :to => 'es'
+        ap spanish
     end
   end
 
