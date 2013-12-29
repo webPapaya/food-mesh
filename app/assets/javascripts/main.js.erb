@@ -1,0 +1,14 @@
+(function($, undefined){
+    $("#header-search").submit(function(evt) {
+        var main = $("#main-inner-wrp");
+        var loader = $('<%= image_tag "loader.gif" %>');
+
+        main.html(loader);
+    });
+
+    $("#main-menu").Tabs({
+        wrapper: '#header-dropdown-wrp'
+    });
+})(jQuery);
+
+
