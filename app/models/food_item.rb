@@ -15,12 +15,15 @@ class FoodItem
   field :translations, type: Array
 
 
+  ##
+  # creates a new object in the database and returns
   def self.new_item item
     id = "#{item[:api_key]}-#{item[:item_id]}"
     if FoodItem.where(_id: id).exists?
       "element exists"
     else
       safe_item_to_db item
+      get_local_item id
     end
   end
 
@@ -44,19 +47,22 @@ class FoodItem
   end
 
 
-  def self.add_translation_to_item (item_id, locale, translation)
-    item = FoodItem.find(item_id)
-    item['translations'] ||= []
-
-    item['translations'].each do |t|
-      return item if t.has_key?(locale.to_s)
-    end
-
+  def self.add_translation_to_item (item, locale, translation)
     new_translations = item['translations'] + [{locale => translation}]
     item.update_attributes!(translations: new_translations)
-
     item
- end
+  end
+
+  ##
+  # returns true if a given item has a translation
+  # false if translation is missing
+  def self.has_translation? item, locale
+    item['translations'] ||= []
+    item['translations'].each do |t|
+      return true if t.has_key?(locale.to_s)
+    end
+    false
+  end
 
   ##
   # safes a given items to the database
