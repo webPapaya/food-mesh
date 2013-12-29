@@ -24,12 +24,15 @@ class Translations
   private
   def translate_string string
     @translator.translate string, :from => @local_from, :to => @local_to
-    #  @translator.translate string, :from => @local_from, :to => @local_to
+  end
+
+  def translate_back string
+    @translator.translate string, :from => @local_to, :to => @local_from
   end
 
   def translate_arr arr
     arr_string = concat_names arr
-    translate_string arr_string
+    translate_back arr_string
   end
 
   def concat_names names
