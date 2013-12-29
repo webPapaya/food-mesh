@@ -69,6 +69,6 @@ class DailyIntakesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def daily_intake_params
-      params.require(:daily_intake).permit(:key, :value, :unit)
+      params.require(:daily_intake).permit(:key, :value, :unit, :category)
     end
 end

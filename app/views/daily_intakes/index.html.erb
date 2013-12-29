@@ -6,6 +6,7 @@
       <th>Key</th>
       <th>Value</th>
       <th>Unit</th>
+      <th>Category</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,6 +19,7 @@
         <td><%= daily_intake.key %></td>
         <td><%= daily_intake.value %></td>
         <td><%= daily_intake.unit %></td>
+        <td><%= daily_intake.category %></td>
         <td><%= link_to 'Show', daily_intake %></td>
         <td><%= link_to 'Edit', edit_daily_intake_path(daily_intake) %></td>
         <td><%= link_to 'Destroy', daily_intake, method: :delete, data: { confirm: 'Are you sure?' } %></td>

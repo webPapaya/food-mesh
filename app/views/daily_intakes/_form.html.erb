@@ -21,7 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :unit %><br>
-    <%= f.text_field :unit %>
+    <%= f.select :unit, %w( g mg kcal )%>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.select :category, %w( general vitamin mineral ) %>
   </div>
   <div class="actions">
     <%= f.submit %>

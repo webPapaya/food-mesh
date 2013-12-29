@@ -15,5 +15,10 @@
   <%= @daily_intake.unit %>
 </p>
 
+<p>
+  <strong>Category:</strong>
+  <%= @daily_intake.category %>
+</p>
+
 <%= link_to 'Edit', edit_daily_intake_path(@daily_intake) %> |
 <%= link_to 'Back', daily_intakes_path %>

@@ -18,7 +18,7 @@ class DailyIntakesControllerTest < ActionController::TestCase
 
   test "should create daily_intake" do
     assert_difference('DailyIntake.count') do
-      post :create, daily_intake: { key: @daily_intake.key, unit: @daily_intake.unit, value: @daily_intake.value }
+      post :create, daily_intake: { category: @daily_intake.category, key: @daily_intake.key, unit: @daily_intake.unit, value: @daily_intake.value }
     end
 
     assert_redirected_to daily_intake_path(assigns(:daily_intake))
@@ -35,7 +35,7 @@ class DailyIntakesControllerTest < ActionController::TestCase
   end
 
   test "should update daily_intake" do
-    patch :update, id: @daily_intake, daily_intake: { key: @daily_intake.key, unit: @daily_intake.unit, value: @daily_intake.value }
+    patch :update, id: @daily_intake, daily_intake: { category: @daily_intake.category, key: @daily_intake.key, unit: @daily_intake.unit, value: @daily_intake.value }
     assert_redirected_to daily_intake_path(assigns(:daily_intake))
   end
 

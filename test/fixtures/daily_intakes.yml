@@ -2,10 +2,12 @@
 
 one:
   key: MyString
-  value: 
+  value: 1.5
   unit: MyString
+  category: MyString
 
 two:
   key: MyString
-  value: 
+  value: 1.5
   unit: MyString
+  category: MyString
