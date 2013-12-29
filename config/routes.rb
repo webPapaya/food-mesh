@@ -1,4 +1,6 @@
 Food::Application.routes.draw do
+  resources :daily_intakes
+
   root to: 'basic_pages#show', :id => 1
 
 

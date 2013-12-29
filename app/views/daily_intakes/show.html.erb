@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Key:</strong>
+  <%= @daily_intake.key %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @daily_intake.value %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @daily_intake.unit %>
+</p>
+
+<%= link_to 'Edit', edit_daily_intake_path(@daily_intake) %> |
+<%= link_to 'Back', daily_intakes_path %>
