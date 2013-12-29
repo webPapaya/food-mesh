@@ -36,16 +36,16 @@
         activeElement.removeClass("active");
         targetElement.addClass("active");
 
-//        activeElement.animate({
-//            opacity: 0
-//        }, 300, function() {
-//            activeElement.removeClass("active");
-//            targetElement.animate({
-//                opacity: 1
-//            }, function() {
-//                targetElement.addClass("active");
-//            });
-//        });
+        activeElement.animate({
+            opacity: 0
+        }, 300, function() {
+            activeElement.removeClass("active");
+            targetElement.animate({
+                opacity: 1
+            }, function() {
+                targetElement.addClass("active");
+            });
+        });
     };
 
     $.fn.Tabs = function(options) {
