@@ -15,6 +15,15 @@ class UserSessionController < ApplicationController
     end
   end
 
+  def delete_item_from_basket
+    user_session.delete_item_from_basket params[:item_id]
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render 'user_session/add_items_to_basket' }
+    end
+  end
+
   def delete_all_items
     user_session.delete_all_items
     respond_to do |format|

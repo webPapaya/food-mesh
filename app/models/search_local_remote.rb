@@ -49,7 +49,6 @@ class SearchLocalRemote
   end
 
   private
-
   ##
   # loops through all elements and writes it to the database
   # todo should be placed in food_item.rb (should auto detect if single element or multiple elements are passed in new item function)
