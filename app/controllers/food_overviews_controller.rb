@@ -9,11 +9,15 @@ class FoodOverviewsController < ApplicationController
     translator = BingTranslator.new('MKnQJZvv0U4edzMy', 'MKnQJZvv0U4edzMyXua0/xEEHC9ZNZdN6lQVzaWu9I0=')
     names = Array.new
     @food_translation = translator.translate params[:query], :from => 'de', :to => 'en'
-    ap @food_translation
 
     @results = search_apis @food_translation
+    #translate_food_names @results
+  #end
+
+  #def translate_food_names results
+
     @results.each_with_index do |result, index|
-        names[index] = result[:name]
+      names[index] = result[:name]
     end
     language = Array.new
     names.each_with_index do |name, index|
