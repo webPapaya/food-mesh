@@ -17,7 +17,6 @@ class LineChart
       ingredients["carbohydrate"] = (100/(313/ingredients["carbohydrate"]))
       ingredients["fiber"] =  (100/(15/ ingredients["fiber"]))
       ingredients["sodium"] =  (100/(2400/ingredients["sodium"]))
-      #logger.debug(ingredients)
       #item[:path] = draw_function ingredients
     end
   end
@@ -37,7 +36,6 @@ class LineChart
       ingredients["carbohydrate"] = item[:nutritions]["carbohydrate"].to_f
       ingredients["fiber"] = item[:nutritions]["fiber"].to_f
       ingredients["sodium"] = item[:nutritions]["sodium"].to_f
-      logger.debug(ingredients)
       convert_to_percent ingredients, items
       item[:path] = draw_function ingredients
 
@@ -53,8 +51,6 @@ class LineChart
     ingredients.each do |key, value|
       path << " L #{i*space}  #{@dimensions[:height]-value} "
       i+=1
-      @values = key
-      logger.debug(@values)
     end
     path << "L #{@dimensions[:width]} #{@dimensions[:height]} Z"
   end
