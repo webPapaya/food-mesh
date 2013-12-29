@@ -99,8 +99,8 @@ class PieChart
   end
 
   def calculate_daily_intake key, value
-    ap key
-    ap DailyIntake.find_element('fat')['value']
+    #ap key
+    #ap DailyIntake.find_element('fat')['value']
   end
 end
 

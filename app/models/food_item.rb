@@ -8,9 +8,12 @@ require 'food_apis_module'
 
 class FoodItem
   include Mongoid::Document
+  include Mongoid::Attributes
 
   field :name, type: String
   field :nutritions, type: Object
+  field :translations, type: Array
+
 
   def self.new_item item
     id = "#{item[:api_key]}-#{item[:item_id]}"
@@ -40,6 +43,21 @@ class FoodItem
     FoodItem.all
   end
 
+
+  def self.add_translation_to_item (item_id, locale, translation)
+    item = FoodItem.find(item_id)
+    item['translations'] ||= []
+
+    item['translations'].each do |t|
+      return item if t.has_key?(locale.to_s)
+    end
+
+    new_translations = item['translations'] + [{locale => translation}]
+    item.update_attributes!(translations: new_translations)
+
+    item
+ end
+
   ##
   # safes a given items to the database
   # checks if the item is already in the database
@@ -57,7 +75,7 @@ class FoodItem
       if item_db.nil?
         name = item[:name]
         nutritions = item[:nutritions]
-        i = FoodItem.new(_id: id, name: name, nutritions: nutritions)
+        i = FoodItem.new(_id: id, name: name, nutritions: nutritions, translations: [])
         i.save
       end
     end

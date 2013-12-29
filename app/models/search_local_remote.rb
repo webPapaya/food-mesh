@@ -13,7 +13,6 @@ class SearchLocalRemote
   # if the search query was not performed in the past it asks the apis to find elements
   # all remote elements will be written to db
   def search query
-    ap query
     local_search = Search.search query
     if !local_search.nil?
       local_search = FoodItem.get_local_items local_search['food_items']
@@ -30,6 +29,8 @@ class SearchLocalRemote
     nil #fallback
   end
 
+
+
   ##
   # returns a single item from local database if it exists
   # if not this funktion asks the remote apis for the element
@@ -38,6 +39,11 @@ class SearchLocalRemote
   # if the element does not exist it returns nil
   def get_item item_id
     local_item = FoodItem.get_local_item item_id
+    local_item = FoodItem.add_translation_to_item item_id, I18n.locale, 'blub'
+
+
+
+
     return local_item unless (local_item.nil?)
 
     item_id = item_id.split('-')
