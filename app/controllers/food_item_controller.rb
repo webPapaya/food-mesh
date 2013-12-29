@@ -22,7 +22,10 @@ class FoodItemController < ApplicationController
 
   def search
     translation_en = Translations.translate params[:query], 'de'
+    ap translation_en
     @food_items = @local_remote.search translation_en
+    #@debug = Translations.translate ['käse', 'speck', 'milch', 'fleisch'], 'de'
+    #ap @debug
   end
 
   def redirect_to_index
