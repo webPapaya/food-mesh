@@ -25,7 +25,7 @@ fddb:
   amount_mesureing_sytem:  "mass"
   aggregate_state:         "aggregate_state"
   kj:                      "kj"
-  kcal:                    "kcal"
+  kcal:                    "calories"
   fat_gram:                "fat"
   fat_sat_gram:            "saturated_fat"
   kh_gram:                 "kh"
