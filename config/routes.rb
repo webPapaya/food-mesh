@@ -7,6 +7,7 @@ Food::Application.routes.draw do
   #food item
   match 'food/item/:item_id', to: 'food_item#show', as: 'get_food_item', via: :get
   match 'food/item/add_to_basket/:item_id', to: 'user_session#add_items_to_basket', via: [:post, :get], as: 'add_item_to_basket'
+  match 'food/item/delete_from_basket/:item_id', to: 'user_session#delete_item_from_basket', via: [:post, :get], as: 'delete_item_from_basket'
 
   #search
   match 'search/:query', to: 'food_item#search', as: 'search_db', via: :get

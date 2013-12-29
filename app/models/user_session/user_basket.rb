@@ -11,6 +11,12 @@ module UserBasket
     @session[:item_basket] << item_id unless (@session[:item_basket].include? item_id)
   end
 
+  def delete_item_from_basket(basket_idx)
+
+    ap @session[:item_basket].class
+    @session[:item_basket].delete_at(basket_idx.to_i)
+  end
+
   def get_user_items
     basket = FoodItem.get_local_items @session[:item_basket]
     return basket unless basket.empty?
