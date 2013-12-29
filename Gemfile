@@ -66,6 +66,9 @@ group :development do
   gem 'better_errors'
   gem 'meta_request'
 end
+# translation for search results
+gem "bing_translator"
+
 
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
