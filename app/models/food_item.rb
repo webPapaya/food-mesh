@@ -47,10 +47,17 @@ class FoodItem
   end
 
 
-  def self.add_translation_to_item (item, locale, translation)
+  def self.add_translation_to_item! (item, locale, translation)
     new_translations = item['translations'] + [{locale => translation}]
     item.update_attributes!(translations: new_translations)
     item
+  end
+
+  def self.get_translation item, locale
+    locale = locale.to_s
+    item['translations'].each do |t|
+      return t[locale] if t.has_key? locale
+    end
   end
 
   ##

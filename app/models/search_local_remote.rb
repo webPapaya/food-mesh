@@ -14,13 +14,13 @@ class SearchLocalRemote
   # all remote elements will be written to db
   def search(query)
     local_search = Search.search query
-    if !local_search.nil?
+    unless local_search.nil?
       local_search = FoodItem.get_local_items local_search['food_items']
       return local_search unless (local_search.nil?)
     end
 
     remote_search = search_apis query   # adds searches remote end for elements
-    if !remote_search.nil?
+    unless remote_search.nil?
       Search.add query, remote_search     # adds elements to search
       add_multiple_food_items remote_search unless remote_search.nil?
       return remote_search unless (remote_search.nil?)
@@ -31,21 +31,21 @@ class SearchLocalRemote
 
 
 
-  def get_item item_id
+  def get_item (item_id)
     item = gather_item item_id
     locale = I18n.locale.to_s
 
     unless FoodItem.has_translation? item, locale
       translator = Translations.new 'en', locale
       name = translator.translate item['name']
-      FoodItem.add_translation_to_item item, locale, name
+      FoodItem.add_translation_to_item! item, locale, name
     end
 
+    item['name'] = FoodItem.get_translation item, locale
     item
   end
 
   private
-
   ##
   # returns a single item from local database if it exists
   # if not this funktion asks the remote apis for the element
