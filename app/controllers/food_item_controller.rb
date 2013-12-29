@@ -13,7 +13,7 @@ class FoodItemController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to :back }
-      format.js { render 'food_item/search' }
+      format.js { render "#{params[:locale]}/food_item/search" }
     end
   end
 
@@ -35,9 +35,7 @@ class FoodItemController < ApplicationController
       tmp << item['name']
     end
 
-    ap "____________________"
     @debug = @translator.translate tmp
-    ap @debug
   end
 
   def redirect_to_index
@@ -50,7 +48,7 @@ class FoodItemController < ApplicationController
   end
 
   def before_actions
-    @translator = Translations.new
+    @translator = Translations.new params[:locale]
   end
 
 end

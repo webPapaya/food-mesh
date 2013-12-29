@@ -5,7 +5,6 @@ require 'nutritionix/api_1_1'
 
 class NutritionixAPI < FoodAPIInterface
   def initialize
-    I18n.locale = :nutritionix
     @app_id = '3f0f5d7f'
     @app_key = '96802c411ee8f2ba80568c157238d980'
     @provider = Nutritionix::Api_1_1.new(@app_id, @app_key)
