@@ -77,7 +77,7 @@ class PieChart
     @nutritions.each do |key, value|
       values.push({
         :value => value,
-        :percent =>  calculate_daily_calories(10, value),
+        :percent =>  calculate_daily_intake(key, value),
         :ingredient => key
       })
     end
@@ -96,6 +96,11 @@ class PieChart
 
   def calculate_daily_calories base, calories
     calories.to_f/base*100
+  end
+
+  def calculate_daily_intake key, value
+    ap key
+    ap DailyIntake.find_element('fat')['value']
   end
 end
 
