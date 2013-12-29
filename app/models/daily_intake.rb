@@ -9,6 +9,6 @@ class DailyIntake
   validates_uniqueness_of :key
 
   validates_inclusion_of :category, :in => %w( general vitamin mineral )
-  validates_inclusion_of :unit, :in => %w( g mg kcal )
+  validates_inclusion_of :unit, :in => %w( g mg kcal l)
 
 end
