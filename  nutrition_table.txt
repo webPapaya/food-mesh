@@ -3,14 +3,14 @@ Therefore we acted on the assumption of an 30 jear old male person with normal w
 
 SELECTION:
 
- calories:           2500 kcal
- protein:            78 g
- fat:                92.5 g
- saturated_fat:      28 g
- carbohydrate:       313 g   // short: Carbs
- sugar:              62.2
- fiber:              15 g
- sodium:             2400 mg
+ calories:              2500 kcal
+ protein:               78 g
+ fat:                   92.5 g
+ saturated_fat:         28 g
+ carbohydrate:          313 g
+ sugar:                 62.2
+ fiber:                 15 g
+ sodium:                2400 mg
 
 _______________________________________________
 
@@ -21,11 +21,11 @@ general:
   calories:             2500 kcal
   protein:              78 g
   fat:                  92.5 g
-  saturated_fat:      28 g
-  carbohydrate:         313 g   // short: Carbs
-  sugar:              62.2
-  fiber:              15 g
-  sodium:             2400 mg
+  saturated_fat:        28 g
+  carbohydrate:         313 g
+  sugar:                62.2
+  fiber:                15 g
+  sodium:               2400 mg
   cholesterol:          150 mg
   polyunsaturated_fat:  62.2 g
   monounsaturated_fat:  30.5 g
@@ -61,8 +61,7 @@ minerals:
   sodium:               2400 mg
   fluorine:             3,5 mg
   potassium:            3500 mg
-    phosphorus            1000 mg
-    selenium:             0,035 mg    // 35 µg
+
 
 
 Sources:
