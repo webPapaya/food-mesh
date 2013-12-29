@@ -9,4 +9,11 @@
       <%= f.text_field :user_settings_height, :placeholder => 'height', :value => @user_session.get_user_settings[:height] %>
       <%= f.submit "save changes" %>
   <% end %>
+  <h1> Select Language </h1>
+  <%= button_to "french", :controller => "fr/search/"+params[:query] %>
+  <%= button_to "spanish", :controller => "es/search/"+params[:query] %>
+  <%= button_to "german",  :controller => "de/search/"+params[:query] %>
+  <%= button_to "chinese", :controller => "ch/search/"+params[:query] %>
+  <%= button_to "hindu", :controller => "hi/search/"+params[:query] %>
+  <%= button_to "russian", :controller => "ru/search/"+params[:query] %>
 
