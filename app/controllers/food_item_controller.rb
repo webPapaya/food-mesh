@@ -9,6 +9,11 @@ class FoodItemController < ApplicationController
   # @todo this controller will be removed because its just for testing propose
   def index
     @food_item = FoodItem.get_all_items
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render 'food_item/search' }
+    end
   end
 
   def show
