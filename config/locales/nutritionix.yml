@@ -89,6 +89,7 @@ nutritionix:
   #iodine
   sodium:                 "sodium"
   #fluorine
+  #potassium
 
 #double translations
   sugar_gram:             "sugar_gram"

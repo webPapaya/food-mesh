@@ -20,40 +20,65 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fddb:
+
+#other:
   name:                    "name"
   amount:                  "amount"
   amount_mesureing_sytem:  "mass"
   aggregate_state:         "aggregate_state"
-  kj:                      "kj"
+  kh_gram:                 "kh"
+  amount_measuring_system: "ams"
+
+#selection:
   kcal:                    "calories"
+  protein_gram:            "protein"
   fat_gram:                "fat"
   fat_sat_gram:            "saturated_fat"
-  kh_gram:                 "kh"
+  #carbohydrate
   sugar_gram:              "sugar"
-  protein_gram:            "protein"
   df_gram:                 "fiber"
-  water_gram:              "water"
+  m_natrium_mg:            "sodium"
+
+#general:
+  kj:                      "kj"
+  kcal:                    "calories"
+  protein_gram:            "protein"
+  fat_gram:                "fat"
+  fat_sat_gram:            "saturated_fat"
+  #carbohydrate
+  sugar_gram:              "sugar"
+  df_gram:                 "fiber"
+  m_natrium_mg:            "sodium"
+  cholesterol_mg:          "cholesterol"
+  #polyunsaturated_fat
+  #monounsaturated_fat
   alcohol_gram:            "alcohol"
-  v_c_mg:                  "vitamin_c"
-  v_calcium_mg:            "calcium"
+  water_gram:              "water"
+
+#vitamin:
   v_a_mg:                  "vitamin_a"
   v_b1_mg:                 "vitamin_b1"
   v_b2_mg:                 "vitamin_b2"
   v_b6_mg:                 "vitamin_b6"
   v_b12_mg:                "vitamin_b12"
+  v_c_mg:                  "vitamin_c"
   v_d_mg:                  "vitamin_d"
   v_e_mg:                  "vitamin_e"
-  cholesterol_mg:          "cholesterol"
-  m_eisen_mg:              "iron"
+
+#minerals
   m_calcium_mg:            "calcium"
-  m_magnesium_mg:          "magnesium"
+  m_eisen_mg:              "iron"
+  m_phosphor_mg:           "phosphor"
   m_zink_mg:               "zinc"
   m_kupfer_mg:             "copper"
   m_schwefel_mg:           "sulfur"
+  m_magnesium_mg:          "magnesium"
   m_mangan_mg:             "manganese"
   m_chlor_mg:              "chlorine"
+  #iodine
+  m_natrium_mg:            "sodium"
   m_fluor_mg:              "fluorine "
   m_kalium_mg:             "potassium"
-  m_phosphor_mg:           "phosphorus"
-  m_natrium_mg:            "sodium"
-  amount_measuring_system: "ams"
+
+#double translations
+  v_calcium_mg:            "calcium"

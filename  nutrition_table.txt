@@ -29,9 +29,8 @@ general:
   cholesterol:          150 mg
   polyunsaturated_fat:  62.2 g
   monounsaturated_fat:  30.5 g
-        Potassium:            4,7 mg
   water:                1,5 - 2 l
-  Alcohol:              20 g
+  alcohol:              20 g
 
 
 vitamin:
@@ -61,7 +60,7 @@ minerals:
   iodine:               0,15 mg    // 150 µg
   sodium:               2400 mg
   fluorine:             3,5 mg
-    potassium:            3500 mg
+  potassium:            3500 mg
     phosphorus            1000 mg
     selenium:             0,035 mg    // 35 µg
 
