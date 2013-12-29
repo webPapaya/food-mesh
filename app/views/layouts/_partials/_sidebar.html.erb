@@ -1,4 +1,4 @@
-<%= form_for('search/results/', :html => {:class => 'responsive-show clearfix search'} , :url => url_for(:controller => 'food_overviews', :action => 'redirect_to_index'),  method: "get") do |f| %>
+<%= form_for('search/results/', :html => {:class => 'responsive-show clearfix search'} , :url => url_for(:controller => 'food_item', :action => 'redirect_to_index'),  method: "get") do |f| %>
     <!--<form id="search" class="container row">-->
       <%= text_field_tag :query %>
       <button class="button-search icon-search" type="submit">

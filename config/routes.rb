@@ -1,80 +1,27 @@
 Food::Application.routes.draw do
+  root to: 'basic_pages#show', :id => 1
 
-  resources :single_pages
 
+  #food item
   match 'food/item/:item_id', to: 'food_item#show', as: 'get_food_item', via: :get
   match 'food/item/add_to_basket/:item_id', to: 'user_session#add_items_to_basket', via: [:post, :get], as: 'add_item_to_basket'
 
+  #search
+  match 'search/:query', to: 'food_item#search', as: 'search_db', via: :get
 
-  get 'search/:query', to: 'food_item#search'
-  #get 'user_session/add_items_to_basket/:api_id/:food_id', to: 'user_session#add_items_to_basket', as: 'add_item_to_basket'
-
-
+  #user session
+  match 'user_session/change_user_settings', to: 'user_session#change_user_settings', :via => [:post]
 
   resources :basic_pages
   resources :line_charts
 
-  match 'user_session/change_user_settings', to: 'user_session#change_user_settings', :via => [:post]
 
   get ':controller(/:action(/:id(.:format)))'
 
   resources 'pie_chart'
   resources 'basic_pages'
-  root to: 'basic_pages#show', :id => 1
 
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end
