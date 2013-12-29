@@ -67,7 +67,7 @@ ul {
 }
 
 #header-wrp {
-  position: absolute;
+  position: fixed;
   z-index: 9999;
   width: 100%;
   height: $headerHeight;
@@ -211,6 +211,9 @@ ul {
 }
 
 #header-dropdown-wrp {
+  position: fixed;
+  overflow: scroll;
+  right: 0;
   z-index: 9998;
   height: 100%;
   padding: $headerHeight 10px;
