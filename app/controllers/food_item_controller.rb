@@ -1,6 +1,7 @@
 require 'food_apis_module'
 
 class FoodItemController < ApplicationController
+  before_filter :before_actions
   include FoodApisModule
 
   before_filter :create_search_object
@@ -21,9 +22,15 @@ class FoodItemController < ApplicationController
   end
 
   def search
-    translation_en = Translations.translate params[:query], 'de'
+    #ap Translations.init
+
+    translation_en = @translator.translate params[:query]
+
+    #translation_en = Translations.translate params[:query]
     ap translation_en
     @food_items = @local_remote.search translation_en
+    #ap "____________________"
+    #ap @food_items
     #@debug = Translations.translate ['käse', 'speck', 'milch', 'fleisch'], 'de'
     #ap @debug
   end
@@ -37,5 +44,8 @@ class FoodItemController < ApplicationController
     @local_remote = SearchLocalRemote.new
   end
 
+  def before_actions
+    @translator = Translations.new
+  end
 
 end
