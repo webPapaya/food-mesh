@@ -22,17 +22,18 @@ class FoodItemController < ApplicationController
   end
 
   def search
-    #ap Translations.init
-
     translation_en = @translator.translate params[:query]
 
-    #translation_en = Translations.translate params[:query]
-    ap translation_en
     @food_items = @local_remote.search translation_en
-    #ap "____________________"
-    #ap @food_items
-    #@debug = Translations.translate ['käse', 'speck', 'milch', 'fleisch'], 'de'
-    #ap @debug
+
+    tmp = []
+    @food_items.each do |item|
+      tmp << item['name']
+    end
+
+    ap "____________________"
+    @debug = @translator.translate tmp
+    ap @debug
   end
 
   def redirect_to_index

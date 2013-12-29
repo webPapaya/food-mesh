@@ -2,16 +2,19 @@
   Search Result for: <%= params[:query] %>
 </div>
 
+<%= @debug.inspect %>
+
 <% if @food_items.length > 0 %>
     <ul>
-      <% @food_items.each do |result| %>
+      <% @food_items.each_with_index do |result, i| %>
           <li>
             <h1 class="name"><%= result[:name]%></h1>
+            <h1 class="name"><%= @debug[i]%></h1>
+            <ul>
             <% result[:nutritions].each do |key, nutrition| %>
-                <ul>
                   <li class="<%= key %>"> <%= "[key] #{key} - [value] #{nutrition}"  %></li>
-                </ul>
             <% end %>
+            </ul>
           </li>
           <li>
             <!--@todo this should be moved to model-->

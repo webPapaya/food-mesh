@@ -13,24 +13,28 @@ class Translations
   def translate names
 
     if names.class == String
-      translate_string names
+      return translate_string names
     elsif names.class == Array
-      translate_arr names
+      return translate_arr(names).split(" | ")
     end
 
-    (names = concat_names names) unless (names.class == String)
-    translations = @translator.translate names, :from => @local_from, :to => @local_to
+    nil
+
+    #(names = concat_names names) unless (names.class == String)
+    #translations = @translator.translate names, :from => @local_from, :to => @local_to
     #split_translations translations
   end
 
+
+  private
   def translate_string string
     @translator.translate string, :from => @local_from, :to => @local_to
-  #  @translator.translate string, :from => @local_from, :to => @local_to
+    #  @translator.translate string, :from => @local_from, :to => @local_to
   end
 
   def translate_arr arr
-    concat_names names arr
-
+    arr_string = concat_names arr
+    translate_string arr_string
   end
 
   def concat_names names
@@ -38,6 +42,7 @@ class Translations
   end
 
   def split_translations names
+
     names.split ' ||| '
   end
 end
