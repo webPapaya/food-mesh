@@ -9,7 +9,7 @@ class Translations
   end
 
   ##
-  # translates a given array
+  # translates a given array or string
   def translate names
 
     if names.class == String
@@ -36,7 +36,6 @@ class Translations
   end
 
   def split_translations names
-
     names.split('|')
   end
 end

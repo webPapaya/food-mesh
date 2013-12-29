@@ -11,5 +11,14 @@ class ApplicationController < ActionController::Base
   end
 
 
+  before_filter :set_current_locale
+  def set_current_locale
+    I18n.locale = params[:locale]
+  end
+
+  def default_url_options(options={})
+    { locale: I18n.locale }
+  end
+
   helper_method :user_session
 end
