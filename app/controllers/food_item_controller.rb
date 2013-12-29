@@ -9,6 +9,7 @@ class FoodItemController < ApplicationController
   # @todo this controller will be removed because its just for testing propose
   def index
     @food_item = FoodItem.get_all_items
+
   end
 
   def show
@@ -20,7 +21,8 @@ class FoodItemController < ApplicationController
   end
 
   def search
-    @food_items = @local_remote.search params[:query]
+    translation_en = Translations.translate params[:query], 'de'
+    @food_items = @local_remote.search translation_en
   end
 
   private
