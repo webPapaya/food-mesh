@@ -6,11 +6,8 @@ class FoodOverviewsController < ApplicationController
   include FoodApisModule #include all functions from foodAPIs Module
 
   def index
-    translator = BingTranslator.new('MKnQJZvv0U4edzMy', 'MKnQJZvv0U4edzMyXua0/xEEHC9ZNZdN6lQVzaWu9I0=')
-    names = Array.new
-    @food_translation = translator.translate params[:query], :from => 'de', :to => 'en'
-
-    @results = search_apis @food_translation
+    translation_en = Translations.translate params[:query], 'de'
+    @results = search_apis translation_en
     #translate_food_names @results
   #end
 
