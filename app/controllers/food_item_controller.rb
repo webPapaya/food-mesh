@@ -4,7 +4,6 @@ class FoodItemController < ApplicationController
   before_filter :before_actions
   include FoodApisModule
 
-  before_filter :create_search_object
 
   ##
   # @todo this controller will be removed because its just for testing propose
@@ -30,10 +29,7 @@ class FoodItemController < ApplicationController
     @food_items.each do |item|
       tmp << item['name']
     end
-
-    ap "____________________"
-    @debug = @translator.translate tmp
-    ap @debug
+    @name_translation = @translator.translate tmp
   end
 
   def redirect_to_index
@@ -41,11 +37,8 @@ class FoodItemController < ApplicationController
   end
 
   private
-  def create_search_object
-    @local_remote = SearchLocalRemote.new
-  end
-
   def before_actions
+    @local_remote = SearchLocalRemote.new
     @translator = Translations.new
   end
 

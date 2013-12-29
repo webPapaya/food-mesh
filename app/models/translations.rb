@@ -15,21 +15,15 @@ class Translations
     if names.class == String
       return translate_string names
     elsif names.class == Array
-      return translate_arr(names).split(" | ")
+      return translate_arr(names).split('|')
     end
 
     nil
-
-    #(names = concat_names names) unless (names.class == String)
-    #translations = @translator.translate names, :from => @local_from, :to => @local_to
-    #split_translations translations
   end
-
 
   private
   def translate_string string
     @translator.translate string, :from => @local_from, :to => @local_to
-    #  @translator.translate string, :from => @local_from, :to => @local_to
   end
 
   def translate_arr arr
@@ -38,11 +32,11 @@ class Translations
   end
 
   def concat_names names
-    names.join ' ||| '
+    names.join('|')
   end
 
   def split_translations names
 
-    names.split ' ||| '
+    names.split('|')
   end
 end
