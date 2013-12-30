@@ -20,8 +20,6 @@ Food::Application.routes.draw do
 
   #user session
   match 'user_session/change_user_settings', to: 'user_session#change_user_settings', :via => [:post]
-
-  resources :basic_pages
   resources :line_charts
 
 
