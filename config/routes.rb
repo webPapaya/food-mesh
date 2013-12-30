@@ -15,6 +15,8 @@ Food::Application.routes.draw do
     match 'search/:query', to: 'food_item#search', as: 'search_db', via: :get
   end
 
+  match 'change/url/to/:locale', to: 'application#change_lang', via: [:get, :post], as: 'change_lang'
+
 
   #user session
   match 'user_session/change_user_settings', to: 'user_session#change_user_settings', :via => [:post]

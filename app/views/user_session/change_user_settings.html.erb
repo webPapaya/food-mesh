@@ -10,10 +10,15 @@
       <%= f.submit "save changes" %>
   <% end %>
   <h1> Select Language </h1>
-  <%= button_to "french", :controller => "fr/search/"+params[:query] %>
-  <%= button_to "spanish", :controller => "es/search/"+params[:query] %>
-  <%= button_to "german",  :controller => "de/search/"+params[:query] %>
-  <%= button_to "chinese", :controller => "ch/search/"+params[:query] %>
-  <%= button_to "hindu", :controller => "hi/search/"+params[:query] %>
+
+
+  <%= button_to "french", '/new_basic_page_path/' + params[:query] %>
+  <%= link_to "spanish", change_lang_path("es") %>
+  <%= button_to "german", :method => :replace, :controller => "de/search/"+params[:query] %>
+  <%= button_to "chinese", '/:item_id' %>
+  <%= button_to "chinese", '/:locale' %>
+  <%= button_to "chinese1", 'de'+'/search/'+params[:query] %>
+  <%= button_to "chinese", '/delete_from_basket/'+params[:query] %>
+  <%= button_to "hindu", 'search/:query' %>
   <%= button_to "russian", :controller => "ru/search/"+params[:query] %>
 
