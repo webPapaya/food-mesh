@@ -20,5 +20,5 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
-  helper_method :user_session
+  helper_method :user_session, :default_url_options
 end
