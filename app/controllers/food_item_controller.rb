@@ -10,10 +10,10 @@ class FoodItemController < ApplicationController
   def index
     @food_item = FoodItem.get_all_items
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js { render "#{params[:locale]}/food_item/search" }
-    end
+    #respond_to do |format|
+    #  format.html { redirect_to :back }
+    #  format.js { render "#{params[:locale]}/food_item/search" }
+    #end
   end
 
   def show

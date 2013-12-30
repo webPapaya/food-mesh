@@ -32,14 +32,16 @@ class NutritionixAPI < FoodAPIInterface
 
   private
   def parse_data_item (item, api_key)
+    serving_weight = item['nf_serving_size_qty'] or item['nf_serving_size_qty']
+
     food = create_food_item_structure ({
         :name => "#{item['item_name']} #{item['brand_name']}",
         :api_key => api_key,
         :item_id => item['item_id'],
         :object_source_id => self.object_id,
         :serving_weight => {
-            :unit => 'g',
-            :value => item['nf_serving_weight_grams']
+            :unit => item['nf_serving_size_unit'],
+            :value => serving_weight
         }
     })
     food[:nutritions] = parse_single_item item, food[:serving_weight]
@@ -52,6 +54,7 @@ class NutritionixAPI < FoodAPIInterface
     parsed_data = Array.new
 
     data['hits'].each do |item|
+      ap item
       food = create_food_item_structure ({
         :name => "#{item['_source']['item_name']} #{item['_source']['brand_name']}",
         :api_key => api_key,
@@ -81,7 +84,6 @@ class NutritionixAPI < FoodAPIInterface
     source.each do |key, ingredients|
        if is_valid_pair? key, ingredients
          key = translate_key key, :nutritionix
-
          nutrition_elements[key] = base_nutrition_information ingredients, serving_weight
        end
     end
