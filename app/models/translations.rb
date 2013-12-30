@@ -22,12 +22,13 @@ class Translations
   end
 
   private
-  def translate_string string
+  def translate_string (string)
     @translator.translate string, :from => @local_from, :to => @local_to
   end
 
-  def translate_back string
+  def translate_back (string)
     @translator.translate string, :from => @local_to, :to => @local_from
+
   end
 
   def translate_arr arr
