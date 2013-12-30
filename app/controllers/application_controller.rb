@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def change_lang
     I18n.locale = params[:locale] || I18n.default_locale
-    redirect_to search_db_path :locale => params[:locale], :query => 'fish'
+    redirect_to search_db_path :locale => params[:locale], :query => params[:query]
   end
 
   private
