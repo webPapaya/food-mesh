@@ -1,14 +1,35 @@
-<p id="notice"><%= notice %></p>
-<%= markdown(@basic_page.body) %>
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @basic_page.title %>
-</p>
-
+</h1>
 <p>
-  <strong>Body:</strong>
-  <%= @basic_page.body %>
+  <%= markdown(@basic_page.body) %>
 </p>
-
+<ul id="home-user-menu" class="menu">
+  <li>
+    <a href="#">
+      <img src="http://placehold.it/158x158">
+    </a>
+  </li>
+  <li>
+    <a href="#">
+      <img src="http://placehold.it/158x158">
+    </a>
+  </li>
+  <li>
+    <a href="#">
+      <img src="http://placehold.it/158x158">
+    </a>
+  </li>
+  <li>
+    <a href="#">
+      <img src="http://placehold.it/158x158">
+    </a>
+  </li>
+  <li>
+    <a href="#">
+      <img src="http://placehold.it/158x158">
+    </a>
+  </li>
+</ul>
 <%= link_to 'Edit', edit_basic_page_path(@basic_page) %> |
 <%= link_to 'Back', basic_pages_path %>
