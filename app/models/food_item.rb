@@ -8,16 +8,22 @@ require 'food_apis_module'
 
 class FoodItem
   include Mongoid::Document
+  include Mongoid::Attributes
 
   field :name, type: String
   field :nutritions, type: Object
+  field :translations, type: Array
 
+
+  ##
+  # creates a new object in the database and returns
   def self.new_item item
     id = "#{item[:api_key]}-#{item[:item_id]}"
     if FoodItem.where(_id: id).exists?
       "element exists"
     else
       safe_item_to_db item
+      get_local_item id
     end
   end
 
@@ -40,6 +46,31 @@ class FoodItem
     FoodItem.all
   end
 
+
+  def self.add_translation_to_item! (item, locale, translation)
+    new_translations = item['translations'] + [{locale => translation}]
+    item.update_attributes!(translations: new_translations)
+    item
+  end
+
+  def self.get_translation item, locale
+    locale = locale.to_s
+    item['translations'].each do |t|
+      return t[locale] if t.has_key? locale
+    end
+  end
+
+  ##
+  # returns true if a given item has a translation
+  # false if translation is missing
+  def self.has_translation? item, locale
+    item['translations'] ||= []
+    item['translations'].each do |t|
+      return true if t.has_key?(locale.to_s)
+    end
+    false
+  end
+
   ##
   # safes a given items to the database
   # checks if the item is already in the database
@@ -57,7 +88,7 @@ class FoodItem
       if item_db.nil?
         name = item[:name]
         nutritions = item[:nutritions]
-        i = FoodItem.new(_id: id, name: name, nutritions: nutritions)
+        i = FoodItem.new(_id: id, name: name, nutritions: nutritions, translations: [])
         i.save
       end
     end
