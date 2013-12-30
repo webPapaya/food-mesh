@@ -92,6 +92,6 @@ class NutritionixAPI < FoodAPIInterface
   # starts key with nf_ (for nutrition information)
   # is value wether 0 or nil
   def is_valid_pair? key, value
-    return true unless value.nil? || value == 0 || !key.include?('nf_')
+    true unless value.nil? || value == 0 || !key.include?('nf_')
   end
 end
