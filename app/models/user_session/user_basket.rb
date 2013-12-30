@@ -12,8 +12,6 @@ module UserBasket
   end
 
   def delete_item_from_basket(basket_idx)
-
-    ap @session[:item_basket].class
     @session[:item_basket].delete_at(basket_idx.to_i)
   end
 

@@ -8,7 +8,7 @@ class DailyIntake
   validates_presence_of :key, :value, :unit, :category
   validates_uniqueness_of :key
 
-  validates_inclusion_of :category, :in => %w( general vitamin mineral )
+  validates_inclusion_of :category, :in => %w( selection general vitamin mineral )
   validates_inclusion_of :unit, :in => %w( g mg kcal l )
 
   def self.find_element key

@@ -33,7 +33,6 @@ class Fsecret < FoodAPIInterface
   #
   private
   def create_item_header_information(item, api_key)
-    ap item[:serving]
     create_food_item_structure({
       :name => item['food_name'],
       :api_key => api_key,

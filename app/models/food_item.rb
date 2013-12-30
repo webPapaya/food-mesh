@@ -64,6 +64,7 @@ class FoodItem
   # returns true if a given item has a translation
   # false if translation is missing
   def self.has_translation? item, locale
+    ap item
     item['translations'] ||= []
     item['translations'].each do |t|
       return true if t.has_key?(locale.to_s)

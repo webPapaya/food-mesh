@@ -3,24 +3,24 @@ require_dependency 'food_apis_module'
 class PieChart
   def initialize (nutritions, width_height=500)
     @nutritions = nutritions
-    @random = Random.new
     @width_height = width_height
-    @inner_angle  = 360 /@nutritions.length
+
+    @values = create_chart
+    @segments = create_chart.length
+    @inner_angle = 360/@segments
+
+
+    @random = Random.new
     @radiant = deg_to_rad(@inner_angle)
 
-    @pie_chart_mask = create_outer_mask
   end
 
   def get_pie_chart
-    #calories = nutritions['calories']
-    #nutritions.delete('calories')
-    #nutritions.delete('grams_of_sample')
-
     {
-        :values => create_chart,
+        :values => @values,
         :coords => get_coords,
         :inner_angle => @inner_angle,
-        :segments => @nutritions.length, #should be removed and in view use segments.length
+        :segments => @segments,
         :daily_kcal => get_daily_calories_in_procent(@nutritions['calories']),
         :chart_mask => create_outer_mask,
         :colors =>  %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772'],
@@ -48,14 +48,14 @@ class PieChart
   def create_outer_mask
     mask = Hash.new
 
-    mask['inner'] = @width_height.to_f/10
-    mask['outer'] = @width_height.to_f
+    mask['inner'] = @width_height.to_f/(10*2)
+    mask['outer'] = @width_height.to_f/2
 
     mask
   end
 
   def get_daily_calories_in_procent (calories)
-    percent = calculate_daily_calories 2000, calories
+    percent = calculate_daily_calories calories
     circumference percent
   end
 
@@ -75,11 +75,12 @@ class PieChart
   def create_chart
     values = []
     @nutritions.each do |key, value|
+      intake = calculate_daily_intake(key, value)
       values.push({
         :value => value,
-        :percent =>  calculate_daily_intake(key, value),
+        :percent => intake,
         :ingredient => key
-      })
+      }) unless intake.nil?
     end
 
     values
@@ -94,13 +95,24 @@ class PieChart
     Math::PI*(@width_height)
   end
 
-  def calculate_daily_calories base, calories
+  def calculate_daily_calories(calories)
+    base = DailyIntake.find_element('calories')[:value]
     calories.to_f/base*100
   end
 
-  def calculate_daily_intake key, value
-    #ap key
-    #ap DailyIntake.find_element('fat')['value']
+  def calculate_daily_intake (key, value)
+    intake = DailyIntake.find_element(key)
+
+    unless intake.nil?
+      return nil if key == 'calories'
+      val = value.to_f/intake['value']
+      mask = create_outer_mask
+      val *= (mask['outer'] - mask['inner'])
+      val += mask['inner']
+      return val
+    end
+
+    nil
   end
 end
 
