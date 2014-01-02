@@ -1,5 +1,3 @@
-GNU nano 2.2.6                                                        File: deploy.rb
-
 require "bundler/capistrano"
 require "rvm/capistrano"
 #
