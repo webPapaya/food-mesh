@@ -3,7 +3,7 @@ Food::Application.routes.draw do
 
   resources :daily_intakes
 
-  root to: 'basic_pages#show', :id => '52c16c5f46726107bb050000'
+  root to: 'basic_pages#show', :id => '52c55eb374686f1d63210000'
 
   scope '/:locale' do
     scope '/food/item' do
