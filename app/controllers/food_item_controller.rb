@@ -37,6 +37,10 @@ class FoodItemController < ApplicationController
     @name_translation = @translator.translate tmp
   end
 
+  def compare
+    @food_items = user_session.get_user_items
+  end
+
   def redirect_to_index
     redirect_to search_db_path params[:query]
   end
