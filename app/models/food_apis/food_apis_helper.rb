@@ -21,7 +21,6 @@ module FoodAPIsHelper
   end
 
   def base_nutrition_information (nutrition_data, base)
-    ap base
     (nutrition_data.to_f/base[:value].to_f * 100).round(4)
   end
 end

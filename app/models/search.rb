@@ -21,7 +21,6 @@ class Search
   def self.prepare_item_list(_item_list)
     list = []
     _item_list.each do |item|
-      ap item
       list << (FoodItem.create_id item[:api_key], item[:item_id])
     end
     list
