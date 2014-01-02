@@ -26,4 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :user_session, :default_url_options
+
+  # authentication with sorcery
+  def not_authenticated
+    redirect_to login_url, :alert => "First login to access this page."
+  end
+
 end

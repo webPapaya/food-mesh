@@ -69,6 +69,10 @@ end
 # translation for search results
 gem "bing_translator"
 
+gem 'sorcery' #backend login
+
+#adds attr_accessible and attr_protected in the models
+gem 'protected_attributes'
 
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
