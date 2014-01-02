@@ -1,5 +1,4 @@
 class BasicPagesController < ApplicationController
-  before_filter :require_login
   before_action :set_basic_page, only: [:show, :edit, :update, :destroy]
 
   # GET /basic_pages
