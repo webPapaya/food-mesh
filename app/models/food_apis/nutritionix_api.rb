@@ -60,6 +60,11 @@ class NutritionixAPI < FoodAPIInterface
         serving_weight = weights['serving_weight_grams']
       end
 
+      if serving_weight.nil?
+        next
+      end
+
+
       food = create_food_item_structure ({
         :name => "#{item['_source']['item_name']} #{item['_source']['brand_name']}",
         :api_key => api_key,
