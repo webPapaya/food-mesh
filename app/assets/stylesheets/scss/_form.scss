@@ -34,6 +34,30 @@ form {
   .input-big {
     width: 100%;
   }
+  .field{
+    margin: 10px 0;
+    label {
+      display: block;
+      float: left;
+      width: 20%;
+      text-align: right;
+      padding: 5px;
+    }
+    input {
+      border-radius: 5px;
+      width: 80%;
+      border: none;
+      padding: 5px;
+    }
+  }
+  .actions {
+    width: 80%;
+    float: right;
+    input {
+      border-radius: 5px;
+    }
+  }
+
 }
 
 input[type=submit], .button-search {

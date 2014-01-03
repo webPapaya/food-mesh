@@ -21,7 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Admin area for backend changes with the path <root_url>/admin
 
 
 Please feel free to use a different markup language if you do not plan to run
