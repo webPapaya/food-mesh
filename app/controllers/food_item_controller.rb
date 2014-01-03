@@ -26,6 +26,7 @@ class FoodItemController < ApplicationController
   end
 
   def compare
+
     @food_items = user_session.get_user_items
     @chart = LineChart.get_chart @food_items
   end

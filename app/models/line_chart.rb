@@ -1,5 +1,7 @@
 require 'set'
 class LineChart
+  attr_reader :nutritions_in_items
+
   def initialize(items, window_width = 1000, window_height = 500)
     @dimensions = {
         :width => window_width,
@@ -11,7 +13,11 @@ class LineChart
 
   def self.get_chart items
     @chart = LineChart.new items
-    @chart.build_chart
+
+    {
+        :paths => @chart.build_chart,
+        :labels => @chart.nutritions_in_items
+    }
   end
 
   def build_chart
@@ -31,14 +37,13 @@ class LineChart
       path << " L #{i*space}  #{@dimensions[:height]- value} "
     end
     path << "L #{@dimensions[:width]} #{@dimensions[:height]} Z" #close path
-    ap path
     path
   end
 
 
   private
   def combine_items
-    nutritions_in_items = Set.new
+    nutritions_in_items = SortedSet.new
     @items.each do |item|
       item['nutritions'].each do |key, value|
         nutritions_in_items.add key if value > 0
