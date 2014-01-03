@@ -10,16 +10,18 @@
           <!--<form id="search" class="container row">-->
           <div class="col span_11">
             <%= text_field_tag :query %>
-            <ul id="lang">
-              <li>
-                Languages
-                <ul>
-                  <li><%= link_to "french" %></li>
-                  <li><%= link_to "german" %></li>
-                  <li><%= link_to "hindu" %></li>
+            <div class="drop_down">
+                <ul class="lang">
+                  <li>
+                    i want to be an icon!
+                    <ul>
+                      <li><%= link_to "french" %></li>
+                      <li><%= link_to "german" %></li>
+                      <li><%= link_to "hindu" %></li>
+                    </ul>
+                  </li>
                 </ul>
-              </li>
-            </ul>
+                </div>
           </div>
           <div class="col span_1">
             <%= submit_tag("Search") %>

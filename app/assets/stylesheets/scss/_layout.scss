@@ -319,35 +319,39 @@ ul {
     }
   }
 }
-#lang {
-  float: right;
-}
 #search-result-load-more {
   position: relative;
   width: auto;
   text-align: center;
 }
 
-ul li:hover {
-  background: #2d5544;
-  color: #fff;
-}
+.drop_down {
+  float: right;
 
-ul li ul  {
-  display: none;
-  visibility: hidden;
 
-  li {
-    background: #555;
+  ul li:hover {
+    background: $primaryBlue;
+  }
+
+  ul li ul  {
+    visibility: hidden;
+
+    li {
+      background: #2BA772;
+      display: block;
+      color: #fff;
+
+      a {
+        color: #fff;
+      }
+    }
+    li:hover{
+      background: $shinyGreen;
+    }
+  }
+  ul li:hover ul {
     display: block;
-    color: #fff;
+    visibility: visible;
   }
-  li:hover{
-    background: #666;
-  }
-}
-ul li:hover ul {
-  display: block;
-  opacity: 1;
-  visibility: visible;
+
 }
