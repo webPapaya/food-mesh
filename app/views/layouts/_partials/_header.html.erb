@@ -7,7 +7,6 @@
     </div>
     <div class="display-table-cell search-form-wrp responsive-hide">
       <%= form_for('search/results/', :remote => true, :url => url_for(:controller => 'food_item', :action => 'redirect_to_index'), :html => {:id => 'header-search'}, method: "get") do %>
-          <!--<form id="search" class="container row">-->
           <div class="col span_10">
             <%= text_field_tag :query %>
           </div>
@@ -19,7 +18,7 @@
     <div class="display-table-cell icon-wrp">
       <ul class="menu" id="main-menu">
         <% if logged_in? %>
-            <li><%= link_to 'dashboard', dashboard_path %></li>
+            <li><%= link_to '', dashboard_path, :class => 'icon-clipboard' %></li>
         <% end %>
 
         <li><a href="#user-basket" class="icon-basket active"></a></li>
