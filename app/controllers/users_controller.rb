@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if logged_in?
       @users = User.all
     else
-      redirect_to :back, :notice => "Not permitted"
+      redirect_to :root, :notice => "Not permitted"
     end
   end
 
@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    User.find(params[:user_id]).destroy
+    redirect_to dashboard_path, :notice => "deleted user!"
   end
 
   private

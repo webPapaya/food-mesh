@@ -1,5 +1,5 @@
 Food::Application.routes.draw do
-  get "sessions/new"
+
   get "users/new", as: 'user_new'
   resources :basic_pages
 
@@ -30,18 +30,20 @@ Food::Application.routes.draw do
 
 
   get ':controller(/:action(/:id(.:format)))'
-
   resources 'pie_chart'
   resources 'basic_pages'
 
+
+
   #admin login
-  get '/logout' => "sessions#destroy", :as => "logout"
-  get '/admin' => "sessions#new", :as => "login"
-  get "signup" => "users#new", :as => "signup"
+  scope '/admin' do
+    get '/' => "sessions#new", :as => 'login'
+    get '/logout' => "sessions#destroy", :as => 'logout'
+    get '/signup' => "users#new", :as => 'signup'
+    get '/dashboard' => 'admin_dashboard#index', as: 'dashboard'
+    get '/delete/user/:user_id' => 'users#destroy', as: 'user_delete'
+  end
+
   resources :users
   resources :sessions
-
-
-  get '/admin_dashboard' => 'admin_dashboard#index', as: 'dashboard'
-
 end

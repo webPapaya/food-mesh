@@ -15,12 +15,12 @@ class SessionsController < ApplicationController
   # when side is reloaded
   def new
     if logged_in?
-      redirect_to signup_path, :notice => "Logged in!"
+      redirect_to dashboard_path, :notice => "Logged in!"
     end
   end
 
   def destroy
     logout
-    redirect_to root_url
+    redirect_to login_path
   end
 end

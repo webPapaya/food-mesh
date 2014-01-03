@@ -6,17 +6,16 @@
 
 class SearchLocalRemote
   include FoodApisModule
+  @translation_enabled = false
 
   def search(query)
     items = gather_search query
     items
   end
 
-
-
   def get_item (item_id)
     item = gather_item item_id
-    gather_translation(item)
+    gather_translation(item) if @translation_enabled
   end
 
   private
