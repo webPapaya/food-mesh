@@ -32,9 +32,10 @@ Food::Application.routes.draw do
   resources 'pie_chart'
   resources 'basic_pages'
 
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
-  get "signup" => "users#new", :as => "signup"
+  #admin login
+  get "logoutadmin" => "sessions#destroy", :as => "logout"
+  get "login/admin" => "sessions#new", :as => "login"
+  get "signup/admin" => "users#new", :as => "signup"
   resources :users
   resources :sessions
 
