@@ -28,6 +28,13 @@ class Search
     Search.delete_all
   end
 
+  def self.get_most_searched
+    items = Search.all.order_by([[:timestamp.length, :desc]])
+    ap '--------------'
+    items.inspect
+    items
+  end
+
   private
   def self.prepare_item_list(_item_list)
     list = []
