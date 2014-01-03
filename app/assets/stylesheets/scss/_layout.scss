@@ -319,18 +319,35 @@ ul {
     }
   }
 }
-
+#lang {
+  float: right;
+}
 #search-result-load-more {
   position: relative;
   width: auto;
   text-align: center;
 }
 
-.nav ul {
-    float: right;
-    visibility: show;
+ul li:hover {
+  background: #2d5544;
+  color: #fff;
 }
 
-.nav ul li:hover > a {
+ul li ul  {
+  display: none;
   visibility: hidden;
+
+  li {
+    background: #555;
+    display: block;
+    color: #fff;
+  }
+  li:hover{
+    background: #666;
+  }
+}
+ul li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
 }
