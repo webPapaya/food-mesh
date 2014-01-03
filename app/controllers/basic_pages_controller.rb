@@ -1,5 +1,6 @@
 class BasicPagesController < ApplicationController
   before_action :set_basic_page, only: [:show, :edit, :update, :destroy]
+  before_filter :require_login, :only =>[:edit, :update, :destroy]
 
   # GET /basic_pages
   # GET /basic_pages.json

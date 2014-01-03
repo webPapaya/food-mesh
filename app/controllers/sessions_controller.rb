@@ -1,16 +1,26 @@
 class SessionsController < ApplicationController
+
   def create
     user = login(params[:email], params[:password], params[:remember_me])
     if user
-      redirect_back_or_to root_url, :notice => "Logged in!"
+      redirect_to signup_path, :notice => "Logged in!"
     else
       flash.now.alert = "Email or password was invalid"
       render :new
     end
   end
 
+  #
+  #redirects administrator to intern admin page
+  # when side is reloaded
+  def new
+    if logged_in?
+      redirect_to signup_path, :notice => "Logged in!"
+    end
+  end
+
   def destroy
     logout
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to root_url
   end
 end
