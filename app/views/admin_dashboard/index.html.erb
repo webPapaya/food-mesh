@@ -1,11 +1,17 @@
-<p> Logged in as: <%= current_user.email %>. <%= link_to "log out ", logout_path %>  </p>
+<div id="dashboard">
+  <h1>Admin Dashboard</h1>
+  <% unless notice.nil? %>
+    <p id="notice"><%= notice %></p>
+  <%end%>
 
-<%= render template: 'users/index'%>
+  <p> Logged in as: <%= current_user.email %>. <%= link_to "log out ", logout_path %>  </p>
 
-<h2> Administer </h2>
-<p> <%= link_to "daily intakes", daily_intakes_path%> </p>
-<p> <%= link_to "basic pages", basic_pages_path %> </p>
+  <%= render template: 'users/index'%>
 
+  <%= render 'admin_dashboard/_partials/latest_searches' %>
 
-
-
+  <h2> Administer </h2>
+  <p> <%= link_to "daily intakes", daily_intakes_path%> </p>
+  <p> <%= link_to "basic pages", basic_pages_path %> </p>
+  <p> <%= link_to "clear search cache", clear_search_cache_path, :confirm => 'Do you really want to clear the search cache?' %> </p>
+</div>

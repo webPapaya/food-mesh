@@ -5,22 +5,16 @@ class FoodItemController < ApplicationController
   include FoodApisModule
 
   def show
-    @food_item = @local_remote.get_item params[:item_id]
-
+    @food_item = SearchLocalRemote.get_single_item params[:item_id]
     pie_chart_instance = PieChart.new @food_item[:nutritions]
     @pie_chart = pie_chart_instance.get_pie_chart
   end
 
   def search
     translation_en = @translator.translate params[:query]
-    @food_items = @local_remote.search translation_en
-
-    tmp = []
-    @food_items.each do |item|
-      tmp << item['name']
-    end
-
-    @name_translation = @translator.translate tmp
+    food_items = @local_remote.search translation_en
+    @food_items = food_items[:items]
+    @name_translation = food_items[:translations]
   end
 
   def compare
@@ -30,6 +24,13 @@ class FoodItemController < ApplicationController
 
   def redirect_to_index
     redirect_to search_db_path params[:query]
+  end
+
+  def clear_search_cache
+    if logged_in?
+      Search.clear_cache
+    end
+    redirect_to dashboard_path, :notice => 'Cleared search cache'
   end
 
   private

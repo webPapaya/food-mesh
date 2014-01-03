@@ -66,6 +66,35 @@ ul {
   padding-top: 50px;
 }
 
+.button {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+ul.info-list {
+  margin-bottom: 20px;
+  li {
+    padding: 10px;
+
+    &:nth-child(2n +1) {
+      background: $primaryLight - 10;
+    }
+  }
+  a {
+    font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
+    display: inline-block;
+    text-align: right;
+    float: right;
+  }
+  a:before {
+    font-size: small;
+    display: inline-block;
+    padding-right: 10px;
+  }
+}
+
 #header-wrp {
   position: fixed;
   z-index: 9999;
@@ -319,6 +348,7 @@ ul {
     }
   }
 }
+
 #search-result-load-more {
   position: relative;
   width: auto;

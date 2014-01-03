@@ -33,7 +33,7 @@ class Translations
 
   def translate_arr arr
     arr_string = concat_names arr
-    translate_back arr_string
+    translate_string arr_string
   end
 
   def concat_names names

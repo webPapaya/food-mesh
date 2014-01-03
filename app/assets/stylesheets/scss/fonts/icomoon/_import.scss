@@ -23,7 +23,7 @@
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -36,6 +36,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 .icon-search:before {
   content: "\e1ba";
@@ -57,4 +58,49 @@
 }
 .icon-home:before {
   content: "\e000";
+}
+.icon-earth:before {
+  content: "\e2c7";
+}
+.icon-uniE001:before {
+  content: "\e001";
+}
+.icon-uniE0CF:before {
+  content: "\e0cf";
+}
+.icon-uniE1BC:before {
+  content: "\e1bc";
+}
+.icon-uniE1BD:before {
+  content: "\e1bd";
+}
+.icon-uniE1E0:before {
+  content: "\e1e0";
+}
+.icon-uniE1FE:before {
+  content: "\e1fe";
+}
+.icon-uniE275:before {
+  content: "\e275";
+}
+.icon-close:before {
+  content: "\e36b";
+}
+.icon-arrow-down:before {
+  content: "\e3b6";
+}
+.icon-arrow-right:before {
+  content: "\e3b5";
+}
+.icon-arrow-up:before {
+  content: "\e3b4";
+}
+.icon-arrow-left:before {
+  content: "\e3b7";
+}
+.icon-clipboard:before {
+  content: "\e295";
+}
+.icon-exit:before {
+  content: "\e37e";
 }

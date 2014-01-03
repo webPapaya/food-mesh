@@ -2,6 +2,15 @@ require 'set'
 class LineChart
   attr_reader :nutritions_in_items, :space, :dimensions
 
+  def self.get_chart items
+    @chart = LineChart.new items
+    {   :dimensions => @chart.dimensions,
+        :paths => @chart.build_chart,
+        :labels => @chart.nutritions_in_items,
+        :label_space => @chart.space
+    }
+  end
+
   def initialize(items, window_width = 1000, window_height = 500)
     @dimensions = {
         :width => window_width,
@@ -12,14 +21,7 @@ class LineChart
     @space = @dimensions[:width]/@nutritions_in_items.length
   end
 
-  def self.get_chart items
-    @chart = LineChart.new items
-    {   :dimensions => @chart.dimensions,
-        :paths => @chart.build_chart,
-        :labels => @chart.nutritions_in_items,
-        :label_space => @chart.space
-    }
-  end
+
 
   def build_chart
     paths = []
