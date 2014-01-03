@@ -354,3 +354,16 @@ ul.info-list {
   width: auto;
   text-align: center;
 }
+
+#notice {
+  background: $primaryLight - 10;
+  border: 2px solid $primaryLight - 30;
+  padding: 10px;
+  border-radius: 5px;
+
+  &:before {
+    content: "Notice:";
+    font-weight: 700;
+  }
+}
+

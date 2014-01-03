@@ -1,6 +1,9 @@
 <div id="dashboard">
   <h1>Admin Dashboard</h1>
-  <p id="notice"><%= notice %></p>
+  <% unless notice.nil? %>
+    <p id="notice"><%= notice %></p>
+  <%end%>
+
   <p> Logged in as: <%= current_user.email %>. <%= link_to "log out ", logout_path %>  </p>
 
   <%= render template: 'users/index'%>
