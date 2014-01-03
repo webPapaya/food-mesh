@@ -10,6 +10,7 @@ class Search
     item = Search.find(_query)
     return nil if item.nil?
 
+    item['timestamp'] = [] if item['timestamp'].nil?
     timestamps = item['timestamp'] + [Time.now.getutc]
     item.update_attributes!(timestamp: timestamps)
     item
@@ -30,8 +31,6 @@ class Search
 
   def self.get_most_searched
     items = Search.all.order_by([[:timestamp.length, :desc]])
-    ap '--------------'
-    items.inspect
     items
   end
 
