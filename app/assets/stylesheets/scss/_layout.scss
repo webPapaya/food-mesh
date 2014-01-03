@@ -66,6 +66,13 @@ ul {
   padding-top: 50px;
 }
 
+ul.info-list {
+  a {
+    display: inline-block;
+    text-align: right;
+  }
+}
+
 #header-wrp {
   position: fixed;
   z-index: 9999;
@@ -324,4 +331,8 @@ ul {
   position: relative;
   width: auto;
   text-align: center;
+}
+
+#dashboard {
+
 }

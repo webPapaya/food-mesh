@@ -7,7 +7,7 @@
 class SearchLocalRemote
   include FoodApisModule
   def initialize
-    @translation_enabled = true
+    @translation_enabled = false
   end
 
   def self.get_single_item item_id
@@ -25,7 +25,7 @@ class SearchLocalRemote
   def search(query)
     @query = query
     @items = gather_search
-    @translations = get_batch_translations
+    @translations = get_batch_translations if @translation_enabled
 
     {
         :items => @items,

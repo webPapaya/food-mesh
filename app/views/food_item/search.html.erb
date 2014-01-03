@@ -7,7 +7,9 @@
       <% @food_items.each_with_index do |result, i| %>
           <li>
             <h1 class="name"><%= result[:name]%></h1>
-            <h2 class="name"><%= @name_translation[i]%></h2>
+            <% unless @name_translation.nil? %>
+                <h2 class="name"><%= @name_translation[i]%></h2>
+            <%end %>
             <ul>
             <% result[:nutritions].each do |key, nutrition| %>
                   <li class="<%= key %>"> <%= "[key] #{key} - [value] #{nutrition}"  %></li>
