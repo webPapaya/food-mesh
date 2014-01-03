@@ -4,18 +4,6 @@ class FoodItemController < ApplicationController
   before_filter :before_actions
   include FoodApisModule
 
-
-  ##
-  # @todo this controller will be removed because its just for testing propose
-  def index
-    @food_item = FoodItem.get_all_items
-
-    #respond_to do |format|
-    #  format.html { redirect_to :back }
-    #  format.js { render "#{params[:locale]}/food_item/search" }
-    #end
-  end
-
   def show
     #"#{params[:api_key]}-#{params[:food_id]}"
     @food_item = @local_remote.get_item params[:item_id]
@@ -35,6 +23,12 @@ class FoodItemController < ApplicationController
     end
 
     @name_translation = @translator.translate tmp
+  end
+
+  def compare
+
+    @food_items = user_session.get_user_items
+    @chart = LineChart.get_chart @food_items
   end
 
   def redirect_to_index

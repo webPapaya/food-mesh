@@ -16,7 +16,7 @@
 
     <g mask="url(#mask)">
       <% (0...@pie_chart[:values].length).each do |i| %>
-          <use mask="url(#mask<%=i%>)" transform="rotate(<%= @pie_chart[:inner_angle] * i %>, <%= @pie_chart[:center] %>, <%= @pie_chart[:center] %>)"  xlink:href="#pie" fill="<%= @pie_chart[:colors][Random.rand(8)] %>" style="stroke:rgb(255,255,255);stroke-width:7"></use>
+          <use mask="url(#mask<%=i%>)" transform="rotate(<%= @pie_chart[:inner_angle] * i %>, <%= @pie_chart[:center] %>, <%= @pie_chart[:center] %>)"  xlink:href="#pie" fill="<%= @pie_chart[:colors][Random.rand(8)] %>" style="stroke:#e6e6e6;stroke-width:7"></use>
       <% end %>
     </g>
   </g>
