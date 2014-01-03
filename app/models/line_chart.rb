@@ -31,6 +31,8 @@ class LineChart
       path << " L #{i*space}  #{@dimensions[:height]- value} "
     end
     path << "L #{@dimensions[:width]} #{@dimensions[:height]} Z" #close path
+    ap path
+    path
   end
 
 
