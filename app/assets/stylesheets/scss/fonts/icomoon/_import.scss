@@ -37,6 +37,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 .icon-search:before {
   content: "\e1ba";
 }
@@ -100,25 +101,6 @@
 .icon-clipboard:before {
   content: "\e295";
 }
-
-.icon-search:before {
-  content: "\e1ba";
-}
-.icon-glasses:before {
-  content: "\e274";
-}
-.icon-search2:before {
-  content: "\e1bb";
-}
-.icon-pie:before {
-  content: "\e1fd";
-}
-.icon-basket:before {
-  content: "\e0ce";
-}
-.icon-cog:before {
-  content: "\e1df";
-}
-.icon-home:before {
-  content: "\e000";
+.icon-exit:before {
+  content: "\e37e";
 }

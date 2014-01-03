@@ -17,12 +17,12 @@
     </div>
     <div class="display-table-cell icon-wrp">
       <ul class="menu" id="main-menu">
-        <% if logged_in? %>
-            <li><%= link_to '', dashboard_path, :class => 'icon-clipboard' %></li>
-        <% end %>
-
         <li><a href="#user-basket" class="icon-basket active"></a></li>
         <li><a href="#user-settings" class="icon-cog"></a></li>
+        <% if logged_in? %>
+            <li><%= link_to '', dashboard_path, :class => 'icon-clipboard' %></li>
+            <li><%= link_to '', logout_path, :class => 'icon-exit' %></li>
+        <% end %>
       </ul>
     </div>
   </div>

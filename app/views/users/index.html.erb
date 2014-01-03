@@ -3,9 +3,9 @@
   <% @users.each do |user| %>
       <li>
         <%= user['email']%>
-        <%= link_to 'delete user', user_delete_path(user['_id']) %>
+        <%= link_to 'delete user', user_delete_path(user['_id']), :class => 'icon-close' %>
       </li>
   <% end %>
 </ul>
 
-<%= link_to 'new user', new_user_path %>
+<%= link_to 'new user', new_user_path, :class => 'button'%>
