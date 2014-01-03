@@ -1,0 +1,11 @@
+<p> Logged in as: <%= current_user.email %>. <%= link_to "log out ", logout_path %>  </p>
+
+<%= render template: 'users/index'%>
+
+<h2> Administer </h2>
+<p> <%= link_to "daily intakes", daily_intakes_path%> </p>
+<p> <%= link_to "basic pages", basic_pages_path %> </p>
+
+
+
+

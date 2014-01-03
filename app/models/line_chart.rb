@@ -14,7 +14,6 @@ class LineChart
 
   def self.get_chart items
     @chart = LineChart.new items
-
     {   :dimensions => @chart.dimensions,
         :paths => @chart.build_chart,
         :labels => @chart.nutritions_in_items,
@@ -35,7 +34,9 @@ class LineChart
 
     @nutritions_in_items.each_with_index do |nutrition, i|
       value = (ingredients[nutrition].presence or 0)
-      path << " L #{i*@space}  #{@dimensions[:height]- value} "
+      value = calculate_daily_intake nutrition, value
+
+      path << (" L #{i*@space}  #{@dimensions[:height]- value} ") unless value.nil?
     end
     path << "L #{@dimensions[:width]} #{@dimensions[:height]} Z" #close path
     path
@@ -51,5 +52,15 @@ class LineChart
       end
     end
     nutritions_in_items
+  end
+
+  def calculate_daily_intake (key, value)
+    intake = DailyIntake.find_element(key)
+    unless intake.nil?
+      val = value.to_f/intake['value']
+      val *= (@dimensions[:height])
+      return val
+    end
+    0
   end
 end

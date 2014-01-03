@@ -5,7 +5,6 @@ class FoodItemController < ApplicationController
   include FoodApisModule
 
   def show
-    #"#{params[:api_key]}-#{params[:food_id]}"
     @food_item = @local_remote.get_item params[:item_id]
 
     pie_chart_instance = PieChart.new @food_item[:nutritions]
@@ -14,7 +13,6 @@ class FoodItemController < ApplicationController
 
   def search
     translation_en = @translator.translate params[:query]
-
     @food_items = @local_remote.search translation_en
 
     tmp = []
@@ -26,7 +24,6 @@ class FoodItemController < ApplicationController
   end
 
   def compare
-
     @food_items = user_session.get_user_items
     @chart = LineChart.get_chart @food_items
   end
@@ -40,5 +37,4 @@ class FoodItemController < ApplicationController
     @translator = Translations.new params[:locale]
     @local_remote = SearchLocalRemote.new
   end
-
 end

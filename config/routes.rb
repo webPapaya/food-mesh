@@ -1,6 +1,6 @@
 Food::Application.routes.draw do
   get "sessions/new"
-  get "users/new"
+  get "users/new", as: 'user_new'
   resources :basic_pages
 
   resources :daily_intakes
@@ -35,10 +35,13 @@ Food::Application.routes.draw do
   resources 'basic_pages'
 
   #admin login
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
+  get '/logout' => "sessions#destroy", :as => "logout"
+  get '/admin' => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
   resources :users
   resources :sessions
+
+
+  get '/admin_dashboard' => 'admin_dashboard#index', as: 'dashboard'
 
 end
