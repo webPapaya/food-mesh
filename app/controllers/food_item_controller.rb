@@ -26,6 +26,13 @@ class FoodItemController < ApplicationController
     redirect_to search_db_path params[:query]
   end
 
+  def clear_search_cache
+    if logged_in?
+      Search.clear_cache
+    end
+    redirect_to dashboard_path, :notice => 'Cleared search cache'
+  end
+
   private
   def before_actions
     @translator = Translations.new params[:locale]

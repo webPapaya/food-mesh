@@ -81,12 +81,17 @@ ul.info-list {
     &:nth-child(2n +1) {
       background: $primaryLight - 10;
     }
-
   }
   a {
+    font-family: "Source Sans Pro", "Lucida Grande", Verdana, sans-serif;
     display: inline-block;
     text-align: right;
     float: right;
+  }
+  a:before {
+    font-size: small;
+    display: inline-block;
+    padding-right: 10px;
   }
 }
 

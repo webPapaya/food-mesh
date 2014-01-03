@@ -17,6 +17,10 @@ class Search
     i.save
   end
 
+  def self.clear_cache
+    Search.delete_all
+  end
+
   private
   def self.prepare_item_list(_item_list)
     list = []

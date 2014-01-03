@@ -42,6 +42,7 @@ Food::Application.routes.draw do
     get '/signup' => "users#new", :as => 'signup'
     get '/dashboard' => 'admin_dashboard#index', as: 'dashboard'
     get '/delete/user/:user_id' => 'users#destroy', as: 'user_delete'
+    get '/search/cache/clear' => 'food_item#clear_search_cache', as: 'clear_search_cache'
   end
 
   resources :users
