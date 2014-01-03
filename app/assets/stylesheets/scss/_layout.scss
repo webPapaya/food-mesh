@@ -325,3 +325,12 @@ ul {
   width: auto;
   text-align: center;
 }
+
+.nav ul {
+    float: right;
+    visibility: show;
+}
+
+.nav ul li:hover > a {
+  visibility: hidden;
+}
