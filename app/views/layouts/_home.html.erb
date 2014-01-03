@@ -6,18 +6,18 @@
           <%= image_tag 'logo_white.svg', :width => 500 %>
         </h1>
       </header>
-      <%= form_for('search/results/', :url => url_for(:controller => 'food_item', :action => 'redirect_to_index'),  method: "get") do %>
+      <%= form_for(':value/search/results/', :url => url_for(:controller => 'food_item', :action => 'redirect_to_index'),  method: "get") do %>
           <!--<form id="search" class="container row">-->
           <div class="col span_11">
-            <%= text_field_tag :query %>
+            <%= text_field_tag :query%>
             <div class="drop_down">
                 <ul class="lang">
                   <li>
                     i want to be an icon!
                     <ul>
-                      <li><%= link_to "french" %></li>
-                      <li><%= link_to "german" %></li>
-                      <li><%= link_to "hindu" %></li>
+                      <li><%= link_to "french", :value => 'fr'%></li>
+                      <li><%= link_to "german", :value => 'de' %></li>
+                      <li><%= link_to "hindu", :value => 'hi' %></li>
                     </ul>
                   </li>
                 </ul>
