@@ -41,4 +41,7 @@ Food::Application.routes.draw do
   resources :users
   resources :sessions
 
+
+  get '/admin_dashboard' => 'admin_dashboard#index', as: 'dashboard'
+
 end

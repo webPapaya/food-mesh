@@ -23,6 +23,9 @@
     };
 
     Tabs.prototype.clickHandler = function(evt) {
+        if(evt.currentTarget.hash.length == 0) {
+            return true;
+        }
         evt.preventDefault();
 
         var $currentTarget = $(evt.currentTarget);
