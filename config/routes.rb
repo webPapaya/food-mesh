@@ -33,9 +33,9 @@ Food::Application.routes.draw do
   resources 'basic_pages'
 
   #admin login
-  get "logout/admin" => "sessions#destroy", :as => "logout"
-  get "login/admin" => "sessions#new", :as => "login"
-  get "signup/admin" => "users#new", :as => "signup"
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
   resources :users
   resources :sessions
 

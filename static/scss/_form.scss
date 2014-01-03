@@ -35,6 +35,9 @@ form {
   .input-big {
     width: 100%;
   }
+  .field {
+    padding: 100px;
+  }
 }
 
 input[type=submit], .button-search {
@@ -103,3 +106,4 @@ input[type=submit], .button-search {
     margin-top: 15px;
   }
 }
+
