@@ -1,4 +1,6 @@
 Food::Application.routes.draw do
+  get "sessions/new"
+  get "users/new"
   resources :basic_pages
 
   resources :daily_intakes
@@ -32,7 +34,10 @@ Food::Application.routes.draw do
   resources 'pie_chart'
   resources 'basic_pages'
 
-
-
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+  resources :users
+  resources :sessions
 
 end

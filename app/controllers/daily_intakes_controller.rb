@@ -1,4 +1,5 @@
 class DailyIntakesController < ApplicationController
+  before_filter :require_login
   before_action :set_daily_intake, only: [:show, :edit, :update, :destroy]
 
   # GET /daily_intakes
