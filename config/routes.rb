@@ -1,6 +1,6 @@
 Food::Application.routes.draw do
   get "sessions/new"
-  get "users/new"
+  get "users/new", as: 'user_new'
   resources :basic_pages
 
   resources :daily_intakes
