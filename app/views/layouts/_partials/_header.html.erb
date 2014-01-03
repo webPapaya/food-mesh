@@ -1,7 +1,9 @@
 <div id="header-wrp" class="clearfix">
   <div class="display-table">
     <div class="display-table-cell logo-small-wrp">
-      <%= image_tag 'logo_white.svg', :height => 60 %>
+      <%= link_to root_path do %>
+        <%= image_tag 'logo_white.svg', :height => 60 %>
+      <% end %>
     </div>
     <div class="display-table-cell search-form-wrp responsive-hide">
       <%= form_for('search/results/', :remote => true, :url => url_for(:controller => 'food_item', :action => 'redirect_to_index'), :html => {:id => 'header-search'}, method: "get") do %>
