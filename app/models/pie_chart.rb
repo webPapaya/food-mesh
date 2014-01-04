@@ -5,14 +5,13 @@ class PieChart
     @nutritions = nutritions
     @width_height = width_height
 
+    @chart_center = width_height / 2
+    @chart_width  = width_height * 0.7
+
     @values = create_chart
     @segments = create_chart.length
     @inner_angle = 360/@segments
-
-
-    @random = Random.new
     @radiant = deg_to_rad(@inner_angle)
-
   end
 
   def get_pie_chart
@@ -25,7 +24,8 @@ class PieChart
         :chart_mask => create_outer_mask,
         :colors =>  %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772'],
         :width_height => @width_height,
-        :center => @width_height/2
+        :center => @width_height/2,
+        :line_coords => get_line_coords
     }
   end
 
@@ -79,11 +79,28 @@ class PieChart
       values.push({
         :value => value,
         :percent => intake,
-        :ingredient => key
+        :ingredient => key,
       }) unless intake.nil?
     end
 
     values
+  end
+
+  def get_line_coords
+    coords = []
+    @segments.times do |i|
+      coord = Hash.new
+      rad = deg_to_rad(@inner_angle*i)
+
+      coord[:x] = Math.cos(rad) * (@width_height/2) * 1.2 + (@width_height/2)
+      coord[:y] = Math.sin(rad) * (@width_height/2) * 1.2 +(@width_height/2)
+
+      coord[:x] -= 100 if (coord[:x] < @width_height/2 )
+
+      coords << coord
+    end
+
+    coords
   end
 
 
