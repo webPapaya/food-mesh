@@ -20,8 +20,6 @@ class SearchLocalRemote
     local_remote.search query
   end
 
-
-
   def search(query)
     @query = query
     @items = gather_search
@@ -74,10 +72,10 @@ class SearchLocalRemote
       return local_search unless (local_search.nil?)
     end
 
-    remote_search = search_apis @query   # adds searches remote end for elements
+    remote_search = search_apis @query   #adds searches remote end for elements
     unless remote_search.nil?
       Search.add @query, remote_search     # adds elements to search
-      add_multiple_food_items remote_search unless remote_search.nil?
+      remote_search = add_multiple_food_items remote_search unless remote_search.nil?
       return remote_search unless (remote_search.nil?)
     end
 
@@ -93,11 +91,6 @@ class SearchLocalRemote
       FoodItem.add_translation_to_item! @item, locale, name
     end
 
-
-
-
-
-
     @item['name'] = FoodItem.get_translation @item, locale
     @item
   end
@@ -112,18 +105,17 @@ class SearchLocalRemote
       to_translate << item['name']
     end
 
-
-    t = translator.translate to_translate
-    ap t
-    t
+    translator.translate to_translate
   end
 
   ##
   # loops through all elements and writes it to the database
   # todo should be placed in food_item.rb (should auto detect if single element or multiple elements are passed in new item function)
-  def add_multiple_food_items items
+  def add_multiple_food_items(items)
     items.each do |item|
+      item['_id'] = FoodItem.create_id item[:api_key], item[:item_id]
       FoodItem.new_item item
     end
+    items
   end
 end

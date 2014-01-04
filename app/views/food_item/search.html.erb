@@ -17,14 +17,8 @@
             </ul>
           </li>
           <li>
-            <!--@todo this should be moved to model-->
-            <% if result['_id'].nil? %>
-                <%= link_to "go to element", get_food_item_path(FoodItem.create_id result[:api_key], result[:item_id]) %>
-                <%= link_to "add element to basket", add_item_to_basket_path(FoodItem.create_id result[:api_key], result[:item_id]), :remote => true%>
-            <% else %>
-                <%= link_to "go to element", get_food_item_path(result['_id']) %>
-                <%= link_to "add element to basket", add_item_to_basket_path(result['_id']), :remote => true%>
-             <% end %>
+              <%= link_to "go to element", get_food_item_path(result['_id']) %>
+              <%= link_to "add element to basket", add_item_to_basket_path(result['_id']), :remote => true%>
           </li>
       <% end %>
     </ul>
