@@ -16,7 +16,7 @@ set :deploy_to, "/var/www/virthosts/foodmesh.mediacube.at"
 #
 role :web, "rails.multimediatechnology.at:5412"                          # Your HTTP server, Apache/etc
 role :app, "rails.multimediatechnology.at:5412"                          # This may be the same as your `Web` server
-role :db,  "rails.multimediatechnology.at:5412", :primary => true # This is where Rails migrations will run
+role :db,  "rails.multimediatechnology.at:27017", :primary => true # This is where Rails migrations will run
 
 
 #
