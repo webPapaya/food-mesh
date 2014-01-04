@@ -15,6 +15,10 @@ module UserBasket
     @session[:item_basket].delete_at(basket_idx.to_i)
   end
 
+  def add_items_to_basket (items)
+    @session[:item_basket] = items
+  end
+
   def get_user_items
     basket = FoodItem.get_local_items @session[:item_basket]
     return basket unless basket.empty?
