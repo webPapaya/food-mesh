@@ -10,21 +10,10 @@
           <!--<form id="search" class="container row">-->
           <div class="col span_11">
             <%= text_field_tag :query%>
-            <div class="drop_down">
-                <ul class="lang">
-                  <li>
-                    i want to be an icon!
-                    <ul>
-                      <li><%= link_to "french", :value => 'fr'%></li>
-                      <li><%= link_to "german", :value => 'de' %></li>
-                      <li><%= link_to "hindu", :value => 'hi' %></li>
-                    </ul>
-                  </li>
-                </ul>
-                </div>
-          </div>
-          <div class="col span_1">
-            <%= submit_tag("Search") %>
+            <%= select_tag :locale, options_for_select(['fr', 'es', 'de', 'zh-CHT', 'hi', 'ru', 'ar' ]) %>
+            <div class="col span_1">
+              <%= submit_tag("Search") %>
+            </div>
           </div>
       <% end %>
       <footer class="container row">

@@ -355,33 +355,13 @@ ul.info-list {
   text-align: center;
 }
 
-.drop_down {
+.span_1 {
   float: right;
+}
 
-
-  ul li:hover {
-    background: $primaryBlue;
+.span_11 {
+  input{
+    width: 58%;
   }
-
-  ul li ul  {
-    visibility: hidden;
-
-    li {
-      background: #2BA772;
-      display: block;
-      color: #fff;
-
-      a {
-        color: #fff;
-      }
-    }
-    li:hover{
-      background: $shinyGreen;
-    }
-  }
-  ul li:hover ul {
-    display: block;
-    visibility: visible;
-  }
-
+ //
 }
