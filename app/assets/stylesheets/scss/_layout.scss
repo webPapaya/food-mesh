@@ -367,6 +367,7 @@ ul.info-list {
 
 
     p {
+      font-size: 2em;
       color: #fff;
       margin: 0;
     }
@@ -377,9 +378,13 @@ ul.info-list {
     font-size: 4em;
   }
 
+  h2 {
+    text-align: center;
+    font-size: 3em;
+  }
+
   p {
     text-align: center;
-    font-size: 2em;
   }
 
   .container {
