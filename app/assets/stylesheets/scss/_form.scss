@@ -79,6 +79,17 @@ input[type=submit], .button-search, .button {
   input[type=text] {
     width: 100%;
     @include border-left-radius(5px);
+    border-right: 1px solid $primaryLight;
+  }
+
+  select {
+    padding: 6px;
+    background: #fff;
+    border: none;
+    width: 100%;
+  }
+  select:focus {
+    outline: none;
   }
 }
 
