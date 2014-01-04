@@ -67,7 +67,6 @@ ul {
 }
 
 .button {
-  display: block;
   padding: 10px;
   border-radius: 5px;
   font-weight: 700;
@@ -224,6 +223,7 @@ ul.info-list {
 
   .fixed {
     position: fixed;
+    height: auto;
     left: 0;
     right: 0;
     top:50px;
@@ -346,6 +346,13 @@ ul.info-list {
         top: -9999px;
       }
     }
+  }
+}
+
+#home-info-wrp {
+  .container {
+    margin: 0 auto;
+    width: 800px;
   }
 }
 

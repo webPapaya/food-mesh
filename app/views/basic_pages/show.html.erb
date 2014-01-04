@@ -1,35 +1,44 @@
-<h1>
-  <%= @basic_page.title %>
-</h1>
-<p>
-  <%= markdown(@basic_page.body) %>
-</p>
-<ul id="home-user-menu" class="menu">
-  <li>
-    <a href="#">
-      <img src="http://placehold.it/158x158">
-    </a>
-  </li>
-  <li>
-    <a href="#">
-      <img src="http://placehold.it/158x158">
-    </a>
-  </li>
-  <li>
-    <a href="#">
-      <img src="http://placehold.it/158x158">
-    </a>
-  </li>
-  <li>
-    <a href="#">
-      <img src="http://placehold.it/158x158">
-    </a>
-  </li>
-  <li>
-    <a href="#">
-      <img src="http://placehold.it/158x158">
-    </a>
-  </li>
-</ul>
-<%= link_to 'Edit', edit_basic_page_path(@basic_page) %> |
-<%= link_to 'Back', basic_pages_path %>
+<div class="fixed">
+  <div class="container">
+    <h1>
+      <%= @basic_page.title %>
+      <% if logged_in? %>
+          <%= link_to '[Edit]', edit_basic_page_path(@basic_page) %>
+      <% end %>
+    </h1>
+    <p>
+      <%= markdown(@basic_page.body) %>
+    </p>
+  </div>
+  <div class="container">
+    <ul id="home-user-menu" class="menu">
+      <li>
+        <a href="#">
+          <img src="http://placehold.it/158x158">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="http://placehold.it/158x158">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="http://placehold.it/158x158">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="http://placehold.it/158x158">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="http://placehold.it/158x158">
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+</div>

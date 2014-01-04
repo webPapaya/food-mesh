@@ -37,7 +37,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 .icon-search:before {
   content: "\e1ba";
 }
@@ -103,4 +102,10 @@
 }
 .icon-exit:before {
   content: "\e37e";
+}
+.icon-edit:before {
+  content: "\e00e";
+}
+.icon-remove:before {
+  content: "\e250";
 }
