@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
-  helper_method :user_session, :default_url_options
+  helper_method :user_session, :default_url_options, :set_current_locale
 
   # authentication with sorcery
   def not_authenticated

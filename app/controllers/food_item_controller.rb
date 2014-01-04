@@ -23,6 +23,7 @@ class FoodItemController < ApplicationController
   end
 
   def redirect_to_index
+    set_current_locale
     redirect_to search_db_path params[:query]
   end
 
