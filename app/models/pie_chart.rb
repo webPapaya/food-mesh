@@ -76,6 +76,7 @@ class PieChart
     values = []
     @nutritions.each do |key, value|
       intake = calculate_daily_intake(key, value)
+      ap key
       values.push({
         :value => value,
         :percent => intake,
