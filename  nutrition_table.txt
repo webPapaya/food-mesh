@@ -1,4 +1,4 @@
-The daily requirement of vitamine, minerals and other nutrients are dependent on the age, weight and gender of the person.
+The daily requirement of vitamine. minerals and other nutrients are dependent on the age. weight and gender of the person.
 Therefore we acted on the assumption of an 30 jear old male person with normal weight.
 
 SELECTION:
@@ -12,6 +12,8 @@ SELECTION:
  fiber:                 15 g
  sodium:                2400 mg
 
+
+{ user: "Bob", userSource: "products", roles: [ "readWrite", "dbAdmin" ]}
 _______________________________________________
 
 
@@ -29,19 +31,19 @@ general:
   cholesterol:          150 mg
   polyunsaturated_fat:  62.2 g
   monounsaturated_fat:  30.5 g
-  water:                1,5 - 2 l
+  water:                1.5 - 2 l
   alcohol:              20 g
 
 
 vitamin:
 
-  vitamin_a:            0,8-1,0 mg
-  vitamin_b1:           1,0-1,3 mg
-  vitamin_b2:           0,7-1,5 mg
-  vitamin_b6:           1,2-1,5 mg
-  vitamin_b12:          0,003   // 3 µg
+  vitamin_a:            0.8-1.0 mg
+  vitamin_b1:           1.0-1.3 mg
+  vitamin_b2:           0.7-1.5 mg
+  vitamin_b6:           1.2-1.5 mg
+  vitamin_b12:          0.003   // 3 µg
   vitamin_c:            70 mg
-  vitamin_d:            0,01    // 10 µg
+  vitamin_d:            0.01    // 10 µg
   vitamin_e:            11-15 mg
 
 
@@ -57,9 +59,9 @@ minerals:
   magnesium:            350 mg
   manganese:            5 mg
   chlorine:             3400 mg
-  iodine:               0,15 mg    // 150 µg
+  iodine:               0.15 mg    // 150 µg
   sodium:               2400 mg
-  fluorine:             3,5 mg
+  fluorine:             3.5 mg
   potassium:            3500 mg
 
 
