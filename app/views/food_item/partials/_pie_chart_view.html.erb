@@ -10,10 +10,10 @@
   </defs>
 
   <% @pie_chart[:values].length.times do |i| %>
-    <% if i < 3 %>
-        <text x="<%= 100 %>" y="<%= 300 %>"> <%= @pie_chart[:values][i][:ingredient] %></text>
+    <% if i <= 3 %>
+        <text x="<%= 100 %>" y="<%= 250 - (i * 75) %>"> <%= @pie_chart[:values][i][:ingredient] %></text>
     <% else %>
-        <text x="<%= 70 * (i - 3) %>" y="<%= 200 %>"> <%= @pie_chart[:values][i][:ingredient] %></text>
+        <text x="<%= 400 %>" y="<%= 250 + ((i - 3) * 75)%>"> <%= @pie_chart[:values][i][:ingredient] %></text>
     <% end %>
   <% end %>
 
