@@ -5,7 +5,7 @@ class LineChart
   def self.get_chart items
     @chart = LineChart.new items
     {   :dimensions => @chart.dimensions,
-        :paths => @chart.build_chart,
+        :items => @chart.build_chart,
         :labels => @chart.nutritions_in_items,
         :label_space => @chart.space
     }
@@ -26,7 +26,10 @@ class LineChart
   def build_chart
     paths = []
     @items.each do |item|
-      paths << (draw_function item['nutritions'])
+      paths << ({
+          :id => item['_id'],
+          :path => (draw_function item['nutritions'])
+      })
     end
     paths
   end

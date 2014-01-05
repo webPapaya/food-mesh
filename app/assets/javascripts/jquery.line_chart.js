@@ -1,19 +1,43 @@
 (function($) {
     var LineChart = function(element, options) {
-        console.log(element)
         this.$element = $(element);
         this.$paths = this.$element.find('.line-chart-line');
+        this.$sidebar = $('#header-dropdown-wrp');
 
-        this.$paths.on("mouseover", (function(evt){
-            console.log(evt);
-
-        }).bind(this))
-
+        //put in own function
         for(path in this.$paths.get()) {
             this.animatePath(this.$paths[path]);
+            itemCount = ("path:", this.$paths.length);
         }
 
 
+        this.$paths.on("mouseover", this.highLightSidebar.bind(this));
+
+//            (function(evt) {
+//            //console.log(evt);
+//            var txtClass = $(this).attr("class");
+//            console.log("Class Name : "+txtClass);
+//            $headline = $( "span.item1" ).css("background-color", "green");
+//            console.log($headline);
+//        }).bind(this))
+
+    };
+
+    LineChart.prototype.highLightSidebar = function(evt) {
+        var currentElement = $(evt.currentTarget);
+        var currentId = currentElement.attr('id').replace(/item-/g,"");
+
+        var sidebarElement = this.$sidebar.find("[data-item-idx='" + currentId + "']");
+
+        sidebarElement.css('background', '#2ba772');
+
+        console.log(sidebarElement);
+        console.log(currentId);
+
+        $(evt.currentTarget).on('mouseleave', (function(evt){
+            $(evt.currentTarget).off('mouseleave');
+            sidebarElement.css('background', '');
+        }).bind(this));
     };
 
     LineChart.prototype.animatePath = function(path) {

@@ -1,4 +1,4 @@
-<h1>Elemente im Vergleichskorb</h1>
+<h1>Elements in Comparison-Basket </h1>
     <nav id="secondary">
       <%= link_to "delete all items", bulk_delete_basket_path, :remote => true %>
       <%= link_to "compare items", compare_items_path %>
@@ -7,8 +7,11 @@
 <ul id="food-item-list">
   <% if user_session.get_user_items.class == Array %>
       <% user_session.get_user_items.each_with_index do |item, idx| %>
-          <li>
-            <span class="header"><%= item['name'] %> <span class="info"> per 100ml </span></span>
+          <li data-item-idx="<%= item['_id'] %>">
+            <span class="header">
+              <%= item['name'] %>
+              <span class="info"> per 100ml </span>
+            </span>
             <span class="content clearfix">
             <% item['nutritions'].each do |key, value| %>
                 <span class="ingredient">
