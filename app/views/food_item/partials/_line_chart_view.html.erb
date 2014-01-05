@@ -1,7 +1,14 @@
 <h1>Listing line_charts</h1>
 <svg width="100%"  id="line-chart" viewBox="<%= "0 0 #{@chart[:dimensions][:width]} #{@chart[:dimensions][:height] + 50}" %> " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-  <% @chart[:paths].each_with_index do |item, idx| %> <!-- later: foreach of the value hashes -->
-      <path class="line-chart-line"<%= "item#{idx}" %> d="<%= item %>" stroke-linecap="round" stroke="#00BD97" stroke-width="4" fill="none"></path>
+  <% @chart[:items].each_with_index do |item, idx| %> <!-- later: foreach of the value hashes -->
+      <path id="item-<%= item[:id]%>"
+            class="line-chart-line"
+            d="<%= item[:path] %>"
+            stroke-linecap="round"
+            stroke="#00BD97"
+            stroke-width="4"
+            fill="none"></path>
+
 <% end %>
   <% @chart[:labels].each_with_index do |label, idx| %>
       <text x="<%= @chart[:label_space] * idx %>" y="<%= @chart[:dimensions][:height] + 20%>" transform="rotate(45, <%= "#{@chart[:label_space] * idx}, #{@chart[:dimensions][:height] + 20}" %>)">
