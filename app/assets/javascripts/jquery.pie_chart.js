@@ -18,11 +18,7 @@
         this.$pieElements = this.$element.find('.pie-item');
         this.$pieItems = this.$element.find('.pie-path-back');
 
-
-
         this.$pieItems.hoverIntent(this.mouseOverEvent.bind(this),  this.mouseLeaveEvent.bind(this));
-
-
     };
 
     PieChart.prototype.mouseLeaveEvent = function(evt) {
