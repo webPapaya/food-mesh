@@ -113,6 +113,10 @@ ul.info-list {
     margin: 5px 0;
   }
 
+  .info-boxes-wrp > .col:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
   .info-boxes-wrp > .col:nth-child(4n) {
     border-right: none;
   }
