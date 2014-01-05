@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.tabs
+//= require vendor/jquery.animate
 //= require vendor/jquery.hoverIntent.minified.js
+//= require jquery.tabs
 //= require jquery.pie_chart
 //= require jquery.line_chart
 //= require main

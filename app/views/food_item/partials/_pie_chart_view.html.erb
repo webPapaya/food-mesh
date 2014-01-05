@@ -47,7 +47,8 @@
                     y="<%= @pie_chart[:chart_center] %>"
                     width="<%= @pie_chart[:chart_width] %>"
                     height="<%= @pie_chart[:chart_width] %>">
-            <circle cx="<%= @pie_chart[:chart_center]%>"
+            <circle class="clip-path"
+                    cx="<%= @pie_chart[:chart_center]%>"
                     cy="<%= @pie_chart[:chart_center] %>"
                     r="<%= @pie_chart[:values][idx][:percent] %>"
                     fill="white"> </circle>

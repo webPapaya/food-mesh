@@ -30,7 +30,12 @@
     PieChart.prototype.highLightPie = function(evt) {
         var dataReference = $(evt.currentTarget).data('pie-reference');
         var pieElement = this.$element.find('#' + dataReference + ' .pie-path');
+        var clipPath = this.$element.find('#' + dataReference + ' .clip-path');
 
+
+        clipPath.animate({
+            svgR: 0
+        });
         pieElement.css('fill', 'black');
 
         $(evt.currentTarget).on('mouseleave', (function(evt){
@@ -52,7 +57,6 @@
         var $clipPath = $parrentWrapper.find('clippath circle');
         var $text = $parrentWrapper.children('text');
 
-        console.log("test");
 
         this.hideAllLabels($parrentWrapper.attr('id'));
 

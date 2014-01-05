@@ -21,7 +21,7 @@ module UserBasket
 
   def get_user_items
     basket = FoodItem.get_local_items @session[:item_basket]
-    return basket unless basket.empty?
-    'empty item basket'
+    return basket unless basket.nil?
+    nil
   end
 end
