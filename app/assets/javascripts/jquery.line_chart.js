@@ -45,7 +45,8 @@
         path.getBoundingClientRect();
 
         // define transition
-        path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 2s ease-in-out';
+        path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset '+ Math.random()*3 + 's ease-in-out';
+
         path.style.strokeDashoffset = '0';
 
     };

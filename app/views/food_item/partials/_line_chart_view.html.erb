@@ -8,7 +8,7 @@
                 class="line-chart-line"
                 d="<%= item[:path] %>"
                 stroke-linecap="round"
-                stroke="#00BD97"
+                stroke="<%= @chart[:colors][Random.rand(7)] %>"
                 stroke-width="4"
                 fill="none"></path>
       <% end %>
@@ -20,9 +20,9 @@
                 y1="0"
                 x2="<%= @chart[:label_space] * idx %>"
                 y2="<%= @chart[:dimensions][:height] %>"
-                stroke-width="3"
-                stroke-dasharray="20,20"
-                style="stroke: rgba(0,0,0,0.16);"/>
+                stroke-width="1"
+                stroke-dasharray="20,10"
+                style="stroke: rgba(0,0,0,0.16);"></line>
       <% end %>
       <line
             x1="0"
@@ -30,13 +30,13 @@
             x2="<%= @chart[:label_space] * 16 %>"
             y2="<%= @chart[:dimensions][:height] + 5 %>"
             stroke-width="1.5"
-            style="stroke: black;"/>
+            style="stroke: black;"></line>
       <line
           x1="0"
           y1="0"
           x2="0"
           y2="<%= @chart[:dimensions][:height] %>"
           stroke-width="1.5"
-          style="stroke: black;"/>
+          style="stroke: black;"></line>
     </svg>
 <% end %>
