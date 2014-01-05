@@ -6,14 +6,13 @@
 
         this.$paths.on("mouseover", (function(evt){
             console.log(evt);
-
+            $headline = evt.innerHTML;
+            console.log($headline);
         }).bind(this))
 
         for(path in this.$paths.get()) {
             this.animatePath(this.$paths[path]);
         }
-
-
     };
 
     LineChart.prototype.animatePath = function(path) {
