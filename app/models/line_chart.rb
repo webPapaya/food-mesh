@@ -40,8 +40,7 @@ class LineChart
 
       path << (" L #{i*@space}  #{@dimensions[:height]- value} ") unless value.nil?
     end
-    path << "L #{@dimensions[:width]} #{@dimensions[:height]} Z" #close path
-    path
+      path
   end
 
 
