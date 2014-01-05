@@ -12,37 +12,47 @@
  */
 
 
-(function($) {
+(function($, d3) {
     var PieChart = function(element, options) {
+        this.element = element;
+
+        this.$svg = d3.select('#' + this.element.attr('id'));
+
         this.$element = $(element);
         this.$pieElements = this.$element.find('.pie-item');
         this.$pieItems = this.$element.find('.pie-path-back');
+
+
+
+        this.loadingAnimation();
 
         if(options.controll) {
             this.$controlles = $(options.controll);
             this.$controlItems = this.$controlles.find('.col');
             this.$controlItems.on('mouseenter',this.highLightPie.bind(this));
         }
+    };
 
-        this.$pieItems.hoverIntent(this.mouseOverEvent.bind(this),  this.mouseLeaveEvent.bind(this));
+    PieChart.prototype.loadingAnimation = function() {
+        this.$element.css('display', '');
+        var elements = this.$svg.selectAll('.clip-path').each(function(idx, element){
+            var element = d3.select(this);
+            var radius = element.attr('r');
+            element.attr('r', 0);
+            element.transition().duration(1000).attr('r', radius).ease('bounce');
+        });
     };
 
     PieChart.prototype.highLightPie = function(evt) {
         var dataReference = $(evt.currentTarget).data('pie-reference');
-        var pieElement = this.$element.find('#' + dataReference + ' .pie-path');
-        var clipPath = this.$element.find('#' + dataReference + ' .clip-path');
+        var pieElement = this.$svg.select('#' + dataReference + ' .pie-path');
+        var clipPath = this.$svg.select('#' + dataReference + ' .clip-path');
+        var originalRadius = clipPath.attr('r');
 
-        var t = $('#wrp').svg('get');
-
-        console.log(t);
-
-
-
-        pieElement.css('fill', 'black');
+        clipPath.transition().attr('r', originalRadius * 1.1).ease('bounce');
 
         $(evt.currentTarget).on('mouseleave', (function(evt){
-            $(evt.currentTarget).off('mouseleave');
-            pieElement.css('fill', '');
+            clipPath.transition().attr('r', originalRadius);
         }).bind(this));
     };
 
@@ -53,29 +63,31 @@
         });
     };
 
-    PieChart.prototype.mouseOverEvent = function(evt) {
-        var $currentTarget = $(evt.currentTarget);
-        var $parrentWrapper = $currentTarget.closest('g');
-        var $clipPath = $parrentWrapper.find('clippath circle');
-        var $text = $parrentWrapper.children('text');
 
-
-        this.hideAllLabels($parrentWrapper.attr('id'));
-
-        $text.animate({
-            opacity: 1
-        }, {queue: false});
-
-        $clipPath.animate({
-            r: 0
-        }, {queue: false});
-    };
-
-    PieChart.prototype.hideAllLabels = function(id) {
-        this.$pieElements.not('#' + id).children('text').animate({
-            opacity: 0.1
-        });
-    };
+//currently not used
+//    PieChart.prototype.mouseOverEvent = function(evt) {
+//        var $currentTarget = $(evt.currentTarget);
+//        var $parrentWrapper = $currentTarget.closest('g');
+//        var $clipPath = $parrentWrapper.find('clippath circle');
+//        var $text = $parrentWrapper.children('text');
+//
+//
+//        this.hideAllLabels($parrentWrapper.attr('id'));
+//
+//        $text.animate({
+//            opacity: 1
+//        }, {queue: false});
+//
+//        $clipPath.animate({
+//            r: 0
+//        }, {queue: false});
+//    };
+//
+//    PieChart.prototype.hideAllLabels = function(id) {
+//        this.$pieElements.not('#' + id).children('text').animate({
+//            opacity: 0.1
+//        });
+//    };
 
     $.fn.PieChart = function(options) {
         return this.each(function() {
@@ -86,4 +98,4 @@
             }
         });
     };
-})(jQuery);
+})(jQuery, d3);
