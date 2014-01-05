@@ -6,6 +6,12 @@
       <circle cx="<%= @pie_chart[:chart_center] %>" cy="<%= @pie_chart[:chart_center] %>" r="<%= @pie_chart[:chart_mask]['outer'] %>" fill="white"></circle>
       <circle cx="<%= @pie_chart[:chart_center] %>" cy="<%= @pie_chart[:chart_center] %>" r="<%= @pie_chart[:chart_mask]['inner'] %>" fill="black"></circle>
     </mask>
+
+    <clippath id="inner-mask" x="0" y="0" width="<%= @pie_chart[:chart_center] * 2%>" height="<%= @pie_chart[:chart_center] * 2%>">
+        <rect x="0" y="0" width="<%=  %>"></rect>
+        <circle cx="<%= @pie_chart[:chart_center] %>" cy="<%= @pie_chart[:chart_center] %>" r="<%= @pie_chart[:chart_mask]['inner'] %>" fill="white"></circle>
+    </clippath>
+
   </defs>
 
   <g mask="url(#mask)">
@@ -23,8 +29,6 @@
            next_idx = 0 if @pie_chart[:line_coords][next_idx].nil?
         %>
 
-
-
         <g id="<%="ingredient-#{@pie_chart[:values][idx][:ingredient]}" %>" class="pie-item">
           <clipPath id="<%="mask-#{@pie_chart[:values][idx][:ingredient]}" %>"
                     x="<%= @pie_chart[:chart_center] %>"
@@ -36,14 +40,6 @@
                     r="<%= @pie_chart[:values][idx][:percent] %>"
                     fill="white"> </circle>
           </clipPath>
-
-
-
-          <text
-          x="<%= get_label_coords @pie_chart[:line_coords][idx][:x] %>"
-          y="<%= calc_label_circle @pie_chart[:line_coords][idx][:y] %>">
-            <%= @pie_chart[:values][idx][:ingredient] %>
-          </text>
 
 
 
@@ -67,54 +63,48 @@
                     Z" %>"></path>
         </g>
     <% end %>
-
-
-
-    <%# because svg uses painters algorithm for painting we have to draw all lines in a seperate loop %>
-    <g class="lines">
-      <% @pie_chart[:values].length.times do |idx| %>
-          <line class="pie-chart-lines"
-                x1="<%= @pie_chart[:chart_center] %>"
-                y1="<%= @pie_chart[:chart_center] %>"
-                x2="<%= calc_label_circle @pie_chart[:line_coords][idx][:x] %>"
-                y2="<%= calc_label_circle @pie_chart[:line_coords][idx][:y] %>"></line>
-      <% end %>
-    </g>
-
-
-
   </g>
-
-
-
-
-
 
   <g id="wrapper">
     <g id="daily-amount">
       <!--dalyamount grey ring-->
       <circle
-        cx="<%= @pie_chart[:chart_center] %>"
-        cy="<%= @pie_chart[:chart_center] %>"
-        r="<%= @pie_chart[:chart_width] %>"
-        fill="none" style="stroke:rgb(227, 228, 229); stroke-width:10; stroke-location: inside;"></circle>
+      cx="<%= @pie_chart[:chart_center] %>"
+      cy="<%= @pie_chart[:chart_center] %>"
+      r="<%= @pie_chart[:chart_width] %>"
+      fill="none" style="stroke:rgb(227, 228, 229); stroke-width:10; stroke-location: inside;"></circle>
       <!--daily amount blue ring-->
       <circle
-        cx="<%= @pie_chart[:chart_center] %>"
-        cy="<%= @pie_chart[:chart_center]%>"
-        r="<%= @pie_chart[:chart_width] %>"
-        fill="none"
-        style="stroke:#66A4D1; stroke-width:10;"
-        stroke-dasharray="<%= "#{@pie_chart[:daily_kcal]['line']} #{@pie_chart[:daily_kcal]['space']}" %>"
-        transform="rotate(-90,  <%= @pie_chart[:chart_center] %>, <%= @pie_chart[:chart_center] %>)"></circle>
+      cx="<%= @pie_chart[:chart_center] %>"
+      cy="<%= @pie_chart[:chart_center]%>"
+      r="<%= @pie_chart[:chart_width] %>"
+      fill="none"
+      style="stroke:#66A4D1; stroke-width:10;"
+      stroke-dasharray="<%= "#{@pie_chart[:daily_kcal]['line']} #{@pie_chart[:daily_kcal]['space']}" %>"
+      transform="rotate(-90,  <%= @pie_chart[:chart_center] %>, <%= @pie_chart[:chart_center] %>)"></circle>
     </g>
   </g>
+
+  <%# because svg uses painters algorithm for painting we have to draw all lines in a seperate loop %>
+  <g class="lines" mask="url(#inner-mask)">
+    <% @pie_chart[:values].length.times do |idx| %>
+        <line class="pie-chart-lines"
+              x1="<%= @pie_chart[:chart_center] %>"
+              y1="<%= @pie_chart[:chart_center] %>"
+              x2="<%= calc_label_circle @pie_chart[:line_coords][idx][:x] %>"
+              y2="<%= calc_label_circle @pie_chart[:line_coords][idx][:y] %>"></line>
+
+        <line class="pie-chart-lines"
+              x1="<%= get_label_coords @pie_chart[:line_coords][idx][:x] %>"
+              y1="<%= calc_label_circle @pie_chart[:line_coords][idx][:y] %>"
+              x2="<%= calc_label_circle @pie_chart[:line_coords][idx][:x] %>"
+              y2="<%= calc_label_circle @pie_chart[:line_coords][idx][:y] %>"></line>
+
+        <text x="<%= get_label_coords @pie_chart[:line_coords][idx][:x] %>"
+              y="<%= calc_label_circle @pie_chart[:line_coords][idx][:y] %>">
+
+          <%= @pie_chart[:values][idx][:ingredient] %>
+        </text>
+    <% end %>
+  </g>
 </svg>
-
-<% @pie_chart[:colors].each do |color| %>
-
-    <div style="width: 100px; height: 100px; background: <%= color %>">
-      <%= color %>
-    </div>
-
-<% end %>

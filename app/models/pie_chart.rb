@@ -53,7 +53,7 @@ class PieChart
     mask = Hash.new
 
     mask['inner'] = @width_height.to_f/(10*2)
-    mask['outer'] = @width_height.to_f/2
+    mask['outer'] = @chart_width.to_f*0.95
 
     mask
   end

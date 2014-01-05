@@ -42,13 +42,11 @@
         $clipPath.animate({
             r: 0
         }, {queue: false});
-
-
     };
 
     PieChart.prototype.hideAllLabels = function(id) {
         this.$pieElements.not('#' + id).children('text').animate({
-            opacity: 0.2
+            opacity: 0.1
         });
     };
 
