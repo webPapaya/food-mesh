@@ -12,8 +12,11 @@
  */
 
 
-(function($) {
+(function($, d3) {
     var PieChart = function(element, options) {
+        this.element = element;
+        this.$svg = d3.select('#' + this.element.attr('id'));
+
         this.$element = $(element);
         this.$pieElements = this.$element.find('.pie-item');
         this.$pieItems = this.$element.find('.pie-path-back');
@@ -29,20 +32,15 @@
 
     PieChart.prototype.highLightPie = function(evt) {
         var dataReference = $(evt.currentTarget).data('pie-reference');
-        var pieElement = this.$element.find('#' + dataReference + ' .pie-path');
-        var clipPath = this.$element.find('#' + dataReference + ' .clip-path');
+        var pieElement = this.$svg.select('#' + dataReference + ' .pie-path');
+        var clipPath = this.$svg.select('#' + dataReference + ' .clip-path');
+        var originalRadius = clipPath.attr('r');
 
-        var t = $('#wrp').svg('get');
+        clipPath.transition().attr('r', 0);
 
-        console.log(t);
-
-
-
-        pieElement.css('fill', 'black');
 
         $(evt.currentTarget).on('mouseleave', (function(evt){
-            $(evt.currentTarget).off('mouseleave');
-            pieElement.css('fill', '');
+            clipPath.transition().attr('r', originalRadius);
         }).bind(this));
     };
 
@@ -86,4 +84,4 @@
             }
         });
     };
-})(jQuery);
+})(jQuery, d3);
