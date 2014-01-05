@@ -1,6 +1,6 @@
 <%= @pie_chart.inspect %>
 
-<svg width="<%= @pie_chart[:width_height]%>" height = "<%= @pie_chart[:width_height] %>" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<svg id="pie-chart" width="<%= @pie_chart[:width_height]%>" height = "<%= @pie_chart[:width_height] %>" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
   <defs>
     <% @pie_chart[:values].length.times do |i| %>
           <mask id="mask<%= i %>" x="0" y="0" width="<%= @pie_chart[:chart_width] %>" height="<%= @pie_chart[:chart_width] %>">
@@ -27,14 +27,13 @@
 
 
 
-      <g id="<%="ingredient-#{@pie_chart[:values][idx][:ingredient]}" %>">
+      <g id="<%="ingredient-#{@pie_chart[:values][idx][:ingredient]}" %>" class="pie-item">
 
               <clipPath id="<%="mask-#{@pie_chart[:values][idx][:ingredient]}" %>"
                     x="<%= @pie_chart[:chart_center] %>"
                     y="<%= @pie_chart[:chart_center] %>"
                     width="<%= @pie_chart[:chart_width] %>"
                     height="<%= @pie_chart[:chart_width] %>">
-
 
                         <circle cx="<%= @pie_chart[:chart_center]%>"
                                 cy="<%= @pie_chart[:chart_center] %>"
@@ -60,9 +59,20 @@
             y2="<%= @pie_chart[:line_coords][idx][:y] %>"
             style="stroke:rgb(255,0,0);stroke-width:2"></line>
 
+
+
         <!--pie element-->
         <path id="pie"
+              class="pie-path"
               clip-path="url(<%="#mask-#{@pie_chart[:values][idx][:ingredient]}" %>)"
+              d="<%= "M #{ @pie_chart[:chart_center] } #{ @pie_chart[:chart_center] }
+                    L #{ @pie_chart[:line_coords][idx][:x] } #{@pie_chart[:line_coords][idx][:y]}
+                    L #{ @pie_chart[:line_coords][next_idx][:x] } #{@pie_chart[:line_coords][next_idx][:y]}
+                    Z" %>"></path>
+
+        <!--pie element for hover effect-->
+        <path id="pie"
+              class="pie-path-back"
               d="<%= "M #{ @pie_chart[:chart_center] } #{ @pie_chart[:chart_center] }
                     L #{ @pie_chart[:line_coords][idx][:x] } #{@pie_chart[:line_coords][idx][:y]}
                     L #{ @pie_chart[:line_coords][next_idx][:x] } #{@pie_chart[:line_coords][next_idx][:y]}

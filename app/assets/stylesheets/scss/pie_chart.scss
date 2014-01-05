@@ -1,0 +1,20 @@
+
+
+.pie-item {
+  text {
+    opacity: 1;
+  }
+}
+
+.pie-path-back {
+  fill: rgba(0,0,0,0);
+}
+
+.pie-item-back:hover {
+  fill: red;
+}
+
+#ingredient-vitamin_a:hover .pie-item {
+  fill:red;
+
+}
