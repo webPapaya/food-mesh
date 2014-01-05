@@ -36,9 +36,6 @@
         $(evt.currentTarget).on('mouseleave', (function(evt){
             $(evt.currentTarget).off('mouseleave');
             pieElement.css('fill', '');
-
-
-
         }).bind(this));
     };
 
@@ -54,6 +51,8 @@
         var $parrentWrapper = $currentTarget.closest('g');
         var $clipPath = $parrentWrapper.find('clippath circle');
         var $text = $parrentWrapper.children('text');
+
+        console.log("test");
 
         this.hideAllLabels($parrentWrapper.attr('id'));
 
