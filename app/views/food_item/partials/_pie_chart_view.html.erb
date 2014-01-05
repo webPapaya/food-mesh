@@ -16,6 +16,7 @@
 </div>
 
 <svg id="pie-chart"
+     style="display: none;"
      width="100%"
      viewbox = "<%= "0 0 #{@pie_chart[:width_height]} #{@pie_chart[:width_height]}"%>"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -32,7 +33,7 @@
     </clippath>
   </defs>
 
-  <g mask="url(#mask)">
+  <g mask="url(#mask)" id="ingredient-wrp">
     <%# max amount day %>
     <circle id="max-daily-amount"
             cx="<%= @pie_chart[:chart_center]%>"
