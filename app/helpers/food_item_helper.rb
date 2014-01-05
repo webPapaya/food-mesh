@@ -6,7 +6,9 @@ module FoodItemHelper
     calc_label_circle current_coords
   end
 
-  def calc_label_circle(coord)
-    coord * 1.3 - (@pie_chart[:chart_center] * 0.3)
+  def calc_label_circle(coord, factor=0.3)
+    coord * (1+factor) - (@pie_chart[:chart_center] * factor)
   end
+
+
 end

@@ -30,21 +30,26 @@
     PieChart.prototype.mouseOverEvent = function(evt) {
         var $currentTarget = $(evt.currentTarget);
         var $parrentWrapper = $currentTarget.closest('g');
+        var $clipPath = $parrentWrapper.find('clippath circle');
         var $text = $parrentWrapper.children('text');
-
 
         this.hideAllLabels($parrentWrapper.attr('id'));
 
         $text.animate({
             opacity: 1
-        });
+        }, {queue: false});
+
+        $clipPath.animate({
+            r: 0
+        }, {queue: false});
+
+
     };
 
     PieChart.prototype.hideAllLabels = function(id) {
         this.$pieElements.not('#' + id).children('text').animate({
-            opacity: 0
-        })
-
+            opacity: 0.2
+        });
     };
 
     $.fn.PieChart = function(options) {

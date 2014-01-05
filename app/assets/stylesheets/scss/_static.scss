@@ -21,6 +21,11 @@ $highlight: #2BA772;
 $shinyGreen: #2bdca2;
 
 $secondaryDark: #222222;
+$tertiaryDark: lighten($primaryDark, 50);
+
+$secondaryLight: lighten($primaryDark, 75);
+
+
 $boxShadowColor: rgba($primaryDark, 0.4);
 
 

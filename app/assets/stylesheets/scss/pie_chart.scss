@@ -3,7 +3,26 @@
 .pie-item {
   text {
     opacity: 1;
+    width: 300px;
+    display: block;
   }
+
+
+
+  .pie-path {
+    stroke: $primaryLight;
+    stroke-width: 6px;
+  }
+}
+
+.pie-chart-lines {
+  stroke: $tertiaryDark;
+  stroke-width: 1px;
+}
+
+#max-daily-amount {
+  stroke: $secondaryLight;
+  stroke-width: 2px;
 }
 
 .pie-path-back {
