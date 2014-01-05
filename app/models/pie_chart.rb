@@ -1,4 +1,6 @@
 require_dependency 'food_apis_module'
+require 'sass'
+require 'sass-rails'
 
 class PieChart
   def initialize (nutritions, width_height=500)
@@ -122,11 +124,7 @@ class PieChart
 
     unless intake.nil?
       return nil if key == 'calories'
-
-      ap value
-
       val = value.to_f/intake['value']
-
       mask = create_outer_mask
       val *= (mask['outer'] - mask['inner'])
       val += mask['inner']

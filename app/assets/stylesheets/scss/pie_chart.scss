@@ -7,11 +7,17 @@
     display: block;
   }
 
-
-
   .pie-path {
     stroke: $primaryLight;
     stroke-width: 6px;
+
+    //most awesome sass code i ever wrote
+    $colorTypes: (low, medium, high, ultra-high);
+    @for $i from 0 to length($colorTypes) {
+      &.color-amount-#{unquote(nth($colorTypes, $i+1))} {
+        fill: mix($highlight, $primaryBlue, $i*length($colorTypes));
+      }
+    }
   }
 }
 
