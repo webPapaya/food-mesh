@@ -16,6 +16,12 @@
           <text x="<%= @chart[:label_space] * idx %>" y="<%= @chart[:dimensions][:height] + 20%>" transform="rotate(45, <%= "#{@chart[:label_space] * idx}, #{@chart[:dimensions][:height] + 20}" %>)">
             <%= label%>
           </text>
+          <line x1="<%= @chart[:label_space] * idx %>"
+                y1="0" x2="<%= @chart[:label_space] * idx %>"
+                y2="<%= @chart[:dimensions][:height] + 20%>"
+                stroke-width="2"
+                stroke-dasharray="15,15"
+                style="stroke: rgba(0,0,0,0.24);"/>
       <% end %>
     </svg>
 <% end %>
