@@ -9,6 +9,21 @@
     $("#main-menu").Tabs({
         wrapper: '#header-dropdown-wrp'
     });
+    var root = paper.path('M0 50L30 50Q100 100 50 50').hide();
+    var length = root.getTotalLength();
+
+// Setup your animation (in my case jQuery):
+    element.animate({ 'to': 1 }, {
+        duration: 500,
+        step: function(pos, fx) {
+            var offset = length * fx.pos;
+            var subpath = root.getSubpath(0, offset);
+            paper.clear();
+            paper.path(subpath);
+        }
+    });
+
+
 })(jQuery);
 
 

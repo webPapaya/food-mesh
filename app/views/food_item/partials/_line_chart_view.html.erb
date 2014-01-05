@@ -3,12 +3,20 @@
 <svg width="100%"  viewBox="<%= "0 0 #{@chart[:dimensions][:width]} #{@chart[:dimensions][:height] + 50}" %> " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
   <% @chart[:paths].each do |item| %> <!-- later: foreach of the value hashes -->
       <path id="line1" d="<%= item %>" stroke-linecap="round" stroke="#00BD97" stroke-width="4" fill="rgba(0, 189, 151, 0.2)"></path>
+      <animate xlink:href="#line1"
+               attributeName="d"
+               attributeType="XML"
+               from="M 340 400 400 400<%= item %>"
+               to="M 300 600 A 300 400 -20 1 0 400 200 a 200 600 -50 0 1 100 400"
+               dur="10s"
+               fill="freeze" />
   <% end %>
   <% @chart[:labels].each_with_index do |label, idx| %>
       <text x="<%= @chart[:label_space] * idx %>" y="<%= @chart[:dimensions][:height] + 20%>" transform="rotate(45, <%= "#{@chart[:label_space] * idx}, #{@chart[:dimensions][:height] + 20}" %>)">
         <%= label%>
       </text>
   <% end %>
+
 </svg>
 
 
