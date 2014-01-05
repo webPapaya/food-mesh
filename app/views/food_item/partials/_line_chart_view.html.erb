@@ -1,14 +1,18 @@
 <h1>Listing line_charts</h1>
-<svg width="100%"  id="line-chart" viewBox="<%= "0 0 #{@chart[:dimensions][:width]} #{@chart[:dimensions][:height] + 50}" %> " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-  <% @chart[:paths].each do |item| %> <!-- later: foreach of the value hashes -->
-      <path class="line-chart-line" d="<%= item %>" stroke-linecap="round" stroke="#00BD97" stroke-width="4" fill="none"></path>
+<% if @chart.nil? %>
+<p> user basket is empty please add some items </p>
+<% else %>
+    <svg width="100%"  id="line-chart" viewBox="<%= "0 0 #{@chart[:dimensions][:width]} #{@chart[:dimensions][:height] + 50}" %> " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+      <% @chart[:paths].each do |item| %> <!-- later: foreach of the value hashes -->
+          <path class="line-chart-line" d="<%= item %>" stroke-linecap="round" stroke="#00BD97" stroke-width="4" fill="none"></path>
 
+    <% end %>
+      <% @chart[:labels].each_with_index do |label, idx| %>
+          <text x="<%= @chart[:label_space] * idx %>" y="<%= @chart[:dimensions][:height] + 20%>" transform="rotate(45, <%= "#{@chart[:label_space] * idx}, #{@chart[:dimensions][:height] + 20}" %>)">
+            <%= label%>
+          </text>
+      <% end %>
+      <path class="line-chart-line" fill="pink" stroke="deeppink" stroke-width="14" stroke-miterlimit="0"
+            d="M11.6 269s-19.7-42.4 6.06-68.2 48.5-6.06 59.1 12.1l-3.03 28.8 209-227s45.5-21.2 60.6 1.52c15.2 22.7-3.03 47-3.03 47l-225 229s33.1-12 48.5 7.58c50 63.6-50 97-62.1 37.9"></path>
+    </svg>
 <% end %>
-  <% @chart[:labels].each_with_index do |label, idx| %>
-      <text x="<%= @chart[:label_space] * idx %>" y="<%= @chart[:dimensions][:height] + 20%>" transform="rotate(45, <%= "#{@chart[:label_space] * idx}, #{@chart[:dimensions][:height] + 20}" %>)">
-        <%= label%>
-      </text>
-  <% end %>
-  <path class="line-chart-line" fill="pink" stroke="deeppink" stroke-width="14" stroke-miterlimit="0"
-        d="M11.6 269s-19.7-42.4 6.06-68.2 48.5-6.06 59.1 12.1l-3.03 28.8 209-227s45.5-21.2 60.6 1.52c15.2 22.7-3.03 47-3.03 47l-225 229s33.1-12 48.5 7.58c50 63.6-50 97-62.1 37.9"></path>
-</svg>
