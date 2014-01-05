@@ -1,10 +1,2 @@
 <h1><%= @food_item['name'] %></h1>
 <%= render 'food_item/partials/pie_chart_view' %>
-<ul>
-  <% @food_item['nutritions'].each do |ingredient| %>
-    <li>
-      <%= ingredient[0] %>
-      <%= ingredient[1] %>
-    </li>
-  <% end %>
-</ul>
