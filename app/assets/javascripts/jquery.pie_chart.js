@@ -18,8 +18,27 @@
         this.$pieElements = this.$element.find('.pie-item');
         this.$pieItems = this.$element.find('.pie-path-back');
 
+        if(options.controll) {
+            this.$controlles = $(options.controll);
+            this.$controlItems = this.$controlles.find('.col');
+            this.$controlItems.on('mouseenter',this.highLightPie.bind(this));
+        }
+
         this.$pieItems.hoverIntent(this.mouseOverEvent.bind(this),  this.mouseLeaveEvent.bind(this));
     };
+
+    PieChart.prototype.highLightPie = function(evt) {
+        var dataReference = $(evt.currentTarget).data('pie-reference');
+        var pieElement = this.$element.find('#' + dataReference + ' .pie-path');
+
+        pieElement.css('fill', 'black');
+
+        $(evt.currentTarget).on('mouseleave', (function(evt){
+            $(evt.currentTarget).off('mouseleave');
+            pieElement.css('fill', '');
+        }).bind(this));
+    };
+
 
     PieChart.prototype.mouseLeaveEvent = function(evt) {
         this.$pieElements.children('text').animate({
@@ -32,6 +51,8 @@
         var $parrentWrapper = $currentTarget.closest('g');
         var $clipPath = $parrentWrapper.find('clippath circle');
         var $text = $parrentWrapper.children('text');
+
+        console.log("test");
 
         this.hideAllLabels($parrentWrapper.attr('id'));
 

@@ -35,7 +35,6 @@
   text-align: center;
 }
 
-
 a {
   text-decoration: none;
   color: $primaryDark;
@@ -48,6 +47,28 @@ a {
 h1 {
   font-size: 40px;
   font-weight: 100;
+}
+
+.info-boxes {
+  background: $highlight;
+
+  h3 {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  span {
+    display: block;
+    color: #fff;
+
+    &.highlighted {
+      font-weight: 100;
+      float: left;
+    }
+    &.simple {
+      float: right;
+    }
+  }
 }
 
 

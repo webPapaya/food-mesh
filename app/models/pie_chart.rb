@@ -1,6 +1,4 @@
 require_dependency 'food_apis_module'
-require 'sass'
-require 'sass-rails'
 
 class PieChart
   def initialize (nutritions, width_height=500)
@@ -8,7 +6,7 @@ class PieChart
     @width_height = 1000
 
     @chart_center = @width_height / 2
-    @chart_width  = width_height * 0.7
+    @chart_width  = width_height * 0.9
 
     @values = create_chart
     @segments = create_chart.length

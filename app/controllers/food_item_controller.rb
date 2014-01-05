@@ -19,7 +19,7 @@ class FoodItemController < ApplicationController
 
   def compare
     @food_items = user_session.get_user_items
-    @chart = LineChart.get_chart @food_items
+    @chart = LineChart.get_chart @food_items if @food_items.class == Array
   end
 
   def redirect_to_index
