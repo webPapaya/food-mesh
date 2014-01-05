@@ -3,6 +3,7 @@ class LineChart
   attr_reader :nutritions_in_items, :space, :dimensions
 
   def self.get_chart items
+    ap items
     @chart = LineChart.new items
     {   :dimensions => @chart.dimensions,
         :items => @chart.build_chart,

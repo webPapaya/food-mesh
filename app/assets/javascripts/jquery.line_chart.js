@@ -12,15 +12,6 @@
 
 
         this.$paths.on("mouseover", this.highLightSidebar.bind(this));
-
-//            (function(evt) {
-//            //console.log(evt);
-//            var txtClass = $(this).attr("class");
-//            console.log("Class Name : "+txtClass);
-//            $headline = $( "span.item1" ).css("background-color", "green");
-//            console.log($headline);
-//        }).bind(this))
-
     };
 
     LineChart.prototype.highLightSidebar = function(evt) {
