@@ -1,23 +1,26 @@
 require_dependency 'food_apis_module'
+require 'sass'
+require 'sass-rails'
 
 class PieChart
   def initialize (nutritions, width_height=500)
     @nutritions = nutritions
-    @width_height = width_height
+    @width_height = 1000
+
+    @chart_center = @width_height / 2
+    @chart_width  = width_height * 0.7
 
     @values = create_chart
     @segments = create_chart.length
     @inner_angle = 360/@segments
-
-
-    @random = Random.new
     @radiant = deg_to_rad(@inner_angle)
-
   end
 
   def get_pie_chart
     {
         :values => @values,
+        :chart_width => @chart_width,
+        :chart_center => @chart_center,
         :coords => get_coords,
         :inner_angle => @inner_angle,
         :segments => @segments,
@@ -25,15 +28,16 @@ class PieChart
         :chart_mask => create_outer_mask,
         :colors =>  %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772'],
         :width_height => @width_height,
-        :center => @width_height/2
+        :center => @width_height/2,
+        :line_coords => get_line_coords
     }
   end
 
   def get_coords
     coords = Hash.new
 
-    coords['x1'] = Math.cos(@radiant).abs * (@width_height) + @width_height/2
-    coords['y1'] = Math.sin(@radiant).abs * (@width_height) + @width_height/2
+    coords['x1'] = Math.cos(@radiant).abs * (@chart_width)
+    coords['y1'] = Math.sin(@radiant).abs * (@chart_width)
 
     coords['x2'] = @width_height
     coords['y2'] = @width_height / 2
@@ -49,7 +53,7 @@ class PieChart
     mask = Hash.new
 
     mask['inner'] = @width_height.to_f/(10*2)
-    mask['outer'] = @width_height.to_f/2
+    mask['outer'] = @chart_width.to_f*0.95
 
     mask
   end
@@ -80,11 +84,26 @@ class PieChart
       values.push({
         :value => value,
         :percent => intake,
-        :ingredient => key
+        :ingredient => key,
       }) unless intake.nil?
     end
 
     values
+  end
+
+  def get_line_coords
+    coords = []
+    @segments.times do |i|
+      coord = Hash.new
+      rad = deg_to_rad(@inner_angle*i)
+
+      coord[:x] = Math.cos(rad) * (@chart_width/2) + (@width_height/2)
+      coord[:y] = Math.sin(rad) * (@chart_width/2) + (@width_height/2)
+
+      coords << coord
+    end
+
+    coords
   end
 
 
@@ -106,11 +125,7 @@ class PieChart
 
     unless intake.nil?
       return nil if key == 'calories'
-
-      ap value
-
       val = value.to_f/intake['value']
-
       mask = create_outer_mask
       val *= (mask['outer'] - mask['inner'])
       val += mask['inner']

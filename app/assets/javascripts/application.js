@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.tabs
+//= require vendor/jquery.hoverIntent.minified.js
+//= require jquery.pie_chart
 //= require main
 
 

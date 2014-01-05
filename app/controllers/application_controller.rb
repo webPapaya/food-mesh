@@ -6,8 +6,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def change_lang
+    url = request.referer
+    uri = URI::parse(url)
+    route = Rails.application.routes.recognize_path(uri.path)
+    route[:locale] = params[:locale]
     I18n.locale = params[:locale] || I18n.default_locale
-    redirect_to search_db_path :locale => params[:locale], :query => params[:query]
+    redirect_to route
   end
 
   private
