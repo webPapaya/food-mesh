@@ -1,25 +1,25 @@
-
 <div class="container info-boxes row">
   <div class="info-boxes-wrp clearfix">
-      <% @pie_chart[:values].each_with_index do |value, idx| %>
-
-          <div class="span_4 col">
-            <h3><%= value[:ingredient] %></h3>
-            <div class="clearfix">
-                <span class="highlighted">amount</span>
-                <span class="simple"><%= value[:value] %></span>
-            </div>
+    <% @pie_chart[:values].each_with_index do |value, idx| %>
+        <div class="span_4 col">
+          <h3><%= value[:ingredient] %></h3>
+          <div class="clearfix">
+            <span class="highlighted">amount</span>
+            <span class="simple"><%= value[:value] %></span>
           </div>
-
+        </div>
         <% if (idx+1)%4 == 0 %>
             </div><div class="info-boxes-wrp clearfix">
         <% end %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
 
-<svg id="pie-chart" width="<%= @pie_chart[:width_height]%>" height = "<%= @pie_chart[:width_height] %>" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<svg id="pie-chart"
+     width="100%"
+     viewbox = "<%= "0 0 #{@pie_chart[:width_height]} #{@pie_chart[:width_height]}"%>"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.1">
   <defs>
     <mask id="mask" x="0" y="0" width="<%= @pie_chart[:chart_center] * 2%>" height="<%= @pie_chart[:chart_center] * 2%>">
       <circle cx="<%= @pie_chart[:chart_center] %>" cy="<%= @pie_chart[:chart_center] %>" r="<%= @pie_chart[:chart_mask]['outer'] %>" fill="white"></circle>

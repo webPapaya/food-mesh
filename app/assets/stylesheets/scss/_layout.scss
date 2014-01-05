@@ -97,14 +97,23 @@ ul.info-list {
 
 
 .info-boxes {
-  padding: 5px;
-  & > .col {
+  padding: 5px 10px;
+
+  .info-boxes-wrp {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  & .info-boxes-wrp:last-child {
+    border-bottom: none;
+  }
+
+  .info-boxes-wrp > .col {
     padding: 10px;
-    border-right: 1px solid #fff;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
     margin: 5px 0;
   }
 
-  & > .col:nth-child(4n) {
+  .info-boxes-wrp > .col:nth-child(4n) {
     border-right: none;
   }
 
