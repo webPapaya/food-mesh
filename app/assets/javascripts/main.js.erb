@@ -10,7 +10,11 @@
         wrapper: '#header-dropdown-wrp'
     });
 
-    $('#pie-chart').PieChart();
+    $('#pie-chart').PieChart({
+        controll: $('#pie-chart-controlles')
+    });
+
+
     $('#line-chart').LineChart();
 
 })(jQuery);

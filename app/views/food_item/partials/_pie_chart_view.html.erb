@@ -1,7 +1,7 @@
-<div class="container info-boxes row">
+<div class="container info-boxes row" id="pie-chart-controlles">
   <div class="info-boxes-wrp clearfix">
     <% @pie_chart[:values].each_with_index do |value, idx| %>
-        <div class="span_4 col">
+        <div class="span_4 col" data-pie-reference="<%= "ingredient-#{value[:ingredient]}" %>">
           <h3><%= value[:ingredient] %></h3>
           <div class="clearfix">
             <span class="highlighted">amount</span>
