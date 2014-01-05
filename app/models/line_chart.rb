@@ -59,9 +59,14 @@ class LineChart
     intake = DailyIntake.find_element(key)
     unless intake.nil?
       val = value.to_f/intake['value']
-      val *= (@dimensions[:height])
+      val = calc_over_daily_amount val if val > 1
+      val *= (@dimensions[:height]*0.6)
       return val
     end
     0
+  end
+
+  def calc_over_daily_amount (val)
+    1+((val-1)**(1/5)) #calculates cubic root
   end
 end

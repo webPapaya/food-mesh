@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require vendor/jquery.svg.js
+//= require vendor/jquery.svgdom.min
 //= require vendor/jquery.animate
 //= require vendor/jquery.hoverIntent.minified.js
 //= require jquery.tabs

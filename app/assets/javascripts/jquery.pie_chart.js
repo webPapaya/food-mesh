@@ -32,10 +32,12 @@
         var pieElement = this.$element.find('#' + dataReference + ' .pie-path');
         var clipPath = this.$element.find('#' + dataReference + ' .clip-path');
 
+        var t = $('#wrp').svg('get');
 
-        clipPath.animate({
-            svgR: 0
-        });
+        console.log(t);
+
+
+
         pieElement.css('fill', 'black');
 
         $(evt.currentTarget).on('mouseleave', (function(evt){
