@@ -3,9 +3,9 @@ require_dependency 'food_apis_module'
 class PieChart
   def initialize (nutritions, width_height=500)
     @nutritions = nutritions
-    @width_height = width_height
+    @width_height = 1000
 
-    @chart_center = width_height / 2
+    @chart_center = @width_height / 2
     @chart_width  = width_height * 0.7
 
     @values = create_chart
@@ -17,6 +17,8 @@ class PieChart
   def get_pie_chart
     {
         :values => @values,
+        :chart_width => @chart_width,
+        :chart_center => @chart_center,
         :coords => get_coords,
         :inner_angle => @inner_angle,
         :segments => @segments,
@@ -32,8 +34,8 @@ class PieChart
   def get_coords
     coords = Hash.new
 
-    coords['x1'] = Math.cos(@radiant).abs * (@width_height) + @width_height/2
-    coords['y1'] = Math.sin(@radiant).abs * (@width_height) + @width_height/2
+    coords['x1'] = Math.cos(@radiant).abs * (@chart_width)
+    coords['y1'] = Math.sin(@radiant).abs * (@chart_width)
 
     coords['x2'] = @width_height
     coords['y2'] = @width_height / 2
@@ -92,10 +94,8 @@ class PieChart
       coord = Hash.new
       rad = deg_to_rad(@inner_angle*i)
 
-      coord[:x] = Math.cos(rad) * (@width_height/2) * 1.2 + (@width_height/2)
-      coord[:y] = Math.sin(rad) * (@width_height/2) * 1.2 +(@width_height/2)
-
-      coord[:x] -= 100 if (coord[:x] < @width_height/2 )
+      coord[:x] = Math.cos(rad) * (@chart_width/2) + (@width_height/2)
+      coord[:y] = Math.sin(rad) * (@chart_width/2) + (@width_height/2)
 
       coords << coord
     end
