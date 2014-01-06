@@ -1,4 +1,6 @@
 # Food Mesh
+    + Link to Git Repo: git@git.mediacube.at:fhs34784/food-mesh.git
+    + Link to Project: http://food-mesh.herokuapp.com/
 
 ## Features
 + Search Food Items from different sources. Currently:
@@ -14,14 +16,9 @@
 + Two different chart views all created with SVG and Animated with
 	+ Single item (animated with http://d3js.org/)
     + Multiple Item Chart
++ Admin Dashboard for administrative tasks also see
 
-
-## mongoDB Info
-Because we forgott to request a mongoDB database and the port 27027 is not opend on the FH Webspace we've deployed our project to heroku and hosted the database on lnx-tm.may-it.net.
-So if the port is opend on the server, the application should be running without any issues.
-
-
-## Admin Dashboard
+## Admin Dashboard Info
 This project contains an administrative interface, which can be accessed via <root_url>/admin (currently this is http://food-mesh.herokuapp.com/admin)
 There is currently a demo usere with the following credentials:
 
@@ -35,6 +32,14 @@ There is currently a demo usere with the following credentials:
 + view most searched queries
 + administer nutrition information
 + change homepage text
+
+
+
+## mongoDB Info
+Because we forgott to request a mongoDB database and the port 27027 is not opend on the FH Webspace we've deployed our project to heroku and hosted the database on lnx-tm.may-it.net.
+So if the port is opend on the server, the application should be running without any issues.
+
+
 
 
 ## About
