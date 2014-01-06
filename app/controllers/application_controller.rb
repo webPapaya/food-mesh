@@ -1,4 +1,12 @@
-require 'awesome_print'
+##
+# application_controller.rb
+#
+# university:  University of Applied Sciences Salzburg
+# studie:      MultiMediaTechnology
+# usage:	    Multimediaprojekt 2a (MMP2a)
+# author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+#              - Franziska Oberhauser
+
 class ApplicationController < ActionController::Base
   before_filter :user_session
   # Prevent CSRF attacks by raising an exception.

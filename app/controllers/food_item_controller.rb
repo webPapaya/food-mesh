@@ -1,3 +1,12 @@
+##
+# food_item_controller.rb
+#
+# university:  University of Applied Sciences Salzburg
+# studie:      MultiMediaTechnology
+# usage:	    Multimediaprojekt 2a (MMP2a)
+# author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+#              - Franziska Oberhauser
+
 require 'food_apis_module'
 
 class FoodItemController < ApplicationController

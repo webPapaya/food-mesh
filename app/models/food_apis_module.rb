@@ -1,3 +1,12 @@
+##
+# food_apis_module.rb
+#
+# university:  University of Applied Sciences Salzburg
+# studie:      MultiMediaTechnology
+# usage:	    Multimediaprojekt 2a (MMP2a)
+# author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+#              - Franziska Oberhauser
+
 require 'awesome_print'
 
 require_dependency 'food_apis/fddb'

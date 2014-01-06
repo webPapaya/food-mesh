@@ -1,3 +1,12 @@
+##
+# nutritionx_api.rb
+#
+# university:  University of Applied Sciences Salzburg
+# studie:      MultiMediaTechnology
+# usage:	    Multimediaprojekt 2a (MMP2a)
+# author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+#              - Franziska Oberhauser
+
 require_dependency 'food_apis/food_api_interface'
 require 'awesome_print'
 require 'nutritionix/api_1_1'

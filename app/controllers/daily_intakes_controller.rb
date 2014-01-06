@@ -1,3 +1,12 @@
+##
+# daily_intakes_controller.rb
+#
+# university:  University of Applied Sciences Salzburg
+# studie:      MultiMediaTechnology
+# usage:	    Multimediaprojekt 2a (MMP2a)
+# author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+#              - Franziska Oberhauser
+
 class DailyIntakesController < ApplicationController
   before_filter :require_login
   before_action :set_daily_intake, only: [:show, :edit, :update, :destroy]

@@ -1,3 +1,12 @@
+##
+# basic_pages_helper.rb
+#
+# university:  University of Applied Sciences Salzburg
+# studie:      MultiMediaTechnology
+# usage:	    Multimediaprojekt 2a (MMP2a)
+# author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+#              - Franziska Oberhauser
+
 module BasicPagesHelper
   # see if we just use it in basic_page helper
   def markdown(text)

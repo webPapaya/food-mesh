@@ -1,3 +1,14 @@
+/**
+ * jquery.line_chart.js
+ *
+ * university:  University of Applied Sciences Salzburg
+ * studie:      MultiMediaTechnology
+ * usage:	    Multimediaprojekt 2a (MMP2a)
+ * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+ *              - Franziska Oberhauser
+ */
+
+
 (function($) {
     var LineChart = function(element, options) {
         this.$element = $(element);

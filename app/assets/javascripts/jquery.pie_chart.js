@@ -1,16 +1,12 @@
 /**
- * jquery.tabs.js
+ * jquery.line_chart.js
  *
  * university:  University of Applied Sciences Salzburg
  * studie:      MultiMediaTechnology
  * usage:	    Multimediaprojekt 2a (MMP2a)
  * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
- *
- * About this file:
- * ----------------
- * this is a simple jquery plugin for changing the sidebar menu
+ *              - Franziska Oberhauser
  */
-
 
 (function($, d3) {
     var PieChart = function(element, options) {

@@ -1,3 +1,12 @@
+##
+# user_basket.rb
+#
+# university:  University of Applied Sciences Salzburg
+# studie:      MultiMediaTechnology
+# usage:	    Multimediaprojekt 2a (MMP2a)
+# author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+#              - Franziska Oberhauser
+
 module UserBasket
   include FoodApisModule
   def delete_all_items
