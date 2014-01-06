@@ -13,6 +13,10 @@ class FoodItemController < ApplicationController
   before_filter :before_actions
   include FoodApisModule
 
+  helper_method :print_nutrition_element?
+
+
+
   def show
     @food_item = SearchLocalRemote.get_single_item params[:item_id]
     pie_chart_instance = PieChart.new @food_item[:nutritions]
@@ -43,7 +47,17 @@ class FoodItemController < ApplicationController
     redirect_to dashboard_path, :notice => 'Cleared search cache'
   end
 
+
+
+
   private
+
+  def print_nutrition_element?(key)
+    intake = DailyIntake.find_element(key)
+    return false if intake.nil?
+    true
+  end
+
   def before_actions
     @translator = Translations.new params[:locale]
     @local_remote = SearchLocalRemote.new

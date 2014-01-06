@@ -22,7 +22,7 @@
             </span>
             <span class="content clearfix">
             <% item['nutritions'].each do |key, value| %>
-              <% if print_nutrition_element? key, value %>
+              <% if print_nutrition_element? key %>
                 <span class="ingredient">
                     <span class="highlighted"><%= I18n.t key %></span>
                     <span class="simple"><%=  value.round 2 %></span>

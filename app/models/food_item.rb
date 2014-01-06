@@ -9,6 +9,8 @@
 require 'food_apis_module'
 
 class FoodItem
+  :helper
+
   include Mongoid::Document
   include Mongoid::Attributes
 
