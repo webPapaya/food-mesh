@@ -100,7 +100,6 @@ class NutritionixAPI < FoodAPIInterface
   # @param source - source array of elements
   def parse_single_item(source, serving_weight)
     nutrition_elements = {}
-    ap source
     source.each do |key, ingredients|
        if is_valid_pair? key, ingredients
          key = translate_key key, :nutritionix

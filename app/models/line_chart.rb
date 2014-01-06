@@ -13,6 +13,7 @@ class LineChart
 
   def self.get_chart items
     @chart = LineChart.new items
+    ap @chart
     {   :dimensions => @chart.dimensions,
         :items => @chart.build_chart,
         :labels => @chart.nutritions_in_items,
