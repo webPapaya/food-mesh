@@ -13,8 +13,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <html>
 <head>
-  <title>Food</title>
+  <title>Food Mesh</title>
   <meta charset="utf-8"/>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag 'main', media: "all" %>
   <%= csrf_meta_tags %>
 </head>
@@ -24,7 +25,6 @@
     <% else %>
         <%= render 'layouts/page' %>
     <% end %>
-
 <%= javascript_include_tag "application"  %>
 
 </body>
