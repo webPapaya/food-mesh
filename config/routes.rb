@@ -34,8 +34,6 @@ Food::Application.routes.draw do
   resources 'pie_chart'
   resources 'basic_pages'
 
-
-
   #admin login
   scope '/admin' do
     resources :sessions
