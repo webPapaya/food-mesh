@@ -18,7 +18,6 @@ class FoodItem
     field :nutritions, type: Object
     field :translations, type: Array
 
-
     ##
     # creates a new object in the database and returns
     def self.new_item item
