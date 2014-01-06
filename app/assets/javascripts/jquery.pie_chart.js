@@ -22,8 +22,6 @@
         this.$pieElements = this.$element.find('.pie-item');
         this.$pieItems = this.$element.find('.pie-path-back');
 
-
-
         this.loadingAnimation();
 
         if(options.controll) {
@@ -38,8 +36,9 @@
         var elements = this.$svg.selectAll('.clip-path').each(function(idx, element){
             var element = d3.select(this);
             var radius = element.attr('r');
+
             element.attr('r', 0);
-            element.transition().duration(1000).attr('r', radius).ease('bounce');
+            element.transition().duration(500 + Math.random()*500).attr('r', radius).ease('bounce');
         });
     };
 
