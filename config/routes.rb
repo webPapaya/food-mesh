@@ -37,6 +37,8 @@ Food::Application.routes.draw do
 
   #admin login
   scope '/admin' do
+    resources :sessions
+    resources :users
     get '/' => "sessions#new", :as => 'login'
     get '/logout' => "sessions#destroy", :as => 'logout'
     get '/signup' => "users#new", :as => 'signup'
@@ -45,6 +47,5 @@ Food::Application.routes.draw do
     get '/search/cache/clear' => 'food_item#clear_search_cache', as: 'clear_search_cache'
   end
 
-  resources :users
-  resources :sessions
+
 end

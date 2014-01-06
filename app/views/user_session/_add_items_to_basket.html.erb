@@ -22,10 +22,12 @@
             </span>
             <span class="content clearfix">
             <% item['nutritions'].each do |key, value| %>
+              <% if print_nutrition_element? key, value %>
                 <span class="ingredient">
-                    <span class="highlighted"><%= key %></span>
-                    <span class="simple"><%= value %></span>
+                    <span class="highlighted"><%= I18n.t key %></span>
+                    <span class="simple"><%=  value.round 2 %></span>
                 </span>
+              <% end %>
             <% end %>
             </span>
             <%= link_to 'go to element', get_food_item_path(item['_id']) %>
