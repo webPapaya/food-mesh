@@ -17,7 +17,7 @@ de:
   chlorine:             Chlor
   cholesterol:          Cholesterin
   copper:               Kupfer
-  empty_item_basket:    "no elements in this list"
+  empty_item_basket:    "kein Element in dieser Liste"
   fat:                  Fett
   fiber:                Ballaststoff
   iron:                 Eisen
@@ -39,6 +39,6 @@ de:
   vitamin_b6:           Vitamin B6
   vitamin_c:            Vitamin C
   vitamin_e:            Vitamin E
-  water:                Water
+  water:                Wasser
   woman:                Frau
   zinc:                 Zink
