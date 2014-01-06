@@ -13,10 +13,6 @@ class FoodItemController < ApplicationController
   before_filter :before_actions
   include FoodApisModule
 
-
-
-
-
   def show
     @food_item = SearchLocalRemote.get_single_item params[:item_id]
     pie_chart_instance = PieChart.new @food_item[:nutritions]
@@ -32,7 +28,7 @@ class FoodItemController < ApplicationController
 
   def compare
     @food_items = user_session.get_user_items
-    @chart = LineChart.get_chart @food_items if @food_items.class == Array
+    @chart = LineChart.get_chart @food_items if (@food_items.class == Array && !@food_item.nil?)
   end
 
   def redirect_to_index

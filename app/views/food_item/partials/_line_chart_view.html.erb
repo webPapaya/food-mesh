@@ -6,10 +6,17 @@
    #              - Franziska Oberhauser
 %>
 
-<h1>Compare the food products in your basket</h1>
-<% if @chart[:items].nil? %>
-    <p> user basket is empty please add some items </p>
+
+<% if @chart.nil? %>
+    <div class="error">
+      <h1>please add some items to the user basket</h1>
+      <p>
+        if you don't want to add some items you can enjoy some bacon
+      </p>
+      <%= image_tag 'http://25.media.tumblr.com/d3025413adff4f9e413f1253d11834e6/tumblr_mkqjpvPA7i1s5orbto1_500.gif' %>
+    </div>
 <% else %>
+    <h1>Compare the food products in your basket</h1>
     <svg width="100%"  id="line-chart" viewBox="<%= "0 0 #{@chart[:dimensions][:width]} #{@chart[:dimensions][:height] + 50}" %> " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
       <% @chart[:items].each_with_index do |item, idx| %> <!-- later: foreach of the value hashes -->
           <path id="item-<%= item[:id]%>"
