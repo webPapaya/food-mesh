@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def print_nutrition_element? key
-    DailyIntake.find_element key
+  def print_nutrition_element?(key)
+    IntakeCalculations.instance.is_key_valid? key
   end
 end
