@@ -13,6 +13,10 @@
       <%= f.text_field :user_settings_age, :placeholder => 'age', :value => @user_session.get_user_settings[:age]  %>
       <%= f.label :user_settings_height %><br>
       <%= f.text_field :user_settings_height, :placeholder => 'height', :value => @user_session.get_user_settings[:height] %>
+
+      <%= f.label :user_settings_sex %><br>
+      <%= f.text_field :user_settings_sex, :placeholder => 'height', :value => @user_session.get_user_settings[:height] %>
+
       <%= f.submit "save changes" %>
   <% end %>
   <h1> Select Language </h1>

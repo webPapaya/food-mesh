@@ -15,6 +15,14 @@ class IntakeCalculations
       @valid_keys[key] if is_key_valid? key
     end
 
+    def get_smr (session)
+      settings = session.get_user_settings
+      ap smr_man settings
+      ap smr_woman settings
+
+    end
+
+
   private
   def parse_keys
     keys = {}
@@ -22,5 +30,21 @@ class IntakeCalculations
       keys[item['key']] = item['value']
     end
     keys
+  end
+
+  ##
+  # calculates the smr according to his settings
+  def smr_man (settings)
+    smr = 66.5 + (13.75 * settings[:weight].to_f)
+    smr += (5.003 * settings[:height].to_f)
+    smr - (6.775 * settings[:age].to_f)
+  end
+
+  #ä
+  # Grundumsatz (kcal) = 655,1 + (9,563 x kg) + (1,850 x cm) – (4,676 x Alter)
+  def smr_woman(settings)
+    smr = 655.1 + (9.563 * settings[:weight].to_f)
+    smr += (1.850 * settings[:height].to_f)
+    smr - (4.676 * settings[:age].to_f)
   end
 end
