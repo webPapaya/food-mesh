@@ -8,29 +8,30 @@
 #              - Franziska Oberhauser
 
 module UserBasket
-  include FoodApisModule
-  def delete_all_items
-    @session[:item_basket] = []
-  end
+    include FoodApisModule
 
-  ##
-  # checks if element is already in the user list
-  # if not it adds the item to the item_basket
-  def add_item_to_basket(item_id)
-    @session[:item_basket] << item_id unless (@session[:item_basket].include? item_id)
-  end
+    def delete_all_items
+        @session[:item_basket] = []
+    end
 
-  def delete_item_from_basket(basket_idx)
-    @session[:item_basket].delete_at(basket_idx.to_i)
-  end
+    ##
+    # checks if element is already in the user list
+    # if not it adds the item to the item_basket
+    def add_item_to_basket(item_id)
+        @session[:item_basket] << item_id unless (@session[:item_basket].include? item_id)
+    end
 
-  def add_items_to_basket (items)
-    @session[:item_basket] = items
-  end
+    def delete_item_from_basket(basket_idx)
+        @session[:item_basket].delete_at(basket_idx.to_i)
+    end
 
-  def get_user_items
-    basket = FoodItem.get_local_items @session[:item_basket]
-    return nil if basket.nil?
-    basket
-  end
+    def add_items_to_basket (items)
+        @session[:item_basket] = items
+    end
+
+    def get_user_items
+        basket = FoodItem.get_local_items @session[:item_basket]
+        return nil if basket.nil?
+        basket
+    end
 end
