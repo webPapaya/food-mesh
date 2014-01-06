@@ -12,10 +12,11 @@
 (function($) {
     var LineChart = function(element, options) {
         this.$element = $(element);
+        this.$svg = d3.select('#' + this.$element.attr('id'));
+
         this.$paths = this.$element.find('.line-chart-line');
         this.$itemName = $('.span_4');
 
-        //put in own function
         for(path in this.$paths.get()) {
             this.animatePath(this.$paths[path]);
             itemCount = ("path:", this.$paths.length);
@@ -26,15 +27,12 @@
     };
 
     LineChart.prototype.highLightItemName = function(evt) {
+
         var currentElement = $(evt.currentTarget);
         var currentId = currentElement.attr('id').replace(/item-/g,"");
-
         var itemNameElement = this.$itemName.find("[data-item-idx='" + currentId + "']");
 
         itemNameElement.css('background', '#6BC19C');
-
-        //console.log(itemNameElement);
-        //console.log(currentId);
 
         $(evt.currentTarget).on('mouseleave', (function(evt){
             $(evt.currentTarget).off('mouseleave');
@@ -43,9 +41,18 @@
     };
 
     LineChart.prototype.moveLineChartLine = function(evt) {
-        var currentElement = $(evt.currentTarget);
-        var currentId = currentElement.attr('id');
-        console.log(currentId);
+
+        var currentItem = $(evt.currentTarget);
+        var currentId = currentItem.find('h3').data('item-idx');
+        var pathElement = d3.select('#item-' + currentId);
+
+        pathElement.transition().attr('stroke-width', 10);
+
+        // resets path stroke after the mouse has left the relevant headline
+        $(evt.currentTarget).on('mouseleave', (function(evt){
+            $(evt.currentTarget).off('mouseleave');
+            pathElement.transition().attr('stroke-width', 4);
+        }).bind(this));
     };
 
     LineChart.prototype.animatePath = function(path) {
