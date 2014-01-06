@@ -12,15 +12,6 @@
 
 
         this.$paths.on("mouseover", this.highLightSidebar.bind(this));
-
-//            (function(evt) {
-//            //console.log(evt);
-//            var txtClass = $(this).attr("class");
-//            console.log("Class Name : "+txtClass);
-//            $headline = $( "span.item1" ).css("background-color", "green");
-//            console.log($headline);
-//        }).bind(this))
-
     };
 
     LineChart.prototype.highLightSidebar = function(evt) {
@@ -54,7 +45,8 @@
         path.getBoundingClientRect();
 
         // define transition
-        path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 2s ease-in-out';
+        path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset '+ Math.random()*3 + 's ease-in-out';
+
         path.style.strokeDashoffset = '0';
 
     };

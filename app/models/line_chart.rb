@@ -3,11 +3,13 @@ class LineChart
   attr_reader :nutritions_in_items, :space, :dimensions
 
   def self.get_chart items
+    ap items
     @chart = LineChart.new items
     {   :dimensions => @chart.dimensions,
         :items => @chart.build_chart,
         :labels => @chart.nutritions_in_items,
-        :label_space => @chart.space
+        :label_space => @chart.space,
+        :colors =>  %w[#2BA772 #1C7F60 #19436B #50B694 #66A4D1 #205779 #3997CF #2BA772']
     }
   end
 
