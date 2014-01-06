@@ -13,7 +13,7 @@
     var LineChart = function(element, options) {
         this.$element = $(element);
         this.$paths = this.$element.find('.line-chart-line');
-        this.$sidebar = $('#header-dropdown-wrp');
+        this.$itemName = $('.span_4');
 
         //put in own function
         for(path in this.$paths.get()) {
@@ -21,25 +21,31 @@
             itemCount = ("path:", this.$paths.length);
         }
 
-
-        this.$paths.on("mouseover", this.highLightSidebar.bind(this));
+        this.$paths.on("mouseover", this.highLightItemName.bind(this));
+        this.$itemName.on("mouseover", this.moveLineChartLine.bind(this));
     };
 
-    LineChart.prototype.highLightSidebar = function(evt) {
+    LineChart.prototype.highLightItemName = function(evt) {
         var currentElement = $(evt.currentTarget);
         var currentId = currentElement.attr('id').replace(/item-/g,"");
 
-        var sidebarElement = this.$sidebar.find("[data-item-idx='" + currentId + "']");
+        var itemNameElement = this.$itemName.find("[data-item-idx='" + currentId + "']");
 
-        sidebarElement.css('background', '#2ba772');
+        itemNameElement.css('background', '#6BC19C');
 
-        console.log(sidebarElement);
-        console.log(currentId);
+        //console.log(itemNameElement);
+        //console.log(currentId);
 
         $(evt.currentTarget).on('mouseleave', (function(evt){
             $(evt.currentTarget).off('mouseleave');
-            sidebarElement.css('background', '');
+            itemNameElement.css('background', '');
         }).bind(this));
+    };
+
+    LineChart.prototype.moveLineChartLine = function(evt) {
+        var currentElement = $(evt.currentTarget);
+        var currentId = currentElement.attr('id');
+        console.log(currentId);
     };
 
     LineChart.prototype.animatePath = function(path) {
