@@ -17,9 +17,9 @@ class IntakeCalculations
 
     def get_smr (session)
       settings = session.get_user_settings
-      ap smr_man settings
-      ap smr_woman settings
-
+      smr = smr_man settings if (settings[:sex] == 'man')
+      smr ||= smr_woman settings
+      smr
     end
 
 

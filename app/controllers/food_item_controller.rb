@@ -30,7 +30,6 @@ class FoodItemController < ApplicationController
 
   def compare
     @food_items = user_session.get_user_items
-
     @chart = LineChart.get_chart @food_items unless @food_items.empty?
     ap @chart
   end
