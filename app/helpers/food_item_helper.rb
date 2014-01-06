@@ -23,5 +23,18 @@ module FoodItemHelper
     next_idx
   end
 
+  def print_nutrition_element?(key, value)
+    intake = DailyIntake.find_element(key)
+    return false if intake.nil?
+    #unless intake.nil?
+    #  return nil if key == 'calories'
+    #  val = value.to_f/intake['value']
+    #  mask = create_outer_mask
+    #  val *= (mask['outer'] - mask['inner'])
+    #  val += mask['inner']
+    #  return val
+    #end
 
+    true
+  end
 end
