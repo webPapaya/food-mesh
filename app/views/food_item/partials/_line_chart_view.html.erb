@@ -6,7 +6,7 @@
    #              - Franziska Oberhauser
 %>
 
-<h1>Listing line_charts</h1>
+<h1>Compare the food products in your basket</h1>
 <% if @chart[:items].nil? %>
     <p> user basket is empty please add some items </p>
 <% else %>
@@ -34,17 +34,27 @@
       <% end %>
       <line
             x1="0"
-            y1="<%= @chart[:dimensions][:height] %>"
-            x2="<%= @chart[:label_space] * 16 %>"
-            y2="<%= @chart[:dimensions][:height] + 5 %>"
+            y1="<%= @chart[:dimensions][:height] + 3 %>"
+            x2="<%= @chart[:dimensions][:width] %>"
+            y2="<%= @chart[:dimensions][:height] + 3 %>"
             stroke-width="1.5"
             style="stroke: black;"></line>
       <line
           x1="0"
           y1="0"
           x2="0"
-          y2="<%= @chart[:dimensions][:height] %>"
+          y2="<%= @chart[:dimensions][:height] + 3 %>"
           stroke-width="1.5"
           style="stroke: black;"></line>
+      <line
+          x1="0"
+          y1="<%= @chart[:dimensions][:height] * @chart[:max_size] %>"
+          x2="<%= @chart[:dimensions][:width]%>"
+          y2="<%= @chart[:dimensions][:height] * @chart[:max_size]  %>"
+          stroke-width="1.5"
+          style="stroke: rgba(0,0,0,0.48);"></line>
+      <text x="<%= @chart[:dimensions][:width] - 180 %>" y="<%= @chart[:dimensions][:height] * @chart[:max_size] - 3 %>">
+        average daily requirement
+      </text>
     </svg>
 <% end %>

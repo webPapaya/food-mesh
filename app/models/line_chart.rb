@@ -9,20 +9,21 @@
 
 require 'set'
 class LineChart
-  attr_reader :nutritions_in_items, :space, :dimensions
+  attr_reader :nutritions_in_items, :space, :dimensions, :max_size
 
   def self.get_chart items
-    ap items
     @chart = LineChart.new items
     {   :dimensions => @chart.dimensions,
         :items => @chart.build_chart,
         :labels => @chart.nutritions_in_items,
         :label_space => @chart.space,
-        :colors =>  %w[#2BA772 #1C7F60 #19436B #50B694 #66A4D1 #205779 #3997CF #2BA772']
+        :colors =>  %w[#2BA772 #1C7F60 #19436B #50B694 #66A4D1 #205779 #3997CF #2BA772'],
+        :max_size => (1-@chart.max_size)
     }
   end
 
   def initialize(items, window_width = 1000, window_height = 500)
+    @max_size = 0.9
     @dimensions = {
         :width => window_width,
         :height => window_height
@@ -74,13 +75,13 @@ class LineChart
     unless intake.nil?
       val = value.to_f/intake['value']
       val = calc_over_daily_amount val if val > 1
-      val *= (@dimensions[:height]*0.6)
+      val *= (@dimensions[:height]*@max_size)
       return val
     end
     0
   end
 
   def calc_over_daily_amount (val)
-    1+((val-1)**(1/5)) #calculates cubic root
+    1+((val-1)**(1/6)) #calculates cubic root
   end
 end
