@@ -10,6 +10,46 @@
 <% if @chart[:items].nil? %>
     <p> user basket is empty please add some items </p>
 <% else %>
+    <div class="container info-boxes row" id="pie-chart-controlles">
+      <div class="info-boxes-wrp clearfix">
+        <div class="span_4 col" data-pie-reference="ingredient-fiber">
+          <h3>fiber</h3>
+          <div class="clearfix">
+            <span class="highlighted">amount</span>
+            <span class="simple">2.5974</span>
+          </div>
+        </div>
+        <div class="span_4 col" data-pie-reference="ingredient-sugar">
+          <h3>sugar</h3>
+          <div class="clearfix">
+            <span class="highlighted">amount</span>
+            <span class="simple">9.7403</span>
+          </div>
+        </div>
+        <div class="span_4 col" data-pie-reference="ingredient-carbohydrate">
+          <h3>carbohydrate</h3>
+          <div class="clearfix">
+            <span class="highlighted">amount</span>
+            <span class="simple">13.6364</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container info-boxes row">
+      <div class="info-boxes-wrp clearfix">
+        <div class="span_4 col">
+          <% if user_session.get_user_items.class == Array %>
+              <% user_session.get_user_items.each_with_index do |item, idx| %>
+                <h3 data-item-idx="<%= item['_id'] %>">
+                    <span class="header">
+                      <%= item['name'] %>
+                    </span>
+                </h3>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <svg width="100%"  id="line-chart" viewBox="<%= "0 0 #{@chart[:dimensions][:width]} #{@chart[:dimensions][:height] + 50}" %> " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
       <% @chart[:items].each_with_index do |item, idx| %> <!-- later: foreach of the value hashes -->
           <path id="item-<%= item[:id]%>"
