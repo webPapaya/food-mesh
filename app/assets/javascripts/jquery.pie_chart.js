@@ -1,16 +1,12 @@
 /**
- * jquery.tabs.js
+ * jquery.line_chart.js
  *
  * university:  University of Applied Sciences Salzburg
  * studie:      MultiMediaTechnology
  * usage:	    Multimediaprojekt 2a (MMP2a)
  * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
- *
- * About this file:
- * ----------------
- * this is a simple jquery plugin for changing the sidebar menu
+ *              - Franziska Oberhauser
  */
-
 
 (function($, d3) {
     var PieChart = function(element, options) {
@@ -21,8 +17,6 @@
         this.$element = $(element);
         this.$pieElements = this.$element.find('.pie-item');
         this.$pieItems = this.$element.find('.pie-path-back');
-
-
 
         this.loadingAnimation();
 
@@ -38,8 +32,9 @@
         var elements = this.$svg.selectAll('.clip-path').each(function(idx, element){
             var element = d3.select(this);
             var radius = element.attr('r');
+
             element.attr('r', 0);
-            element.transition().duration(1000).attr('r', radius).ease('bounce');
+            element.transition().duration(500 + Math.random()*500).attr('r', radius).ease('bounce');
         });
     };
 

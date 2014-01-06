@@ -1,3 +1,12 @@
+##
+# daily_intake.rb
+#
+# university:  University of Applied Sciences Salzburg
+# studie:      MultiMediaTechnology
+# usage:	    Multimediaprojekt 2a (MMP2a)
+# author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+#              - Franziska Oberhauser
+
 class DailyIntake
   include Mongoid::Document
   field :key, type: String

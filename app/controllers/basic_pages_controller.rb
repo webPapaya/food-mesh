@@ -1,3 +1,12 @@
+##
+# basic_bages_controller.rb
+#
+# university:  University of Applied Sciences Salzburg
+# studie:      MultiMediaTechnology
+# usage:	    Multimediaprojekt 2a (MMP2a)
+# author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+#              - Franziska Oberhauser
+
 class BasicPagesController < ApplicationController
   before_action :set_basic_page, only: [:show, :edit, :update, :destroy]
   before_filter :require_login, :only =>[:edit, :update, :destroy]

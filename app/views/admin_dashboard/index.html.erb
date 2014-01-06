@@ -1,3 +1,11 @@
+<%
+   # university:  University of Applied Sciences Salzburg
+   # studie:      MultiMediaTechnology
+   # usage:	    Multimediaprojekt 2a (MMP2a)
+   # author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+   #              - Franziska Oberhauser
+%>
+
 <div id="dashboard">
   <h1>Admin Dashboard</h1>
   <% unless notice.nil? %>
@@ -13,5 +21,7 @@
   <h2> Administer </h2>
   <p> <%= link_to "daily intakes", daily_intakes_path%> </p>
   <p> <%= link_to "basic pages", basic_pages_path %> </p>
-  <p> <%= link_to "clear search cache", clear_search_cache_path, :confirm => 'Do you really want to clear the search cache?' %> </p>
+  <p> <%= link_to "clear search cache", clear_search_cache_path, data: { confirm: 'Do you really want to clear the search cache?'}  %> </p>
 </div>
+
+

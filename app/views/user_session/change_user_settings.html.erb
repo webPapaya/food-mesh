@@ -1,4 +1,10 @@
-
+<%
+   # university:  University of Applied Sciences Salzburg
+   # studie:      MultiMediaTechnology
+   # usage:	    Multimediaprojekt 2a (MMP2a)
+   # author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
+   #              - Franziska Oberhauser
+%>
   <h1>User Settings</h1>
   <%= form_for 'user_settings', remote: true,   url: { controller: 'user_session', action: 'change_user_settings' } do |f| %>
       <%= f.label :user_settings_weight %><br>
