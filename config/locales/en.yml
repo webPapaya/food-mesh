@@ -22,3 +22,11 @@
 en:
   hello: "Hello world"
   empty_item_basket: "no elements in this list"
+#ingredients
+  iron: Iron
+  carbohydrate: Carbohydrate
+  protein: Protein
+  calories: Calories
+  water: Water
+  calcium: Calcium
+  sodium: Sodium

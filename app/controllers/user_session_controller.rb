@@ -26,6 +26,7 @@ class UserSessionController < ApplicationController
   end
 
   def delete_all_items
+    ap "test"
     user_session.delete_all_items
     respond_to do |format|
       format.html { redirect_to :back }

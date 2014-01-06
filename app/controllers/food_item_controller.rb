@@ -28,7 +28,7 @@ class FoodItemController < ApplicationController
 
   def compare
     @food_items = user_session.get_user_items
-    @chart = LineChart.get_chart @food_items if @food_items.class == Array
+    @chart = LineChart.get_chart @food_items if (@food_items.class == Array && !@food_item.nil?)
   end
 
   def redirect_to_index
@@ -42,6 +42,7 @@ class FoodItemController < ApplicationController
     end
     redirect_to dashboard_path, :notice => 'Cleared search cache'
   end
+
 
   private
   def before_actions

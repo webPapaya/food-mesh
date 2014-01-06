@@ -13,8 +13,9 @@ Food::Application.routes.draw do
       match '/:item_id', to: 'food_item#show', as: 'get_food_item', via: :get
       match '/add_to_basket/:item_id', to: 'user_session#add_items_to_basket', via: [:post, :get], as: 'add_item_to_basket'
       match '/delete_from_basket/:item_id', to: 'user_session#delete_item_from_basket', via: [:post, :get], as: 'delete_item_from_basket'
-      match '/delete_items_from_basket/', to: 'user_session#delete_all_items', via: [:post, :get], as: 'bulk_delete_basket'
     end
+
+    match '/delete_items_from_basket/', to: 'user_session#delete_all_items', via: [:post, :get], as: 'bulk_delete_basket'
 
     #search
     match '/search/:query', to: 'food_item#search', as: 'search_db', via: :get
@@ -32,8 +33,6 @@ Food::Application.routes.draw do
   get ':controller(/:action(/:id(.:format)))'
   resources 'pie_chart'
   resources 'basic_pages'
-
-
 
   #admin login
   scope '/admin' do

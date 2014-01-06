@@ -95,6 +95,17 @@ ul.info-list {
   }
 }
 
+.error {
+  h2, p {
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    margin: auto;
+  }
+}
+
 
 .info-boxes {
   padding: 5px 10px;
@@ -239,6 +250,9 @@ ul.info-list {
     display: inline-block;
     padding: 5px 15px;
     background-color: #ffff00;
+  }
+  select {
+    height: 35px;
   }
 }
 

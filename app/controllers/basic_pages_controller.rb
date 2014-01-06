@@ -12,13 +12,11 @@ class BasicPagesController < ApplicationController
   before_filter :require_login, :only =>[:edit, :update, :destroy]
 
   # GET /basic_pages
-  # GET /basic_pages.json
   def index
     @basic_pages = BasicPage.all
   end
 
   # GET /basic_pages/1
-  # GET /basic_pages/1.json
   def show
   end
 
