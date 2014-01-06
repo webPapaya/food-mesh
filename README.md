@@ -6,6 +6,8 @@
     + Nutritionix (http://www.nutritionix.com/api)
     + Fatsecret (http://www.fatsecret.com/)
     + other apis may be available in the future
++ Translate Food Item Names to any language using bing_translator gem
+    + Translations are cached to the food_item model
 + Cache Food Items:
 	+ all Searches and Food Items are stored in a mongoDB Database
     	+ Info: the database is currently hosted on lnx-tm.may-it.net
