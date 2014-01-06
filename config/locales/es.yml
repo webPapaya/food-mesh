@@ -1,5 +1,4 @@
-# admin_dashboard_controller.rb
-#
+##
 # university:  University of Applied Sciences Salzburg
 # studie:      MultiMediaTechnology
 # usage:	    Multimediaprojekt 2a (MMP2a)
@@ -38,6 +37,6 @@ es:
   vitamin_b6:           vitamina B6
   vitamin_c:            vitamina C
   vitamin_e:            vitamina E
-  water:                wáter
+  water:                agua
   woman:                mujer
   zinc:                 cinc
