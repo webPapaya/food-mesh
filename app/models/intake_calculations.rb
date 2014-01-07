@@ -1,6 +1,15 @@
 require 'singleton'
+
+
+
 class IntakeCalculations
     include Singleton
+
+    @@session = nil
+
+    def self.session= session
+        @@session = session
+    end
 
     def initialize
         @daily_intakes = DailyIntake.all
@@ -12,23 +21,68 @@ class IntakeCalculations
     end
 
     def get_key (key)
+        @valid_keys = get_individual_intake
         @valid_keys[key] if is_key_valid? key
     end
 
-    def get_smr (session)
-        settings = session.get_user_settings
+    def get_recalculated_infos(nutritions)
+        nutritions = nutritions.clone #clone just for security propose so we don't overwrite anything
+        n = {}
+        @valid_keys = get_individual_intake # call function just for security propose
+
+        nutritions.each do |key, value|
+            percent = recalculate_key key, value
+            n[key] = ({
+                :value => value,
+                :percent => percent
+            }) unless percent.nil?
+        end
+        n
+    end
+
+    ##
+    # returns the individual intake according to user settings
+    def get_individual_intake
+        smr =  get_smr
+        individual_intake = {}
+
+        @valid_keys.each do |key, value|
+            case key
+                when 'calories'
+                    individual_intake[key] = smr
+                when 'carbohydrate'
+                    # carbohydrate
+                    # Gesamtenergiebedarf * 55 % (KH) = kcal/Tag und das Ganze /4,1 = g /Tag
+                    individual_intake[key] =( (smr*0.55)/4.1).round(0)
+                when 'fat'
+                    # fat
+                    # Gesamtenergiebedarf * 30 % (Fett) = kcal/Tag und das Ganze /9,3 = g /Tag
+                    individual_intake[key] = ((smr*0.3)/9.3).round(2)
+                when key == 'protein'
+                    # Gesamtenergiebedarf * 15 % (Eiweiß) = kcal/Tag und das Ganze /4,1 = g /Tag
+                    individual_intake[key] = ((smr*0.15)/4.1).round(2)
+                else
+                    individual_intake[key] = value
+            end
+        end
+        individual_intake
+    end
+
+
+
+    private
+
+    def recalculate_key (key, value)
+        return (value/@valid_keys[key]).round(5) if is_key_valid? key
+        nil
+    end
+
+    # calculates the smr according to his settings
+    def get_smr
+        settings =  @@session.get_user_settings
         smr = smr_man settings if (settings[:sex] == 'man')
         smr ||= smr_woman settings
         smr
-    end
-
-    private
-    def parse_keys
-        keys = {}
-        @daily_intakes.each do |item|
-            keys[item['key']] = item['value']
-        end
-        keys
     end
 
     ##
@@ -45,5 +99,14 @@ class IntakeCalculations
         smr = 655.1 + (9.563 * settings[:weight].to_f)
         smr += (1.850 * settings[:height].to_f)
         smr - (4.676 * settings[:age].to_f)
+    end
+
+
+    def parse_keys
+        keys = {}
+        @daily_intakes.each do |item|
+            keys[item['key']] = item['value']
+        end
+        keys
     end
 end

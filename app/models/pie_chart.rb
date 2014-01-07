@@ -121,23 +121,14 @@ class PieChart
     end
 
     def calculate_daily_calories(calories)
-        base = DailyIntake.find_element('calories')[:value]
-        calories.to_f/base*100
+        calories[:percent]*100
     end
 
     def calculate_daily_intake (key, value)
-        intake = IntakeCalculations.instance.get_key key
-
-        unless intake.nil?
-            return nil if key == 'calories'
-            val  = value.to_f/intake
-            mask = create_outer_mask
-            val  *= (mask['outer'] - mask['inner'])
-            val  += mask['inner']
-            return val
-        end
-
-        nil
+        return nil if key == 'calories'
+        mask = create_outer_mask
+        value[:percent]  *= (mask['outer'] - mask['inner'])
+        value[:percent]  += mask['inner']
     end
 end
 
