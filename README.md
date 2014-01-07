@@ -16,6 +16,8 @@
 + Two different chart views all created with SVG and Animated with
 	+ Single item (animated with http://d3js.org/)
     + Multiple Item Chart
++ Calculate all nutrition information according to the personal condition
+    + Info: only works on pie chart currently, line chart etc. will follow
 + Admin Dashboard for administrative tasks also see
 
 ## Admin Dashboard Info
