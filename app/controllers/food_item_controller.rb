@@ -15,9 +15,9 @@ class FoodItemController < ApplicationController
 
     def show
         @food_item         = SearchLocalRemote.get_single_item params[:item_id]
-        @test              = IntakeCalculations.instance.get_individual_intake user_session
-        ap @test
-        pie_chart_instance = PieChart.new @food_item[:nutritions]
+        recalculation      = IntakeCalculations.instance.get_recalculated_infos @food_item[:nutritions]
+
+        pie_chart_instance = PieChart.new recalculation
         @pie_chart         = pie_chart_instance.get_pie_chart
     end
 
