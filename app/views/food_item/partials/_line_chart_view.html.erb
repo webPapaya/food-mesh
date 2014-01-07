@@ -70,15 +70,7 @@
           y2="<%= @chart[:dimensions][:height] + 3 %>"
           stroke-width="1.5"
           style="stroke: black;"></line>
-      <line
-          x1="0"
-          y1="<%= @chart[:dimensions][:height] * @chart[:max_size] %>"
-          x2="<%= @chart[:dimensions][:width]%>"
-          y2="<%= @chart[:dimensions][:height] * @chart[:max_size]  %>"
-          stroke-width="1.5"
-          style="stroke: rgba(0,0,0,0.48);"></line>
-      <text x="<%= @chart[:dimensions][:width] - 180 %>" y="<%= @chart[:dimensions][:height] * @chart[:max_size] - 3 %>">
-        average daily requirement
-      </text>
+
+
     </svg>
 <% end %>
