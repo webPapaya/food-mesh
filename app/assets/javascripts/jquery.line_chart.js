@@ -12,33 +12,46 @@
 (function($) {
     var LineChart = function(element, options) {
         this.$element = $(element);
-        this.$paths = this.$element.find('.line-chart-line');
-        this.$sidebar = $('#header-dropdown-wrp');
+        this.$svg = d3.select('#' + this.$element.attr('id'));
 
-        //put in own function
+        this.$paths = this.$element.find('.line-chart-line');
+        this.$itemName = $('.span_4');
+
         for(path in this.$paths.get()) {
             this.animatePath(this.$paths[path]);
             itemCount = ("path:", this.$paths.length);
         }
 
-
-        this.$paths.on("mouseover", this.highLightSidebar.bind(this));
+        this.$paths.on("mouseover", this.highLightItemName.bind(this));
+        this.$itemName.on("mouseover", this.moveLineChartLine.bind(this));
     };
 
-    LineChart.prototype.highLightSidebar = function(evt) {
+    LineChart.prototype.highLightItemName = function(evt) {
+
         var currentElement = $(evt.currentTarget);
         var currentId = currentElement.attr('id').replace(/item-/g,"");
+        var itemNameElement = this.$itemName.find("[data-item-idx='" + currentId + "']");
 
-        var sidebarElement = this.$sidebar.find("[data-item-idx='" + currentId + "']");
-
-        sidebarElement.css('background', '#2ba772');
-
-        console.log(sidebarElement);
-        console.log(currentId);
+        itemNameElement.css('background', '#6BC19C');
 
         $(evt.currentTarget).on('mouseleave', (function(evt){
             $(evt.currentTarget).off('mouseleave');
-            sidebarElement.css('background', '');
+            itemNameElement.css('background', '');
+        }).bind(this));
+    };
+
+    LineChart.prototype.moveLineChartLine = function(evt) {
+
+        var currentItem = $(evt.currentTarget);
+        var currentId = currentItem.find('h3').data('item-idx');
+        var pathElement = d3.select('#item-' + currentId);
+
+        pathElement.transition().attr('stroke-width', 10);
+
+        // resets path stroke after the mouse has left the relevant headline
+        $(evt.currentTarget).on('mouseleave', (function(evt){
+            $(evt.currentTarget).off('mouseleave');
+            pathElement.transition().attr('stroke-width', 4);
         }).bind(this));
     };
 
