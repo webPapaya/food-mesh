@@ -7,7 +7,7 @@
 %>
 <h1>User Settings</h1>
 <div class="error">
-  This feature is currently not working -> will be fixed in the next release
+  This feature is currently working in pie_chart only
 </div>
 <%= form_for 'user_settings', remote: true, url: { controller: 'user_session', action: 'change_user_settings' } do |f| %>
     <%= f.label :user_settings_weight %><br>
