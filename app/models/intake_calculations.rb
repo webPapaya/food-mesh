@@ -1,7 +1,5 @@
 require 'singleton'
 
-
-
 class IntakeCalculations
     include Singleton
 
