@@ -14,15 +14,16 @@
       <%= f.label :user_settings_height %><br>
       <%= f.text_field :user_settings_height, :placeholder => 'height', :value => @user_session.get_user_settings[:height] %>
 
+
       <%= f.label :user_settings_sex %><br>
-
-        <%= f.label :user_settings_sex, t("man"), :value => 'man'  %>
-        <%= f.radio_button :user_settings_sex, 'man' %>
-        <%= f.label :user_settings_sex, t("woman"), :value => 'woman' %>
-        <%= f.radio_button :user_settings_sex, 'woman', :checked => true %>
-
-
+        <div class="radio-toolbar">
+          <%= f.radio_button :user_settings_sex, 'man' %>
+          <%= f.label :user_settings_sex, t("man"), :value => 'man'  %>
+          <%= f.radio_button :user_settings_sex, 'woman', :checked => true %>
+          <%= f.label :user_settings_sex, t("woman"), :value => 'woman' %>
+        </div>
       <%= f.submit "save changes" %>
+
   <% end %>
   <h1> Select Language </h1>
   <ul>
