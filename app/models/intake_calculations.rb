@@ -1,6 +1,10 @@
 require 'singleton'
+
+
+
 class IntakeCalculations
     include Singleton
+
 
     def initialize
         @daily_intakes = DailyIntake.all
