@@ -18,6 +18,8 @@ class FoodItemController < ApplicationController
         @food_item         = SearchLocalRemote.get_single_item params[:item_id]
         recalculation      = IntakeCalculations.instance.get_recalculated_infos @food_item[:nutritions]
 
+        UnityCalculator.recalculate('l', 'ml', 100)
+
 
         pie_chart_instance = PieChart.new recalculation
         @pie_chart         = pie_chart_instance.get_pie_chart
