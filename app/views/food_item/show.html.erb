@@ -8,4 +8,7 @@
 
 <h1><%= @food_item['name'] %></h1>
 <%= link_to "add element to basket", add_item_to_basket_path(@food_item['_id']), :remote => true %>
+
+
+
 <%= render 'food_item/partials/pie_chart_view' %>

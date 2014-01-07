@@ -88,11 +88,14 @@ class PieChart
         @nutritions.each do |key, value|
             intake = calculate_daily_intake(key, value)
             values.push({
-                            :value      => value,
-                            :percent    => intake,
+                            :value      => value[:value],
+                            :radius     => intake,
+                            :percent    => value[:percent],
                             :ingredient => key,
                         }) unless intake.nil?
         end
+
+        ap values
 
         values
     end
@@ -125,10 +128,12 @@ class PieChart
     end
 
     def calculate_daily_intake (key, value)
+        value = value.clone
         return nil if key == 'calories'
+
         mask = create_outer_mask
         value[:percent]  *= (mask['outer'] - mask['inner'])
-        value[:percent]  += mask['inner']
+        value[:percent]  + mask['inner']
     end
 end
 
