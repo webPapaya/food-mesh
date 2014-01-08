@@ -77,6 +77,8 @@ gem 'protected_attributes'
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
 
+gem 'rubocop'
+
 # gem for missing translations: github.com/svenfuchs/i18n-missing_translations
 gem "i18n-missing_translations"
 
