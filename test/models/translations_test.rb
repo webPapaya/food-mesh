@@ -1,14 +1,10 @@
 require 'test_helper'
+require 'awesome_print'
 
 class TranslationsTest < ActiveSupport::TestCase
-  def setup
-
-  end
-
-
     test "get translation for beer" do
-        @translator = Translations
-        #translation = @translator.translate 'bier'
-        #assert translation == 'beer'
+        @translator = Translations.new
+        translation = @translator.translate 'bier'
+        assert translation == 'beer'
     end
 end
