@@ -13,6 +13,7 @@ class LineChart
     }
   end
 
+
   def initialize(items, window_width = 1000, window_height = 500)
     @dimensions = {
         :width => window_width,

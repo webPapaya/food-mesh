@@ -1,7 +1,10 @@
 require 'test_helper'
 
-class BasicPageTest < ActiveSupport::TestCase
+
+class BasicPageTest
   # test "the truth" do
   #   assert true
   # end
+
+
 end

@@ -20,4 +20,8 @@ class UnityCalculator
             ]
         }
     end
+
+    def recalculate
+
+    end
 end
