@@ -8,7 +8,7 @@ class SearchLocalRemote
     include FoodApisModule
 
     def initialize
-        @translation_enabled = false
+        @translation_enabled = true
     end
 
     def self.get_single_item item_id

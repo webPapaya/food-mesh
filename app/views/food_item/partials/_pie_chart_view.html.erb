@@ -1,5 +1,6 @@
 <div class="container info-boxes row" id="pie-chart-controlles">
   <div class="info-boxes-wrp clearfix">
+
     <% @pie_chart[:values].each_with_index do |value, idx| %>
         <div class="span_4 col" data-pie-reference="<%= "ingredient-#{value[:ingredient]}" %>">
           <h3><%= value[:ingredient] %></h3>
@@ -12,8 +13,10 @@
             </div><div class="info-boxes-wrp clearfix">
         <% end %>
     <% end %>
-  </div>
+
+    </div>
 </div>
+
 
 <% if @pie_chart[:values].length <= 2 %>
     <div class="error">
@@ -60,7 +63,7 @@
                 <circle class="clip-path"
                         cx="<%= @pie_chart[:chart_center]%>"
                         cy="<%= @pie_chart[:chart_center] %>"
-                        r="<%= @pie_chart[:values][idx][:percent] %>"
+                        r="<%= @pie_chart[:values][idx][:radius] %>"
                         fill="white"> </circle>
               </clipPath>
 
