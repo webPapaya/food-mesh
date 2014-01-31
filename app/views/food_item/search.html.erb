@@ -11,25 +11,24 @@
 </div>
 
 <% if @food_items.length > 0 %>
-    <ul>
-      <% @food_items.each_with_index do |result, i| %>
-          <li>
+    <div class="first search-column">
+    <% @food_items.each_with_index do |result, i| %>
+        <% if (i % ((@food_items.length)/3).to_i == 0 ) && i != 0%>
+            </div><div class="search-column">
+        <% end %>
+          <div class="search-element">
             <h1 class="name"><%= result[:name]%></h1>
             <% unless @name_translation.nil? %>
                 <h2 class="name"><%= @name_translation[i]%></h2>
             <%end %>
-            <ul>
-            <% result[:nutritions].each do |key, nutrition| %>
-                  <li class="<%= key %>"> <%= " #{key} - #{nutrition}"  %></li>
-            <% end %>
-            </ul>
-          </li>
-          <li>
-              <%= link_to "go to element", get_food_item_path(result['_id']) %>
-              <%= link_to "add element to basket", add_item_to_basket_path(result['_id']), :remote => true%>
-          </li>
-      <% end %>
-    </ul>
+          </div>
+
+
+    <% end %>
+    </div>
+
+
+
 <% else %>
     <div>
       no results found
