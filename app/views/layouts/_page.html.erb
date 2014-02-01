@@ -11,7 +11,9 @@
 </div>
 <section id="main-content-wrp" class="container row">
   <main class="span_8 col">
-    <%= render 'layouts/_partials/main' %>
+    <div class="main-inner-wrp" id="main-inner-wrp">
+      <%= yield %>
+    </div>
   </main>
   <section id="header-dropdown-wrp" class="span_4 col">
     <%= render 'layouts/_partials/sidebar' %>

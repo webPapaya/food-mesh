@@ -1,11 +1,9 @@
 Food::Application.routes.draw do
 
   get "users/new", as: 'user_new'
-  resources :basic_pages
-
   resources :daily_intakes
 
-  root to: 'basic_pages#show', :id => '52c55eb374686f1d63210000'
+  root to: 'static_pages#index'
 
   scope '/:locale' do
     scope '/food/item' do
