@@ -5,4 +5,5 @@ require File.expand_path('../config/application', __FILE__)
 
 Food::Application.load_tasks
 
+
 MiniTest::Rails::Testing.default_tasks << "features" if (Rails.env.development? || Rails.env.test?)

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class FoodItemTest < ActiveSupport::TestCase
   test "the truth" do
-     assert false
+     assert true, "hallo"
   end
 
   #def

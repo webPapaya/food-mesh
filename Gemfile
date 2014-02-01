@@ -44,6 +44,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 
+
 #own dependencies
 gem 'curb'    # curb alternative
 gem 'nokogiri'  # xml parser
@@ -86,6 +87,20 @@ gem 'rubocop'
 
 # gem for missing translations: github.com/svenfuchs/i18n-missing_translations
 gem "i18n-missing_translations"
+
+
+gem 'multi_json', '1.8.4'
+
+group :development, :test do
+    gem 'minitest-rails-capybara'
+    gem 'poltergeist', '~> 1.5.0'
+end
+
+group :development, :test do
+    #gem 'mongoid-minitest', group: :test
+    #gem 'minitest-rails-capybara'
+    #gem 'poltergeist', '~> 1.5.0'
+end
 
 
 
