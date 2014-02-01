@@ -1,9 +1,10 @@
 Food::Application.routes.draw do
 
-  get "users/new", as: 'user_new'
+
   resources :daily_intakes
 
   root to: 'static_pages#index'
+  get "users/new", as: 'user_new'
 
   scope '/:locale' do
     scope '/food/item' do
@@ -17,6 +18,8 @@ Food::Application.routes.draw do
 
     #search
     match '/search/:query', to: 'food_item#search', as: 'search_db', via: :get
+
+
     match '/compare', to: 'food_item#compare', as: 'compare_items', via: :get
   end
 
@@ -25,14 +28,9 @@ Food::Application.routes.draw do
 
   #user session
   match '/user_session/change_user_settings', to: 'user_session#change_user_settings', :via => [:post]
-  resources :line_charts
-
-
   get ':controller(/:action(/:id(.:format)))'
-  resources 'pie_chart'
-  resources 'basic_pages'
 
-  #admin login
+  #admin login actions
   scope '/admin' do
     resources :sessions
     resources :users
@@ -43,6 +41,4 @@ Food::Application.routes.draw do
     get '/delete/user/:user_id' => 'users#destroy', as: 'user_delete'
     get '/search/cache/clear' => 'food_item#clear_search_cache', as: 'clear_search_cache'
   end
-
-
 end
