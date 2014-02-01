@@ -4,7 +4,7 @@ Food::Application.routes.draw do
   resources :daily_intakes
 
   root to: 'static_pages#index'
-  get "users/new", as: 'user_new'
+
 
   scope '/:locale' do
     scope '/food/item' do
@@ -27,18 +27,19 @@ Food::Application.routes.draw do
 
 
   #user session
+  get 'users/new', as: 'user_new'
   match '/user_session/change_user_settings', to: 'user_session#change_user_settings', :via => [:post]
   get ':controller(/:action(/:id(.:format)))'
 
   #admin login actions
   scope '/admin' do
-    resources :sessions
-    resources :users
-    get '/' => "sessions#new", :as => 'login'
-    get '/logout' => "sessions#destroy", :as => 'logout'
-    get '/signup' => "users#new", :as => 'signup'
-    get '/dashboard' => 'admin_dashboard#index', as: 'dashboard'
+    resources :sessions, only: [:create, :destroy, :new]
+    resources :users,    only: [:index, :new, :create, :destroy]
+    get '/'                     => 'sessions#new',:as => 'login'
+    get '/logout'               => 'sessions#destroy', :as => 'logout'
+    get '/signup'               => 'users#new', :as => 'signup'
+    get '/dashboard'            => 'admin_dashboard#index', as: 'dashboard'
     get '/delete/user/:user_id' => 'users#destroy', as: 'user_delete'
-    get '/search/cache/clear' => 'food_item#clear_search_cache', as: 'clear_search_cache'
+    get '/search/cache/clear'   => 'food_item#clear_search_cache', as: 'clear_search_cache'
   end
 end
