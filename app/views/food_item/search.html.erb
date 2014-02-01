@@ -11,25 +11,25 @@
 </div>
 
 <% if @food_items.length > 0 %>
-    <ul>
+    <div class="first search-column">
       <% @food_items.each_with_index do |result, i| %>
-          <li>
-            <h1 class="name"><%= result[:name]%></h1>
-            <% unless @name_translation.nil? %>
-                <h2 class="name"><%= @name_translation[i]%></h2>
-            <%end %>
-            <ul>
-            <% result[:nutritions].each do |key, nutrition| %>
-                  <li class="<%= key %>"> <%= " #{key} - #{nutrition}"  %></li>
+          <% if (i % ((@food_items.length)/3).to_i == 0) && i != 0 %>
+              </div>
+              <div class="search-column">
+          <% end %>
+          <div class="search-element">
+            <%= link_to get_food_item_path(result['_id']) do %>
+                <% unless @name_translation.nil? %>
+                    <h2 class="name"><%= @name_translation[i] %></h2>
+                <% else %>
+                    <h1 class="name"><%= result[:name] %></h1>
+                <% end %>
             <% end %>
-            </ul>
-          </li>
-          <li>
-              <%= link_to "go to element", get_food_item_path(result['_id']) %>
-              <%= link_to "add element to basket", add_item_to_basket_path(result['_id']), :remote => true%>
-          </li>
+            <%= link_to '', add_item_to_basket_path(result['_id']), :class => 'icon-plus', :remote => true %>
+            <%= link_to '', get_food_item_path(result['_id']), :class => 'icon-pie-chart' %>
+          </div>
       <% end %>
-    </ul>
+      </div>
 <% else %>
     <div>
       no results found

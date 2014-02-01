@@ -8,19 +8,19 @@
 #              - Franziska Oberhauser
 
 class DailyIntake
-    include Mongoid::Document
-    field :key, type: String
-    field :value, type: Float
-    field :unit, type: String
-    field :category, type: String
+  include Mongoid::Document
+  field :key, type: String
+  field :value, type: Float
+  field :unit, type: String
+  field :category, type: String
 
-    validates_presence_of :key, :value, :unit, :category
-    validates_uniqueness_of :key
+  validates_presence_of :key, :value, :unit, :category
+  validates_uniqueness_of :key
 
-    validates_inclusion_of :category, :in => %w( selection general vitamin mineral )
-    validates_inclusion_of :unit, :in => %w( g mg kcal l )
+  validates_inclusion_of :category, :in => %w( selection general vitamin mineral )
+  validates_inclusion_of :unit, :in => %w( g mg kcal l )
 
-    def self.find_element key
-        DailyIntake.where(:key => key).first
-    end
+  def self.find_element key
+    DailyIntake.where(:key => key).first
+  end
 end

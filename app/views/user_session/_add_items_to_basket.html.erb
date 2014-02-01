@@ -7,9 +7,9 @@
 %>
 
 <h1>Elements in Comparison-Basket </h1>
-    <nav id="secondary">
-      <%= link_to "delete all items", bulk_delete_basket_path, :remote => true %>
-      <%= link_to "compare items", compare_items_path %>
+<nav id="secondary">
+  <%= link_to "delete all items", bulk_delete_basket_path, :remote => true %>
+  <%= link_to "compare items", compare_items_path %>
 </nav>
 
 <ul id="food-item-list">
@@ -17,7 +17,7 @@
       <% user_session.get_user_items.each_with_index do |item, idx| %>
           <li data-item-idx="<%= item['_id'] %>">
             <span class="header">
-              <%= item['name'] %>
+              <span class="name"><%= item['name'] %></span>
               <span class="info"> per 100ml </span>
             </span>
             <span class="content clearfix">
@@ -25,15 +25,15 @@
               <% if print_nutrition_element? key %>
                 <span class="ingredient">
                     <span class="highlighted"><%= I18n.t key %></span>
-                    <span class="simple"><%=  value.round 2 %></span>
+                    <span class="simple"><%= value.round 2 %></span>
                 </span>
               <% end %>
             <% end %>
             </span>
             <%= link_to 'go to element', get_food_item_path(item['_id']) %>
-            <%= link_to 'delete element from basket',  delete_item_from_basket_path(idx), :remote => true %>
+            <%= link_to 'delete element from basket', delete_item_from_basket_path(idx), :remote => true %>
           </li>
-    <% end %>
+      <% end %>
   <% end %>
 </ul>
 

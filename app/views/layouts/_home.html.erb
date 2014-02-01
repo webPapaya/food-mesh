@@ -9,28 +9,28 @@
 
 
 <main id="home-search-wrp" data-stellar-background-ratio="0.5">
-<script language="javascript" type="text/javascript" src="http://quickribbon.com/ribbon/2014/01/4abfddcc7dd9b467c9efededf16901c2.js"></script>
+  <script language="javascript" type="text/javascript" src="http://quickribbon.com/ribbon/2014/01/4abfddcc7dd9b467c9efededf16901c2.js"></script>
 
   <div class="display-table">
     <div class="display-table-cell">
-      <header  class="container row">
+      <header class="container row">
         <h1 class="center">
           <%= image_tag 'logo_white.svg', :width => 500 %>
         </h1>
       </header>
-      <%= form_for('/search/results/', :url => url_for(:controller => 'food_item', :action => 'redirect_to_index'),  method: "get") do %>
+      <%= form_for('/search/results/', :url => url_for(:controller => 'food_item', :action => 'redirect_to_index'), method: "get") do %>
           <!--<form id="search" class="container row">-->
-        <div class="search_bar container">
-          <div class="col span_8">
-            <%= text_field_tag :query%>
+          <div class="search_bar container">
+            <div class="col span_8">
+              <%= text_field_tag :query %>
+            </div>
+            <div class="col span_2">
+              <%= select_tag :locale, options_for_select(['en', 'fr', 'es', 'de', 'zh-CHT', 'hi', 'ru', 'ar']) %>
+            </div>
+            <div class="col span_2">
+              <%= submit_tag("Search") %>
+            </div>
           </div>
-          <div class="col span_2">
-            <%= select_tag :locale, options_for_select(['en', 'fr', 'es', 'de', 'zh-CHT', 'hi', 'ru', 'ar' ]) %>
-          </div>
-          <div class="col span_2">
-          <%= submit_tag("Search") %>
-          </div>
-        </div>
       <% end %>
       <footer class="container row">
         <div class="icon-home">

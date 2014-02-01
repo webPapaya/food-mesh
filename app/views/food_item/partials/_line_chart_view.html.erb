@@ -10,6 +10,7 @@
 <% if @chart.nil? %>
     <div class="error">
       <h1>please add some items to the user basket</h1>
+
       <p>
         if you don't want to add some items you can enjoy some bacon
       </p>
@@ -26,17 +27,18 @@
                   </h3>
                 </div>
                 <% if (idx+1)%4 == 0 %>
-                    </div><div class="info-boxes-wrp clearfix">
+                    </div>
+                    <div class="info-boxes-wrp clearfix">
                 <% end %>
             <% end %>
         <% end %>
-      </div>
-    </div>
+        </div>
+        </div>
     <br>
     <h1>Compare the food products in your basket</h1>
-    <svg width="100%"  id="line-chart" viewBox="<%= "0 0 #{@chart[:dimensions][:width]} #{@chart[:dimensions][:height] + 50}" %> " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+    <svg width="100%" id="line-chart" viewBox="<%= "0 0 #{@chart[:dimensions][:width]} #{@chart[:dimensions][:height] + 50}" %> " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
       <% @chart[:items].each_with_index do |item, idx| %> <!-- later: foreach of the value hashes -->
-          <path id="item-<%= item[:id]%>"
+          <path id="item-<%= item[:id] %>"
                 class="line-chart-line"
                 d="<%= item[:path] %>"
                 stroke-linecap="round"
@@ -45,8 +47,8 @@
                 fill="none"></path>
       <% end %>
       <% @chart[:labels].each_with_index do |label, idx| %>
-          <text x="<%= @chart[:label_space] * idx %>" y="<%= @chart[:dimensions][:height] + 20%>" transform="rotate(45, <%= "#{@chart[:label_space] * idx}, #{@chart[:dimensions][:height] + 20}" %>)">
-            <%= label%>
+          <text x="<%= @chart[:label_space] * idx %>" y="<%= @chart[:dimensions][:height] + 20 %>" transform="rotate(45, <%= "#{@chart[:label_space] * idx}, #{@chart[:dimensions][:height] + 20}" %>)">
+            <%= label %>
           </text>
           <line x1="<%= @chart[:label_space] * idx %>"
                 y1="0"
@@ -57,19 +59,19 @@
                 style="stroke: rgba(0,0,0,0.16);"></line>
       <% end %>
       <line
-            x1="0"
-            y1="<%= @chart[:dimensions][:height] + 3 %>"
-            x2="<%= @chart[:dimensions][:width] %>"
-            y2="<%= @chart[:dimensions][:height] + 3 %>"
-            stroke-width="1.5"
-            style="stroke: black;"></line>
+      x1="0"
+      y1="<%= @chart[:dimensions][:height] + 3 %>"
+      x2="<%= @chart[:dimensions][:width] %>"
+      y2="<%= @chart[:dimensions][:height] + 3 %>"
+      stroke-width="1.5"
+      style="stroke: black;"></line>
       <line
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="<%= @chart[:dimensions][:height] + 3 %>"
-          stroke-width="1.5"
-          style="stroke: black;"></line>
+      x1="0"
+      y1="0"
+      x2="0"
+      y2="<%= @chart[:dimensions][:height] + 3 %>"
+      stroke-width="1.5"
+      style="stroke: black;"></line>
 
 
     </svg>

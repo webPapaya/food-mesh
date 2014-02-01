@@ -21,7 +21,6 @@
  *      convention #<page>-<block>-<context>
  */
 
-
 /**
  * reusable classes
  */
@@ -34,7 +33,7 @@ form {
   .input-big {
     width: 100%;
   }
-  .field{
+  .field {
     margin: 10px 0;
     label {
       display: block;
@@ -115,12 +114,12 @@ input[type=submit], .button-search, .button {
     height: 34px;
   }
 
-  .button-search:before{
+  .button-search:before {
     display: block;
     content: "";
   }
 
-  .button-search span{
+  .button-search span {
     font-size: 20px;
     font-weight: 500;
   }
@@ -141,8 +140,6 @@ input[type=submit], .button-search, .button {
   textarea {
     min-height: 300px;
   }
-
-
 
   input[type=submit] {
     @include border-left-radius(5px);

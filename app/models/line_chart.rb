@@ -5,33 +5,31 @@ class LineChart
   def self.get_chart items
     ap items
     @chart = LineChart.new items
-    {   :dimensions => @chart.dimensions,
-        :items => @chart.build_chart,
-        :labels => @chart.nutritions_in_items,
-        :label_space => @chart.space,
-        :colors =>  %w[#2BA772 #1C7F60 #19436B #50B694 #66A4D1 #205779 #3997CF #2BA772']
+    { :dimensions  => @chart.dimensions,
+      :items       => @chart.build_chart,
+      :labels      => @chart.nutritions_in_items,
+      :label_space => @chart.space,
+      :colors      => %w[#2BA772 #1C7F60 #19436B #50B694 #66A4D1 #205779 #3997CF #2BA772']
     }
   end
 
 
   def initialize(items, window_width = 1000, window_height = 500)
-    @dimensions = {
-        :width => window_width,
-        :height => window_height
+    @dimensions          = {
+      :width  => window_width,
+      :height => window_height
     }
-    @items = items
+    @items               = items
     @nutritions_in_items = combine_items
-    @space = @dimensions[:width]/@nutritions_in_items.length
+    @space               = @dimensions[:width]/@nutritions_in_items.length
   end
-
-
 
   def build_chart
     paths = []
     @items.each do |item|
       paths << ({
-          :id => item['_id'],
-          :path => (draw_function item['nutritions'])
+        :id   => item['_id'],
+        :path => (draw_function item['nutritions'])
       })
     end
     paths
@@ -46,9 +44,8 @@ class LineChart
 
       path << (" L #{i*@space}  #{@dimensions[:height]- value} ") unless value.nil?
     end
-      path
+    path
   end
-
 
   private
   def combine_items
