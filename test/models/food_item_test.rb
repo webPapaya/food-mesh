@@ -5,12 +5,12 @@ class FoodItemTest < ActiveSupport::TestCase
      assert true, "hallo"
   end
 
-  #def
-  #  FoodItem.new_item('beer')
-  #end
-  #
-  #  test "item_exist" do
-  #        assert "element exists", FoodItem.new_item('beer')
-  #  end
+    it "food item exist" do
+        test = FoodItem.get_local_item('0-51c3610a97c3e69de4b02784')
+        FoodItem.get_local_item('apple')
+        FoodItem.get_local_item('beer')
+        app test
+        test.must_equal 'Salad Golden Grain'
+    end
 
 end

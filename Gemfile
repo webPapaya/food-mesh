@@ -45,14 +45,14 @@ end
 
 
 
-#own dependencies
+# own dependencies
 gem 'curb'    # curb alternative
 gem 'nokogiri'  # xml parser
 
 
 gem 'redcarpet' # markdown
 
-gem 'capistrano', '2.15' #deployment
+gem 'capistrano', '2.15' # deployment
 gem 'rvm-capistrano'
 gem 'mime-types'
 
@@ -62,6 +62,8 @@ gem 'nutritionix'
 gem 'awesome_print'
 
 gem 'bourbon'
+
+gem 'rubocop'
 
 group :development do
   gem 'better_errors'
@@ -77,7 +79,7 @@ group :development, :test do
     gem 'minitest-rails-capybara'
 end
 
-#adds attr_accessible and attr_protected in the models
+# adds attr_accessible and attr_protected in the models
 gem 'protected_attributes'
 
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
@@ -97,9 +99,9 @@ group :development, :test do
 end
 
 group :development, :test do
-    #gem 'mongoid-minitest', group: :test
-    #gem 'minitest-rails-capybara'
-    #gem 'poltergeist', '~> 1.5.0'
+    # gem 'mongoid-minitest', group: :test
+    # gem 'minitest-rails-capybara'
+    # gem 'poltergeist', '~> 1.5.0'
 end
 
 

@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
   #
-  #redirects administrator to intern admin page
+  # redirects administrator to intern admin page
   # when side is reloaded
   def new
     if logged_in?

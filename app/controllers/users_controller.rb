@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def new
     if logged_in?
       @user = User.new(user_params)
-      #redirect_to dashboard_path, :notice => 'User created'
+      # redirect_to dashboard_path, :notice => 'User created'
     else
       redirect_to root_url, :notice => "Not permitted to create new user"
     end

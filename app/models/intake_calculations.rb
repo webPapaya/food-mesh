@@ -25,7 +25,7 @@ class IntakeCalculations
   end
 
   def get_recalculated_infos(nutritions)
-    nutritions  = nutritions.clone      #clone just for security propose so we don't overwrite anything
+    nutritions  = nutritions.clone      # clone just for security propose so we don't overwrite anything
     n           = {}
     @valid_keys = get_individual_intake # call function just for security propose
 
@@ -90,7 +90,7 @@ class IntakeCalculations
     smr - (6.775 * settings[:age].to_f)
   end
 
-  #ä
+  #
   # Grundumsatz (kcal) = 655,1 + (9,563 x kg) + (1,850 x cm) – (4,676 x Alter)
   def smr_woman(settings)
     smr = 655.1 + (9.563 * settings[:weight].to_f)

@@ -70,6 +70,6 @@ class LineChart
   end
 
   def calc_over_daily_amount (val)
-    1+((val-1)**(1/5)) #calculates cubic root
+    1+((val-1)**(1/5)) # calculates cubic root
   end
 end

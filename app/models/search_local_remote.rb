@@ -56,7 +56,7 @@ class SearchLocalRemote
 
     return remote_item unless (remote_item.nil?)
 
-    nil #fallback
+    nil # fallback
   end
 
   ##
@@ -78,7 +78,7 @@ class SearchLocalRemote
       return remote_search unless (remote_search.nil?)
     end
 
-    nil #fallback
+    nil # fallback
   end
 
   def gather_translation
