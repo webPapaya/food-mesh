@@ -21,7 +21,6 @@
  *      convention #<page>-<block>-<context>
  */
 
-
 /**
  * reusable classes
  */
@@ -106,7 +105,6 @@ ul.info-list {
   }
 }
 
-
 .info-boxes {
   padding: 5px 10px;
 
@@ -131,7 +129,6 @@ ul.info-list {
   .info-boxes-wrp > .col:nth-child(4n) {
     border-right: none;
   }
-
 
   h3 {
     margin: 0;
@@ -222,7 +219,6 @@ ul.info-list {
     color: $primaryLight;
   }
 
-
   [class^="icon-"]:before, [class*=" icon-"]:before {
     font-family: icomoon;
     display: block;
@@ -267,7 +263,7 @@ ul.info-list {
     height: auto;
     left: 0;
     right: 0;
-    top:50px;
+    top: 50px;
   }
 }
 
@@ -315,6 +311,22 @@ ul.info-list {
     border-bottom: 1px solid $secondaryDark;
     span {
       display: block;
+
+      &.name {
+        cursor: pointer;
+        display: block;
+        text-overflow: ellipsis;
+        width: 75%;
+        white-space: nowrap;
+        overflow: hidden;
+        float: left;
+      }
+
+      &.info {
+        display: inline-block;
+        width: 25%;
+        text-align: right;
+      }
     }
   }
 
@@ -326,7 +338,6 @@ ul.info-list {
     width: 50%;
     float: left;
     padding: 5px 0;
-
 
     span {
       width: 50%;
@@ -357,7 +368,7 @@ ul.info-list {
     border-bottom: 1px solid #ccc;
   }
 
-  li:last-child a{
+  li:last-child a {
     border-bottom: none;
   }
 }
@@ -408,7 +419,6 @@ ul.info-list {
     padding: 50px 0;
     margin: 20px 0 50px;
 
-
     p {
       font-size: 2em;
       color: #fff;
@@ -456,20 +466,50 @@ ul.info-list {
 .radio-toolbar {
   padding-top: 5px;
 
-   input[type="radio"] {
-    display:none;
+  input[type="radio"] {
+    display: none;
   }
 
-   label {
-    display:inline-block;
+  label {
+    display: inline-block;
     background-color: #23996f;
-    padding:4px 11px;
-    font-family:Arial;
-    font-size:16px;
+    padding: 4px 11px;
+    font-family: Arial;
+    font-size: 16px;
   }
 
   input[type="radio"]:checked + label {
     background-color: #2bdca2;
   }
 
+}
+
+#main-inner-wrp {
+  h1 {
+    margin: 0;
+    margin-bottom: 70px;
+    font-size: 190%;
+  }
+
+  .search-column {
+    margin-left: 2%;
+    width: 32%;
+    float: left;
+  }
+
+  .search-column.first {
+    margin-left: 0;
+  }
+
+  .search-element {
+    display: block;
+    padding: 10px;
+    margin: 3px;
+    background: $primaryBlue;
+    margin-bottom: 20px;
+
+    a {
+      color: $primaryLight !important;
+    }
+  }
 }

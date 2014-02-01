@@ -3,13 +3,13 @@
  *
  * university:  University of Applied Sciences Salzburg
  * studie:      MultiMediaTechnology
- * usage:	    Multimediaprojekt 2a (MMP2a)
+ * usage:        Multimediaprojekt 2a (MMP2a)
  * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
  *              - Franziska Oberhauser
  */
 
-(function($) {
-    var Tabs = function(element, options) {
+(function ($) {
+    var Tabs = function (element, options) {
         this.$element = element;
         this.$links = this.$element.find("a");
         this.$container = $(options.wrapper);
@@ -18,8 +18,8 @@
         this.$links.on('click', this.clickHandler.bind(this));
     };
 
-    Tabs.prototype.clickHandler = function(evt) {
-        if(evt.currentTarget.hash.length == 0) {
+    Tabs.prototype.clickHandler = function (evt) {
+        if (evt.currentTarget.hash.length == 0) {
             return true;
         }
         evt.preventDefault();
@@ -37,18 +37,18 @@
 
         activeElement.animate({
             opacity: 0
-        }, 300, function() {
+        }, 300, function () {
             activeElement.removeClass("active");
             targetElement.animate({
                 opacity: 1
-            }, function() {
+            }, function () {
                 targetElement.addClass("active");
             });
         });
     };
 
-    $.fn.Tabs = function(options) {
-        return this.each(function() {
+    $.fn.Tabs = function (options) {
+        return this.each(function () {
             var $this = $(this);
             var data = $this.data('Tabs');
             if (!data) {

@@ -12,26 +12,20 @@
  *
  */
 
-
 @import "bourbon";
 @import "vendor/normalize.css";
 @import "vendor/responsive.gs.12col.css";
-
 @import "scss/verticalCentering";
-
 @import "scss/static";
 @import "scss/layout";
 @import "scss/font";
 @import "scss/form";
-
 @import "scss/768_down";
 @import "scss/1200_up";
-
 @import "scss/pie_chart";
-
-
 //jquery imports
 @import "scss/jquery.tabs";
+@import "scss/jquery.accordion";
 
 
 

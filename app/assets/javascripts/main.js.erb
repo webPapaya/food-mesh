@@ -3,13 +3,13 @@
  *
  * university:  University of Applied Sciences Salzburg
  * studie:      MultiMediaTechnology
- * usage:	    Multimediaprojekt 2a (MMP2a)
+ * usage:        Multimediaprojekt 2a (MMP2a)
  * author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
  *              - Franziska Oberhauser
  */
 
-(function($, undefined){
-    $("#header-search").submit(function(evt) {
+(function ($, undefined) {
+    $("#header-search").submit(function (evt) {
         var main = $("#main-inner-wrp");
         var loader = $('<%= image_tag "loader.gif" %>');
 
@@ -26,6 +26,8 @@
 
 
     $('#line-chart').LineChart();
+
+    $('#food-item-list').Accordion();
 
 })(jQuery);
 
