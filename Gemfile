@@ -71,6 +71,11 @@ gem "bing_translator"
 
 gem 'sorcery' #backend login
 
+# for testing
+group :development, :test do
+    gem 'minitest-rails-capybara'
+end
+
 #adds attr_accessible and attr_protected in the models
 gem 'protected_attributes'
 

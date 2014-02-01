@@ -10,6 +10,7 @@
 
 
 (function($) {
+
     var LineChart = function(element, options) {
         this.$element = $(element);
         this.$svg = d3.select('#' + this.$element.attr('id'));
