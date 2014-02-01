@@ -39,35 +39,35 @@ class Fddb < FoodAPIInterface
     end
 
     private
-        def parse_xml (api_id, data)
+    def parse_xml (api_id, data)
 
 
-            object  = Array.new
-            xml_obj = Nokogiri::XML(data)
+        object  = Array.new
+        xml_obj = Nokogiri::XML(data)
 
-            xml_obj.xpath("//item/data//*[not(text())]").remove #remove all empty nodes
-            xml_obj.xpath("//item").each do |item|
-                food_item = create_food_item_structure ({
-                    :name             => item.xpath("./description/name")[0].content,
-                    :api_key          => api_id,
-                    :item_id          => item.xpath("./id")[0].content,
-                    :object_source_id => self.object_id,
-                    :serving_weight   => {
-                        :unit  => item.xpath("./data/amount_measuring_system")[0].content,
-                        :value => item.xpath("./data/amount")[0].content
-                    }
-                })
+        xml_obj.xpath("//item/data//*[not(text())]").remove #remove all empty nodes
+        xml_obj.xpath("//item").each do |item|
+            food_item = create_food_item_structure ({
+                :name             => item.xpath("./description/name")[0].content,
+                :api_key          => api_id,
+                :item_id          => item.xpath("./id")[0].content,
+                :object_source_id => self.object_id,
+                :serving_weight   => {
+                    :unit  => item.xpath("./data/amount_measuring_system")[0].content,
+                    :value => item.xpath("./data/amount")[0].content
+                }
+            })
 
-                item.xpath("./data/*").each do |ingredient|
-                    key   = translate_key ingredient.name, :fddb
-                    value = ingredient.content
-                    continue unless ((!value.is_a? Integer) or (!value.is_a? Float))
-                    food_item[:nutritions][key] = base_nutrition_information value, food_item[:serving_weight]
-                end
-
-                object.push(food_item)
+            item.xpath("./data/*").each do |ingredient|
+                key   = translate_key ingredient.name, :fddb
+                value = ingredient.content
+                continue unless ((!value.is_a? Integer) or (!value.is_a? Float))
+                food_item[:nutritions][key] = base_nutrition_information value, food_item[:serving_weight]
             end
 
-            object
+            object.push(food_item)
         end
+
+        object
+    end
 end

@@ -1,19 +1,19 @@
-(function($) {
-    var Accordion = function(element, options) {
+(function ($) {
+    var Accordion = function (element, options) {
         var $element = element;
-        var $content  = $element.find('.content');
+        var $content = $element.find('.content');
         var $headings = $element.find('.header');
 
         $content.addClass('accordion-hide');
-        $headings.on('click', function(evt) {
+        $headings.on('click', function (evt) {
             var $currentTarget = $(evt.currentTarget);
             $currentTarget.next('.content').toggleClass('accordion-hide');
         });
     };
 
 
-    $.fn.Accordion = function(options) {
-        return this.each(function() {
+    $.fn.Accordion = function (options) {
+        return this.each(function () {
             var $this = $(this);
             var data = $this.data('Accodrion');
             if (!data) {

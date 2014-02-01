@@ -15,8 +15,8 @@ class FoodItemController < ApplicationController
 
     # @todo add a static member to PieChart get_chart so only one call for pie_chart is needed
     def show
-        @food_item         = SearchLocalRemote.get_single_item params[:item_id]
-        recalculation      = IntakeCalculations.instance.get_recalculated_infos @food_item[:nutritions]
+        @food_item    = SearchLocalRemote.get_single_item params[:item_id]
+        recalculation = IntakeCalculations.instance.get_recalculated_infos @food_item[:nutritions]
 
 
         pie_chart_instance = PieChart.new recalculation

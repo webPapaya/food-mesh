@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
     private
     def user_session
-        @user_session ||= UserSession.new(session)
+        @user_session              ||= UserSession.new(session)
         IntakeCalculations.session = @user_session
         @user_session
     end

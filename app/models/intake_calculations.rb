@@ -1,7 +1,6 @@
 require 'singleton'
 
 
-
 class IntakeCalculations
     include Singleton
 
@@ -26,14 +25,14 @@ class IntakeCalculations
     end
 
     def get_recalculated_infos(nutritions)
-        nutritions = nutritions.clone #clone just for security propose so we don't overwrite anything
-        n = {}
+        nutritions  = nutritions.clone      #clone just for security propose so we don't overwrite anything
+        n           = {}
         @valid_keys = get_individual_intake # call function just for security propose
 
         nutritions.each do |key, value|
             percent = recalculate_key key, value
             n[key] = ({
-                :value => value,
+                :value   => value,
                 :percent => percent
             }) unless percent.nil?
         end
@@ -43,7 +42,7 @@ class IntakeCalculations
     ##
     # returns the individual intake according to user settings
     def get_individual_intake
-        smr =  get_smr
+        smr               = get_smr
         individual_intake = {}
 
         @valid_keys.each do |key, value|
@@ -53,7 +52,7 @@ class IntakeCalculations
                 when 'carbohydrate'
                     # carbohydrate
                     # Gesamtenergiebedarf * 55 % (KH) = kcal/Tag und das Ganze /4,1 = g /Tag
-                    individual_intake[key] =( (smr*0.55)/4.1).round(0)
+                    individual_intake[key] =((smr*0.55)/4.1).round(0)
                 when 'fat'
                     # fat
                     # Gesamtenergiebedarf * 30 % (Fett) = kcal/Tag und das Ganze /9,3 = g /Tag
@@ -68,8 +67,6 @@ class IntakeCalculations
         individual_intake
     end
 
-
-
     private
 
     def recalculate_key (key, value)
@@ -79,7 +76,7 @@ class IntakeCalculations
 
     # calculates the smr according to his settings
     def get_smr
-        settings =  @@session.get_user_settings
+        settings = @@session.get_user_settings
         smr = smr_man settings if (settings[:sex] == 'man')
         smr ||= smr_woman settings
         smr
@@ -100,7 +97,6 @@ class IntakeCalculations
         smr += (1.850 * settings[:height].to_f)
         smr - (4.676 * settings[:age].to_f)
     end
-
 
     def parse_keys
         keys = {}

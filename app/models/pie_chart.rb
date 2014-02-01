@@ -131,9 +131,9 @@ class PieChart
         value = value.clone
         return nil if key == 'calories'
 
-        mask = create_outer_mask
-        value[:percent]  *= (mask['outer'] - mask['inner'])
-        value[:percent]  + mask['inner']
+        mask            = create_outer_mask
+        value[:percent] *= (mask['outer'] - mask['inner'])
+        value[:percent] + mask['inner']
     end
 end
 

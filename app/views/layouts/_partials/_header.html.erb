@@ -10,11 +10,11 @@
   <div class="display-table">
     <div class="display-table-cell logo-small-wrp">
       <%= link_to root_path do %>
-        <%= image_tag 'logo_white.svg', :height => 60 %>
+          <%= image_tag 'logo_white.svg', :height => 60 %>
       <% end %>
     </div>
     <div class="display-table-cell search-form-wrp responsive-hide">
-      <%= form_for('search/results/', :remote => true, :url => url_for(:controller => 'food_item', :action => 'redirect_to_index'), :html => {:id => 'header-search'}, method: "get") do %>
+      <%= form_for('search/results/', :remote => true, :url => url_for(:controller => 'food_item', :action => 'redirect_to_index'), :html => { :id => 'header-search' }, method: "get") do %>
           <div class="col span_10">
             <%= text_field_tag :query %>
           </div>
