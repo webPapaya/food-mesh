@@ -11,7 +11,6 @@
         });
     };
 
-
     $.fn.Accordion = function (options) {
         return this.each(function () {
             var $this = $(this);
