@@ -26,6 +26,7 @@
                 <% end %>
             <% end %>
             <%= link_to '', add_item_to_basket_path(result['_id']), :class => 'icon-plus', :remote => true %>
+            <%= link_to '', get_food_item_path(result['_id']), :class => 'icon-pie-chart' %>
           </div>
       <% end %>
     </div>
