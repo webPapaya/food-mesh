@@ -315,6 +315,22 @@ ul.info-list {
     border-bottom: 1px solid $secondaryDark;
     span {
       display: block;
+
+      &.name {
+        cursor: pointer;
+        display: block;
+        text-overflow: ellipsis;
+        width: 75%;
+        white-space: nowrap;
+        overflow: hidden;
+        float: left;
+      }
+
+      &.info {
+        display: inline-block;
+        width: 25%;
+        text-align: right;
+      }
     }
   }
 
@@ -344,6 +360,8 @@ ul.info-list {
     background: #ddd;
   }
 }
+
+
 
 #form-suggestion-overlay {
   position: absolute;

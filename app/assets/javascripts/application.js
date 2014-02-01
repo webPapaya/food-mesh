@@ -16,6 +16,7 @@
 //= require jquery.tabs
 //= require jquery.pie_chart
 //= require jquery.line_chart
+//= require jquery.accordion.js
 //= require main
 
 

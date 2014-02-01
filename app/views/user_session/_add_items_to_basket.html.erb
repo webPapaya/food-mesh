@@ -17,7 +17,7 @@
       <% user_session.get_user_items.each_with_index do |item, idx| %>
           <li data-item-idx="<%= item['_id'] %>">
             <span class="header">
-              <%= item['name'] %>
+              <span class="name"><%= item['name'] %></span>
               <span class="info"> per 100ml </span>
             </span>
             <span class="content clearfix">
