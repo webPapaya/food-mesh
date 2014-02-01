@@ -477,15 +477,14 @@ ul.info-list {
 #main-inner-wrp {
   h1 {
     margin: 0;
+    margin-bottom: 70px;
     font-size: 190%;
-
   }
 
   .search-column {
     margin-left: 2%;
     width: 32%;
     float: left;
-    color: $primaryLight !important;
   }
 
   .search-column.first {
@@ -493,9 +492,14 @@ ul.info-list {
   }
 
   .search-element {
-    padding: 5px;
+    display: block;
+    padding: 10px;
     margin: 3px;
     background: $primaryBlue;
     margin-bottom: 20px;
+
+    a {
+      color: $primaryLight !important;
+    }
   }
 }

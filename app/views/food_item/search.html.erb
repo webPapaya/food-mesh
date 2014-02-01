@@ -12,23 +12,23 @@
 
 <% if @food_items.length > 0 %>
     <div class="first search-column">
-    <% @food_items.each_with_index do |result, i| %>
-        <% if (i % ((@food_items.length)/3).to_i == 0 ) && i != 0%>
-            </div><div class="search-column">
-        <% end %>
+      <% @food_items.each_with_index do |result, i| %>
+          <% if (i % ((@food_items.length)/3).to_i == 0) && i != 0 %>
+              </div>
+              <div class="search-column">
+          <% end %>
           <div class="search-element">
-            <h1 class="name"><%= result[:name]%></h1>
-            <% unless @name_translation.nil? %>
-                <h2 class="name"><%= @name_translation[i]%></h2>
-            <%end %>
+            <%= link_to get_food_item_path(result['_id']) do %>
+                <% unless @name_translation.nil? %>
+                    <h2 class="name"><%= @name_translation[i] %></h2>
+                <% else %>
+                    <h1 class="name"><%= result[:name] %></h1>
+                <% end %>
+            <% end %>
+            <%= link_to '', add_item_to_basket_path(result['_id']), :class => 'icon-plus', :remote => true %>
           </div>
-
-
-    <% end %>
+      <% end %>
     </div>
-
-
-
 <% else %>
     <div>
       no results found

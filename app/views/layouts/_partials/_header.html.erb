@@ -28,8 +28,8 @@
         <li><a href="#user-basket" class="icon-basket active"></a></li>
         <li><a href="#user-settings" class="icon-cog"></a></li>
         <% if logged_in? %>
-            <li><%= link_to '', dashboard_path, :class => 'icon-clipboard' %></li>
-            <li><%= link_to '', logout_path, :class => 'icon-exit' %></li>
+            <li><%= link_to '', dashboard_path, :class => 'icon-dashboard' %></li>
+            <li><%= link_to '', logout_path, :class => 'icon-leave' %></li>
         <% end %>
       </ul>
     </div>
