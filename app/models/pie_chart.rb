@@ -41,7 +41,7 @@ class PieChart
     end
 
     def get_coords
-        coords = Hash.new
+        coords = {}
 
         coords['x1'] = Math.cos(@radiant).abs * (@chart_width)
         coords['y1'] = Math.sin(@radiant).abs * (@chart_width)
@@ -57,7 +57,7 @@ class PieChart
     end
 
     def create_outer_mask
-        mask = Hash.new
+        mask = {}
 
         mask['inner'] = @width_height.to_f / (10 * 2)
         mask['outer'] = @chart_width.to_f * 0.95
@@ -73,7 +73,7 @@ class PieChart
     def circumference(percent)
         percent = percent.to_f
 
-        circle        = Hash.new
+        circle        = {}
         circumference = calculate_circumference
 
         circle["line"]  = circumference * (percent / 100)
@@ -83,16 +83,17 @@ class PieChart
     end
 
     private
+
     def create_chart
         values = []
         @nutritions.each do |key, value|
             intake = calculate_daily_intake(key, value)
-            values.push({
+            values.push(
                             value:      value[:value],
                             radius:     intake,
                             percent:    value[:percent],
-                            ingredient: key,
-                        }) unless intake.nil?
+                            ingredient: key
+                        ) unless intake.nil?
         end
 
         ap values
@@ -103,7 +104,7 @@ class PieChart
     def get_line_coords
         coords = []
         @segments.times do |i|
-            coord = Hash.new
+            coord =  {}
             rad   = deg_to_rad(@inner_angle * i)
 
             coord[:x] = Math.cos(rad) * (@chart_width / 2) + (@width_height / 2)

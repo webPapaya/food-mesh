@@ -41,7 +41,6 @@ class NutritionixAPI < FoodAPIInterface
 
     def parse_data_item (item, api_key)
         serving_weight = item['nf_serving_size_qty'] or item['nf_serving_size_qty']
-
         food              = create_food_item_structure ({
             name:             "#{item['item_name']} #{item['brand_name']}",
             api_key:          api_key,

@@ -49,13 +49,13 @@ class SearchLocalRemote
     # if the element does not exist it returns nil
     def gather_item
         local_item = FoodItem.get_local_item @item_id
-        return local_item unless (local_item.nil?)
+        return local_item unless local_item.nil?
 
         item_id     = @item_id.split('-')
         remote_item = get_remote_item item_id[0], item_id[1]
         remote_item = FoodItem.new_item remote_item
 
-        return remote_item unless (remote_item.nil?)
+        return remote_item unless remote_item.nil?
 
         nil # fallback
     end
@@ -69,14 +69,14 @@ class SearchLocalRemote
         local_search = Search.search @query
         unless local_search.nil?
             local_search = FoodItem.get_local_items local_search['food_items']
-            return local_search unless (local_search.nil?)
+            return local_search unless local_search.nil?
         end
 
         remote_search = search_apis @query # adds searches remote end for elements
         unless remote_search.nil?
             Search.add @query, remote_search # adds elements to search
             remote_search = add_multiple_food_items remote_search unless remote_search.nil?
-            return remote_search unless (remote_search.nil?)
+            return remote_search unless remote_search.nil?
         end
 
         nil # fallback
@@ -108,7 +108,7 @@ class SearchLocalRemote
 
     ##
     # loops through all elements and writes it to the database
-    # todo should be placed in food_item.rb (should auto detect if single element or multiple elements are passed in new item function)
+    # should be placed in food_item.rb (should auto detect if single element or multiple elements are passed in new item function)
     def add_multiple_food_items(items)
         items.each do |item|
             item['_id'] = FoodItem.create_id item[:api_key], item[:item_id]

@@ -14,11 +14,11 @@ class IntakeCalculations
         @valid_keys    = parse_keys
     end
 
-    def is_key_valid? (key)
+    def is_key_valid?(key)
         @valid_keys.include? key
     end
 
-    def get_key (key)
+    def get_key(key)
         @valid_keys = get_individual_intake
         @valid_keys[key] if is_key_valid? key
     end
@@ -51,7 +51,7 @@ class IntakeCalculations
                 when 'carbohydrate'
                     # carbohydrate
                     # complete energy required * 55 % (KH) = kcal/day and the lot /4,1 = g /day
-                    individual_intake[key] =((smr * 0.55) / 4.1).round(0)
+                    individual_intake[key] = ((smr * 0.55) / 4.1).round(0)
                 when 'fat'
                     # fat
                     # complete energy required * 30 % (fat) = kcal/day and the lot /9,3 = g /day
@@ -68,7 +68,7 @@ class IntakeCalculations
 
     private
 
-    def recalculate_key (key, value)
+    def recalculate_key(key, value)
         return (value / @valid_keys[key]).round(5) if is_key_valid? key
         nil
     end
@@ -76,21 +76,21 @@ class IntakeCalculations
     # calculates the smr according to his settings
     def get_smr
         settings = @@session.get_user_settings
-        smr = smr_man settings if (settings[:sex] == 'man')
+        smr = smr_man settings if settings[:sex] == 'man'
         smr ||= smr_woman settings
         smr
     end
 
     ##
     # calculates the smr according to his settings
-    def smr_man (settings)
+    def smr_man(settings)
         smr = 66.5 + (13.75 * settings[:weight].to_f)
         smr += (5.003 * settings[:height].to_f)
         smr - (6.775 * settings[:age].to_f)
     end
 
     #
-    # basic metabolic rate (kcal) = 655,1 + (9,563 x kg) + (1,850 x cm) – (4,676 x Alter)
+    # basic metabolic rate (kcal) = 655.1 + (9.563 x kg) + (1.850 x cm) – (4.676 x age)
     def smr_woman(settings)
         smr = 655.1 + (9.563 * settings[:weight].to_f)
         smr += (1.850 * settings[:height].to_f)

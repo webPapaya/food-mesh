@@ -15,7 +15,7 @@ class Search
 
     validates_presence_of :id, :food_items
 
-    def self.search _query
+    def self.search(_query)
         item = Search.find(_query)
         return nil if item.nil?
 
@@ -25,7 +25,7 @@ class Search
         item
     end
 
-    def self.add (_query, _item_list)
+    def self.add(_query, _item_list)
         i = Search.new(
             _id:        _query,
             food_items: prepare_item_list(_item_list),
@@ -44,6 +44,7 @@ class Search
     end
 
     private
+
     def self.prepare_item_list(_item_list)
         list = []
         _item_list.each do |item|

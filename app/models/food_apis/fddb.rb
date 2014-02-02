@@ -40,9 +40,9 @@ class Fddb < FoodAPIInterface
 
     private
 
-    def parse_xml (api_id, data)
+    def parse_xml(api_id, data)
 
-        object  = Array.new
+        object  = []
         xml_obj = Nokogiri::XML(data)
 
         xml_obj.xpath("//item/data//*[not(text())]").remove #remove all empty nodes
@@ -61,7 +61,7 @@ class Fddb < FoodAPIInterface
             item.xpath("./data/*").each do |ingredient|
                 key   = translate_key ingredient.name, :fddb
                 value = ingredient.content
-                continue unless ((!value.is_a? Integer) or (!value.is_a? Float))
+                continue unless (!value.is_a? Integer) || (!value.is_a? Float)
                 food_item[:nutritions][key] = base_nutrition_information value, food_item[:serving_weight]
             end
 

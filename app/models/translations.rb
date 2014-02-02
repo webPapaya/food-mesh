@@ -10,7 +10,7 @@ require 'rubygems'
 require 'bing_translator'
 
 class Translations
-    def initialize local_from = 'de', local_to = 'en'
+    def initialize(local_from = 'de', local_to = 'en')
         @translator = BingTranslator.new('MKnQJZvv0U4edzMy', 'MKnQJZvv0U4edzMyXua0/xEEHC9ZNZdN6lQVzaWu9I0=')
         @local_from = local_from
         @local_to   = local_to

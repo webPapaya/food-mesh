@@ -22,7 +22,7 @@ Food::Application.routes.draw do
 
     # user session
     get 'users/new', as: 'user_new'
-    match '/user_session/change_user_settings', to: 'user_session#change_user_settings', :via => [:post]
+    match '/user_session/change_user_settings', to: 'user_session#change_user_settings', via: [:post]
     get ':controller(/:action(/:id(.:format)))'
 
     # admin login actions
