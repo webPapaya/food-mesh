@@ -9,25 +9,25 @@
  */
 
 (function ($, undefined) {
-    $("#header-search").submit(function (evt) {
-        var main = $("#main-inner-wrp");
-        var loader = $('<%= image_tag "loader.gif" %>');
+  $("#header-search").submit(function (evt) {
+    var main = $("#main-inner-wrp");
+    var loader = $('<%= image_tag "loader.gif" %>');
 
-        main.html(loader);
-    });
+    main.html(loader);
+  });
 
-    $("#main-menu").Tabs({
-        wrapper: '#header-dropdown-wrp'
-    });
+  $("#main-menu").Tabs({
+    wrapper: '#header-dropdown-wrp'
+  });
 
-    $('#pie-chart').PieChart({
-        controll: $('#pie-chart-controlles')
-    });
+  $('#pie-chart').PieChart({
+    controll: $('#pie-chart-controlles')
+  });
 
 
-    $('#line-chart').LineChart();
+  $('#line-chart').LineChart();
 
-    $('#food-item-list').Accordion();
+  $('#food-item-list').Accordion();
 
 })(jQuery);
 

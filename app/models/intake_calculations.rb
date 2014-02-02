@@ -24,14 +24,14 @@ class IntakeCalculations
     end
 
     def fetch_recalculated_infos(nutritions)
-        nutritions  = nutritions.clone      # clone just for security propose so we don't overwrite anything
+        nutritions  = nutritions.clone        # clone just for security propose so we don't overwrite anything
         n           = {}
         @valid_keys = fetch_individual_intake # call function just for security propose
 
         nutritions.each do |key, value|
             percent = recalculate_key key, value
             n[key] = ({
-                value:    value,
+                value:   value,
                 percent: percent
             }) unless percent.nil?
         end
@@ -46,21 +46,21 @@ class IntakeCalculations
 
         @valid_keys.each do |key, value|
             case key
-            when 'calories'
-                individual_intake[key] = smr
-            when 'carbohydrate'
-                # carbohydrate
-                # complete energy required * 55 % (KH) = kcal/day and the lot /4,1 = g /day
-                individual_intake[key] = ((smr * 0.55) / 4.1).round(0)
-            when 'fat'
-                # fat
-                # complete energy required * 30 % (fat) = kcal/day and the lot /9,3 = g /day
-                individual_intake[key] = ((smr * 0.3) / 9.3).round(2)
-            when key == 'protein'
-                # complete energy required * 15 % (protein) = kcal/day and the lot /4,1 = g /day
-                individual_intake[key] = ((smr * 0.15) / 4.1).round(2)
-            else
-                individual_intake[key] = value
+                when 'calories'
+                    individual_intake[key] = smr
+                when 'carbohydrate'
+                    # carbohydrate
+                    # complete energy required * 55 % (KH) = kcal/day and the lot /4,1 = g /day
+                    individual_intake[key] = ((smr * 0.55) / 4.1).round(0)
+                when 'fat'
+                    # fat
+                    # complete energy required * 30 % (fat) = kcal/day and the lot /9,3 = g /day
+                    individual_intake[key] = ((smr * 0.3) / 9.3).round(2)
+                when key == 'protein'
+                    # complete energy required * 15 % (protein) = kcal/day and the lot /4,1 = g /day
+                    individual_intake[key] = ((smr * 0.15) / 4.1).round(2)
+                else
+                    individual_intake[key] = value
             end
         end
         individual_intake
@@ -102,5 +102,6 @@ class IntakeCalculations
         end
         keys
     end
+
     private :recalculate_key, :fetch_smr, :smr_man, :smr_woman, :parse_keys
 end

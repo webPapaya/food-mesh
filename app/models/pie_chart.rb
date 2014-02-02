@@ -25,18 +25,18 @@ class PieChart
 
     def fetch_pie_chart
         {
-            values:        @values,
-            chart_width:   @chart_width,
-            chart_center:  @chart_center,
-            coords:        fetch_coords,
-            inner_angle:   @inner_angle,
-            segments:      @segments,
-            daily_kcal:    fetch_daily_calories_in_procent(@nutritions['calories']),
-            chart_mask:    create_outer_mask,
-            colors:        %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772'],
-            width_height:  @width_height,
-            center:        @width_height / 2,
-            line_coords:   fetch_line_coords
+            values:       @values,
+            chart_width:  @chart_width,
+            chart_center: @chart_center,
+            coords:       fetch_coords,
+            inner_angle:  @inner_angle,
+            segments:     @segments,
+            daily_kcal:   fetch_daily_calories_in_procent(@nutritions['calories']),
+            chart_mask:   create_outer_mask,
+            colors:       %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772'],
+            width_height: @width_height,
+            center:       @width_height / 2,
+            line_coords:  fetch_line_coords
         }
     end
 
@@ -87,11 +87,11 @@ class PieChart
         @nutritions.each do |key, value|
             intake = calculate_daily_intake(key, value)
             values.push(
-                            value:      value[:value],
-                            radius:     intake,
-                            percent:    value[:percent],
-                            ingredient: key
-                        ) unless intake.nil?
+                value:      value[:value],
+                radius:     intake,
+                percent:    value[:percent],
+                ingredient: key
+            ) unless intake.nil?
         end
 
         ap values
@@ -102,7 +102,7 @@ class PieChart
     def fetch_line_coords
         coords = []
         @segments.times do |i|
-            coord =  {}
+            coord = {}
             rad   = deg_to_rad(@inner_angle * i)
 
             coord[:x] = Math.cos(rad) * (@chart_width / 2) + (@width_height / 2)

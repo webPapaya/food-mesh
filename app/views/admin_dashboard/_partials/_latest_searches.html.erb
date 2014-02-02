@@ -10,8 +10,8 @@
 <h2>Latest Searches </h2>
 <ul class="info-list">
   <% @latest_searches.each do |item| %>
-      <li>
-        <%= item['_id'] %>  <%= item['timestamp'].length %>
-      </li>
+    <li>
+      <%= item['_id'] %>  <%= item['timestamp'].length %>
+    </li>
   <% end %>
 </ul>

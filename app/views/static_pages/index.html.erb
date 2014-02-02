@@ -18,18 +18,18 @@
         </h1>
       </header>
       <%= form_for('/search/results/', :url => url_for(:controller => 'food_item', :action => 'redirect_to_index'), method: "get") do %>
-          <!--<form id="search" class="container row">-->
-          <div class="search_bar container">
-            <div class="col span_8">
-              <%= text_field_tag :query %>
-            </div>
-            <div class="col span_2">
-              <%= select_tag :locale, options_for_select(['en', 'fr', 'es', 'de', 'zh-CHT', 'hi', 'ru', 'ar']) %>
-            </div>
-            <div class="col span_2">
-              <%= submit_tag("Search") %>
-            </div>
+        <!--<form id="search" class="container row">-->
+        <div class="search_bar container">
+          <div class="col span_8">
+            <%= text_field_tag :query %>
           </div>
+          <div class="col span_2">
+            <%= select_tag :locale, options_for_select(['en', 'fr', 'es', 'de', 'zh-CHT', 'hi', 'ru', 'ar']) %>
+          </div>
+          <div class="col span_2">
+            <%= submit_tag("Search") %>
+          </div>
+        </div>
       <% end %>
       <footer class="container row">
         <div class="icon-home">

@@ -7,22 +7,22 @@
 %>
 <h1>User Settings</h1>
 <%= form_for 'user_settings', remote: true, url: { controller: 'user_session', action: 'change_user_settings' } do |f| %>
-    <%= f.label :user_settings_weight %><br>
-    <%= f.text_field :user_settings_weight, :placeholder => 'weight', :value => @user_session.fetch_user_settings[:weight] %>
-    <%= f.label :user_settings_age %><br>
-    <%= f.text_field :user_settings_age, :placeholder => 'age', :value => @user_session.fetch_user_settings[:age] %>
-    <%= f.label :user_settings_height %><br>
-    <%= f.text_field :user_settings_height, :placeholder => 'height', :value => @user_session.fetch_user_settings[:height] %>
+  <%= f.label :user_settings_weight %><br>
+  <%= f.text_field :user_settings_weight, :placeholder => 'weight', :value => @user_session.fetch_user_settings[:weight] %>
+  <%= f.label :user_settings_age %><br>
+  <%= f.text_field :user_settings_age, :placeholder => 'age', :value => @user_session.fetch_user_settings[:age] %>
+  <%= f.label :user_settings_height %><br>
+  <%= f.text_field :user_settings_height, :placeholder => 'height', :value => @user_session.fetch_user_settings[:height] %>
 
 
-    <%= f.label :user_settings_sex %><br>
-    <div class="radio-toolbar">
-      <%= f.radio_button :user_settings_sex, 'man' %>
-      <%= f.label :user_settings_sex, t("man"), :value => 'man' %>
-      <%= f.radio_button :user_settings_sex, 'woman', :checked => true %>
-      <%= f.label :user_settings_sex, t("woman"), :value => 'woman' %>
-    </div>
-    <%= f.submit "save changes" %>
+  <%= f.label :user_settings_sex %><br>
+  <div class="radio-toolbar">
+    <%= f.radio_button :user_settings_sex, 'man' %>
+    <%= f.label :user_settings_sex, t("man"), :value => 'man' %>
+    <%= f.radio_button :user_settings_sex, 'woman', :checked => true %>
+    <%= f.label :user_settings_sex, t("woman"), :value => 'woman' %>
+  </div>
+  <%= f.submit "save changes" %>
 
 <% end %>
 <h1> Select Language </h1>
