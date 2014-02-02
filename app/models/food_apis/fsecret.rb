@@ -36,7 +36,7 @@ class Fsecret < FoodAPIInterface
     end
 
     def create_item_header_information(item, api_key)
-        create_food_item_structure({
+        create_food_item_structure(
                                         name:                item['food_name'],
                                         api_key:             api_key,
                                         item_id:             item['food_id'],
@@ -45,7 +45,7 @@ class Fsecret < FoodAPIInterface
                                             unit:   item[:serving]['metric_serving_unit'],
                                             value:  item[:serving]['metric_serving_amount']
                                        }
-                                   })
+                                   )
     end
 
     def parse_data_item(data, api_key)

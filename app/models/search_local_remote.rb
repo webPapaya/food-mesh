@@ -82,7 +82,7 @@ class SearchLocalRemote
 
     def gather_translation
         locale = I18n.locale.to_s
-        unless FoodItem.has_translation? @item, locale
+        unless FoodItem.translation? @item, locale
             translator = Translations.new 'en', locale
             name       = translator.translate @item['name']
             FoodItem.add_translation_to_item! @item, locale, name

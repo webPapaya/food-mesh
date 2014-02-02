@@ -13,10 +13,10 @@ class FoodAPIInterface
     include FoodAPIsHelper
 
     def search(api_key, query)
-        raise NotImplementedError, "search is not implemented"
+        fail NotImplementedError, "search is not implemented"
     end
 
     def fetch_item(id)
-        raise NotImplementedError, "fetch_item is not implemented"
+        fail NotImplementedError, "fetch_item is not implemented"
     end
 end
