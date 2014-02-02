@@ -88,7 +88,7 @@ class IntakeCalculations
     end
 
     #
-    # basic metabolic rate (kcal) = 655.1 + (9.563 x kg) + (1.850 x cm) – (4.676 x age)
+    # basic metabolic rate (kcal) = 655.1 + (9.563 x kg) + (1.850 x cm) - (4.676 x age)
     def smr_woman(settings)
         smr = 655.1 + (9.563 * settings[:weight].to_f)
         smr += (1.850 * settings[:height].to_f)

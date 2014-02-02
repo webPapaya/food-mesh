@@ -4,6 +4,8 @@ AccessModifierIndentation:
 StringLiterals:
   Enabled: false
 
+
+
 LineLength:
   Max: 220
 
