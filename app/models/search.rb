@@ -13,16 +13,18 @@ class Search
     field :_id, type: String
     field :food_items, type: Array
     field :timestamp, type: Array
+    field :length, type: Integer, :default => 1
 
-    validates_presence_of :id, :food_items
+    validates_presence_of :id, :food_items, :length
 
     def self.search(_query)
         item = Search.find(_query)
         return nil if item.nil?
 
         item['timestamp'] = [] if item['timestamp'].nil?
+        item['length'] = 0 if item['length'].nil?
         timestamps = item['timestamp'] + [Time.now.getutc]
-        item.update_attributes!(timestamp: timestamps)
+        item.update_attributes!(timestamp: timestamps, length: (item['timestamp'].length+1))
         item
     end
 
@@ -40,8 +42,7 @@ class Search
     end
 
     def self.fetch_most_searched
-        items = Search.all.order_by([[:timestamp.length, :desc]])
-        items
+        Search.all.desc(:length).limit(10)
     end
 
     def self.prepare_item_list(_item_list)
@@ -53,4 +54,5 @@ class Search
     end
 
     private_class_method :prepare_item_list
+
 end
