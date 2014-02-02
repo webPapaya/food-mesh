@@ -38,7 +38,7 @@ class NutritionixAPI < FoodAPIInterface
     end
 
     def parse_data_item(item, api_key)
-        serving_weight = item['nf_serving_size_qty'] or item['nf_serving_size_qty']
+        serving_weight = item['nf_serving_size_qty'] || item['nf_serving_size_qty']
         food              = create_food_item_structure ({
             name:             "#{item['item_name']} #{item['brand_name']}",
             api_key:          api_key,
@@ -107,7 +107,7 @@ class NutritionixAPI < FoodAPIInterface
     # checks a given pair on following things
     # starts key with nf_ (for nutrition information)
     # is value wether 0 or nil
-    def is_valid_pair? key, value
+    def is_valid_pair?(key, value)
         true unless value.nil? || value == 0 || !key.include?('nf_')
     end
 

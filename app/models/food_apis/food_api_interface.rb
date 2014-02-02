@@ -12,11 +12,11 @@ require_dependency 'food_apis/food_apis_helper'
 class FoodAPIInterface
     include FoodAPIsHelper
 
-    def search (api_key, query)
+    def search(api_key, query)
         raise NotImplementedError, "search is not implemented"
     end
 
-    def fetch_item (id)
+    def fetch_item(id)
         raise NotImplementedError, "fetch_item is not implemented"
     end
 end

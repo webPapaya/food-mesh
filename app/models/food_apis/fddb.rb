@@ -39,7 +39,6 @@ class Fddb < FoodAPIInterface
     end
 
     def parse_xml(api_id, data)
-
         object  = []
         xml_obj = Nokogiri::XML(data)
 

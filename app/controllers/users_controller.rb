@@ -39,7 +39,6 @@ class UsersController < ApplicationController
         redirect_to dashboard_path, notice: "deleted user!"
     end
 
-
     def user_params
         params.permit(:email, :password, :password_confirmation)
     end

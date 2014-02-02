@@ -85,7 +85,7 @@ class Fsecret < FoodAPIInterface
     # fatsecret returns a list of possible servings (apple, slices of apples, ...)
     # if there is only one serving it will return an object with all the ingredients
     # if there are more possibilities it will return an array
-    def fetch_serving_object item
+    def fetch_serving_object(item)
         servings = item['servings']['serving']
         return servings unless servings.class == Array
         servings[0]
