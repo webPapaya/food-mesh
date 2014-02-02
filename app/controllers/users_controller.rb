@@ -44,5 +44,5 @@ class UsersController < ApplicationController
         params.permit(:email, :password, :password_confirmation)
     end
 
-    private_class_method :user_params
+    private :user_params
 end

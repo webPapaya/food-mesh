@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
 
     helper_method :user_session, :default_url_options, :set_current_locale
-    private_class_method :user_session, :set_current_locale, :default_url_options
+    private :user_session, :set_current_locale, :default_url_options
 
 
     def change_lang
