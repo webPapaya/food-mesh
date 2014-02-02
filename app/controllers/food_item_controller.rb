@@ -51,5 +51,5 @@ class FoodItemController < ApplicationController
         @local_remote = SearchLocalRemote.new
     end
 
-    private_class_method :before_actions
+    private :before_actions
 end

@@ -8,7 +8,6 @@
 #              - Franziska Oberhauser
 
 class Search
-    private_class_method :prepare_item_list
 
     include Mongoid::Document
     field :_id, type: String
@@ -52,4 +51,6 @@ class Search
         end
         list
     end
+
+    private_class_method :prepare_item_list
 end

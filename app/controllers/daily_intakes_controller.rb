@@ -81,5 +81,5 @@ class DailyIntakesController < ApplicationController
         params.require(:daily_intake).permit(:key, :value, :unit, :category)
     end
 
-    private_class_method :set_daily_intake, :daily_intake_params
+    private :set_daily_intake, :daily_intake_params
 end

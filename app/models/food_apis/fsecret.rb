@@ -35,8 +35,6 @@ class Fsecret < FoodAPIInterface
         (parse_data_item(data, api_key)) unless data.nil?
     end
 
-    private
-
     def create_item_header_information(item, api_key)
         create_food_item_structure({
                                         name:                item['food_name'],
@@ -83,8 +81,6 @@ class Fsecret < FoodAPIInterface
         parsed_data
     end
 
-    private
-
     ##
     # fatsecret returns a list of possible servings (apple, slices of apples, ...)
     # if there is only one serving it will return an object with all the ingredients
@@ -94,4 +90,9 @@ class Fsecret < FoodAPIInterface
         return servings unless servings.class == Array
         servings[0]
     end
+
+    private :create_item_header_information,
+            :parse_data_item,
+            :parse_data_search,
+            :fetch_serving_object
 end
