@@ -18,7 +18,7 @@
           <li data-item-idx="<%= item['_id'] %>">
             <span class="header">
               <span class="name"><%= item['name'] %></span>
-              <span class="info"><%= link_to '', delete_item_from_basket_path(idx), :class=> 'icon-remove', :remote => true %></span>
+              <span class="info"><%= link_to '', delete_item_from_basket_path(idx), :class => 'icon-remove', :remote => true %></span>
             </span>
             <span class="content clearfix">
             <% item['nutritions'].each do |key, value| %>

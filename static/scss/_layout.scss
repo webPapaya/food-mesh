@@ -77,8 +77,6 @@ ul {
 
   @include box-shadow(0 0px 2px 2px $boxShadowColor);
 
-
-
   .logo-small-wrp {
     width: 15%;
     img {
@@ -158,7 +156,6 @@ ul {
     color: $primaryLight;
   }
 
-
   [class^="icon-"]:before, [class*=" icon-"]:before {
     font-family: icomoon;
     display: block;
@@ -199,7 +196,7 @@ ul {
     position: fixed;
     left: 0;
     right: 0;
-    top:50px;
+    top: 50px;
   }
 }
 
@@ -244,7 +241,6 @@ ul {
     float: left;
     padding: 5px 0;
 
-
     span {
       width: 50%;
       float: left;
@@ -274,7 +270,7 @@ ul {
     border-bottom: 1px solid #ccc;
   }
 
-  li:last-child a{
+  li:last-child a {
     border-bottom: none;
   }
 }

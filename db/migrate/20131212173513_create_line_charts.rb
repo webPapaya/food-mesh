@@ -1,8 +1,8 @@
 class CreateLineCharts < ActiveRecord::Migration
-  def change
-    create_table :line_charts do |t|
+    def change
+        create_table :line_charts do |t|
 
-      t.timestamps
+            t.timestamps
+        end
     end
-  end
 end

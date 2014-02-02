@@ -1,6 +1,4 @@
-$placeholders: '-webkit-input-placeholder',
-               '-moz-placeholder',
-               '-ms-input-placeholder';
+$placeholders: '-webkit-input-placeholder', '-moz-placeholder', '-ms-input-placeholder';
 
 @mixin placeholder {
   @each $placeholder in $placeholders {
@@ -8,19 +6,17 @@ $placeholders: '-webkit-input-placeholder',
       &::#{$placeholder} {
         @content;
       }
-    }
-    @else if $placeholder == "-moz-placeholder" {
-      // FF 18-
+    } @else if $placeholder == "-moz-placeholder" {
+    // FF 18-
       &:#{$placeholder} {
         @content;
       }
 
-      // FF 19+
+    // FF 19+
       &::#{$placeholder} {
         @content;
       }
-    }
-    @else {
+    } @else {
       &:#{$placeholder} {
         @content;
       }

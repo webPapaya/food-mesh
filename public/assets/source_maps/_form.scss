@@ -60,8 +60,6 @@ input[type=submit], .button-search {
     @include border-left-radius(5px);
   }
 
-
-
 }
 
 #header-wrp {
@@ -78,12 +76,12 @@ input[type=submit], .button-search {
     height: 34px;
   }
 
-  .button-search:before{
+  .button-search:before {
     display: block;
     content: "";
   }
 
-  .button-search span{
+  .button-search span {
     font-size: 20px;
     font-weight: 500;
   }
@@ -94,7 +92,7 @@ input[type=submit], .button-search {
     margin-bottom: 10px;
   }
 
-  input{
+  input {
     width: 100%;
     margin: 3px 0 15px;
   }

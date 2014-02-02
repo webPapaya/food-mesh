@@ -8,13 +8,13 @@ class UnityCalculator
         @possible_values = {
             :liquids => [
                 {
-                    :name => 'ml',
+                    :name   => 'ml',
                     :factor => 100
                 }
             ],
             :weights => [
                 {
-                    :name => 'g',
+                    :name   => 'g',
                     :factor => 100
                 }
             ]
