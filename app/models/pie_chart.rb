@@ -82,8 +82,6 @@ class PieChart
         circle
     end
 
-    private
-
     def create_chart
         values = []
         @nutritions.each do |key, value|
@@ -136,4 +134,11 @@ class PieChart
         value[:percent] *= (mask['outer'] - mask['inner'])
         value[:percent] + mask['inner']
     end
+
+    private :create_chart,
+            :fetch_line_coords,
+            :deg_to_rad,
+            :calculate_circumference,
+            :calculate_daily_calories,
+            :calculate_daily_intake
 end

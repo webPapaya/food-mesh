@@ -46,8 +46,6 @@ class LineChart
         path
     end
 
-    private
-
     def combine_items
         nutritions_in_items = SortedSet.new
         @items.each do |item|
@@ -72,4 +70,6 @@ class LineChart
     def calc_over_daily_amount(val)
         1 + ((val - 1)**(1 / 5)) # calculates cubic root
     end
+
+    private :combine_items, :calculate_daily_intake, :calc_over_daily_amount
 end

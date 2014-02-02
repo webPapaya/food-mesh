@@ -14,8 +14,6 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
 
     helper_method :user_session, :default_url_options, :set_current_locale
-    private :user_session, :set_current_locale, :default_url_options
-
 
     def change_lang
         url            = request.referer
@@ -44,4 +42,6 @@ class ApplicationController < ActionController::Base
     def not_authenticated
         redirect_to login_url, alert: "First login to access this page."
     end
+
+    private :user_session, :set_current_locale, :default_url_options
 end

@@ -66,8 +66,6 @@ class IntakeCalculations
         individual_intake
     end
 
-    private
-
     def recalculate_key(key, value)
         return (value / @valid_keys[key]).round(5) if key_valid? key
         nil
@@ -104,4 +102,5 @@ class IntakeCalculations
         end
         keys
     end
+    private :recalculate_key, :fetch_smr, :smr_man, :smr_woman, :parse_keys
 end

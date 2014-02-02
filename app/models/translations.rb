@@ -19,7 +19,6 @@ class Translations
     ##
     # translates a given array or string
     def translate(names)
-
         if names.class == String
             return translate_string names
         elsif names.class == Array
@@ -28,8 +27,6 @@ class Translations
 
         nil
     end
-
-    private
 
     def translate_string(string)
         @translator.translate string, from: @local_from, to: @local_to
@@ -51,4 +48,10 @@ class Translations
     def split_translations(names)
         names.split('|')
     end
+
+    private :translate_string,
+            :translate_back,
+            :translate_arr,
+            :concat_names,
+            :split_translations
 end

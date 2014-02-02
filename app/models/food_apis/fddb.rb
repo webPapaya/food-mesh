@@ -38,8 +38,6 @@ class Fddb < FoodAPIInterface
         (parse_xml api_id, data) unless data.nil?
     end
 
-    private
-
     def parse_xml(api_id, data)
 
         object  = []
@@ -70,4 +68,6 @@ class Fddb < FoodAPIInterface
 
         object
     end
+
+    private :parse_xml
 end
