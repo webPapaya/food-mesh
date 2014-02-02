@@ -13,7 +13,9 @@ class Search
     field :food_items, type: Array
     field :timestamp, type: Array
 
-    validates_presence_of :id, :food_items
+    validates :_id, :food_items, presence: true
+    validates :_id, uniqueness: true
+
 
     def self.search(_query)
         item = Search.find(_query)
