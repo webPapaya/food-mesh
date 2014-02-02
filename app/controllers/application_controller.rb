@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     redirect_to route
   end
 
-  private
+
   def user_session
     @user_session              ||= UserSession.new(session)
     IntakeCalculations.session = @user_session
@@ -39,11 +39,12 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
-  helper_method :user_session, :default_url_options, :set_current_locale
 
   # authentication with sorcery
   def not_authenticated
     redirect_to login_url, :alert => "First login to access this page."
   end
 
+  helper_method :user_session, :default_url_options, :set_current_locale
+  private :user_session, :set_current_locale, :default_url_options, :not_authenticated
 end

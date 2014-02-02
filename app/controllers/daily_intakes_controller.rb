@@ -8,6 +8,7 @@
 #              - Franziska Oberhauser
 
 class DailyIntakesController < ApplicationController
+  private :set_daily_intake, :daily_intake_params
   before_filter :require_login
   before_action :set_daily_intake, only: [:show, :edit, :update, :destroy]
 
@@ -71,7 +72,6 @@ class DailyIntakesController < ApplicationController
     end
   end
 
-  private
   # Use callbacks to share common setup or constraints between actions.
   def set_daily_intake
     @daily_intake = DailyIntake.find(params[:id])
