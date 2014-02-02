@@ -31,8 +31,8 @@ class IntakeCalculations
         nutritions.each do |key, value|
             percent = recalculate_key key, value
             n[key] = ({
-                :value   => value,
-                :percent => percent
+                value:    value,
+                percent: percent
             }) unless percent.nil?
         end
         n

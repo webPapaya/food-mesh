@@ -2,33 +2,33 @@ require 'set'
 class LineChart
     attr_reader :nutritions_in_items, :space, :dimensions
 
-    def self.get_chart items
+    def self.get_chart(items)
         ap items
         @chart = LineChart.new items
-        { :dimensions  => @chart.dimensions,
-          :items       => @chart.build_chart,
-          :labels      => @chart.nutritions_in_items,
-          :label_space => @chart.space,
-          :colors      => %w[#2BA772 #1C7F60 #19436B #50B694 #66A4D1 #205779 #3997CF #2BA772']
+        { dimensions:   @chart.dimensions,
+          items:        @chart.build_chart,
+          labels:       @chart.nutritions_in_items,
+          label_space:  @chart.space,
+          colors:       %w[#2BA772 #1C7F60 #19436B #50B694 #66A4D1 #205779 #3997CF #2BA772']
         }
     end
 
     def initialize(items, window_width = 1000, window_height = 500)
         @dimensions          = {
-            :width  => window_width,
-            :height => window_height
+            width:   window_width,
+            height:  window_height
         }
         @items               = items
         @nutritions_in_items = combine_items
-        @space               = @dimensions[:width]/@nutritions_in_items.length
+        @space               = @dimensions[:width] / @nutritions_in_items.length
     end
 
     def build_chart
         paths = []
         @items.each do |item|
             paths << ({
-                :id   => item['_id'],
-                :path => (draw_function item['nutritions'])
+                id:   item['_id'],
+                path: (draw_function item['nutritions'])
             })
         end
         paths
@@ -38,10 +38,10 @@ class LineChart
         path = "M 0 #{@dimensions[:height]}"
 
         @nutritions_in_items.each_with_index do |nutrition, i|
-            value = (ingredients[nutrition].presence or 0)
+            value = (ingredients[nutrition].presence || 0)
             value = calculate_daily_intake nutrition, value
 
-            path << (" L #{i * @space}  #{@dimensions[:height]- value} ") unless value.nil?
+            path << (" L #{i * @space}  #{@dimensions[:height] - value} ") unless value.nil?
         end
         path
     end
@@ -58,10 +58,10 @@ class LineChart
         nutritions_in_items
     end
 
-    def calculate_daily_intake (key, value)
+    def calculate_daily_intake(key, value)
         intake = DailyIntake.find_element(key)
         unless intake.nil?
-            val = value.to_f/intake['value']
+            val = value.to_f / intake['value']
             val = calc_over_daily_amount val if val > 1
             val *= (@dimensions[:height] * 0.6)
             return val
@@ -69,7 +69,7 @@ class LineChart
         0
     end
 
-    def calc_over_daily_amount (val)
-        1+((val-1) ** (1/5)) # calculates cubic root
+    def calc_over_daily_amount(val)
+        1 + ((val - 1)**(1 / 5)) # calculates cubic root
     end
 end

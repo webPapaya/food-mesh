@@ -4,16 +4,16 @@ class UnityCalculator
     end
     def initialize
         @possible_values = {
-            :liquids => [
+            liquids: [
                 {
-                    :name   => 'ml',
-                    :factor => 100
+                    name:   'ml',
+                    factor: 100
                 }
             ],
-            :weights => [
+            weights: [
                 {
-                    :name   => 'g',
-                    :factor => 100
+                    name:   'g',
+                    factor: 100
                 }
             ]
         }

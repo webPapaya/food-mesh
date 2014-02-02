@@ -11,12 +11,12 @@ class SearchLocalRemote
         @translation_enabled = false
     end
 
-    def self.get_single_item item_id
+    def self.get_single_item(item_id)
         local_remote = SearchLocalRemote.new
         local_remote.get_item item_id
     end
 
-    def self.search_items query
+    def self.search_items(query)
         local_remote = SearchLocalRemote.new
         local_remote.search query
     end
@@ -27,12 +27,12 @@ class SearchLocalRemote
         @translations = get_batch_translations if @translation_enabled
 
         {
-            :items        => @items,
-            :translations => @translations
+            items:        @items,
+            translations: @translations
         }
     end
 
-    def get_item (item_id)
+    def get_item(item_id)
         @item_id = item_id
         @item    = gather_item
         return gather_translation if @translation_enabled

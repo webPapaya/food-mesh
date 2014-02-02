@@ -13,8 +13,8 @@ module FoodItemHelper
         @pie_chart[:chart_center] + (@pie_chart[:chart_width] + 100)
     end
 
-    def calc_label_circle(coord, factor=0.3)
-        coord * (1+factor) - (@pie_chart[:chart_center] * factor)
+    def calc_label_circle(coord, factor = 0.3)
+        coord * (1 + factor) - (@pie_chart[:chart_center] * factor)
     end
 
     def next_item idx

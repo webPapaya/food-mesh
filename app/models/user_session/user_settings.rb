@@ -14,10 +14,10 @@ module UserSettings
 
     def change_user_settings(params)
         @session[:user_settings] = {
-            :weight => params[:user_settings][:user_settings_weight],
-            :height => params[:user_settings][:user_settings_height],
-            :age    => params[:user_settings][:user_settings_age],
-            :sex    => params[:user_settings][:user_settings_sex]
+            weight: params[:user_settings][:user_settings_weight],
+            height: params[:user_settings][:user_settings_height],
+            age:    params[:user_settings][:user_settings_age],
+            sex:    params[:user_settings][:user_settings_sex]
         }
     end
 end

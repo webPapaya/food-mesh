@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         if logged_in?
             @users = User.all
         else
-            redirect_to :root, :notice => "Not permitted"
+            redirect_to :root, notice: "Not permitted"
         end
     end
 
@@ -21,14 +21,14 @@ class UsersController < ApplicationController
             @user = User.new(user_params)
             # redirect_to dashboard_path, :notice => 'User created'
         else
-            redirect_to root_url, :notice => "Not permitted to create new user"
+            redirect_to root_url, notice: "Not permitted to create new user"
         end
     end
 
     def create
         @user = User.new(params[:user])
         if @user.save
-            redirect_to :back, :notice => "Signed up!"
+            redirect_to :back, notice: "Signed up!"
         else
             render :new
         end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
     def destroy
         User.find(params[:user_id]).destroy
-        redirect_to dashboard_path, :notice => "deleted user!"
+        redirect_to dashboard_path, notice: "deleted user!"
     end
 
     private

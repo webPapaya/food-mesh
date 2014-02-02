@@ -15,9 +15,9 @@ class UserSession
         @session                 = session
         @session[:item_basket]   ||= [] # init session item_basket
         @session[:user_settings] ||= {
-            :weight => 80,
-            :height => 180,
-            :age    => 21
+            weight: 80,
+            height: 180,
+            age:    21
         }
     end
 

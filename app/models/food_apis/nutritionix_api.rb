@@ -43,13 +43,13 @@ class NutritionixAPI < FoodAPIInterface
         serving_weight = item['nf_serving_size_qty'] or item['nf_serving_size_qty']
 
         food              = create_food_item_structure ({
-            :name             => "#{item['item_name']} #{item['brand_name']}",
-            :api_key          => api_key,
-            :item_id          => item['item_id'],
-            :object_source_id => self.object_id,
-            :serving_weight   => {
-                :unit  => item['nf_serving_size_unit'],
-                :value => serving_weight
+            name:             "#{item['item_name']} #{item['brand_name']}",
+            api_key:          api_key,
+            item_id:          item['item_id'],
+            object_source_id: self.object_id,
+            serving_weight: {
+                unit:   item['nf_serving_size_unit'],
+                value:  serving_weight
             }
         })
         food[:nutritions] = parse_single_item item, food[:serving_weight]
@@ -74,13 +74,13 @@ class NutritionixAPI < FoodAPIInterface
             end
 
             food = create_food_item_structure ({
-                :name             => "#{item['_source']['item_name']} #{item['_source']['brand_name']}",
-                :api_key          => api_key,
-                :item_id          => item['_id'],
-                :object_source_id => self.object_id,
-                :serving_weight   => {
-                    :unit  => 'g',
-                    :value => serving_weight
+                name:               "#{item['_source']['item_name']} #{item['_source']['brand_name']}",
+                api_key:            api_key,
+                item_id:            item['_id'],
+                object_source_id:   self.object_id,
+                serving_weight: {
+                    unit:   'g',
+                    value:  serving_weight
                 }
             })
 

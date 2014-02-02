@@ -45,7 +45,7 @@ class FoodItemController < ApplicationController
         if logged_in?
             Search.clear_cache
         end
-        redirect_to dashboard_path, :notice => 'Cleared search cache'
+        redirect_to dashboard_path, notice: 'Cleared search cache'
     end
 
     private
