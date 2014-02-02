@@ -82,7 +82,6 @@ class PieChart
         circle
     end
 
-
     def create_chart
         values = []
         @nutritions.each do |key, value|

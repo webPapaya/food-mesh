@@ -19,7 +19,6 @@ class Translations
     ##
     # translates a given array or string
     def translate(names)
-
         if names.class == String
             return translate_string names
         elsif names.class == Array

@@ -5,10 +5,10 @@ StringLiterals:
   Enabled: false
 
 LineLength:
-  Max: 120
+  Max: 220
 
 MethodLength:
-  Max: 15
+  Max: 100
 
 Documentation:
   Enabled: false

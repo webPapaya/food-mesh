@@ -15,7 +15,6 @@ class ApplicationController < ActionController::Base
 
     helper_method :user_session, :default_url_options, :set_current_locale
 
-
     def change_lang
         url            = request.referer
         uri            = URI::parse(url)

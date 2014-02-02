@@ -66,7 +66,6 @@ class IntakeCalculations
         individual_intake
     end
 
-
     def recalculate_key(key, value)
         return (value / @valid_keys[key]).round(5) if key_valid? key
         nil

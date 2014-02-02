@@ -38,7 +38,6 @@ class Fddb < FoodAPIInterface
         (parse_xml api_id, data) unless data.nil?
     end
 
-
     def parse_xml(api_id, data)
 
         object  = []

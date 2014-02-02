@@ -8,7 +8,6 @@
 #              - Franziska Oberhauser
 
 class Search
-
     include Mongoid::Document
     field :_id, type: String
     field :food_items, type: Array

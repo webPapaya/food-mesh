@@ -39,7 +39,6 @@ class SearchLocalRemote
         @item
     end
 
-
     ##
     # returns a single item from local database if it exists
     # if not this funktion asks the remote apis for the element
@@ -121,5 +120,4 @@ class SearchLocalRemote
             :gather_translation,
             :fetch_batch_translations,
             :add_multiple_food_items
-
 end
