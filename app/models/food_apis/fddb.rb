@@ -44,7 +44,7 @@ class Fddb < FoodAPIInterface
 
         xml_obj.xpath("//item/data//*[not(text())]").remove # remove all empty nodes
         xml_obj.xpath("//item").each do |item|
-            food_item = create_food_item_structure({
+            food_item = create_food_item_structure(
                 name:               item.xpath("./description/name")[0].content,
                 api_key:            api_id,
                 item_id:            item.xpath("./id")[0].content,
@@ -53,7 +53,7 @@ class Fddb < FoodAPIInterface
                     unit:   item.xpath("./data/amount_measuring_system")[0].content,
                     value:  item.xpath("./data/amount")[0].content
                 }
-            })
+            )
 
             item.xpath("./data/*").each do |ingredient|
                 key   = translate_key ingredient.name, :fddb
