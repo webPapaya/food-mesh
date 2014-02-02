@@ -58,17 +58,17 @@ class FoodItem
     def self.fetch_translation(item, locale)
         locale = locale.to_s
         item['translations'].each do |t|
-            return t[locale] if t.has_key? locale
+            return t[locale] if t.key? locale
         end
     end
 
     ##
     # returns true if a given item has a translation
     # false if translation is missing
-    def self.has_translation?(item, locale)
+    def self.translation?(item, locale)
         item['translations'] ||= []
         item['translations'].each do |t|
-            return true if t.has_key?(locale.to_s)
+            return true if t.key?(locale.to_s)
         end
         false
     end

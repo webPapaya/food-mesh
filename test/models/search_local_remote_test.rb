@@ -13,12 +13,11 @@ class SearchLocalRemoteTest < ActiveSupport::TestCase
         check_element '2-37746'
     end
 
-    private
-
     def check_element(id)
         element = SearchLocalRemote.fetch_single_item id
         assert_not_nil element['name'], 'name is nil'
         assert_not_nil element['_id'], '_id is nil'
         assert_not_nil element['nutritions'], 'nutritions is nil'
     end
+    private :check_element
 end

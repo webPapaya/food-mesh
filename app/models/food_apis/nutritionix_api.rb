@@ -38,15 +38,15 @@ class NutritionixAPI < FoodAPIInterface
     end
 
     def parse_data_item(item, api_key)
-        serving_weight = item['nf_serving_size_qty'] or item['nf_serving_size_qty']
+        serving_weight = item['nf_serving_size_qty'] || item['nf_serving_size_qty']
         food              = create_food_item_structure ({
             name:             "#{item['item_name']} #{item['brand_name']}",
             api_key:          api_key,
             item_id:          item['item_id'],
-            object_source_id: self.object_id,
-            serving_weight:   {
-                unit:  item['nf_serving_size_unit'],
-                value: serving_weight
+            object_source_id: object_id,
+            serving_weight: {
+                unit:   item['nf_serving_size_unit'],
+                value:  serving_weight
             }
         })
         food[:nutritions] = parse_single_item item, food[:serving_weight]
@@ -70,13 +70,13 @@ class NutritionixAPI < FoodAPIInterface
             end
 
             food = create_food_item_structure ({
-                name:             "#{item['_source']['item_name']} #{item['_source']['brand_name']}",
-                api_key:          api_key,
-                item_id:          item['_id'],
-                object_source_id: self.object_id,
-                serving_weight:   {
-                    unit:  'g',
-                    value: serving_weight
+                name:               "#{item['_source']['item_name']} #{item['_source']['brand_name']}",
+                api_key:            api_key,
+                item_id:            item['_id'],
+                object_source_id:   object_id,
+                serving_weight: {
+                    unit:   'g',
+                    value:  serving_weight
                 }
             })
 
@@ -96,7 +96,7 @@ class NutritionixAPI < FoodAPIInterface
     def parse_single_item(source, serving_weight)
         nutrition_elements = {}
         source.each do |key, ingredients|
-            if is_valid_pair? key, ingredients
+            if valid_pair? key, ingredients
                 key                     = translate_key key, :nutritionix
                 nutrition_elements[key] = base_nutrition_information ingredients, serving_weight
             end
@@ -107,12 +107,12 @@ class NutritionixAPI < FoodAPIInterface
     # checks a given pair on following things
     # starts key with nf_ (for nutrition information)
     # is value wether 0 or nil
-    def is_valid_pair? key, value
+    def valid_pair?(key, value)
         true unless value.nil? || value == 0 || !key.include?('nf_')
     end
 
     private :parse_data_item,
             :parse_data_search,
             :parse_single_item,
-            :is_valid_pair?
+            :valid_pair?
 end

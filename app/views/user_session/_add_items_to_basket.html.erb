@@ -14,8 +14,8 @@
 
 <ul id="food-item-list">
   <% if user_session.fetch_user_items.class == Array %>
-    <% user_session.fetch_user_items.each_with_index do |item, idx| %>
-      <li data-item-idx="<%= item['_id'] %>">
+      <% user_session.fetch_user_items.each_with_index do |item, idx| %>
+          <li data-item-idx="<%= item['_id'] %>">
             <span class="header">
               <span class="name"><%= item['name'] %></span>
               <span class="info"><%= link_to '', delete_item_from_basket_path(idx), :class => 'icon-remove', :remote => true %></span>
@@ -32,8 +32,8 @@
             </span>
 
 
-      </li>
-    <% end %>
+          </li>
+      <% end %>
   <% end %>
 </ul>
 

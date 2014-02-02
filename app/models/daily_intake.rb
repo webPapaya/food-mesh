@@ -20,7 +20,7 @@ class DailyIntake
     validates_inclusion_of :category, in: %w( selection general vitamin mineral )
     validates_inclusion_of :unit, in: %w( g mg kcal l )
 
-    def self.find_element key
+    def self.find_element(key)
         DailyIntake.where(key: key).first
     end
 end

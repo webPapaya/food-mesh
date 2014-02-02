@@ -39,20 +39,19 @@ class Fddb < FoodAPIInterface
     end
 
     def parse_xml(api_id, data)
-
         object  = []
         xml_obj = Nokogiri::XML(data)
 
         xml_obj.xpath("//item/data//*[not(text())]").remove # remove all empty nodes
         xml_obj.xpath("//item").each do |item|
             food_item = create_food_item_structure ({
-                name:             item.xpath("./description/name")[0].content,
-                api_key:          api_id,
-                item_id:          item.xpath("./id")[0].content,
-                object_source_id: self.object_id,
-                serving_weight:   {
-                    unit:  item.xpath("./data/amount_measuring_system")[0].content,
-                    value: item.xpath("./data/amount")[0].content
+                name:               item.xpath("./description/name")[0].content,
+                api_key:            api_id,
+                item_id:            item.xpath("./id")[0].content,
+                object_source_id:   object_id,
+                serving_weight: {
+                    unit:   item.xpath("./data/amount_measuring_system")[0].content,
+                    value:  item.xpath("./data/amount")[0].content
                 }
             })
 

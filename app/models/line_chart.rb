@@ -5,18 +5,18 @@ class LineChart
     def self.fetch_chart(items)
         ap items
         @chart = LineChart.new items
-        { dimensions:  @chart.dimensions,
-          items:       @chart.build_chart,
-          labels:      @chart.nutritions_in_items,
-          label_space: @chart.space,
-          colors:      %w[#2BA772 #1C7F60 #19436B #50B694 #66A4D1 #205779 #3997CF #2BA772']
+        { dimensions:   @chart.dimensions,
+          items:        @chart.build_chart,
+          labels:       @chart.nutritions_in_items,
+          label_space:  @chart.space,
+          colors:       %w[#2BA772 #1C7F60 #19436B #50B694 #66A4D1 #205779 #3997CF #2BA772']
         }
     end
 
     def initialize(items, window_width = 1000, window_height = 500)
         @dimensions          = {
-            width:  window_width,
-            height: window_height
+            width:   window_width,
+            height:  window_height
         }
         @items               = items
         @nutritions_in_items = combine_items

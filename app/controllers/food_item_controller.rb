@@ -42,7 +42,7 @@ class FoodItemController < ApplicationController
     end
 
     def clear_search_cache
-        Search.clear_cache if logged_in?
+        Search.clear_cache  if logged_in?
         redirect_to dashboard_path, notice: 'Cleared search cache'
     end
 
