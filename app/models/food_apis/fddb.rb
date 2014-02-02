@@ -45,7 +45,7 @@ class Fddb < FoodAPIInterface
         object  = []
         xml_obj = Nokogiri::XML(data)
 
-        xml_obj.xpath("//item/data//*[not(text())]").remove #remove all empty nodes
+        xml_obj.xpath("//item/data//*[not(text())]").remove # remove all empty nodes
         xml_obj.xpath("//item").each do |item|
             food_item = create_food_item_structure ({
                 name:               item.xpath("./description/name")[0].content,

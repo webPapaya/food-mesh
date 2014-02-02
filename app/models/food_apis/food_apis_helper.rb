@@ -8,8 +8,8 @@
 #              - Franziska Oberhauser
 
 module FoodAPIsHelper
-    ## translations
-    def translate_key key, local
+    # translations
+    def translate_key(key, local)
         translation = key.downcase
         translation.slice! 'nf_'
         translation = I18n.t translation, locale: local
@@ -17,7 +17,7 @@ module FoodAPIsHelper
         translation
     end
 
-    def create_food_item_structure item_details
+    def create_food_item_structure(item_details)
         # raise 'item name is nil' unless !item_details[:name].blank?
         # raise 'item api_key is nil' unless !item_details[:api_key].blank?
         # raise 'item item_id is nil' unless !item_details[:item_id].blank?
@@ -29,7 +29,7 @@ module FoodAPIsHelper
         item_details
     end
 
-    def base_nutrition_information (nutrition_data, base)
+    def base_nutrition_information(nutrition_data, base)
         (nutrition_data.to_f / base[:value].to_f * 100).round(4)
     end
 end

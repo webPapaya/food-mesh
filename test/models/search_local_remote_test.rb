@@ -15,7 +15,7 @@ class SearchLocalRemoteTest < ActiveSupport::TestCase
 
     private
 
-    def check_element id
+    def check_element(id)
         element = SearchLocalRemote.get_single_item id
         assert_not_nil element['name'], 'name is nil'
         assert_not_nil element['_id'], '_id is nil'

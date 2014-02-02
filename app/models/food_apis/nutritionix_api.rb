@@ -32,14 +32,14 @@ class NutritionixAPI < FoodAPIInterface
     end
 
     def get_item(api_key, item_id)
-        item = @provider.get_item item_id.to_s #if id is not a string you will receive undefined encoding
+        item = @provider.get_item item_id.to_s # if id is not a string you will receive undefined encoding
         item = JSON.parse item
         parse_data_item item, api_key
     end
 
     private
 
-    def parse_data_item (item, api_key)
+    def parse_data_item(item, api_key)
         serving_weight = item['nf_serving_size_qty'] or item['nf_serving_size_qty']
         food              = create_food_item_structure ({
             name:             "#{item['item_name']} #{item['brand_name']}",
@@ -55,10 +55,9 @@ class NutritionixAPI < FoodAPIInterface
         food
     end
 
-    # todo
     # find out in which mass the given values are given
     def parse_data_search (data, api_key)
-        parsed_data = Array.new
+        parsed_data = []
 
         data['hits'].each do |item|
             if item['_source']['weights'].nil?

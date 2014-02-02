@@ -19,7 +19,7 @@ class Fsecret < FoodAPIInterface
 
     def search(api_key, query)
         data = FatSecret.search_food(query)
-        return nil unless (data['foods']['total_results'].to_i > 0)
+        return nil unless data['foods']['total_results'].to_i > 0
         items = []
 
         data['foods']['food'].each do |item|
@@ -50,7 +50,7 @@ class Fsecret < FoodAPIInterface
                                    })
     end
 
-    def parse_data_item (data, api_key)
+    def parse_data_item(data, api_key)
         item = data['food']
 
         item[:serving] = get_serving_object item
