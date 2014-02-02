@@ -39,7 +39,7 @@ class NutritionixAPI < FoodAPIInterface
 
     def parse_data_item(item, api_key)
         serving_weight = item['nf_serving_size_qty'] || item['nf_serving_size_qty']
-        food              = create_food_item_structure ({
+        food              = create_food_item_structure(
             name:             "#{item['item_name']} #{item['brand_name']}",
             api_key:          api_key,
             item_id:          item['item_id'],
@@ -48,7 +48,7 @@ class NutritionixAPI < FoodAPIInterface
                 unit:   item['nf_serving_size_unit'],
                 value:  serving_weight
             }
-        })
+        )
         food[:nutritions] = parse_single_item item, food[:serving_weight]
         food
     end
@@ -65,11 +65,9 @@ class NutritionixAPI < FoodAPIInterface
                 serving_weight = weights['serving_weight_grams']
             end
 
-            if serving_weight.nil?
-                next
-            end
+            next if serving_weight.nil?
 
-            food = create_food_item_structure ({
+            food = create_food_item_structure(
                 name:               "#{item['_source']['item_name']} #{item['_source']['brand_name']}",
                 api_key:            api_key,
                 item_id:            item['_id'],
@@ -78,7 +76,7 @@ class NutritionixAPI < FoodAPIInterface
                     unit:   'g',
                     value:  serving_weight
                 }
-            })
+            )
 
             item['_source'].delete('item_name')
             item['_source'].delete('brand_name')

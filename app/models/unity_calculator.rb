@@ -1,6 +1,6 @@
 class UnityCalculator
     def self.recalculate(from, to, value)
-        instance = UnityCalculator.new
+        # instance = UnityCalculator.new
     end
     def initialize
         @possible_values = {

@@ -16,7 +16,6 @@ class Search
     validates :_id, :food_items, presence: true
     validates :_id, uniqueness: true
 
-
     def self.search(_query)
         item = Search.find(_query)
         return nil if item.nil?

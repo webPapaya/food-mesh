@@ -16,8 +16,8 @@ class DailyIntake
 
     validates :key, :value, :unit, :category, presence: true
     validates :key, uniqueness: true
-    validates :category, inclusion: { in:  %w( selection general vitamin mineral )}
-    validates :unit, inclusion: { in: %w( g mg kcal l )}
+    validates :category, inclusion: { in:  %w( selection general vitamin mineral ) }
+    validates :unit, inclusion: { in: %w( g mg kcal l ) }
 
     def self.find_element(key)
         DailyIntake.where(key: key).first
