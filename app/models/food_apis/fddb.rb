@@ -44,7 +44,7 @@ class Fddb < FoodAPIInterface
 
         xml_obj.xpath("//item/data//*[not(text())]").remove # remove all empty nodes
         xml_obj.xpath("//item").each do |item|
-            food_item = create_food_item_structure ({
+            food_item = create_food_item_structure({
                 name:               item.xpath("./description/name")[0].content,
                 api_key:            api_id,
                 item_id:            item.xpath("./id")[0].content,
