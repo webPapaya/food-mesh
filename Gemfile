@@ -27,8 +27,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+    # bundle exec rake doc:rails generates the API under doc/api.
+    gem 'sdoc', require: false
 end
 
 # Use ActiveModel has_secure_password
@@ -44,13 +44,12 @@ end
 # gem 'debugger', group: [:development, :test]
 
 
+                         # own dependencies
+gem 'curb'               # curb alternative
+gem 'nokogiri'           # xml parser
 
-# own dependencies
-gem 'curb'    # curb alternative
-gem 'nokogiri'  # xml parser
 
-
-gem 'redcarpet' # markdown
+gem 'redcarpet'          # markdown
 
 gem 'capistrano', '2.15' # deployment
 gem 'rvm-capistrano'
@@ -66,18 +65,13 @@ gem 'bourbon'
 gem 'rubocop'
 
 group :development do
-  gem 'better_errors'
-  gem 'meta_request'
+    gem 'better_errors'
+    gem 'meta_request'
 end
-# translation for search results
+                         # translation for search results
 gem "bing_translator"
 
-gem 'sorcery' #backend login
-
-# for testing
-group :development, :test do
-    gem 'minitest-rails-capybara'
-end
+gem 'sorcery'            #backend login
 
 # adds attr_accessible and attr_protected in the models
 gem 'protected_attributes'
@@ -85,18 +79,11 @@ gem 'protected_attributes'
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
 
-gem 'rubocop'
-
 # gem for missing translations: github.com/svenfuchs/i18n-missing_translations
 gem "i18n-missing_translations"
 
 
 gem 'multi_json', '1.8.4'
-
-group :development, :test do
-    gem 'minitest-rails-capybara'
-    gem 'poltergeist', '~> 1.5.0'
-end
 
 group :development, :test do
     # gem 'mongoid-minitest', group: :test
