@@ -1,6 +1,5 @@
 require 'singleton'
 
-
 class IntakeCalculations
     include Singleton
 
@@ -51,15 +50,15 @@ class IntakeCalculations
                     individual_intake[key] = smr
                 when 'carbohydrate'
                     # carbohydrate
-                    # Gesamtenergiebedarf * 55 % (KH) = kcal/Tag und das Ganze /4,1 = g /Tag
-                    individual_intake[key] =((smr*0.55)/4.1).round(0)
+                    # complete energy required * 55 % (KH) = kcal/day and the lot /4,1 = g /day
+                    individual_intake[key] =((smr * 0.55) / 4.1).round(0)
                 when 'fat'
                     # fat
-                    # Gesamtenergiebedarf * 30 % (Fett) = kcal/Tag und das Ganze /9,3 = g /Tag
-                    individual_intake[key] = ((smr*0.3)/9.3).round(2)
+                    # complete energy required * 30 % (fat) = kcal/day and the lot /9,3 = g /day
+                    individual_intake[key] = ((smr * 0.3) / 9.3).round(2)
                 when key == 'protein'
-                    # Gesamtenergiebedarf * 15 % (Eiweiß) = kcal/Tag und das Ganze /4,1 = g /Tag
-                    individual_intake[key] = ((smr*0.15)/4.1).round(2)
+                    # complete energy required * 15 % (protein) = kcal/day and the lot /4,1 = g /day
+                    individual_intake[key] = ((smr * 0.15) / 4.1).round(2)
                 else
                     individual_intake[key] = value
             end
@@ -70,7 +69,7 @@ class IntakeCalculations
     private
 
     def recalculate_key (key, value)
-        return (value/@valid_keys[key]).round(5) if is_key_valid? key
+        return (value / @valid_keys[key]).round(5) if is_key_valid? key
         nil
     end
 
@@ -91,7 +90,7 @@ class IntakeCalculations
     end
 
     #
-    # Grundumsatz (kcal) = 655,1 + (9,563 x kg) + (1,850 x cm) – (4,676 x Alter)
+    # basic metabolic rate (kcal) = 655,1 + (9,563 x kg) + (1,850 x cm) – (4,676 x Alter)
     def smr_woman(settings)
         smr = 655.1 + (9.563 * settings[:weight].to_f)
         smr += (1.850 * settings[:height].to_f)

@@ -11,7 +11,7 @@ require_dependency 'user_session/user_basket'
 require_dependency 'user_session/user_settings'
 
 class UserSession
-    def initialize (session)
+    def initialize(session)
         @session                 = session
         @session[:item_basket]   ||= [] # init session item_basket
         @session[:user_settings] ||= {

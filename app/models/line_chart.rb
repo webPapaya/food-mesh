@@ -13,7 +13,6 @@ class LineChart
         }
     end
 
-
     def initialize(items, window_width = 1000, window_height = 500)
         @dimensions          = {
             :width  => window_width,
@@ -42,12 +41,13 @@ class LineChart
             value = (ingredients[nutrition].presence or 0)
             value = calculate_daily_intake nutrition, value
 
-            path << (" L #{i*@space}  #{@dimensions[:height]- value} ") unless value.nil?
+            path << (" L #{i * @space}  #{@dimensions[:height]- value} ") unless value.nil?
         end
         path
     end
 
     private
+
     def combine_items
         nutritions_in_items = SortedSet.new
         @items.each do |item|
@@ -63,13 +63,13 @@ class LineChart
         unless intake.nil?
             val = value.to_f/intake['value']
             val = calc_over_daily_amount val if val > 1
-            val *= (@dimensions[:height]*0.6)
+            val *= (@dimensions[:height] * 0.6)
             return val
         end
         0
     end
 
     def calc_over_daily_amount (val)
-        1+((val-1)**(1/5)) # calculates cubic root
+        1+((val-1) ** (1/5)) # calculates cubic root
     end
 end

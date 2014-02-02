@@ -6,7 +6,6 @@
 # usage:	    Multimediaprojekt 2a (MMP2a)
 # author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
 #              - Franziska Oberhauser
-
 require 'rubygems'
 require 'bing_translator'
 
@@ -19,7 +18,7 @@ class Translations
 
     ##
     # translates a given array or string
-    def translate names
+    def translate(names)
 
         if names.class == String
             return translate_string names
@@ -31,25 +30,25 @@ class Translations
     end
 
     private
-    def translate_string (string)
+
+    def translate_string(string)
         @translator.translate string, :from => @local_from, :to => @local_to
     end
 
-    def translate_back (string)
+    def translate_back(string)
         @translator.translate string, :from => @local_to, :to => @local_from
-
     end
 
-    def translate_arr arr
-        arr_string = concat_names arr
+    def translate_arr(arr)
+        arr_string = concat_names(arr)
         translate_string arr_string
     end
 
-    def concat_names names
+    def concat_names(names)
         names.join('|')
     end
 
-    def split_translations names
+    def split_translations(names)
         names.split('|')
     end
 end

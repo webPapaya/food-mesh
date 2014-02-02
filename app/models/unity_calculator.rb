@@ -1,9 +1,7 @@
 class UnityCalculator
-    def self.recalculate (from, to, value)
+    def self.recalculate(from, to, value)
         instance = UnityCalculator.new
-
     end
-
     def initialize
         @possible_values = {
             :liquids => [
@@ -22,6 +20,5 @@ class UnityCalculator
     end
 
     def recalculate
-
     end
 end

@@ -10,7 +10,7 @@
 require_dependency 'food_apis_module'
 
 class PieChart
-    def initialize (nutritions, width_height=500)
+    def initialize(nutritions, width_height = 500)
         @nutritions   = nutritions
         @width_height = 1000
 
@@ -19,7 +19,7 @@ class PieChart
 
         @values      = create_chart
         @segments    = create_chart.length
-        @inner_angle = 360/@segments
+        @inner_angle = 360 / @segments
         @radiant     = deg_to_rad(@inner_angle)
     end
 
@@ -35,7 +35,7 @@ class PieChart
             :chart_mask   => create_outer_mask,
             :colors       => %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772'],
             :width_height => @width_height,
-            :center       => @width_height/2,
+            :center       => @width_height / 2,
             :line_coords  => get_line_coords
         }
     end
@@ -53,31 +53,31 @@ class PieChart
     end
 
     def center
-        @width_height/2
+        @width_height / 2
     end
 
     def create_outer_mask
         mask = Hash.new
 
-        mask['inner'] = @width_height.to_f/(10*2)
-        mask['outer'] = @chart_width.to_f*0.95
+        mask['inner'] = @width_height.to_f / (10 * 2)
+        mask['outer'] = @chart_width.to_f * 0.95
 
         mask
     end
 
-    def get_daily_calories_in_procent (calories)
+    def get_daily_calories_in_procent(calories)
         percent = calculate_daily_calories calories
         circumference percent
     end
 
-    def circumference (percent)
+    def circumference(percent)
         percent = percent.to_f
 
         circle        = Hash.new
         circumference = calculate_circumference
 
-        circle["line"]  = circumference*(percent/100)
-        circle["space"] = circumference*((100-percent)/100)
+        circle["line"]  = circumference * (percent / 100)
+        circle["space"] = circumference * ((100 - percent) / 100)
 
         circle
     end
@@ -104,10 +104,10 @@ class PieChart
         coords = []
         @segments.times do |i|
             coord = Hash.new
-            rad   = deg_to_rad(@inner_angle*i)
+            rad   = deg_to_rad(@inner_angle * i)
 
-            coord[:x] = Math.cos(rad) * (@chart_width/2) + (@width_height/2)
-            coord[:y] = Math.sin(rad) * (@chart_width/2) + (@width_height/2)
+            coord[:x] = Math.cos(rad) * (@chart_width / 2) + (@width_height / 2)
+            coord[:y] = Math.sin(rad) * (@chart_width / 2) + (@width_height / 2)
 
             coords << coord
         end
@@ -115,19 +115,19 @@ class PieChart
         coords
     end
 
-    def deg_to_rad (deg)
-        Math::PI/180 * deg
+    def deg_to_rad(deg)
+        Math::PI / 180 * deg
     end
 
     def calculate_circumference
-        Math::PI*(@width_height)
+        Math::PI * (@width_height)
     end
 
     def calculate_daily_calories(calories)
-        calories[:percent]*100
+        calories[:percent] * 100
     end
 
-    def calculate_daily_intake (key, value)
+    def calculate_daily_intake(key, value)
         value = value.clone
         return nil if key == 'calories'
 
@@ -136,5 +136,3 @@ class PieChart
         value[:percent] + mask['inner']
     end
 end
-
-

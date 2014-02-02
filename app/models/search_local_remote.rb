@@ -40,6 +40,7 @@ class SearchLocalRemote
     end
 
     private
+
     ##
     # returns a single item from local database if it exists
     # if not this funktion asks the remote apis for the element
@@ -71,7 +72,7 @@ class SearchLocalRemote
             return local_search unless (local_search.nil?)
         end
 
-        remote_search = search_apis @query #adds searches remote end for elements
+        remote_search = search_apis @query # adds searches remote end for elements
         unless remote_search.nil?
             Search.add @query, remote_search # adds elements to search
             remote_search = add_multiple_food_items remote_search unless remote_search.nil?

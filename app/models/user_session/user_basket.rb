@@ -25,7 +25,7 @@ module UserBasket
         @session[:item_basket].delete_at(basket_idx.to_i)
     end
 
-    def add_items_to_basket (items)
+    def add_items_to_basket(items)
         @session[:item_basket] = items
     end
 
