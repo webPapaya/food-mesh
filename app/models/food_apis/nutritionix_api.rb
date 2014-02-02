@@ -43,7 +43,7 @@ class NutritionixAPI < FoodAPIInterface
             name:             "#{item['item_name']} #{item['brand_name']}",
             api_key:          api_key,
             item_id:          item['item_id'],
-            object_source_id: self.object_id,
+            object_source_id: object_id,
             serving_weight: {
                 unit:   item['nf_serving_size_unit'],
                 value:  serving_weight
@@ -73,7 +73,7 @@ class NutritionixAPI < FoodAPIInterface
                 name:               "#{item['_source']['item_name']} #{item['_source']['brand_name']}",
                 api_key:            api_key,
                 item_id:            item['_id'],
-                object_source_id:   self.object_id,
+                object_source_id:   object_id,
                 serving_weight: {
                     unit:   'g',
                     value:  serving_weight
