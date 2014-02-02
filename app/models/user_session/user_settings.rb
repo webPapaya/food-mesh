@@ -8,7 +8,7 @@
 #              - Franziska Oberhauser
 
 module UserSettings
-    def get_user_settings
+    def fetch_user_settings
         @session[:user_settings]
     end
 

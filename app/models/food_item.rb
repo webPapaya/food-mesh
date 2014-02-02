@@ -26,14 +26,14 @@ class FoodItem
             "element exists"
         else
             safe_item_to_db item
-            get_local_item id
+            fetch_local_item id
         end
     end
 
     ##
     # searches local database for an item with given id
     # @return item or nil
-    def self.get_local_item(item_id)
+    def self.fetch_local_item(item_id)
         FoodItem.find(item_id)
     end
 
@@ -41,11 +41,11 @@ class FoodItem
     # searches local database for an array of item_ids
     # @item_ids ['string'] item ids
     # @returns elements or nil if no element was found
-    def self.get_local_items(item_ids)
+    def self.fetch_local_items(item_ids)
         FoodItem.find(item_ids)
     end
 
-    def self.get_all_items
+    def self.fetch_all_items
         FoodItem.all
     end
 
@@ -55,7 +55,7 @@ class FoodItem
         item
     end
 
-    def self.get_translation(item, locale)
+    def self.fetch_translation(item, locale)
         locale = locale.to_s
         item['translations'].each do |t|
             return t[locale] if t.has_key? locale

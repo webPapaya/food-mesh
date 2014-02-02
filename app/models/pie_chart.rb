@@ -23,24 +23,24 @@ class PieChart
         @radiant     = deg_to_rad(@inner_angle)
     end
 
-    def get_pie_chart
+    def fetch_pie_chart
         {
             values:        @values,
             chart_width:   @chart_width,
             chart_center:  @chart_center,
-            coords:        get_coords,
+            coords:        fetch_coords,
             inner_angle:   @inner_angle,
             segments:      @segments,
-            daily_kcal:    get_daily_calories_in_procent(@nutritions['calories']),
+            daily_kcal:    fetch_daily_calories_in_procent(@nutritions['calories']),
             chart_mask:    create_outer_mask,
             colors:        %w[#2BA772 #1C7F60 #19436B #F7B475 #50B694 #66A4D1 #205779 #3997CF #2BA772'],
             width_height:  @width_height,
             center:        @width_height / 2,
-            line_coords:   get_line_coords
+            line_coords:   fetch_line_coords
         }
     end
 
-    def get_coords
+    def fetch_coords
         coords = {}
 
         coords['x1'] = Math.cos(@radiant).abs * (@chart_width)
@@ -65,7 +65,7 @@ class PieChart
         mask
     end
 
-    def get_daily_calories_in_procent(calories)
+    def fetch_daily_calories_in_procent(calories)
         percent = calculate_daily_calories calories
         circumference percent
     end
@@ -101,7 +101,7 @@ class PieChart
         values
     end
 
-    def get_line_coords
+    def fetch_line_coords
         coords = []
         @segments.times do |i|
             coord =  {}

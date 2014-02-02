@@ -19,8 +19,8 @@
 <% else %>
     <div class="container info-boxes row">
       <div class="info-boxes-wrp clearfix">
-        <% if user_session.get_user_items.class == Array %>
-            <% user_session.get_user_items.each_with_index do |item, idx| %>
+        <% if user_session.fetch_user_items.class == Array %>
+            <% user_session.fetch_user_items.each_with_index do |item, idx| %>
                 <div class="span_4 col">
                   <h3 data-item-idx="<%= item['_id'] %>">
                     <%= item['name'] %>

@@ -24,13 +24,13 @@ class Fsecret < FoodAPIInterface
 
         data['foods']['food'].each do |item|
             item_id = item['food_id'].to_i
-            items << (get_item api_key, item_id)
+            items << (fetch_item api_key, item_id)
         end
 
         items
     end
 
-    def get_item(api_key, id)
+    def fetch_item(api_key, id)
         data = FatSecret.food(id)
         (parse_data_item(data, api_key)) unless data.nil?
     end
@@ -53,7 +53,7 @@ class Fsecret < FoodAPIInterface
     def parse_data_item(data, api_key)
         item = data['food']
 
-        item[:serving] = get_serving_object item
+        item[:serving] = fetch_serving_object item
         food           = create_item_header_information item, api_key
 
         item[:serving].each do |key, ingredient|
@@ -89,7 +89,7 @@ class Fsecret < FoodAPIInterface
     # fatsecret returns a list of possible servings (apple, slices of apples, ...)
     # if there is only one serving it will return an object with all the ingredients
     # if there are more possibilities it will return an array
-    def get_serving_object item
+    def fetch_serving_object item
         servings = item['servings']['serving']
         return servings unless servings.class == Array
         servings[0]

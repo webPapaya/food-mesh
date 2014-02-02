@@ -8,11 +8,11 @@
 <h1>User Settings</h1>
 <%= form_for 'user_settings', remote: true, url: { controller: 'user_session', action: 'change_user_settings' } do |f| %>
     <%= f.label :user_settings_weight %><br>
-    <%= f.text_field :user_settings_weight, :placeholder => 'weight', :value => @user_session.get_user_settings[:weight] %>
+    <%= f.text_field :user_settings_weight, :placeholder => 'weight', :value => @user_session.fetch_user_settings[:weight] %>
     <%= f.label :user_settings_age %><br>
-    <%= f.text_field :user_settings_age, :placeholder => 'age', :value => @user_session.get_user_settings[:age] %>
+    <%= f.text_field :user_settings_age, :placeholder => 'age', :value => @user_session.fetch_user_settings[:age] %>
     <%= f.label :user_settings_height %><br>
-    <%= f.text_field :user_settings_height, :placeholder => 'height', :value => @user_session.get_user_settings[:height] %>
+    <%= f.text_field :user_settings_height, :placeholder => 'height', :value => @user_session.fetch_user_settings[:height] %>
 
 
     <%= f.label :user_settings_sex %><br>

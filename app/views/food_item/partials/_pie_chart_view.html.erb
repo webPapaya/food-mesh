@@ -122,12 +122,12 @@
                   y2="<%= calc_label_circle @pie_chart[:line_coords][idx][:y] %>"></line>
 
             <line class="pie-chart-lines"
-                  x1="<%= get_label_coords @pie_chart[:line_coords][idx][:x] %>"
+                  x1="<%= fetch_label_coords @pie_chart[:line_coords][idx][:x] %>"
                   y1="<%= calc_label_circle @pie_chart[:line_coords][idx][:y] %>"
                   x2="<%= calc_label_circle @pie_chart[:line_coords][idx][:x] %>"
                   y2="<%= calc_label_circle @pie_chart[:line_coords][idx][:y] %>"></line>
 
-            <text x="<%= get_label_coords @pie_chart[:line_coords][idx][:x] %>"
+            <text x="<%= fetch_label_coords @pie_chart[:line_coords][idx][:x] %>"
                   y="<%= calc_label_circle @pie_chart[:line_coords][idx][:y] %>">
 
               <%= @pie_chart[:values][idx][:ingredient] %>

@@ -29,8 +29,8 @@ module UserBasket
         @session[:item_basket] = items
     end
 
-    def get_user_items
-        basket = FoodItem.get_local_items @session[:item_basket]
+    def fetch_user_items
+        basket = FoodItem.fetch_local_items @session[:item_basket]
         return nil if basket.nil?
         basket
     end

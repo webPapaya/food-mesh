@@ -13,13 +13,13 @@ class FoodItemController < ApplicationController
     before_filter :before_actions
     include FoodApisModule
 
-    # @todo add a static member to PieChart get_chart so only one call for pie_chart is needed
+    # @todo add a static member to PieChart fetch_chart so only one call for pie_chart is needed
     def show
-        @food_item    = SearchLocalRemote.get_single_item params[:item_id]
-        recalculation = IntakeCalculations.instance.get_recalculated_infos @food_item[:nutritions]
+        @food_item    = SearchLocalRemote.fetch_single_item params[:item_id]
+        recalculation = IntakeCalculations.instance.fetch_recalculated_infos @food_item[:nutritions]
 
         pie_chart_instance = PieChart.new recalculation
-        @pie_chart         = pie_chart_instance.get_pie_chart
+        @pie_chart         = pie_chart_instance.fetch_pie_chart
     end
 
     def search
@@ -31,8 +31,8 @@ class FoodItemController < ApplicationController
     end
 
     def compare
-        @food_items = user_session.get_user_items
-        @chart = LineChart.get_chart @food_items unless @food_items.empty?
+        @food_items = user_session.fetch_user_items
+        @chart = LineChart.fetch_chart @food_items unless @food_items.empty?
         ap @chart
     end
 

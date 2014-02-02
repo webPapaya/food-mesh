@@ -12,6 +12,6 @@ class AdminDashboardController < ApplicationController
 
     def index
         @users           = User.all
-        @latest_searches = Search.get_most_searched
+        @latest_searches = Search.fetch_most_searched
     end
 end

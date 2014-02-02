@@ -28,7 +28,7 @@ class SessionsController < ApplicationControll
     end
 
     def destroy
-        t = user_session.get_user_items
+        t = user_session.fetch_user_items
         logout
         user_session.add_items_to_basket t
         redirect_to login_path

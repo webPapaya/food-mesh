@@ -38,7 +38,7 @@ class Search
         Search.delete_all
     end
 
-    def self.get_most_searched
+    def self.fetch_most_searched
         items = Search.all.order_by([[:timestamp.length, :desc]])
         items
     end

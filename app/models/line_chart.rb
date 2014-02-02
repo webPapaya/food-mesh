@@ -2,7 +2,7 @@ require 'set'
 class LineChart
     attr_reader :nutritions_in_items, :space, :dimensions
 
-    def self.get_chart(items)
+    def self.fetch_chart(items)
         ap items
         @chart = LineChart.new items
         { dimensions:   @chart.dimensions,

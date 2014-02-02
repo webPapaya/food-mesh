@@ -26,7 +26,7 @@ class Fddb < FoodAPIInterface
         (parse_xml api_id, data) unless data.nil?
     end
 
-    def get_item(api_id, id)
+    def fetch_item(api_id, id)
         params = {
             apikey: @api_key,
             lang:   'de'

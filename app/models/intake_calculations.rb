@@ -18,15 +18,15 @@ class IntakeCalculations
         @valid_keys.include? key
     end
 
-    def get_key(key)
-        @valid_keys = get_individual_intake
+    def fetch_key(key)
+        @valid_keys = fetch_individual_intake
         @valid_keys[key] if is_key_valid? key
     end
 
-    def get_recalculated_infos(nutritions)
+    def fetch_recalculated_infos(nutritions)
         nutritions  = nutritions.clone      # clone just for security propose so we don't overwrite anything
         n           = {}
-        @valid_keys = get_individual_intake # call function just for security propose
+        @valid_keys = fetch_individual_intake # call function just for security propose
 
         nutritions.each do |key, value|
             percent = recalculate_key key, value
@@ -40,8 +40,8 @@ class IntakeCalculations
 
     ##
     # returns the individual intake according to user settings
-    def get_individual_intake
-        smr               = get_smr
+    def fetch_individual_intake
+        smr               = fetch_smr
         individual_intake = {}
 
         @valid_keys.each do |key, value|
@@ -74,8 +74,8 @@ class IntakeCalculations
     end
 
     # calculates the smr according to his settings
-    def get_smr
-        settings = @@session.get_user_settings
+    def fetch_smr
+        settings = @@session.fetch_user_settings
         smr = smr_man settings if settings[:sex] == 'man'
         smr ||= smr_woman settings
         smr

@@ -11,9 +11,9 @@ class SearchLocalRemote
         @translation_enabled = false
     end
 
-    def self.get_single_item(item_id)
+    def self.fetch_single_item(item_id)
         local_remote = SearchLocalRemote.new
-        local_remote.get_item item_id
+        local_remote.fetch_item item_id
     end
 
     def self.search_items(query)
@@ -24,7 +24,7 @@ class SearchLocalRemote
     def search(query)
         @query = query
         @items = gather_search
-        @translations = get_batch_translations if @translation_enabled
+        @translations = fetch_batch_translations if @translation_enabled
 
         {
             items:        @items,
@@ -32,7 +32,7 @@ class SearchLocalRemote
         }
     end
 
-    def get_item(item_id)
+    def fetch_item(item_id)
         @item_id = item_id
         @item    = gather_item
         return gather_translation if @translation_enabled
@@ -48,11 +48,11 @@ class SearchLocalRemote
     # item it will be loaded from our local database)
     # if the element does not exist it returns nil
     def gather_item
-        local_item = FoodItem.get_local_item @item_id
+        local_item = FoodItem.fetch_local_item @item_id
         return local_item unless local_item.nil?
 
         item_id     = @item_id.split('-')
-        remote_item = get_remote_item item_id[0], item_id[1]
+        remote_item = fetch_remote_item item_id[0], item_id[1]
         remote_item = FoodItem.new_item remote_item
 
         return remote_item unless remote_item.nil?
@@ -68,7 +68,7 @@ class SearchLocalRemote
     def gather_search
         local_search = Search.search @query
         unless local_search.nil?
-            local_search = FoodItem.get_local_items local_search['food_items']
+            local_search = FoodItem.fetch_local_items local_search['food_items']
             return local_search unless local_search.nil?
         end
 
@@ -90,11 +90,11 @@ class SearchLocalRemote
             FoodItem.add_translation_to_item! @item, locale, name
         end
 
-        @item['name'] = FoodItem.get_translation @item, locale
+        @item['name'] = FoodItem.fetch_translation @item, locale
         @item
     end
 
-    def get_batch_translations
+    def fetch_batch_translations
         to_translate = []
         locale       = I18n.locale.to_s
 
