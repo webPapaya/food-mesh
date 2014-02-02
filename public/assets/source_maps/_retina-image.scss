@@ -1,8 +1,7 @@
 @mixin retina-image($filename, $background-size, $extension: png, $retina-filename: null, $asset-pipeline: false) {
   @if $asset-pipeline {
     background-image: image-url("#{$filename}.#{$extension}");
-  }
-  @else {
+  } @else {
     background-image: url("#{$filename}.#{$extension}");
   }
 
@@ -11,17 +10,13 @@
     @if $asset-pipeline {
       @if $retina-filename {
         background-image: image-url("#{$retina-filename}.#{$extension}");
-      }
-      @else {
+      } @else {
         background-image: image-url("#{$filename}@2x.#{$extension}");
       }
-    }
-
-    @else {
+    } @else {
       @if $retina-filename {
         background-image: url("#{$retina-filename}.#{$extension}");
-      }
-      @else {
+      } @else {
         background-image: url("#{$filename}@2x.#{$extension}");
       }
     }

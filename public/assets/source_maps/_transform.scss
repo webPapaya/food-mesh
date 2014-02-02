@@ -10,6 +10,6 @@
   @include prefixer(transform-origin, $axes, webkit moz ms o spec);
 }
 
-@mixin transform-style ($style: flat) {
+@mixin transform-style($style: flat) {
   @include prefixer(transform-style, $style, webkit moz ms o spec);
 }

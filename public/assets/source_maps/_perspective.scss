@@ -1,5 +1,5 @@
 @mixin perspective($depth: none) {
-  // none | <length>
+// none | <length>
   @include prefixer(perspective, $depth, webkit moz spec);
 }
 

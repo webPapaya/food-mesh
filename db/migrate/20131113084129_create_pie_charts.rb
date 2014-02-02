@@ -1,8 +1,8 @@
 class CreatePieCharts < ActiveRecord::Migration
-  def change
-    create_table :pie_charts do |t|
+    def change
+        create_table :pie_charts do |t|
 
-      t.timestamps
+            t.timestamps
+        end
     end
-  end
 end

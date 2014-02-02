@@ -1,6 +1,6 @@
-(function($) {
+(function ($) {
 
-    var Tabs = function(element, options) {
+    var Tabs = function (element, options) {
         this.$element = element;
         this.$links = this.$element.find("a");
         this.$container = $(options.wrapper);
@@ -9,7 +9,7 @@
         this.$links.on('click', this.clickHandler.bind(this));
     };
 
-    Tabs.prototype.clickHandler = function(evt) {
+    Tabs.prototype.clickHandler = function (evt) {
         evt.preventDefault();
 
         var $currentTarget = $(evt.currentTarget);
@@ -35,8 +35,8 @@
 //        });
     };
 
-    $.fn.Tabs = function(options) {
-        return this.each(function() {
+    $.fn.Tabs = function (options) {
+        return this.each(function () {
             var $this = $(this);
             var data = $this.data('Tabs');
             if (!data) {

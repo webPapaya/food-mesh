@@ -8,47 +8,48 @@
 #              - Franziska Oberhauser
 
 class Search
-  include Mongoid::Document
-  field :_id, type: String
-  field :food_items, type: Array
-  field :timestamp, type: Array
+    private_class_method :prepare_item_list
 
-  validates_presence_of :id, :food_items
+    include Mongoid::Document
+    field :_id, type: String
+    field :food_items, type: Array
+    field :timestamp, type: Array
 
-  def self.search _query
-    item = Search.find(_query)
-    return nil if item.nil?
+    validates_presence_of :id, :food_items
 
-    item['timestamp'] = [] if item['timestamp'].nil?
-    timestamps = item['timestamp'] + [Time.now.getutc]
-    item.update_attributes!(timestamp: timestamps)
-    item
-  end
+    def self.search(_query)
+        item = Search.find(_query)
+        return nil if item.nil?
 
-  def self.add (_query, _item_list)
-    i = Search.new(
-      _id:        _query,
-      food_items: prepare_item_list(_item_list),
-      timestamp:  [Time.now.getutc]
-    )
-    i.save
-  end
-
-  def self.clear_cache
-    Search.delete_all
-  end
-
-  def self.get_most_searched
-    items = Search.all.order_by([[:timestamp.length, :desc]])
-    items
-  end
-
-  private
-  def self.prepare_item_list(_item_list)
-    list = []
-    _item_list.each do |item|
-      list << (FoodItem.create_id item[:api_key], item[:item_id])
+        item['timestamp'] = [] if item['timestamp'].nil?
+        timestamps = item['timestamp'] + [Time.now.getutc]
+        item.update_attributes!(timestamp: timestamps)
+        item
     end
-    list
-  end
+
+    def self.add(_query, _item_list)
+        i = Search.new(
+            _id:        _query,
+            food_items: prepare_item_list(_item_list),
+            timestamp:  [Time.now.getutc]
+        )
+        i.save
+    end
+
+    def self.clear_cache
+        Search.delete_all
+    end
+
+    def self.fetch_most_searched
+        items = Search.all.order_by([[:timestamp.length, :desc]])
+        items
+    end
+
+    def self.prepare_item_list(_item_list)
+        list = []
+        _item_list.each do |item|
+            list << (FoodItem.create_id item[:api_key], item[:item_id])
+        end
+        list
+    end
 end

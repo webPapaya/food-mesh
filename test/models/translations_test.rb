@@ -7,6 +7,4 @@ class TranslationsTest < ActiveSupport::TestCase
         translation = @translator.translate 'bier'
         assert translation == 'beer'
     end
-
-
 end

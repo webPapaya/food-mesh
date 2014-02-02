@@ -7,12 +7,11 @@
 # author:      - Thomas Mayrhofer (thomas@mayrhofer.at)
 #              - Franziska Oberhauser
 
-
 class AdminDashboardController < ApplicationController
-  before_filter :require_login
+    before_filter :require_login
 
-  def index
-    @users           = User.all
-    @latest_searches = Search.get_most_searched
-  end
+    def index
+        @users           = User.all
+        @latest_searches = Search.fetch_most_searched
+    end
 end

@@ -38,7 +38,7 @@ There is currently a demo usere with the following credentials:
 
 
 ## mongoDB Info
-Because we forgott to request a mongoDB database and the port 27027 is not opend on the FH Webspace we've deployed our project to heroku and hosted the database on lnx-tm.may-it.net.
+Because we forgot to request a mongoDB database and the port 27027 is not opend on the FH Webspace we've deployed our project to heroku and hosted the database on lnx-tm.may-it.net.
 So if the port is opend on the server, the application should be running without any issues.
 
 

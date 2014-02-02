@@ -45,14 +45,14 @@ end
 
 
 
-#own dependencies
+# own dependencies
 gem 'curb'    # curb alternative
 gem 'nokogiri'  # xml parser
 
 
 gem 'redcarpet' # markdown
 
-gem 'capistrano', '2.15' #deployment
+gem 'capistrano', '2.15' # deployment
 gem 'rvm-capistrano'
 gem 'mime-types'
 
@@ -63,6 +63,8 @@ gem 'awesome_print'
 
 gem 'bourbon'
 
+gem 'rubocop'
+
 group :development do
   gem 'better_errors'
   gem 'meta_request'
@@ -72,11 +74,18 @@ gem "bing_translator"
 
 gem 'sorcery' #backend login
 
-#adds attr_accessible and attr_protected in the models
+# for testing
+group :development, :test do
+    gem 'minitest-rails-capybara'
+end
+
+# adds attr_accessible and attr_protected in the models
 gem 'protected_attributes'
 
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
+
+gem 'rubocop'
 
 # gem for missing translations: github.com/svenfuchs/i18n-missing_translations
 gem "i18n-missing_translations"
@@ -90,9 +99,9 @@ group :development, :test do
 end
 
 group :development, :test do
-    #gem 'mongoid-minitest', group: :test
-    #gem 'minitest-rails-capybara'
-    #gem 'poltergeist', '~> 1.5.0'
+    # gem 'mongoid-minitest', group: :test
+    # gem 'minitest-rails-capybara'
+    # gem 'poltergeist', '~> 1.5.0'
 end
 
 

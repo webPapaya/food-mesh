@@ -57,6 +57,7 @@ _layout.scss:1
 /usr/local/bin/scss:23:in `<main>'
 */
 body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: An @import loop has been found: _layout.scss imports itself\A         on line 1 of _layout.scss\A         from line 1 of _layout.scss\A \A 1: @import \"layout\""; }
+    white-space: pre;
+    font-family: monospace;
+    content: "Syntax error: An @import loop has been found: _layout.scss imports itself\A         on line 1 of _layout.scss\A         from line 1 of _layout.scss\A \A 1: @import \"layout\"";
+}

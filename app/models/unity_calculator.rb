@@ -1,27 +1,24 @@
 class UnityCalculator
-    def self.recalculate (from, to, value)
+    def self.recalculate(from, to, value)
         instance = UnityCalculator.new
-
     end
-
     def initialize
         @possible_values = {
-            :liquids => [
+            liquids: [
                 {
-                    :name => 'ml',
-                    :factor => 100
+                    name:   'ml',
+                    factor: 100
                 }
             ],
-            :weights => [
+            weights: [
                 {
-                    :name => 'g',
-                    :factor => 100
+                    name:   'g',
+                    factor: 100
                 }
             ]
         }
     end
 
     def recalculate
-
     end
 end

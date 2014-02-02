@@ -8,39 +8,41 @@
 #              - Franziska Oberhauser
 
 class UsersController < ApplicationController
-  def index
-    if logged_in?
-      @users = User.all
-    else
-      redirect_to :root, :notice => "Not permitted"
+    def index
+        if logged_in?
+            @users = User.all
+        else
+            redirect_to :root, notice: "Not permitted"
+        end
     end
-  end
 
-  def new
-    if logged_in?
-      @user = User.new(user_params)
-      #redirect_to dashboard_path, :notice => 'User created'
-    else
-      redirect_to root_url, :notice => "Not permitted to create new user"
+    def new
+        if logged_in?
+            @user = User.new(user_params)
+            # redirect_to dashboard_path, :notice => 'User created'
+        else
+            redirect_to root_url, notice: "Not permitted to create new user"
+        end
     end
-  end
 
-  def create
-    @user = User.new(params[:user])
-    if @user.save
-      redirect_to :back, :notice => "Signed up!"
-    else
-      render :new
+    def create
+        @user = User.new(params[:user])
+        if @user.save
+            redirect_to :back, notice: "Signed up!"
+        else
+            render :new
+        end
     end
-  end
 
-  def destroy
-    User.find(params[:user_id]).destroy
-    redirect_to dashboard_path, :notice => "deleted user!"
-  end
+    def destroy
+        User.find(params[:user_id]).destroy
+        redirect_to dashboard_path, notice: "deleted user!"
+    end
 
-  private
-  def user_params
-    params.permit(:email, :password, :password_confirmation)
-  end
+
+    def user_params
+        params.permit(:email, :password, :password_confirmation)
+    end
+
+    private_class_method :user_params
 end
