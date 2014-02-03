@@ -88,6 +88,8 @@ gem 'multi_json', '1.8.4'
 group :development, :test do
     gem 'minitest-rails-capybara'
     gem 'poltergeist', '~> 1.5.0'
+    gem 'minitest-capybara'
+    gem 'capybara_minitest_spec'
 end
 
 group :development, :test do

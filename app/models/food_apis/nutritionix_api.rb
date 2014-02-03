@@ -32,14 +32,14 @@ class NutritionixAPI < FoodAPIInterface
     end
 
     def fetch_item(api_key, item_id)
-        item = @provider.fetch_item item_id.to_s # if id is not a string you will receive undefined encoding
+        item = @provider.get_item item_id.to_s # if id is not a string you will receive undefined encoding
         item = JSON.parse item
         parse_data_item item, api_key
     end
 
     def parse_data_item(item, api_key)
-        serving_weight = item['nf_serving_size_qty'] || item['nf_serving_size_qty']
-        food              = create_food_item_structure(
+        serving_weight = item['nf_serving_size_qty'] or item['nf_serving_size_qty']
+        food = create_food_item_structure(
             name:             "#{item['item_name']} #{item['brand_name']}",
             api_key:          api_key,
             item_id:          item['item_id'],
