@@ -85,8 +85,6 @@ gem "i18n-missing_translations"
 
 gem 'multi_json', '1.8.4'
 
-gem 'multi_json', '1.8.4'
-
 group :development, :test do
     gem 'minitest-rails-capybara'
     gem 'poltergeist', '~> 1.5.0'
